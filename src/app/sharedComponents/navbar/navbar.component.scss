@@ -35,6 +35,31 @@ mat-toolbar img {
   border: none;
   height: 40px;
 }
-.search-bar-btn:hover {
-  background-color: $color-primary;
+.search-bar-btn {
+  &:hover {
+    background-color: $color-primary;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+  background-color: $color-white;
+}
+
+.search-bar-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar-span {
+  background-color: $color-placeholder;
+  width: 3px;
+  height: 50%;
+}
+
+.search-icon {
+  color: $color-placeholder;
+}
+.input-group {
+  border-radius: 25px;
 }

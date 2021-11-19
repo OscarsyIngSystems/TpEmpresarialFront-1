@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [NavbarComponent],
@@ -17,6 +18,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatButtonModule,
     MatMenuModule,
     MatBadgeModule,
+    MatDividerModule,
   ],
 })
 export class ComponentsModule {}
