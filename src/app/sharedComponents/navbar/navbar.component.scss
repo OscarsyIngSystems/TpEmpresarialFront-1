@@ -1,0 +1,40 @@
+@import "../../../styles.scss";
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar {
+  padding-left: 0px;
+  height: 60px;
+  background-color: $color-body;
+}
+
+mat-toolbar img {
+  height: 60px;
+}
+
+.btn-menu {
+  background-color: $color-primary;
+  height: 60px;
+  color: #fff;
+}
+.btn-notifications {
+  min-width: 2px !important;
+}
+
+.btn-language {
+  background-image: url("../../../assets/img/mexico-circular.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: $color-body;
+}
+
+.search-bar {
+  border-radius: 25px;
+  border: none;
+  height: 40px;
+}
+.search-bar-btn:hover {
+  background-color: $color-primary;
+}

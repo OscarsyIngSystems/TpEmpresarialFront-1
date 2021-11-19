@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+$color-body: #f7fafc;
+$color-primary: #3b4559;
+$color-secondary: #e4002b;
+$color-info: #cdd6fd;
+$color-success-light: #e8f5dd;
+$color-warning-light: #fde5cd;
+$color-info-light: #cdeafd;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

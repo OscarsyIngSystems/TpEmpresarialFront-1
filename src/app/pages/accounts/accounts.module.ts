@@ -5,6 +5,7 @@ import { AccountsRoutingModule } from './accounts-routing.module';
 import { LayautAccountsComponent } from './layaut-accounts.component';
 import { AccountsListComponent } from './components/accounts-list/accounts-list.component';
 import { ComponentsModule } from 'src/app/sharedComponents/components.module';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ComponentsModule } from 'src/app/sharedComponents/components.module';
   imports: [
     CommonModule,
     AccountsRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    MatSidenavModule,
   ]
 })
 export class AccountsModule { }
