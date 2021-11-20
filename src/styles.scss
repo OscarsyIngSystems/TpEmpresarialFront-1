@@ -9,6 +9,15 @@ $color-info-light: #cdeafd;
 $color-placeholder: #9a9cba;
 $color-white: #fff;
 
+.text-title {
+  font-size: 25px;
+  color: $color-secondary;
+}
+
+.text-bold {
+  font-weight: bold !important;
+}
+
 body {
   height: 100%;
 }

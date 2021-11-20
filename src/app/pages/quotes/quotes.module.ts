@@ -5,18 +5,15 @@ import { QuotesRoutingModule } from './quotes-routing.module';
 import { LayautQuotesComponent } from './layaut-quotes.component';
 import { QuotesListComponent } from './components/quotes-list/quotes-list.component';
 import { ComponentsModule } from 'src/app/sharedComponents/components.module';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
-  declarations: [
-    
-    LayautQuotesComponent,
-         QuotesListComponent
-  ],
+  declarations: [LayautQuotesComponent, QuotesListComponent],
   imports: [
     CommonModule,
     QuotesRoutingModule,
-    ComponentsModule
-  ]
+    ComponentsModule,
+    MatSidenavModule,
+  ],
 })
-export class QuotesModule { }
+export class QuotesModule {}
