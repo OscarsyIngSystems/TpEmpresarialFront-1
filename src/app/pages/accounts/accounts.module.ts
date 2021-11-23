@@ -8,6 +8,7 @@ import { ComponentsModule } from 'src/app/sharedComponents/components.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatCardModule } from '@angular/material/card';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
     ComponentsModule,
     MatSidenavModule,
     MatCardModule,
+    ChartsModule,
   ],
 })
 export class AccountsModule {}

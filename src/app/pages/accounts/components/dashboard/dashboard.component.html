@@ -2,7 +2,22 @@
   <h1 class="mt-2 text-title text-bold">Mis Ventas</h1>
   <div class="row cards-top">
     <div class="col-3 h-100">
-      <mat-card class="w-100 h-100">Simple card</mat-card>
+      <mat-card class="w-100 h-100">
+        <div class="shadow chart-container">
+          <p class="chart-sum">{{ suma }}</p>
+          <canvas
+            width="150"
+            height="150"
+            responsive="true"
+            baseChart
+            [datasets]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"
+            [options]="options"
+          >
+          </canvas>
+        </div>
+      </mat-card>
     </div>
     <div class="col-9 h-100">
       <mat-card class="h-100">Simple card</mat-card>
