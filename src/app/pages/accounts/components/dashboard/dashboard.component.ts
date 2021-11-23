@@ -1,18 +1,7 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import * as Chart from 'chart.js';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ChartOptions, ChartType, plugins } from 'chart.js';
-import {
-  MultiDataSet,
-  Label,
-  SingleDataSet,
-  BaseChartDirective,
-} from 'ng2-charts';
+import { Label, BaseChartDirective } from 'ng2-charts';
+
 import { AccountsService } from 'src/app/services/accounts/accounts.service';
 
 @Component({

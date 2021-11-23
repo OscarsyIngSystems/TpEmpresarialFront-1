@@ -9,6 +9,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatCardModule } from '@angular/material/card';
 import { ChartsModule } from 'ng2-charts';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -23,6 +30,7 @@ import { ChartsModule } from 'ng2-charts';
     MatSidenavModule,
     MatCardModule,
     ChartsModule,
+    TranslateModule,
   ],
 })
 export class AccountsModule {}

@@ -28,7 +28,21 @@
     </button>
   </div>
   <span class="toolbar-spacer"></span>
-  <button class="btn-language me-4 px-2" mat-mini-fab></button>
+  <button
+    class="btn-language me-4 px-2"
+    [matMenuTriggerFor]="menuLangs"
+    mat-mini-fab
+    [style]="'background-image: url(' + countryFlag + ');'"
+  ></button>
+  <mat-menu #menuLangs="matMenu">
+    <button
+      (click)="selectCountry(country)"
+      *ngFor="let country of countries"
+      mat-menu-item
+    >
+      <span>{{ country.country }}</span>
+    </button>
+  </mat-menu>
   <button class="btn-notifications me-4 px-2" mat-raised-button>
     <span
       class="
