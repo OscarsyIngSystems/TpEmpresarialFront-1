@@ -1,5 +1,14 @@
 {
-  "accounts-dashboard": {
-    "sales": "Mis Ventas colombia"
+  "login": {},
+  "accounts": {
+    "accounts-dashboard": {
+      "title": "Mis Ventas Colombia",
+      "acounts": "Cuentas por segmento Colombia",
+      "quotes": "Cotizaciones Colombia",
+      "opportunities": "Oportunidades Colombia",
+      "indicators": "Indicadores Célula Colombia",
+      "payment": "Pago variable Colombia"
+    },
+    "accounts-opportunities": {}
   }
 }

@@ -1,10 +1,11 @@
 <div class="container-fluid mb-4">
   <h1 class="mt-2 text-title text-bold">
-    {{ "accounts-dashboard.sales" | translate }}
+    {{ contentLabels + "title" | translate }}
   </h1>
   <div class="row cards-top">
     <div class="col-3 h-100">
       <mat-card class="w-100 h-100">
+        <p>{{ contentLabels + "acounts" | translate }}</p>
         <div class="shadow chart-container">
           <p class="chart-sum">{{ suma }}</p>
           <canvas
@@ -22,7 +23,9 @@
       </mat-card>
     </div>
     <div class="col-9 h-100">
-      <mat-card class="h-100">Simple card</mat-card>
+      <mat-card class="h-100">
+        {{ contentLabels + "quotes" | translate }}
+      </mat-card>
     </div>
   </div>
 
@@ -30,17 +33,23 @@
     <div class="col-4 h-100">
       <div class="row sub-cards-bottom">
         <div class="col-12 h-100">
-          <mat-card class="h-100">Simple card</mat-card>
+          <mat-card class="h-100">{{
+            contentLabels + "opportunities" | translate
+          }}</mat-card>
         </div>
       </div>
       <div class="row mt-4 sub-cards-bottom">
         <div class="col-12 h-100">
-          <mat-card class="h-100">Simple card</mat-card>
+          <mat-card class="h-100">{{
+            contentLabels + "indicators" | translate
+          }}</mat-card>
         </div>
       </div>
     </div>
     <div class="col-8 h-100">
-      <mat-card class="h-100">Simple card</mat-card>
+      <mat-card class="h-100">{{
+        contentLabels + "payment" | translate
+      }}</mat-card>
     </div>
   </div>
 </div>

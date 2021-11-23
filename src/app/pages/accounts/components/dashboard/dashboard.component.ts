@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   };
 
   public suma = 0;
-
+  public contentLabels = 'accounts.accounts-dashboard.';
   constructor(private _service: AccountsService) {}
 
   ngOnInit(): void {}

@@ -1,5 +1,14 @@
 {
-  "accounts-dashboard": {
-    "sales": "Mis Ventas"
+  "login": {},
+  "accounts": {
+    "accounts-dashboard": {
+      "title": "Mis Ventas",
+      "acounts": "Cuentas por segmento",
+      "quotes": "Cotizaciones",
+      "opportunities": "Oportunidades",
+      "indicators": "Indicadores Célula",
+      "payment": "Pago variable"
+    },
+    "accounts-opportunities": {}
   }
 }
