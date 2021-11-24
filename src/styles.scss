@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 $color-body: #f7fafc;
 $color-primary: #3b4559;
 $color-secondary: #e4002b;
@@ -8,6 +9,12 @@ $color-warning-light: #fde5cd;
 $color-info-light: #cdeafd;
 $color-placeholder: #9a9cba;
 $color-white: #fff;
+$color-light-gray: #f8f9fd;
+
+//class font size
+.tx-12 {
+  font-size: 12px;
+}
 
 .text-title {
   font-size: 25px;
@@ -18,10 +25,43 @@ $color-white: #fff;
   font-weight: bold !important;
 }
 
+.text-subtitle {
+  font-size: 18px;
+  color: $color-secondary;
+}
+
+.table-am {
+  .mat-row:nth-child(even) {
+    background-color: $color-light-gray;
+  }
+
+  .mat-row:nth-child(odd) {
+    background-color: $color-white;
+  }
+
+  td,
+  th {
+    border: none !important;
+    padding: 5px !important;
+  }
+  tr.mat-row,
+  tr.mat-header-row {
+    height: 0 !important;
+  }
+
+  .mat-cell {
+    font-size: 12px;
+  }
+
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: $monserrat-font;
 }

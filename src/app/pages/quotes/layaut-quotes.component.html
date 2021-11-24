@@ -4,9 +4,9 @@
     <p>Lorem, ipsum dolor sit amet consectetur.</p>
     <button mat-raised-button>Toggle extra text</button>
   </mat-drawer>
+<app-navbar (emiter)="drawer.toggle()"></app-navbar>
+  <div class="drawer-secondary-container">
 
-  <div>
-    <app-navbar (emiter)="drawer.toggle()"></app-navbar>
     <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>

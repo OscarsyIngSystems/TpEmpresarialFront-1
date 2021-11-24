@@ -7,6 +7,9 @@ import { QuotesListComponent } from './components/quotes-list/quotes-list.compon
 import { ComponentsModule } from 'src/app/sharedComponents/components.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [LayautQuotesComponent, QuotesListComponent],
@@ -16,6 +19,9 @@ import { TranslateModule } from '@ngx-translate/core';
     ComponentsModule,
     MatSidenavModule,
     TranslateModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatTableModule
   ],
 })
-export class QuotesModule {}
+export class QuotesModule { }
