@@ -18,7 +18,7 @@ export class NavbarComponent {
   user!: User;
   lang: Language = JSON.parse(JSON.stringify(localStorage.getItem('lang')));
   countries: Language[] = LANGS;
-  countryFlag: string = '';
+  countryFlag = '';
   searchData = new FormControl();
   options: string[] = [
     'Audi CDMX',
@@ -30,7 +30,7 @@ export class NavbarComponent {
   filteredOptions: Observable<string[]> | undefined;
 
   constructor(private translate: TranslateService) {
-    let lang = localStorage.getItem('lang');
+    const lang = localStorage.getItem('lang');
     if (lang) {
       this.lang = JSON.parse(lang);
     }
@@ -50,12 +50,11 @@ export class NavbarComponent {
   }
 
   public search(): void {
-    console.log(this.searchData.value)//Valor del formulario para la busqueda
-      alert('Buscando... ' + this.searchData.value);
-
+    console.log(this.searchData.value); // Valor del formulario para la busqueda
+    alert('Buscando... ' + this.searchData.value);
   }
 
-  loadOptions() {
+  private loadOptions(): void {
     this.filteredOptions = this.searchData.valueChanges.pipe(
       startWith(''),
       map((value) => this._filter(value))
@@ -69,20 +68,20 @@ export class NavbarComponent {
     );
   }
 
-  displayMenu(): void {
+  public displayMenu(): void {
     this.emiter.emit(true);
   }
 
-  getInitials(): string {
+  public getInitials(): string {
     return this.user.name.substr(0, 1) + ' ' + this.user.lastName.substr(0, 1);
   }
 
   get countNotifications(): string | number {
-    let notificationsLength = 100; //this.notifications.length;
+    const notificationsLength = 100; // this.notifications.length;
     return notificationsLength > 99 ? '99+' : notificationsLength;
   }
 
-  selectCountry(language: Language): void {
+  public selectCountry(language: Language): void {
     console.log(language);
 
     localStorage.setItem('lang', JSON.stringify(language));
