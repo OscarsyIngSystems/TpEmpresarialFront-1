@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 $color-body: #f7fafc;
 $color-primary: #3b4559;
 $color-secondary: #e4002b;
@@ -10,6 +11,7 @@ $color-placeholder: #9a9cba;
 $color-white: #fff;
 $color-hover: black;
 $color-black: black;
+$color-light-gray: #f8f9fd;
 
 @import "~@angular/material/theming";
 
@@ -21,6 +23,11 @@ $custom-typography: mat-typography-config(
 
 @include angular-material-typography($custom-typography);
 
+//class font size
+.tx-12 {
+  font-size: 12px;
+}
+
 .text-title {
   font-size: 25px;
   color: $color-secondary;
@@ -29,6 +36,7 @@ $custom-typography: mat-typography-config(
 .text-bold {
   font-weight: bold !important;
 }
+
 body {
   height: 100%;
   margin: 0;
@@ -51,4 +59,45 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.text-subtitle {
+  font-size: 18px;
+  color: $color-secondary;
+}
+
+.table-am {
+  .mat-row:nth-child(even) {
+    background-color: $color-light-gray;
+  }
+
+  .mat-row:nth-child(odd) {
+    background-color: $color-white;
+  }
+
+  td,
+  th {
+    border: none !important;
+    padding: 5px !important;
+  }
+  tr.mat-row,
+  tr.mat-header-row {
+    height: 0 !important;
+  }
+
+  .mat-cell {
+    font-size: 12px;
+  }
+
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $monserrat-font;
 }
