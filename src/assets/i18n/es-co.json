@@ -1,13 +1,23 @@
 {
-  "login": {},
+  "login": {
+    "title": "Ventas Colombia",
+    "message": "Ingresa tus credenciales para acceder",
+    "user-label": "Usuario colombiano",
+    "user-placeholder": "Ingresa tu usuario",
+    "password-label": "Contraseña",
+    "password-placeholder": "Ingresa tu contraseña",
+    "btn-login": "Iniciar sesión",
+    "link-forgot-pwd": "Olvidé mi contraseña",
+    "footer": "Totalplay Empresarial"
+  },
   "accounts": {
     "accounts-dashboard": {
       "title": "Mis Ventas Colombia",
-      "acounts": "Cuentas por segmento Colombia",
-      "quotes": "Cotizaciones Colombia",
-      "opportunities": "Oportunidades Colombia",
-      "indicators": "Indicadores Célula Colombia",
-      "payment": "Pago variable Colombia"
+      "acounts": "Cuentas por segmento",
+      "quotes": "Cotizaciones",
+      "opportunities": "Oportunidades",
+      "indicators": "Indicadores Célula",
+      "payment": "Pago variable"
     },
     "accounts-opportunities": {}
   }

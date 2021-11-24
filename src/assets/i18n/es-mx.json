@@ -1,5 +1,15 @@
 {
-  "login": {},
+  "login": {
+    "title": "Ventas",
+    "message": "Ingresa tus credenciales para acceder",
+    "user-label": "Usuario",
+    "user-placeholder": "Ingresa tu usuario",
+    "password-label": "Contraseña",
+    "password-placeholder": "Ingresa tu contraseña",
+    "btn-login": "Iniciar sesión",
+    "link-forgot-pwd": "Olvidé mi contraseña",
+    "footer": "Totalplay Empresarial"
+  },
   "accounts": {
     "accounts-dashboard": {
       "title": "Mis Ventas",
