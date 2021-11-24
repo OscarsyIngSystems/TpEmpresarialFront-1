@@ -7,9 +7,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDividerModule } from '@angular/material/divider';
+import { DialogTestComponent } from './dialog-test/dialog-test.component';
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, DialogTestComponent],
   exports: [NavbarComponent],
   imports: [
     CommonModule,

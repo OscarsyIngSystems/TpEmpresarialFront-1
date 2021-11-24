@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -22,14 +24,25 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    /** spinner starts on init */
+  }
 
   login(): void {
-    if(this.loginForm.value.username === 'totalplay' &&  this.loginForm.value.password === '12345') {
-      this.router.navigate(['/accounts/dashboard']);
-    }else{
-      alert('Usuario y password invalidos')
+    this.spinner.show();
+    if (
+      this.loginForm.value.username === 'totalplay' &&
+      this.loginForm.value.password === '12345'
+    ) {
+      setTimeout(() => {
+        this.router.navigate(['/accounts/dashboard']);
+        this.spinner.hide();
+      }, 2000);
+    } else {
+      setTimeout(() => {
+        this.spinner.hide();
+        alert('Usuario y password invalidos');
+      }, 2000);
     }
-
   }
 }

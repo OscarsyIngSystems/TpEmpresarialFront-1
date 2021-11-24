@@ -13,19 +13,43 @@
           <div class="content-form-login">
             <h1>{{ contentLabels + "title" | translate }}</h1>
             <p>{{ contentLabels + "message" | translate }}</p>
-            <form class="example-form" [formGroup]="loginForm" novalidate>
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>{{ contentLabels + "user-label" | translate }}</mat-label>
-                <input matInput [placeholder]="contentLabels + 'user-placeholder' | translate " formControlName="username">
+            <form class="login-form" [formGroup]="loginForm" novalidate>
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>{{
+                  contentLabels + "user-label" | translate
+                }}</mat-label>
+                <input
+                  matInput
+                  [placeholder]="contentLabels + 'user-placeholder' | translate"
+                  formControlName="username"
+                />
               </mat-form-field>
 
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>{{ contentLabels + "password-label" | translate }}</mat-label>
-                <input matInput [placeholder]="contentLabels + 'password-placeholder' | translate" formControlName="password" type="password">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>{{
+                  contentLabels + "password-label" | translate
+                }}</mat-label>
+                <input
+                  matInput
+                  [placeholder]="
+                    contentLabels + 'password-placeholder' | translate
+                  "
+                  formControlName="password"
+                  type="password"
+                />
               </mat-form-field>
-              <button (click)="login()" [disabled]="loginForm.invalid" type="button" class="primary-button">{{ contentLabels + "btn-login" | translate }}</button>
+              <button
+                (click)="login()"
+                [disabled]="loginForm.invalid"
+                type="button"
+                class="primary-button"
+              >
+                {{ contentLabels + "btn-login" | translate }}
+              </button>
               <div class="box-password">
-                <a href="#" class="forgot-password">{{ contentLabels + "link-forgot-pwd" | translate }}</a>
+                <a href="#" class="forgot-password">{{
+                  contentLabels + "link-forgot-pwd" | translate
+                }}</a>
               </div>
             </form>
           </div>
