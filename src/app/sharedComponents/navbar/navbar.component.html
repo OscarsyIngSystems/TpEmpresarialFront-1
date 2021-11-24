@@ -11,18 +11,29 @@
   <span class="toolbar-spacer"></span>
   <div class="input-group w-50 shadow-sm">
     <input
-      type="text"
+      type="search"
       class="form-control search-bar"
       placeholder="Buscar Cuenta u oportunidad"
       aria-label="Buscar Cuenta u oportunidad"
       aria-describedby="basic-addon2"
-    />
+      matInput
+           [formControl]="searchData"
+           [matAutocomplete]="auto"
+           (keydown.enter)="search()"
+    >
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+
     <div class="search-bar-divider">
       <span class="search-bar-span">&nbsp;</span>
     </div>
     <button
       class="btn btn-outline-secondary pt-2 search-bar search-bar-btn"
       id="basic-addon2"
+      (click)="search()"
     >
       <mat-icon class="search-icon">search</mat-icon>
     </button>

@@ -7,10 +7,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDividerModule } from '@angular/material/divider';
-import { DialogTestComponent } from './dialog-test/dialog-test.component';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  declarations: [NavbarComponent, DialogTestComponent],
+  declarations: [NavbarComponent],
   exports: [NavbarComponent],
   imports: [
     CommonModule,
@@ -20,6 +20,9 @@ import { DialogTestComponent } from './dialog-test/dialog-test.component';
     MatMenuModule,
     MatBadgeModule,
     MatDividerModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
 })
 export class ComponentsModule {}

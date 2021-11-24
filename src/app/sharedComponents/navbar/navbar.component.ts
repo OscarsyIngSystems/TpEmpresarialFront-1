@@ -1,8 +1,11 @@
+import { Observable } from 'rxjs';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Language } from 'src/app/models/Language';
 import { User } from 'src/app/models/User';
 import { LANGS } from 'src/assets/i18n/constants';
+import { map, startWith } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -16,24 +19,54 @@ export class NavbarComponent {
   lang: Language = JSON.parse(JSON.stringify(localStorage.getItem('lang')));
   countries: Language[] = LANGS;
   countryFlag: string = '';
-  constructor(private translate: TranslateService) {
-    console.log(this.lang);
+  searchData = new FormControl();
+  options: string[] = [
+    'Audi CDMX',
+    'Audi Polanco',
+    'Audi Lomas',
+    'BMW Polanco',
+    'Mercedes Benz Pedregal',
+  ];
+  filteredOptions: Observable<string[]> | undefined;
 
-    let perro = localStorage.getItem('lang');
-    if (perro) {
-      this.lang = JSON.parse(perro);
+  constructor(private translate: TranslateService) {
+    let lang = localStorage.getItem('lang');
+    if (lang) {
+      this.lang = JSON.parse(lang);
     }
 
-    if (perro) {
+    if (lang) {
       this.countryFlag = this.lang.img;
     } else {
       this.countryFlag = '../../../assets/img/mexico-circular.png';
     }
 
     this.user = {
-      name: 'LORD',
-      lastName: 'Jassiel',
+      name: 'John',
+      lastName: 'Doe',
     };
+
+    this.loadOptions();
+  }
+
+  public search(): void {
+    console.log(this.searchData.value)//Valor del formulario para la busqueda
+      alert('Buscando... ' + this.searchData.value);
+
+  }
+
+  loadOptions() {
+    this.filteredOptions = this.searchData.valueChanges.pipe(
+      startWith(''),
+      map((value) => this._filter(value))
+    );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.options.filter((option) =>
+      option.toLowerCase().includes(filterValue)
+    );
   }
 
   displayMenu(): void {
