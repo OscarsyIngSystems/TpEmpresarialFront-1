@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login/login.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AlertsService } from 'src/app/services/shared/alerts.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService,
     private fb: FormBuilder,
     private router: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private alertService: AlertsService
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -41,7 +43,10 @@ export class LoginComponent implements OnInit {
     } else {
       setTimeout(() => {
         this.spinner.hide();
-        alert('Usuario y password invalidos');
+        this.alertService.errorAlert(
+          'Usuario y/o contraseña incorrectos',
+          'Aceptar'
+        );
       }, 2000);
     }
   }
