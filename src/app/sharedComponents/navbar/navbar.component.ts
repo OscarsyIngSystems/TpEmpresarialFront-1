@@ -1,3 +1,4 @@
+import { Sale } from './../../models/Sale';
 import { Observable } from 'rxjs';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,14 +21,18 @@ export class NavbarComponent {
   countries: Language[] = LANGS;
   countryFlag = '';
   searchData = new FormControl();
-  options: string[] = [
-    'Audi CDMX',
-    'Audi Polanco',
-    'Audi Lomas',
-    'BMW Polanco',
-    'Mercedes Benz Pedregal',
+  options: Sale[] = [
+    { id: 1, name: 'Audi', type: 'Oportunidad', location: 'CDMX' },
+    { id: 2, name: 'Audi', type: 'Cotizacion', location: 'Polanco' },
+    { id: 3, name: 'Audi', type: 'Cuenta', location: 'Guadalajara' },
+    { id: 4, name: 'FEMSA', type: 'Cuenta', location: 'CDMX' },
+    { id: 5, name: 'OXXO', type: 'Cotizacion', location: 'Monterrey' },
+    { id: 6, name: 'Grupo Carso', type: 'Oportunidad', location: 'CDMX' },
+    { id: 7, name: 'Penafiel', type: 'Oportunidad', location: 'Puebla' },
+    { id: 8, name: 'Culiacan Inn', type: 'Cotizacion', location: 'Sinaloa' },
   ];
-  filteredOptions: Observable<string[]> | undefined;
+  filteredOptions: Observable<Sale[]> | undefined;
+  selectedIdOption = 0;
 
   constructor(private translate: TranslateService) {
     const lang = localStorage.getItem('lang');
@@ -42,16 +47,22 @@ export class NavbarComponent {
     }
 
     this.user = {
-      name: 'John',
-      lastName: 'Doe',
+      name: 'Raul',
+      lastName: 'Cruz',
     };
 
     this.loadOptions();
   }
 
   public search(): void {
-    console.log(this.searchData.value); // Valor del formulario para la busqueda
+    console.log(this.searchData); // Valor del formulario para la busqueda
     alert('Buscando... ' + this.searchData.value);
+  }
+
+  public setSearchId(id: number): void {
+    console.log(id);
+    this.selectedIdOption = id;
+    console.log(this.selectedIdOption);
   }
 
   private loadOptions(): void {
@@ -61,10 +72,13 @@ export class NavbarComponent {
     );
   }
 
-  private _filter(value: string): string[] {
+  private _filter(value: string): Sale[] {
     const filterValue = value.toLowerCase();
-    return this.options.filter((option) =>
-      option.toLowerCase().includes(filterValue)
+    return this.options.filter(
+      (option: Sale) =>
+        option.name.toLowerCase().includes(filterValue) ||
+        option.location.toLocaleLowerCase().includes(filterValue) ||
+        option.type.toLocaleLowerCase().includes(filterValue)
     );
   }
 
@@ -77,7 +91,7 @@ export class NavbarComponent {
   }
 
   get countNotifications(): string | number {
-    const notificationsLength = 100; // this.notifications.length;
+    const notificationsLength = 10; // this.notifications.length;
     return notificationsLength > 99 ? '99+' : notificationsLength;
   }
 

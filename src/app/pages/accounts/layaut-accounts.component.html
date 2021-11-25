@@ -7,6 +7,8 @@
 
   <div>
     <app-navbar (emiter)="drawer.toggle()"></app-navbar>
-    <router-outlet></router-outlet>
+    <div class="drawer-secondary-container">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </mat-drawer-container>

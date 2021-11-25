@@ -65,3 +65,19 @@ mat-toolbar img {
 .input-group {
   border-radius: 25px;
 }
+
+.small-type{
+  color: $color-placeholder;
+}
+
+.mat-option:hover:not(.mat-option-disabled), .mat-option:focus:not(.mat-option-disabled) {
+  background: rgba(236, 77, 152, 0.1);
+}
+
+.mat-option.mat-active {
+  background: $color-white;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}

@@ -22,8 +22,8 @@
            (keydown.enter)="search()"
     >
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option}}
+      <mat-option (click)="setSearchId(option.id)" *ngFor="let option of filteredOptions | async" [value]="option.name+' '+option.location+' '+option.type">
+        {{option.name}} {{option.location}} <small class="small-type">{{option.type}}</small>
       </mat-option>
     </mat-autocomplete>
 
