@@ -12,8 +12,11 @@ import { ChartsModule } from 'ng2-charts';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
-export function createTranslateLoader(http: HttpClient) {
+export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -31,6 +34,9 @@ export function createTranslateLoader(http: HttpClient) {
     MatCardModule,
     ChartsModule,
     TranslateModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
   ],
 })
 export class AccountsModule {}

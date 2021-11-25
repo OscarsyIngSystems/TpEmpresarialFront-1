@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
-export function createTranslateLoader(http: HttpClient) {
+export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
