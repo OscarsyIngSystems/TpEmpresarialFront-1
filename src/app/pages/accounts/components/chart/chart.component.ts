@@ -22,8 +22,6 @@ export class ChartComponent {
     },
   ]; */
 
-  public doughnutChartType: ChartType = 'doughnut';
-
   public options: ChartOptions = {
     cutoutPercentage: 85,
     maintainAspectRatio: true,
@@ -60,7 +58,7 @@ export class ChartComponent {
   }
 
   private renderizeChart() {
-    console.log(this.doughnutChartData);
+    // console.log(this.doughnutChartData);
 
     let suma: number = 0;
     this.doughnutChartData[0].data.forEach((e: any) => {

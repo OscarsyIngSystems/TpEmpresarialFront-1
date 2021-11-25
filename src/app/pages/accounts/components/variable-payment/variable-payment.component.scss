@@ -1,7 +1,7 @@
 @import "./../../../../../styles.scss";
 
 .carousel-control-next-icon, .carousel-control-prev-icon{
-  // background-image: url('')
+  background-image: none !important;
   color: black;
 }
 .carousel-item{

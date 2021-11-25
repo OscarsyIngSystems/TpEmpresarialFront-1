@@ -10,6 +10,16 @@
   align-content: center;
 }
 
+.chart-container-line {
+  position: relative;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-content: center;
+}
+
 .chart-sum {
   position: absolute;
   top: 40%;

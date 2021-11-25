@@ -13,6 +13,10 @@ export class SegmentAccountComponent implements OnInit {
     title: 'Cuentas',
     colors: ['#3B4559', '#6F92D8', '#B1B1B1'],
     labels: ['l', 'll', 'lll'],
+    chartType: 'doughnut',
+    width: 150,
+    height: 150,
+    class: 'chart-container shadow'
   };
   constructor() {}
 

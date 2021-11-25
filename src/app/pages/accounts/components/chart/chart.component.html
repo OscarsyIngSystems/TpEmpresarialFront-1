@@ -1,16 +1,16 @@
 <div class="d-flex justify-content-center pb-1 text-bold">
   <span>{{ graphOptions.title }}</span>
 </div>
-<div *ngIf="doughnutChartData" class="shadow chart-container">
+<div *ngIf="doughnutChartData" [class]="graphOptions.class">
   <p class="chart-sum">{{ suma }}</p>
   <canvas
-    width="150"
-    height="150"
+    [width]="graphOptions.width"
+    [height]="graphOptions.height"
     responsive="true"
     baseChart
     [datasets]="doughnutChartData"
     [labels]="graphOptions.labels"
-    [chartType]="doughnutChartType"
+    [chartType]="graphOptions.chartType"
     [options]="options"
   >
   </canvas>

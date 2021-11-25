@@ -19,6 +19,10 @@ export class OportunitiesComponent implements OnInit {
       'Credito',
       'Ganada',
     ],
+    chartType: 'doughnut',
+    width: 150,
+    height: 150,
+    class: 'chart-container shadow'
   };
 
   constructor() {}

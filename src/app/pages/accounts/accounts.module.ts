@@ -24,6 +24,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { OportunitiesComponent } from './components/oportunities/oportunities.component';
+import { CellIndicatorsComponent } from './components/cell-indicators/cell-indicators.component';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -39,6 +40,7 @@ export function createTranslateLoader(http: HttpClient): any {
     SegmentAccountComponent,
     VariablePaymentComponent,
     OportunitiesComponent,
+    CellIndicatorsComponent,
   ],
   imports: [
     CommonModule,
