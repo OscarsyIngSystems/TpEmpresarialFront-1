@@ -1,110 +1,155 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  description: string;
+  numberList: number;
+  id: number;
+  accountName: string;
+  identification: string;
+  segment: string;
+  phone: string;
+  typeAccount: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {
-    position: 1,
-    name: 'Hydrogen',
-    weight: 1.0079,
-    symbol: 'H',
-    description: 'element1',
+    numberList: 1,
+    id: 873827,
+    accountName: 'AUDI CDMX',
+    identification: 'HSP030709EA2',
+    segment: 'I',
+    phone: ' 55 27632571',
+    typeAccount: 'Enlace',
   },
   {
-    position: 2,
-    name: 'Helium',
-    weight: 4.0026,
-    symbol: 'He',
-    description: 'element2',
+    numberList: 1,
+    id: 873827,
+    accountName: 'AUDI CDMX',
+    identification: 'HSP030709EA2',
+    segment: 'I',
+    phone: ' 55 27632571',
+    typeAccount: 'Enlace',
   },
   {
-    position: 3,
-    name: 'Lithium',
-    weight: 6.941,
-    symbol: 'Li',
-    description: 'element3',
+    numberList: 1,
+    id: 873827,
+    accountName: 'AUDI CDMX',
+    identification: 'HSP030709EA2',
+    segment: 'I',
+    phone: ' 55 27632571',
+    typeAccount: 'Enlace',
   },
   {
-    position: 4,
-    name: 'Beryllium',
-    weight: 9.0122,
-    symbol: 'Be',
-    description: 'element4',
+    numberList: 1,
+    id: 873827,
+    accountName: 'AUDI CDMX',
+    identification: 'HSP030709EA2',
+    segment: 'I',
+    phone: ' 55 27632571',
+    typeAccount: 'Enlace',
   },
   {
-    position: 5,
-    name: 'Boron',
-    weight: 10.811,
-    symbol: 'B',
-    description: 'element4',
+    numberList: 1,
+    id: 873827,
+    accountName: 'AUDI CDMX',
+    identification: 'HSP030709EA2',
+    segment: 'I',
+    phone: ' 55 27632571',
+    typeAccount: 'Enlace',
   },
   {
-    position: 6,
-    name: 'Carbon',
-    weight: 12.0107,
-    symbol: 'C',
-    description: 'element4',
+    numberList: 1,
+    id: 873827,
+    accountName: 'AUDI CDMX',
+    identification: 'HSP030709EA2',
+    segment: 'I',
+    phone: ' 55 27632571',
+    typeAccount: 'Enlace',
   },
   {
-    position: 7,
-    name: 'Nitrogen',
-    weight: 14.0067,
-    symbol: 'N',
-    description: 'element4',
+    numberList: 1,
+    id: 873827,
+    accountName: 'AUDI CDMX',
+    identification: 'HSP030709EA2',
+    segment: 'I',
+    phone: ' 55 27632571',
+    typeAccount: 'Enlace',
   },
   {
-    position: 8,
-    name: 'Oxygen',
-    weight: 15.9994,
-    symbol: 'O',
-    description: 'element4',
+    numberList: 1,
+    id: 873827,
+    accountName: 'AUDI CDMX',
+    identification: 'HSP030709EA2',
+    segment: 'I',
+    phone: ' 55 27632571',
+    typeAccount: 'Enlace',
   },
   {
-    position: 9,
-    name: 'Fluorine',
-    weight: 18.9984,
-    symbol: 'F',
-    description: 'element4',
+    numberList: 1,
+    id: 873827,
+    accountName: 'AUDI CDMX',
+    identification: 'HSP030709EA2',
+    segment: 'I',
+    phone: ' 55 27632571',
+    typeAccount: 'Enlace',
   },
   {
-    position: 10,
-    name: 'Neon',
-    weight: 20.1797,
-    symbol: 'Ne',
-    description: 'element4',
+    numberList: 1,
+    id: 873827,
+    accountName: 'AUDI CDMX',
+    identification: 'HSP030709EA2',
+    segment: 'I',
+    phone: ' 55 27632571',
+    typeAccount: 'Enlace',
   },
 ];
 @Component({
   selector: 'app-accounts-list',
   templateUrl: './accounts-list.component.html',
   styleUrls: ['./accounts-list.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition(
-        'expanded <=> collapsed',
-        animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
-      ),
-    ]),
-  ],
 })
 export class AccountsListComponent implements OnInit {
+  public contentLabels = 'accounts.acounts-list.';
+
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['name', 'weight', 'symbol', 'position', 'description'];
+  columnsToDisplay = [
+    'numberList',
+    'id',
+    'accountName',
+    'identification',
+    'segment',
+    'phone',
+    'typeAccount',
+  ];
+  columnsShow = [
+    {
+      key: 'numberList',
+      columnName: this.contentLabels + 'table.colum1',
+    },
+    {
+      key: 'id',
+      columnName: this.contentLabels + 'table.colum2',
+    },
+    {
+      key: 'accountName',
+      columnName: this.contentLabels + 'table.colum3',
+    },
+    {
+      key: 'identification',
+      columnName: this.contentLabels + 'table.colum4',
+    },
+    {
+      key: 'segment',
+      columnName: this.contentLabels + 'table.colum5',
+    },
+    {
+      key: 'phone',
+      columnName: this.contentLabels + 'table.colum6',
+    },
+    {
+      key: 'typeAccount',
+      columnName: this.contentLabels + 'table.colum7',
+    },
+  ];
   expandedElement!: PeriodicElement | null;
 
   constructor() {}

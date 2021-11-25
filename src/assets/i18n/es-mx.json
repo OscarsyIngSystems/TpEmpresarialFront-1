@@ -25,6 +25,18 @@
       "date-end-invalid": "Fecha final erronea",
       "clarity-portal": "Portal de Claridad"
     },
+    "acounts-list": {
+      "title": "Cuentas",
+      "table": {
+        "colum1": "Nº",
+        "colum2": "ID",
+        "colum3": "Nombre de la cuenta",
+        "colum4": "RFC",
+        "colum5": "Segmento",
+        "colum6": "Teléfono",
+        "colum7": "Tipo de registro de cuenta"
+      }
+    },
     "accounts-opportunities": {}
   }
 }
