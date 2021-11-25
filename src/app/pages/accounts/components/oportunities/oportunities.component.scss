@@ -17,10 +17,14 @@
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  margin-right: 15px;
+  margin-right: 5px;
 }
 
 .badge-warning {
   background-color: $color-secondary;
   border-radius: 10px;
+}
+
+.no-margin-col {
+  margin-left: -12px;
 }
