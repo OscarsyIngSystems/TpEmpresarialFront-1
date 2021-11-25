@@ -22,7 +22,8 @@
       "date-start": "Desde",
       "date-end": "Hasta",
       "date-start-invalid": "Fecha de inicio erronea",
-      "date-end-invalid": "Fecha final erronea"
+      "date-end-invalid": "Fecha final erronea",
+      "clarity-portal": "Portal de Claridad"
     },
     "accounts-opportunities": {}
   }

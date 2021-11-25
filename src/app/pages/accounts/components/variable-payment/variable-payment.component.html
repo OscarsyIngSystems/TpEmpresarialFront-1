@@ -38,39 +38,15 @@
     <div
       id="carouselExampleIndicators"
       class="carousel slide"
-      data-bs-ride="carousel"
+      data-bs-ride="false"
+      data-interval="-1"
     >
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item" [ngClass]="{'active': i == 0}" *ngFor="let item of payments; index as i">
           <div class="row gx-0">
-            <div class="col-4">
-              <h4 class="my-0">Julio</h4>
-              <h4 class="my-0">$00.00</h4>
-            </div>
-            <div class="col-4">
-              <h4 class="my-0">Agosto</h4>
-              <h4 class="my-0">$00.00</h4>
-            </div>
-            <div class="col-4">
-              <h4 class="my-0">Septiembre</h4>
-              <h4 class="my-0">$00.00</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="row gx-0">
-            <div class="col-4">
-              <h4 class="my-0">Octubre</h4>
-              <h4 class="my-0">$00.00</h4>
-            </div>
-            <div class="col-4">
-              <h4 class="my-0">Noviembre</h4>
-              <h4 class="my-0">$00.00</h4>
-            </div>
-            <div class="col-4">
-              <h4 class="my-0">Diciembre</h4>
-              <h4 class="my-0">$00.00</h4>
+            <div class="col-4" *ngFor="let pay of item">
+              <h4 class="my-0"><strong>{{pay.month}}</strong></h4>
+              <h4 class="my-0"><small>{{pay.amount | currency}}</small></h4>
             </div>
           </div>
         </div>
@@ -106,6 +82,14 @@
           >
         </span>
         <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="row g-0 mt-1 d-flex justify-content-end">
+    <div class="col-6 offset-6">
+      <button mat-button class="text-bold warn-btn">
+        {{ contentLabels + "clarity-portal" | translate }}
+        <mat-icon>east</mat-icon>
       </button>
     </div>
   </div>
