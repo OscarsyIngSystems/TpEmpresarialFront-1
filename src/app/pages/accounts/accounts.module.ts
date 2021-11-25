@@ -12,6 +12,11 @@ import { ChartsModule } from 'ng2-charts';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { ChartComponent } from './components/chart/chart.component';
+import { QuoteComponent } from './components/quote/quote.component';
+import { SegmentAccountComponent } from './components/segment-account/segment-account.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -22,6 +27,9 @@ export function createTranslateLoader(http: HttpClient) {
     LayautAccountsComponent,
     AccountsListComponent,
     DashboardComponent,
+    ChartComponent,
+    QuoteComponent,
+    SegmentAccountComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +39,8 @@ export function createTranslateLoader(http: HttpClient) {
     MatCardModule,
     ChartsModule,
     TranslateModule,
+    MatIconModule,
+    MatButtonModule
   ],
 })
 export class AccountsModule {}
