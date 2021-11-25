@@ -23,6 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { OportunitiesComponent } from './components/oportunities/oportunities.component';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,6 +38,7 @@ export function createTranslateLoader(http: HttpClient): any {
     QuoteComponent,
     SegmentAccountComponent,
     VariablePaymentComponent,
+    OportunitiesComponent,
   ],
   imports: [
     CommonModule,
