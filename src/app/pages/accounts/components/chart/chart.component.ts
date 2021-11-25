@@ -44,7 +44,7 @@ export class ChartComponent {
     this.doughnutChartData = [
       {
         data: this.graphOptions.data,
-        backgroundColor: ['#3B4559', '#6F92D8', '#B1B1B1'],
+        backgroundColor: this.graphOptions.colors,
       },
     ];
   }
