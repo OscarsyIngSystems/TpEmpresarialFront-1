@@ -1,21 +1,5 @@
 @import "./../../../../../styles.scss";
 
-.cards-top {
-  height: 233px;
-  min-height: 233px;
-}
-.cards-bottom {
-  height: 368px;
-  min-height: 368px;
-}
-.sub-cards-bottom {
-  height: 172px;
-  min-height: 172px;
-}
-.container-fluid {
-  padding: 0 22px;
-  background-color: $color-body;
-}
 .chart-container {
   position: relative;
   margin: auto;
@@ -46,14 +30,4 @@
 .primary-sale {
   background-color: $color-primary;
   color: $color-white;
-}
-
-.badge-warning {
-  color: $color-white;
-  background-color: $color-secondary;
-  border-radius: 15px;
-}
-
-.warn-btn {
-  color: $color-secondary;
 }

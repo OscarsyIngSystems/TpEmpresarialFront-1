@@ -5,27 +5,11 @@
   <div class="row cards-top">
     <div class="col-3 h-100">
       <mat-card class="w-100 h-100">
-        <p>{{ contentLabels + "acounts" | translate }}</p>
-        <div class="shadow chart-container">
-          <p class="chart-sum">{{ suma }}</p>
-          <canvas
-            width="150"
-            height="150"
-            responsive="true"
-            baseChart
-            [datasets]="doughnutChartData"
-            [labels]="doughnutChartLabels"
-            [chartType]="doughnutChartType"
-            [options]="options"
-          >
-          </canvas>
-        </div>
+        <app-segment-account></app-segment-account>
       </mat-card>
     </div>
     <div class="col-9 h-100">
-      <mat-card class="h-100">
-        {{ contentLabels + "quotes" | translate }}
-      </mat-card>
+      <app-quote></app-quote>
     </div>
   </div>
 
