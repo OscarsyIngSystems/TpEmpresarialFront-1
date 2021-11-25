@@ -17,7 +17,12 @@
       "quotes": "Cotizaciones",
       "opportunities": "Oportunidades",
       "indicators": "Indicadores Célula",
-      "payment": "Pago variable"
+      "payment": "Pago variable",
+      "date-range": "Rango de fechas",
+      "date-start": "Desde",
+      "date-end": "Hasta",
+      "date-start-invalid": "Fecha de inicio erronea",
+      "date-end-invalid": "Fecha final erronea"
     },
     "accounts-opportunities": {}
   }
