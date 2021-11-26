@@ -7,19 +7,19 @@
     </div>
     <div class="col-6 gx-0 d-flex justify-content-end">
       <mat-form-field appearance="fill" class="date-range-input">
-        <mat-label>{{ contentLabels + "date-range" | translate }}</mat-label>
+        <mat-label>{{ "generic.date-range" | translate }}</mat-label>
         <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
           <input
             matStartDate
             formControlName="start"
-            [placeholder]="contentLabels + 'date-start' | translate"
+            [placeholder]="'generic.date-start' | translate"
             readonly
             (click)="picker.open()"
           />
           <input
             matEndDate
             formControlName="end"
-            [placeholder]="contentLabels + 'date-end' | translate"
+            [placeholder]="'generic.date-end' | translate"
             readonly
             (click)="picker.open()"
           />
@@ -29,10 +29,10 @@
 
         <mat-error
           *ngIf="range.controls.start.hasError('matStartDateInvalid')"
-          >{{ contentLabels + "date-start-invalid" | translate }}</mat-error
+          >{{ "generic.date-start-invalid" | translate }}</mat-error
         >
         <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">{{
-          contentLabels + "date-end-invalid" | translate
+          "generic.date-end-invalid" | translate
         }}</mat-error>
       </mat-form-field>
     </div>
@@ -42,7 +42,7 @@
   </div>
   <div class="d-flex justify-content-end">
     <button mat-button class="text-bold warn-btn">
-      {{ contentLabels + "clarity-portal" | translate }}
+      {{ "generic.view-more" | translate }}
       <mat-icon>east</mat-icon>
     </button>
   </div>

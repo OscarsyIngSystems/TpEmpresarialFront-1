@@ -5,19 +5,19 @@
     </div>
     <div class="col-8 gx-0">
       <mat-form-field appearance="fill" class="date-range-input">
-        <mat-label>{{ contentLabels + "date-range" | translate }}</mat-label>
+        <mat-label>{{ "generic.date-range" | translate }}</mat-label>
         <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
           <input
             matStartDate
             formControlName="start"
-            [placeholder]="contentLabels + 'date-start' | translate"
+            [placeholder]="'generic.date-start' | translate"
             readonly
             (click)="picker.open()"
           />
           <input
             matEndDate
             formControlName="end"
-            [placeholder]="contentLabels + 'date-end' | translate"
+            [placeholder]="'generic.date-end' | translate"
             readonly
             (click)="picker.open()"
           />
@@ -25,12 +25,13 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
 
-        <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')"
-          >{{contentLabels + 'date-start-invalid' | translate}}</mat-error
+        <mat-error
+          *ngIf="range.controls.start.hasError('matStartDateInvalid')"
+          >{{ "generic.date-start-invalid" | translate }}</mat-error
         >
-        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')"
-          >{{contentLabels + 'date-end-invalid' | translate}}</mat-error
-        >
+        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">{{
+          "generic.date-end-invalid" | translate
+        }}</mat-error>
       </mat-form-field>
     </div>
   </div>
@@ -42,11 +43,17 @@
       data-interval="-1"
     >
       <div class="carousel-inner">
-        <div class="carousel-item" [ngClass]="{'active': i == 0}" *ngFor="let item of payments; index as i">
+        <div
+          class="carousel-item"
+          [ngClass]="{ active: i == 0 }"
+          *ngFor="let item of payments; index as i"
+        >
           <div class="row gx-0">
             <div class="col-4" *ngFor="let pay of item">
-              <h4 class="my-0"><strong>{{pay.month}}</strong></h4>
-              <h4 class="my-0 tx-12">{{pay.amount | currency}}</h4>
+              <h4 class="my-0">
+                <strong>{{ pay.month }}</strong>
+              </h4>
+              <h4 class="my-0 tx-12">{{ pay.amount | currency }}</h4>
             </div>
           </div>
         </div>
