@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+  AfterContentInit,
+} from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective, Label } from 'ng2-charts';
 import { ChartComponentOptions } from 'src/app/models/ChartOptions';
@@ -9,18 +16,13 @@ import { AccountsService } from 'src/app/services/accounts/accounts.service';
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
 })
-export class ChartComponent {
+export class ChartComponent implements AfterViewInit, AfterContentInit {
   @Input() graphOptions!: ChartComponentOptions;
   @ViewChild(BaseChartDirective) baseChart!: BaseChartDirective;
 
   public suma = 0;
   public doughnutChartLabels: Label[] = ['', '', ''];
-  public doughnutChartData: any; /* = [
-    {
-      data: [1,2,3],
-      backgroundColor: ['#3B4559', '#6F92D8', '#B1B1B1'],
-    },
-  ]; */
+  public doughnutChartData: any;
 
   public options: ChartOptions = {
     cutoutPercentage: 85,
@@ -39,12 +41,25 @@ export class ChartComponent {
   constructor(private _service: AccountsService) {}
 
   ngAfterContentInit(): void {
-    this.doughnutChartData = [
-      {
-        data: this.graphOptions.data,
-        backgroundColor: this.graphOptions.colors,
-      },
-    ];
+    if (this.graphOptions.chartType === 'line') {
+      this.doughnutChartData = [
+        {
+          data: this.graphOptions.data,
+          backgroundColor: 'transparent',
+          borderColor: '#59CBE8',
+          pointBackgroundColor: '#FFF',
+          pointBorderColor: '#59CBE8',
+          pointRadius: 5,
+        },
+      ];
+    } else {
+      this.doughnutChartData = [
+        {
+          data: this.graphOptions.data,
+          backgroundColor: this.graphOptions.colors,
+        },
+      ];
+    }
   }
 
   ngAfterViewInit(): void {
@@ -57,10 +72,8 @@ export class ChartComponent {
     });
   }
 
-  private renderizeChart() {
-    // console.log(this.doughnutChartData);
-
-    let suma: number = 0;
+  private renderizeChart(): void {
+    let suma = 0;
     this.doughnutChartData[0].data.forEach((e: any) => {
       suma = suma + e;
     });
