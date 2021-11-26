@@ -1,8 +1,8 @@
 {
   "login": {
-    "title": "Ventas Colombia",
+    "title": "Ventas",
     "message": "Ingresa tus credenciales para acceder",
-    "user-label": "Usuario colombiano",
+    "user-label": "Usuario",
     "user-placeholder": "Ingresa tu usuario",
     "password-label": "Contraseña",
     "password-placeholder": "Ingresa tu contraseña",
@@ -12,12 +12,21 @@
   },
   "accounts": {
     "accounts-dashboard": {
-      "title": "Mis Ventas Colombia",
+      "title": "Mis Ventas",
       "acounts": "Cuentas por segmento",
       "quotes": "Cotizaciones",
       "opportunities": "Oportunidades",
       "indicators": "Indicadores Célula",
-      "payment": "Pago variable"
+      "payment": "Pago variable",
+      "date-range": "Rango de fechas",
+      "date-start": "Desde",
+      "date-end": "Hasta",
+      "date-start-invalid": "Fecha de inicio erronea",
+      "date-end-invalid": "Fecha final erronea",
+      "clarity-portal": "Portal de Claridad"
+    },
+    "acounts-list": {
+      "title": "Cuentas Colombia"
     },
     "accounts-opportunities": {}
   }
