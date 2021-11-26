@@ -26,12 +26,8 @@ export class CellIndicatorsComponent implements OnInit {
     height: 150,
     class: 'chart-container-line',
   };
-  public indicators: ChartComponentOptions[] = [this.chartProps];
+
   constructor() {}
 
   ngOnInit(): void {}
-
-  public onResize(event: any): void {
-    console.log(event.target.innerWidth);
-  }
 }
