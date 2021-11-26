@@ -2,7 +2,7 @@
   <span>{{ graphOptions.title }}</span>
 </div>
 <div *ngIf="doughnutChartData" [class]="graphOptions.class">
-  <p class="chart-sum">{{ suma }}</p>
+  <p *ngIf="graphOptions.chartType !== 'line'" class="chart-sum">{{ suma }}</p>
   <canvas
     [width]="graphOptions.width"
     [height]="graphOptions.height"

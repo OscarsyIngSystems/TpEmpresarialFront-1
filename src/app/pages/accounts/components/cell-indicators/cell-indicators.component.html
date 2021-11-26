@@ -48,9 +48,9 @@
         <div
           class="carousel-item"
           [ngClass]="{ active: i == 0 }"
-          *ngFor="let item of payments; index as i"
+          *ngFor="let item of indicators; index as i"
         >
-          <app-chart [graphOptions]="chartProps"></app-chart>
+          <app-chart [graphOptions]="item"></app-chart>
         </div>
       </div>
       <!-- Se deja deshabilitado por si alguna vez se usa en version mobile. -->
