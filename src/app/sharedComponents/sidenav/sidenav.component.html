@@ -1,0 +1,23 @@
+<mat-drawer #drawer class="drawer-sidenav" mode="over" style="width: 300px">
+  <div class="container-menu">
+    <h1 class="mt-2 text-title text-bold">Menu</h1>
+    <mat-icon class="c-pointer" (click)="drawer.close()">close</mat-icon>
+  </div>
+  <mat-list role="list">
+    <mat-list-item
+      class="c-pointer"
+      routerLink="/accounts/dashboard"
+      role="listitem"
+      (click)="drawer.close()"
+      >Dashboard</mat-list-item
+    >
+    <mat-list-item
+      routerLink="/accounts"
+      role="listitem"
+      class="c-pointer"
+      (click)="drawer.close()"
+      >Cuentas</mat-list-item
+    >
+    <mat-list-item role="listitem">Item 3</mat-list-item>
+  </mat-list>
+</mat-drawer>

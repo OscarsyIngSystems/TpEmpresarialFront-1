@@ -13,9 +13,23 @@ import { TableComponent } from './table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 import { HeaderDetailComponent } from './header-detail/header-detail.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 @NgModule({
-  declarations: [NavbarComponent, TableComponent, HeaderDetailComponent],
-  exports: [NavbarComponent, TableComponent, HeaderDetailComponent],
+  declarations: [
+    NavbarComponent,
+    SidenavComponent,
+    TableComponent,
+    HeaderDetailComponent,
+  ],
+  exports: [
+    NavbarComponent,
+    SidenavComponent,
+    TableComponent,
+    HeaderDetailComponent,
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -29,6 +43,8 @@ import { HeaderDetailComponent } from './header-detail/header-detail.component';
     FormsModule,
     MatTableModule,
     TranslateModule,
+    MatListModule,
+    MatSidenavModule,
   ],
 })
 export class ComponentsModule {}

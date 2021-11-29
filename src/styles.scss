@@ -202,3 +202,11 @@ td.mat-footer-cell {
   display: flex !important;
   align-items: center !important;
 }
+.warn-btn {
+  color: $color-secondary;
+  line-height: 0 !important;
+}
+
+.c-pointer {
+  cursor: pointer;
+}

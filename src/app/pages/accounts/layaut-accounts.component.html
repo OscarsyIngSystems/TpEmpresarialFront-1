@@ -1,14 +1,35 @@
-<mat-drawer-container class="drawer-container" autosize>
-  <mat-drawer #drawer class="drawer-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    <p>Lorem, ipsum dolor sit amet consectetur.</p>
-    <button mat-raised-button>Toggle extra text</button>
-  </mat-drawer>
+<mat-sidenav-container class="sidenav-container" autosize>
+  <!-- mat-drawer -->
+  <!-- <app-sidenav [toggle]="open"></app-sidenav> -->
+  <mat-sidenav #drawer class="drawer-sidenav" mode="over" style="width: 300px">
+    <div class="container-menu">
+      <h1 class="mt-2 text-title text-bold">Menu</h1>
+      <mat-icon class="c-pointer" (click)="drawer.close()">close</mat-icon>
+    </div>
+    <mat-nav-list role="list">
+      <mat-list-item
+        class="c-pointer"
+        routerLink="/accounts/dashboard"
+        role="listitem"
+        (click)="drawer.close()"
+        >Dashboard</mat-list-item
+      >
+      <mat-list-item
+        routerLink="/accounts"
+        role="listitem"
+        class="c-pointer"
+        (click)="drawer.close()"
+        >Cuentas</mat-list-item
+      >
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <!-- mat drawer -->
 
-  <div>
+  <mat-sidenav-content>
     <app-navbar (emiter)="drawer.toggle()"></app-navbar>
     <div class="drawer-secondary-container">
       <router-outlet></router-outlet>
     </div>
-  </div>
-</mat-drawer-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>
