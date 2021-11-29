@@ -5,37 +5,17 @@
         contentLabels + "indicators" | translate
       }}</span>
     </div>
-    <div class="col-6 gx-0 d-flex justify-content-end">
-      <mat-form-field appearance="fill" class="date-range-input">
-        <mat-label>{{ "generic.date-range" | translate }}</mat-label>
-        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-          <input
-            matStartDate
-            formControlName="start"
-            [placeholder]="'generic.date-start' | translate"
-            readonly
-            (click)="picker.open()"
-          />
-          <input
-            matEndDate
-            formControlName="end"
-            [placeholder]="'generic.date-end' | translate"
-            readonly
-            (click)="picker.open()"
-          />
-        </mat-date-range-input>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-
-        <mat-error
-          *ngIf="range.controls.start.hasError('matStartDateInvalid')"
-          >{{ "generic.date-start-invalid" | translate }}</mat-error
-        >
-        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">{{
-          "generic.date-end-invalid" | translate
-        }}</mat-error>
-      </mat-form-field>
-    </div>
+    <div class="col-6 gx-0 d-flex justify-content-end"></div>
+  </div>
+  <div class="row g-0 h-auto d-flex">
+    <section
+      class="example-section justify-content-center"
+      style="background-color: red; text-align: center"
+    >
+      <mat-checkbox class="example-margin">Enviadas</mat-checkbox>
+      <mat-checkbox class="example-margin">En proceso</mat-checkbox>
+      <mat-checkbox class="example-margin">Cerradas</mat-checkbox>
+    </section>
   </div>
   <div class="row h-75">
     <app-chart [graphOptions]="chartProps"></app-chart>
