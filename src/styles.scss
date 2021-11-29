@@ -184,3 +184,21 @@ td.mat-footer-cell {
   border-bottom-width: 0px !important;
   border-bottom-style: solid !important;
 }
+
+.rounded-button {
+  border-radius: 20px !important;
+  padding: 5px;
+  height: 35px;
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.rounded-button-outline {
+  border-radius: 20px !important;
+  padding: 5px;
+  height: 35px;
+  border: 2px solid $color-primary !important;
+  color: $color-primary;
+  display: flex !important;
+  align-items: center !important;
+}

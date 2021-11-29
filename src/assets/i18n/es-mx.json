@@ -40,6 +40,16 @@
         "colum7": "Tipo de registro de cuenta"
       }
     },
+    "account-detail-oportunity":{
+      "title":"Oportunidades",
+      "table":{
+        "colum1": "Nº",
+        "colum2": "Nombre de la oportunidad",
+        "colum3": "Numero de oportunidad",
+        "colum4": "Etapa",
+        "colum5": "Importe"
+      }
+    },
     "accounts-opportunities": {}
   }
 }

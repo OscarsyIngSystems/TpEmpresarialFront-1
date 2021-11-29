@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-between">
+  <h1 class="text-title text-bold">Oportunidades</h1>
+  <div class="d-flex flex-row">
+    <button mat-button class="rounded-button tx-12 text-bold">
+      <mat-icon>add</mat-icon>
+      Crear oportunidad
+    </button>
+    <button mat-button class="rounded-button-outline tx-12 text-bold ms-2">
+      Relacionado
+    </button>
+    <button mat-button class="rounded-button-outline ms-2 tx-12 text-bold">
+      <mat-icon>chat</mat-icon>
+      Chatter
+    </button>
+  </div>
+</div>
+<app-header-detail></app-header-detail>
+<app-table [tableProps]="tableProps"></app-table>
