@@ -41,13 +41,13 @@
   <tr
     mat-row
     *matRowDef="let element; columns: columnsToDisplay"
-    class="example-element-row shadow-sm"
-    [class.example-expanded-row]="expandedElement === element"
+    class="table-element-row shadow-sm"
+    [class.table-expanded-row]="expandedElement === element"
     (click)="expandedElement = expandedElement === element ? null : element"
   ></tr>
   <tr
     mat-row
     *matRowDef="let row; columns: ['expandedDetail']"
-    class="example-detail-row"
+    class="table-detail-row"
   ></tr>
 </table>

@@ -15,16 +15,16 @@ table {
   width: 100%;
 }
 
-tr.example-detail-row {
+tr.table-detail-row {
   height: 0;
 }
 
-tr.example-element-row:not(.example-expanded-row) {
+tr.table-element-row:not(.table-expanded-row) {
   border-radius: 10px !important;
   background-color: $color-white;
 }
 
-tr.example-element-row {
+tr.table-element-row {
   background-color: $color-active-secondary;
   border-radius: 10px !important;
   position: relative;
@@ -52,18 +52,18 @@ tr.example-element-row {
   }
 }
 
-tr.example-element-row:not(.example-expanded-row):hover {
+tr.table-element-row:not(.table-expanded-row):hover {
   background: url(../../../../../assets/img/chevron-right.svg) no-repeat;
   background-position: 98.8% 50%;
   background-color: $color-hover-secondary;
   cursor: pointer;
 }
 
-tr.example-element-row:not(.example-expanded-row):active {
+tr.table-element-row:not(.table-expanded-row):active {
   background: $color-hover-secondary;
 }
 
-.example-element-row td {
+.table-element-row td {
   border-bottom-width: none;
 }
 
