@@ -10,6 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [LayautQuotesComponent, QuotesListComponent],
@@ -21,7 +22,8 @@ import { MatTableModule } from '@angular/material/table';
     TranslateModule,
     MatExpansionModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule,
   ],
 })
-export class QuotesModule { }
+export class QuotesModule {}

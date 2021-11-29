@@ -1,11 +1,16 @@
 @import "../../../styles.scss";
+
 .drawer-container {
   width: 100%;
   height: 100vh;
   border: 1px solid rgba(0, 0, 0, 0.5);
   background-color: $color-body;
-  // z-index: 10000;
 }
+
+.drawer-sidenav {
+  padding: 20px;
+}
+
 .drawer-secondary-container {
   padding: 20px;
 }

@@ -14,16 +14,10 @@ import { MatDrawer, MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
-  // perro: boolean = false;
   @ViewChild('drawer') drawer?: MatDrawer;
 
-  @Input()
-  // get toggle() {
-  //   return this.perro;
-  // }
-  set toggle(toggle: boolean) {
-    // this.perro = toggle;
-    this.drawer?.toggle();
+  @Input() set toggle(toggle: boolean) {
+    // this.drawer?.toggle();
     console.log(toggle, this.drawer);
   }
   constructor() {}

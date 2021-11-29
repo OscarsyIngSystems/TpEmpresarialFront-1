@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layaut-accounts.component.scss'],
 })
 export class LayautAccountsComponent implements OnInit {
-  public toggled: boolean = false;
+  public open: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
 
   public toggle(): void {
-    this.toggled = !this.toggled;
+    this.open = !this.open;
   }
 }
