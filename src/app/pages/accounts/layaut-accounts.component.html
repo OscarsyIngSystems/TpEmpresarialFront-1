@@ -1,14 +1,11 @@
 <mat-drawer-container class="drawer-container" autosize>
-  <mat-drawer #drawer class="drawer-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    <p>Lorem, ipsum dolor sit amet consectetur.</p>
-    <button mat-raised-button>Toggle extra text</button>
-  </mat-drawer>
-
-  <div>
-    <app-navbar (emiter)="drawer.toggle()"></app-navbar>
-    <div class="drawer-secondary-container">
-      <router-outlet></router-outlet>
-    </div>
+  <!-- mat-drawer -->
+  <app-sidenav [toggle]="toggled"></app-sidenav>
+  <!-- mat drawer -->
+  <!-- <mat-drawer-content> -->
+  <app-navbar (emiter)="toggle()"></app-navbar>
+  <div class="drawer-secondary-container">
+    <router-outlet></router-outlet>
   </div>
+  <!-- </mat-drawer-content> -->
 </mat-drawer-container>
