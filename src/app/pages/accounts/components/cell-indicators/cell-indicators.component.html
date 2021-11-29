@@ -17,18 +17,36 @@
       </mat-form-field>
     </div>
   </div>
-  <div class="row g-0 h-auto d-flex">
-    <section class="example-section text-center">
-      <mat-checkbox class="example-margin mx-1 text-bold"
-        >Enviadas</mat-checkbox
-      >
-      <mat-checkbox class="example-margin mx-1 text-bold"
-        >En proceso</mat-checkbox
-      >
-      <mat-checkbox class="example-margin mx-1 text-bold"
-        >Cerradas</mat-checkbox
-      >
-    </section>
+  <div class="row g-0 row-cols-lg-auto justify-content-end">
+    <input
+      type="checkbox"
+      class="btn-check"
+      id="btn-check-outlined"
+      autocomplete="off"
+    />
+    <label class="btn btn-sm btn-outline-primary me-2" for="btn-check-outlined"
+      >Enviadas</label
+    >
+
+    <input
+      type="checkbox"
+      class="btn-check"
+      id="btn-check-outlined"
+      autocomplete="off"
+    />
+    <label class="btn btn-sm btn-outline-primary me-2" for="btn-check-outlined"
+      >En proceso</label
+    >
+
+    <input
+      type="checkbox"
+      class="btn-check"
+      id="btn-check-outlined"
+      autocomplete="off"
+    />
+    <label class="btn btn-sm btn-outline-primary" for="btn-check-outlined"
+      >Cerradas</label
+    >
   </div>
   <div class="row h-75">
     <app-chart [graphOptions]="chartProps"></app-chart>
