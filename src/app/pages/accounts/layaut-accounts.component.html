@@ -1,14 +1,14 @@
 <mat-sidenav-container class="drawer-container" autosize>
   <!-- mat-drawer -->
   <!-- <app-sidenav [toggle]="open"></app-sidenav> -->
-  <mat-sidenav #drawer class="drawer-sidenav" mode="over" style="width: 300px">
+  <mat-sidenav #drawer class="drawer-sidenav" mode="over" autoFocus="false">
     <div class="container-menu">
       <h1 class="mt-2 text-title text-bold">Menu</h1>
       <mat-icon class="c-pointer" (click)="drawer.close()">close</mat-icon>
     </div>
     <mat-nav-list role="list">
       <mat-list-item
-        class="c-pointer"
+        class="c-pointer hover"
         routerLink="/accounts/dashboard"
         role="listitem"
         (click)="drawer.close()"
@@ -17,11 +17,13 @@
       <mat-list-item
         routerLink="/accounts"
         role="listitem"
-        class="c-pointer"
+        class="c-pointer hover"
         (click)="drawer.close()"
         >Cuentas</mat-list-item
       >
-      <mat-list-item role="listitem">Item 3</mat-list-item>
+      <mat-list-item class="c-pointer hover" role="listitem"
+        >Item 3</mat-list-item
+      >
     </mat-nav-list>
   </mat-sidenav>
   <!-- mat drawer -->

@@ -28,7 +28,6 @@ $custom-typography: mat-typography-config(
 
 @include angular-material-typography($custom-typography);
 
-//class font size
 .tx-12 {
   font-size: 12px;
 }
@@ -69,48 +68,7 @@ body {
 .text-subtitle {
   font-size: 18px;
   color: $color-secondary;
-} /*
-.table-am {
-  .mat-row:nth-child(even) {
-    background-color: $color-light-gray;
-  }
-
-  .mat-row:nth-child(odd) {
-    background-color: $color-white;
-  }
-
-  td,
-  th {
-    border: none !important;
-    padding: 5px !important;
-  }
-  tr.mat-row,
-  tr.mat-header-row {
-    height: 0 !important;
-  }
-
-  .mat-cell {
-    font-size: 12px;
-  }
-
-  width: 100%;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
 }
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: $monserrat-font;
-}
-
-.warn-btn {
-  color: $color-secondary;
-  line-height: 0;
-}
- */
 
 table {
   width: 100%;
@@ -214,6 +172,9 @@ td.mat-footer-cell {
   cursor: pointer;
 }
 
+.hover:hover {
+  background-color: $color-hover-secondary !important;
+}
 //#region Sidenav/
 
 .drawer-container {
@@ -224,6 +185,7 @@ td.mat-footer-cell {
 
 .drawer-sidenav {
   padding: 20px;
+  width: 300px;
 }
 
 .drawer-secondary-container {
