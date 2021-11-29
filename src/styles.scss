@@ -210,3 +210,7 @@ td.mat-footer-cell {
 .c-pointer {
   cursor: pointer;
 }
+
+.hover:hover {
+  background-color: $color-hover-secondary !important;
+}
