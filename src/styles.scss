@@ -211,6 +211,32 @@ td.mat-footer-cell {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .hover:hover {
   background-color: $color-hover-secondary !important;
 }
+=======
+//#region Sidenav/
+
+.drawer-container {
+  width: 100%;
+  height: 100vh;
+  background-color: $color-body;
+}
+
+.drawer-sidenav {
+  padding: 20px;
+}
+
+.drawer-secondary-container {
+  padding: 20px;
+}
+
+.container-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//#endregion Sidenav/
+>>>>>>> 7eed1187d3ed0e2c89047110913323374bbb860c

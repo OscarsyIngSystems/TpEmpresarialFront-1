@@ -27,6 +27,8 @@ export class CellIndicatorsComponent implements OnInit {
     class: 'chart-container-line',
   };
 
+  public selected: string = '';
+
   constructor() {}
 
   ngOnInit(): void {}
