@@ -210,3 +210,27 @@ td.mat-footer-cell {
 .c-pointer {
   cursor: pointer;
 }
+
+//#region Sidenav/
+
+.drawer-container {
+  width: 100%;
+  height: 100vh;
+  background-color: $color-body;
+}
+
+.drawer-sidenav {
+  padding: 20px;
+}
+
+.drawer-secondary-container {
+  padding: 20px;
+}
+
+.container-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//#endregion Sidenav/
