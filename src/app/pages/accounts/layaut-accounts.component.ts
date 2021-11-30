@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-layaut-accounts',
@@ -6,9 +7,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./layaut-accounts.component.scss'],
 })
 export class LayautAccountsComponent implements OnInit {
-  public open: boolean = false;
-  @ViewChild('drawerRight') right: any;
-  @ViewChild('drawer') drawer: any;
+  @ViewChild('drawerRight') right!: MatSidenav;
+  @ViewChild('drawer') drawer!: MatSidenav;
   hasBackdrop = true;
   constructor() {}
 

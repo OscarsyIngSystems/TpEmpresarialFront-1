@@ -69,6 +69,7 @@ body {
   font-size: 18px;
   color: $color-secondary;
 }
+//#region Table
 
 table {
   width: 100%;
@@ -145,6 +146,7 @@ td.mat-footer-cell {
   border-bottom-width: 0px !important;
   border-bottom-style: solid !important;
 }
+//#endregion Table
 
 .rounded-button {
   border-radius: 20px !important;

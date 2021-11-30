@@ -15,12 +15,16 @@
       <mat-list-item
         class="c-pointer hover"
         routerLink="/accounts/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
         role="listitem"
         (click)="drawer.close(); drawerRight.close()"
         >Dashboard</mat-list-item
       >
       <mat-list-item
         routerLink="/accounts"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
         role="listitem"
         class="c-pointer hover"
         (click)="drawer.close(); drawerRight.close()"

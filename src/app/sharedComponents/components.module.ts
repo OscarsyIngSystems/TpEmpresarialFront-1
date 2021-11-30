@@ -16,6 +16,7 @@ import { HeaderDetailComponent } from './header-detail/header-detail.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     TranslateModule,
     MatListModule,
     MatSidenavModule,
+    RouterModule,
   ],
 })
 export class ComponentsModule {}
