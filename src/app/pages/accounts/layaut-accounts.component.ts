@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-layaut-accounts',
@@ -7,11 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayautAccountsComponent implements OnInit {
   public open: boolean = false;
+  @ViewChild('drawerRight') right: any;
+  @ViewChild('drawer') drawer: any;
+  hasBackdrop = true;
   constructor() {}
 
   ngOnInit(): void {}
 
-  public toggle(): void {
-    this.open = !this.open;
+  public toggleRight(event: boolean): void {
+    this.hasBackdrop = event;
+    this.right.toggle();
+  }
+  public toggle(event: boolean): void {
+    this.hasBackdrop = event;
+    this.drawer.toggle();
   }
 }

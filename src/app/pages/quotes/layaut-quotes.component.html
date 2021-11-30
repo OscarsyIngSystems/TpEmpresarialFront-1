@@ -1,6 +1,4 @@
 <mat-sidenav-container class="drawer-container" autosize>
-  <!-- mat-drawer -->
-  <!-- <app-sidenav [toggle]="open"></app-sidenav> -->
   <mat-sidenav #drawer class="drawer-sidenav" mode="over" style="width: 300px">
     <div class="container-menu">
       <h1 class="mt-2 text-title text-bold">Menu</h1>
@@ -24,7 +22,6 @@
       <mat-list-item role="listitem">Item 3</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
-  <!-- mat drawer -->
 
   <mat-sidenav-content>
     <app-navbar (emiter)="drawer.toggle()"></app-navbar>
