@@ -11,23 +11,54 @@ import { Component, HostListener, OnInit } from '@angular/core';
   // },
 })
 export class CellIndicatorsComponent implements OnInit {
-  // @HostListener('window:resize', ['onResize($event)'])
   public contentLabels = 'accounts.accounts-dashboard.';
-  range = new FormGroup({
-    start: new FormControl(),
-    end: new FormControl(),
-  });
+  public selected: string = '';
+  public months: string[] = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'];
+
   public chartProps: ChartComponentOptions = {
-    data: [3, 5, 10, 13, 18, 0],
-    colors: ['#7E84D0', '#0595FF', '#5E5A6A', '#7ED1CA', '#93C2CE', '#E5AB4E'],
-    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+    data: [
+      { data: [165, 159, 280, 281, 356, 255, 240], label: 'Enviadas' },
+      { data: [28, 48, 40, 19, 86, 27, 90], label: 'En proceso' },
+      {
+        data: [180, 480, 770, 90, 1000, 270, 400],
+        label: 'Cerradas',
+      },
+    ],
+    colors: [
+      {
+        // enviadas
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: '#8246AF',
+        pointBackgroundColor: '#FFF',
+        pointBorderColor: '#8246AF',
+        pointHoverBackgroundColor: '#8246AF',
+        pointHoverBorderColor: '#8246AF',
+      },
+      {
+        // en proceso
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: '#2E94F7',
+        pointBackgroundColor: '#FFF',
+        pointBorderColor: '#2E94F7',
+        pointHoverBackgroundColor: '#2E94F7',
+        pointHoverBorderColor: '#2E94F7',
+      },
+      {
+        // cerradas
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderColor: '#09C47C',
+        pointBackgroundColor: '#FFF',
+        pointBorderColor: '#09C47C',
+        pointHoverBackgroundColor: '#09C47C',
+        pointHoverBorderColor: '#09C47C',
+      },
+    ],
+    labels: this.months,
     chartType: 'line',
     width: 650,
     height: 180,
     class: 'chart-container-line',
   };
-
-  public selected: string = '';
 
   constructor() {}
 

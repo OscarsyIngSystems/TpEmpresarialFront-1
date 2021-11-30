@@ -208,3 +208,14 @@ td.mat-footer-cell {
 }
 
 //#endregion Sidenav/
+
+.label-form-field {
+  color: $color-placeholder;
+  font-weight: 500;
+}
+
+.input-container {
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white !important;
+  }
+}

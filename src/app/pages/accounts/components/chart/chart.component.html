@@ -4,11 +4,26 @@
 <div *ngIf="doughnutChartData" [class]="graphOptions.class">
   <p *ngIf="graphOptions.chartType !== 'line'" class="chart-sum">{{ suma }}</p>
   <canvas
+    *ngIf="graphOptions.chartType === 'doughnut'"
     [width]="graphOptions.width"
     [height]="graphOptions.height"
     responsive="true"
     baseChart
     [datasets]="doughnutChartData"
+    [labels]="graphOptions.labels"
+    [chartType]="graphOptions.chartType"
+    [options]="options"
+  >
+  </canvas>
+
+  <canvas
+    *ngIf="graphOptions.chartType === 'line'"
+    [width]="graphOptions.width"
+    [height]="graphOptions.height"
+    responsive="true"
+    baseChart
+    [datasets]="doughnutChartData"
+    [colors]="lineChartColors"
     [labels]="graphOptions.labels"
     [chartType]="graphOptions.chartType"
     [options]="options"
