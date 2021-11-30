@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidenavComponent } from './sidenav.component';
+import { DialogOportunitiesComponent } from './dialog-oportunities.component';
 
-describe('SidenavComponent', () => {
-  let component: SidenavComponent;
-  let fixture: ComponentFixture<SidenavComponent>;
+describe('DialogOportunitiesComponent', () => {
+  let component: DialogOportunitiesComponent;
+  let fixture: ComponentFixture<DialogOportunitiesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SidenavComponent ]
+      declarations: [ DialogOportunitiesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SidenavComponent);
+    fixture = TestBed.createComponent(DialogOportunitiesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

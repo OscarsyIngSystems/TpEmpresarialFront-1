@@ -7,6 +7,8 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./layaut-quotes.component.scss'],
 })
 export class LayautQuotesComponent implements OnInit {
+  public contentLabels = 'quotes.layaut-quotes.';
+
   @ViewChild('drawerRight') right!: MatSidenav;
   @ViewChild('drawer') drawer!: MatSidenav;
   hasBackdrop = true;

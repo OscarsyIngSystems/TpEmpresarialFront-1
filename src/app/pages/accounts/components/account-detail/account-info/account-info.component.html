@@ -5,4 +5,244 @@
 >
 </app-header-actions>
 <app-header-detail></app-header-detail>
-<span> aqui va el formulario </span>
+
+<div class="row g-0 mt-2">
+  <mat-expansion-panel class="w-100 h-100">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="text-bold"> Datos principales </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form class="login-form" [formGroup]="principalData" novalidate>
+      <div class="row">
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Tipo de persona</mat-label>
+            <input
+              matInput
+              placeholder="Tipo de persona"
+              formControlName="type"
+            />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Nombre de la cuenta</mat-label>
+            <input
+              matInput
+              placeholder="Nombre de la cuenta"
+              formControlName="account"
+            />
+            <mat-error *ngIf="principalData.controls.account_name.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Razon social</mat-label>
+            <input
+              matInput
+              placeholder="Razon social"
+              formControlName="enterprise_name"
+            />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Cuenta principal</mat-label>
+            <input
+              matInput
+              placeholder="Cuenta principal"
+              formControlName="type"
+            />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>RFC</mat-label>
+            <input matInput placeholder="RFC" formControlName="type" />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Clase de cuenta</mat-label>
+            <input
+              matInput
+              placeholder="Clase de cuenta"
+              formControlName="type"
+            />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Numero de la cuenta</mat-label>
+            <input
+              matInput
+              placeholder="Numero de la cuenta"
+              formControlName="type"
+            />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Referencia Urbana</mat-label>
+            <input
+              matInput
+              placeholder="Referencia Urbana"
+              formControlName="type"
+            />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Segmento facturación</mat-label>
+            <input
+              matInput
+              placeholder="Segmento facturación"
+              formControlName="type"
+            />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Monto facturación potencial</mat-label>
+            <input
+              matInput
+              placeholder="Monto facturación potencial"
+              formControlName="type"
+            />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Segmento</mat-label>
+            <input matInput placeholder="Segmento" formControlName="type" />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Teléfono</mat-label>
+            <input matInput placeholder="Teléfono" formControlName="type" />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Sitio Web</mat-label>
+            <input matInput placeholder="Sitio Web" formControlName="type" />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Sector</mat-label>
+            <input matInput placeholder="Sector" formControlName="type" />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Tamaño</mat-label>
+            <input matInput placeholder="Tamaño" formControlName="type" />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Empleados</mat-label>
+            <input matInput placeholder="Empleados" formControlName="type" />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Tipo de persona</mat-label>
+            <input
+              matInput
+              placeholder="Tipo de persona"
+              formControlName="type"
+            />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Folio cuenta</mat-label>
+            <input matInput placeholder="Folio cuenta" formControlName="type" />
+            <mat-error *ngIf="principalData.controls.type.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </mat-expansion-panel>
+</div>

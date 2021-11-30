@@ -1,4 +1,12 @@
 {
+  "generic": {
+    "date-range": "Rango de fechas",
+    "date-start": "Desde",
+    "date-end": "Hasta",
+    "date-start-invalid": "Fecha de inicio erronea",
+    "date-end-invalid": "Fecha final erronea",
+    "view-more": "Ver más"
+  },
   "login": {
     "title": "Ventas",
     "message": "Ingresa tus credenciales para acceder",
@@ -12,22 +20,70 @@
   },
   "accounts": {
     "accounts-dashboard": {
-      "title": "Mis Ventas",
+      "title": "Mis Ventas COLOMBIA",
       "acounts": "Cuentas por segmento",
       "quotes": "Cotizaciones",
       "opportunities": "Oportunidades",
       "indicators": "Indicadores Célula",
       "payment": "Pago variable",
-      "date-range": "Rango de fechas",
-      "date-start": "Desde",
-      "date-end": "Hasta",
-      "date-start-invalid": "Fecha de inicio erronea",
-      "date-end-invalid": "Fecha final erronea",
       "clarity-portal": "Portal de Claridad"
     },
     "acounts-list": {
-      "title": "Cuentas Colombia"
+      "title": "Cuentas",
+      "table": {
+        "colum1": "Nº",
+        "colum2": "ID",
+        "colum3": "Nombre de la cuenta",
+        "colum4": "RFC",
+        "colum5": "Segmento",
+        "colum6": "Teléfono",
+        "colum7": "Tipo de registro de cuenta"
+      }
     },
-    "accounts-opportunities": {}
+    "account-detail-oportunity": {
+      "title": "Oportunidades",
+      "table": {
+        "colum1": "Nº",
+        "colum2": "Nombre de la oportunidad",
+        "colum3": "Numero de oportunidad",
+        "colum4": "Etapa",
+        "colum5": "Importe"
+      }
+    },
+    "accounts-opportunities": {},
+    "dialogs-opportunities": {
+      "p-text1": "La oportunidad",
+      "p-text2": "se creó exitosamente",
+      "btn-cancel": "Cerrar",
+      "btn-ok": "Crear cotización"
+    },
+    "layaut-accounts": {
+      "menu": {
+        "title": "Menu COLOMBIA",
+        "item-list1": "Dashboard",
+        "item-list2": "Cuentas"
+      },
+      "notifications": {
+        "title": "Notificaciones COLOMBIA",
+        "card1-title": "Notificacion 1",
+        "card1-content": "La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá el 23 noviembre 2021 a las 13:35 hrs.",
+        "card1-footer": "Hace 2 min"
+      }
+    }
+  },
+  "quotes": {
+    "layaut-quotes": {
+      "menu": {
+        "title": "Menu COLOMBIA",
+        "item-list1": "Dashboard",
+        "item-list2": "Cuentas"
+      },
+      "notifications": {
+        "title": "Notificaciones COLOMBIA",
+        "card1-title": "Notificacion 1 colombia",
+        "card1-content": "La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá el 23 noviembre 2021 a las 13:35 hrs.",
+        "card1-footer": "Hace 2 min"
+      }
+    }
   }
 }
