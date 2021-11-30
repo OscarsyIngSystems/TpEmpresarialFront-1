@@ -1,18 +1,49 @@
-<div class="d-flex justify-content-between">
-  <h1 class="text-title text-bold">Oportunidades</h1>
-  <div class="d-flex flex-row">
-    <button mat-button class="rounded-button tx-12 text-bold">
-      <mat-icon>add</mat-icon>
-      Crear oportunidad
-    </button>
-    <button mat-button class="rounded-button-outline tx-12 text-bold ms-2">
-      Relacionado
-    </button>
-    <button mat-button class="rounded-button-outline ms-2 tx-12 text-bold">
-      <mat-icon>chat</mat-icon>
-      Chatter
-    </button>
-  </div>
+<div class="list-group">
+  <a
+    routerLink="/accounts/detail"
+    routerLinkActive="active"
+    class="list-group-item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><i class="far fa-calendar-times"></i> Cuenta</a
+  >
+
+  <a
+    [routerLink]="['/accounts/detail/oportunities']"
+    routerLinkActive="active"
+    [class]="currentUrl == '/accounts/detail/create-oportunity' ? 'active' : ''"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="list-group-item"
+    ><i class="fas fa-tachometer-alt"></i> Oportunidades</a
+  >
+
+  <a
+    routerLink="#"
+    routerLinkActive="active"
+    class="list-group-item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><i class="fas fa-shopping-bag"></i> Cotizaciones</a
+  >
+  <a
+    routerLink="#"
+    routerLinkActive="active"
+    class="list-group-item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><i class="fas fa-stream"></i> Carga de sitios</a
+  >
+  <a
+    routerLink="#"
+    routerLinkActive="active"
+    class="list-group-item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><i class="fas fa-chart-pie"></i> Propuesta</a
+  >
+  <a
+    routerLink="#"
+    routerLinkActive="active"
+    class="list-group-item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><i class="fas fa-receipt"></i> Descuentos</a
+  >
 </div>
-<app-header-detail></app-header-detail>
-<app-table [tableProps]="tableProps"></app-table>
+
+<router-outlet></router-outlet>

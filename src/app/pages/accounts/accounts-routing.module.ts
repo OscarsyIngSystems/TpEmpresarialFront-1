@@ -20,7 +20,10 @@ const routes: Routes = [
       },
       {
         path: 'detail',
-        component: AccountDetailComponent,
+        loadChildren: () =>
+          import('./components/account-detail/details.module').then(
+            (m) => m.DetailsModule
+          ),
       },
     ],
   },

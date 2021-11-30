@@ -25,7 +25,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { OportunitiesComponent } from './components/oportunities/oportunities.component';
 import { CellIndicatorsComponent } from './components/cell-indicators/cell-indicators.component';
-import { AccountDetailComponent } from './components/account-detail/account-detail.component';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
@@ -45,7 +44,6 @@ export function createTranslateLoader(http: HttpClient): any {
     VariablePaymentComponent,
     OportunitiesComponent,
     CellIndicatorsComponent,
-    AccountDetailComponent,
   ],
   imports: [
     CommonModule,

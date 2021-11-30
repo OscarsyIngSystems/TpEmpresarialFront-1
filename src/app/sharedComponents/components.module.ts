@@ -17,6 +17,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
+import { HeaderActionsComponent } from './header-actions/header-actions.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +25,14 @@ import { RouterModule } from '@angular/router';
     SidenavComponent,
     TableComponent,
     HeaderDetailComponent,
+    HeaderActionsComponent,
   ],
   exports: [
     NavbarComponent,
     SidenavComponent,
     TableComponent,
     HeaderDetailComponent,
+    HeaderActionsComponent,
   ],
   imports: [
     CommonModule,

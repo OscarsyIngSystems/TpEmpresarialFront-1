@@ -75,6 +75,11 @@ table {
   width: 100%;
 }
 
+.mat-cell {
+  font-size: 12px;
+  font-weight: medium !important;
+}
+
 tr.table-detail-row {
   height: 0;
 }
@@ -154,6 +159,8 @@ td.mat-footer-cell {
   height: 35px;
   background-color: $color-primary;
   color: $color-white;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .rounded-button-outline {
