@@ -7,6 +7,8 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./layaut-accounts.component.scss'],
 })
 export class LayautAccountsComponent implements OnInit {
+  public contentLabels = 'accounts.layaut-accounts.';
+
   @ViewChild('drawerRight') right!: MatSidenav;
   @ViewChild('drawer') drawer!: MatSidenav;
   hasBackdrop = true;

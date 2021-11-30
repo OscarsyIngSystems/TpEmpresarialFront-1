@@ -6,7 +6,9 @@
   <!-- Menu -->
   <mat-sidenav #drawer class="drawer-sidenav" mode="over" autoFocus="false">
     <div class="container-menu">
-      <h1 class="mt-2 text-title text-bold">Menu</h1>
+      <h1 class="mt-2 text-title text-bold">
+        {{ contentLabels + "menu.title" | translate }}
+      </h1>
       <mat-icon class="c-pointer" (click)="drawer.close(); drawerRight.close()"
         >close</mat-icon
       >
@@ -19,7 +21,8 @@
         [routerLinkActiveOptions]="{ exact: true }"
         role="listitem"
         (click)="drawer.close(); drawerRight.close()"
-        >Dashboard</mat-list-item
+      >
+        {{ contentLabels + "menu.item-list1" | translate }}</mat-list-item
       >
       <mat-list-item
         routerLink="/accounts"
@@ -28,10 +31,8 @@
         role="listitem"
         class="c-pointer hover"
         (click)="drawer.close(); drawerRight.close()"
-        >Cuentas</mat-list-item
       >
-      <mat-list-item class="c-pointer hover" role="listitem"
-        >Item 3</mat-list-item
+        {{ contentLabels + "menu.item-list2" | translate }}</mat-list-item
       >
     </mat-nav-list>
   </mat-sidenav>
@@ -46,19 +47,24 @@
     position="end"
   >
     <div class="container-menu">
-      <h1 class="mt-2 text-title text-bold">Notificaciones</h1>
+      <h1 class="mt-2 text-title text-bold">
+        {{ contentLabels + "notifications.title" | translate }}
+      </h1>
       <mat-icon class="c-pointer" (click)="drawerRight.close()">close</mat-icon>
     </div>
     <mat-nav-list role="list" class="m-2">
       <mat-card routerLink="/accounts/dashboard" class="w-80 mb-4 c-pointer">
         <div class="row justify-content-between">
           <div class="col-10">
-            <mat-card-title>Notificacion 1</mat-card-title>
-            <mat-card-content
-              >La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá
-              el 23 noviembre 2021 a las 13:35 hrs.</mat-card-content
-            >
-            <mat-card-footer>Hace 2 min</mat-card-footer>
+            <mat-card-title>{{
+              contentLabels + "notifications.card1-title" | translate
+            }}</mat-card-title>
+            <mat-card-content>{{
+              contentLabels + "notifications.card1-content" | translate
+            }}</mat-card-content>
+            <mat-card-footer>{{
+              contentLabels + "notifications.card1-footer" | translate
+            }}</mat-card-footer>
           </div>
           <div class="col-2 align-self-center">
             <mat-icon>chevron_right</mat-icon>
@@ -68,12 +74,15 @@
       <mat-card routerLink="/accounts/dashboard" class="w-80 mb-4 c-pointer">
         <div class="row justify-content-between">
           <div class="col-10">
-            <mat-card-title>Notificacion 1</mat-card-title>
-            <mat-card-content
-              >La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá
-              el 23 noviembre 2021 a las 13:35 hrs.</mat-card-content
-            >
-            <mat-card-footer>Hace 2 min</mat-card-footer>
+            <mat-card-title>{{
+              contentLabels + "notifications.card1-title" | translate
+            }}</mat-card-title>
+            <mat-card-content>{{
+              contentLabels + "notifications.card1-content" | translate
+            }}</mat-card-content>
+            <mat-card-footer>{{
+              contentLabels + "notifications.card1-footer" | translate
+            }}</mat-card-footer>
           </div>
           <div class="col-2 align-self-center">
             <mat-icon>chevron_right</mat-icon>
