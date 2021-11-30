@@ -16,6 +16,7 @@ import { HeaderDetailComponent } from './header-detail/header-detail.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { HeaderActionsComponent } from './header-actions/header-actions.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     SidenavComponent,
     TableComponent,
     HeaderDetailComponent,
+    HeaderActionsComponent,
   ],
   exports: [
     NavbarComponent,
     SidenavComponent,
     TableComponent,
     HeaderDetailComponent,
+    HeaderActionsComponent,
   ],
   imports: [
     CommonModule,
