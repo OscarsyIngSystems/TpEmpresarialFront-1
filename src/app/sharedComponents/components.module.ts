@@ -13,7 +13,6 @@ import { TableComponent } from './table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 import { HeaderDetailComponent } from './header-detail/header-detail.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
@@ -22,14 +21,12 @@ import { HeaderActionsComponent } from './header-actions/header-actions.componen
 @NgModule({
   declarations: [
     NavbarComponent,
-    SidenavComponent,
     TableComponent,
     HeaderDetailComponent,
     HeaderActionsComponent,
   ],
   exports: [
     NavbarComponent,
-    SidenavComponent,
     TableComponent,
     HeaderDetailComponent,
     HeaderActionsComponent,

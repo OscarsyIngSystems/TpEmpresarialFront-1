@@ -40,9 +40,9 @@
         "colum7": "Tipo de registro de cuenta"
       }
     },
-    "account-detail-oportunity":{
-      "title":"Oportunidades",
-      "table":{
+    "account-detail-oportunity": {
+      "title": "Oportunidades",
+      "table": {
         "colum1": "Nº",
         "colum2": "Nombre de la oportunidad",
         "colum3": "Numero de oportunidad",
@@ -50,6 +50,12 @@
         "colum5": "Importe"
       }
     },
-    "accounts-opportunities": {}
+    "accounts-opportunities": {},
+    "dialogs-opportunities": {
+      "p-text1": "La oportunidad",
+      "p-text2": "se creó exitosamente",
+      "btn-cancel": "Cerrar",
+      "btn-ok": "Crear cotización"
+    }
   }
 }
