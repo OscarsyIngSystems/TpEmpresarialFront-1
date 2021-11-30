@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-layaut-quotes',
@@ -6,13 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layaut-quotes.component.scss'],
 })
 export class LayautQuotesComponent implements OnInit {
-  public open: boolean = false;
+  @ViewChild('drawerRight') right!: MatSidenav;
+  @ViewChild('drawer') drawer!: MatSidenav;
+  hasBackdrop = true;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  public toggle(): void {
-    this.open = !this.open;
+  public toggleRight(event: boolean): void {
+    this.hasBackdrop = event;
+    this.right.toggle();
+  }
+  public toggle(event: boolean): void {
+    this.hasBackdrop = event;
+    this.drawer.toggle();
   }
 }

@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [LayautQuotesComponent, QuotesListComponent],
@@ -24,6 +25,7 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatTableModule,
     MatListModule,
+    MatCardModule,
   ],
 })
 export class QuotesModule {}
