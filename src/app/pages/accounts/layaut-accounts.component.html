@@ -1,33 +1,90 @@
-<mat-sidenav-container class="sidenav-container" autosize>
-  <!-- mat-drawer -->
-  <!-- <app-sidenav [toggle]="open"></app-sidenav> -->
-  <mat-sidenav #drawer class="drawer-sidenav" mode="over" style="width: 300px">
+<mat-sidenav-container
+  class="drawer-container"
+  autosize
+  [hasBackdrop]="hasBackdrop"
+>
+  <!-- Menu -->
+  <mat-sidenav #drawer class="drawer-sidenav" mode="over" autoFocus="false">
     <div class="container-menu">
       <h1 class="mt-2 text-title text-bold">Menu</h1>
-      <mat-icon class="c-pointer" (click)="drawer.close()">close</mat-icon>
+      <mat-icon class="c-pointer" (click)="drawer.close(); drawerRight.close()"
+        >close</mat-icon
+      >
     </div>
     <mat-nav-list role="list">
       <mat-list-item
-        class="c-pointer"
+        class="c-pointer hover"
         routerLink="/accounts/dashboard"
         role="listitem"
-        (click)="drawer.close()"
+        (click)="drawer.close(); drawerRight.close()"
         >Dashboard</mat-list-item
       >
       <mat-list-item
         routerLink="/accounts"
         role="listitem"
-        class="c-pointer"
-        (click)="drawer.close()"
+        class="c-pointer hover"
+        (click)="drawer.close(); drawerRight.close()"
         >Cuentas</mat-list-item
       >
-      <mat-list-item role="listitem">Item 3</mat-list-item>
+      <mat-list-item class="c-pointer hover" role="listitem"
+        >Item 3</mat-list-item
+      >
     </mat-nav-list>
   </mat-sidenav>
-  <!-- mat drawer -->
+  <!-- End Menu -->
+
+  <!-- Notificaciones -->
+  <mat-sidenav
+    #drawerRight
+    class="drawer-sidenav"
+    mode="over"
+    autoFocus="false"
+    position="end"
+  >
+    <div class="container-menu">
+      <h1 class="mt-2 text-title text-bold">Notificaciones</h1>
+      <mat-icon class="c-pointer" (click)="drawerRight.close()">close</mat-icon>
+    </div>
+    <mat-nav-list role="list" class="m-2">
+      <mat-card routerLink="/accounts/dashboard" class="w-80 mb-4 c-pointer">
+        <div class="row justify-content-between">
+          <div class="col-10">
+            <mat-card-title>Notificacion 1</mat-card-title>
+            <mat-card-content
+              >La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá
+              el 23 noviembre 2021 a las 13:35 hrs.</mat-card-content
+            >
+            <mat-card-footer>Hace 2 min</mat-card-footer>
+          </div>
+          <div class="col-2 align-self-center">
+            <mat-icon>chevron_right</mat-icon>
+          </div>
+        </div>
+      </mat-card>
+      <mat-card routerLink="/accounts/dashboard" class="w-80 mb-4 c-pointer">
+        <div class="row justify-content-between">
+          <div class="col-10">
+            <mat-card-title>Notificacion 1</mat-card-title>
+            <mat-card-content
+              >La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá
+              el 23 noviembre 2021 a las 13:35 hrs.</mat-card-content
+            >
+            <mat-card-footer>Hace 2 min</mat-card-footer>
+          </div>
+          <div class="col-2 align-self-center">
+            <mat-icon>chevron_right</mat-icon>
+          </div>
+        </div>
+      </mat-card>
+    </mat-nav-list>
+  </mat-sidenav>
+  <!-- End Notificaciones -->
 
   <mat-sidenav-content>
-    <app-navbar (emiter)="drawer.toggle()"></app-navbar>
+    <app-navbar
+      (emiterRight)="toggleRight($event)"
+      (emiter)="toggle($event)"
+    ></app-navbar>
     <div class="drawer-secondary-container">
       <router-outlet></router-outlet>
     </div>

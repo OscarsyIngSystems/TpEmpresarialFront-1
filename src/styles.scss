@@ -14,6 +14,9 @@ $color-hover-secondary: rgba(236, 77, 152, 0.1);
 $color-active-secondary: rgba(236, 77, 152, 0.3);
 $color-black: black;
 $color-light-gray: #f8f9fd;
+$color-sents-button: #8246af;
+$color-in-proccess-button: #2e94f7;
+$color-closed-button: #09c47c;
 
 @import "~@angular/material/theming";
 
@@ -25,7 +28,6 @@ $custom-typography: mat-typography-config(
 
 @include angular-material-typography($custom-typography);
 
-//class font size
 .tx-12 {
   font-size: 12px;
 }
@@ -66,48 +68,7 @@ body {
 .text-subtitle {
   font-size: 18px;
   color: $color-secondary;
-} /*
-.table-am {
-  .mat-row:nth-child(even) {
-    background-color: $color-light-gray;
-  }
-
-  .mat-row:nth-child(odd) {
-    background-color: $color-white;
-  }
-
-  td,
-  th {
-    border: none !important;
-    padding: 5px !important;
-  }
-  tr.mat-row,
-  tr.mat-header-row {
-    height: 0 !important;
-  }
-
-  .mat-cell {
-    font-size: 12px;
-  }
-
-  width: 100%;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
 }
-body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: $monserrat-font;
-}
-
-.warn-btn {
-  color: $color-secondary;
-  line-height: 0;
-}
- */
 
 table {
   width: 100%;
@@ -217,3 +178,31 @@ td.mat-footer-cell {
 .c-pointer {
   cursor: pointer;
 }
+
+.hover:hover {
+  background-color: $color-hover-secondary !important;
+}
+//#region Sidenav/
+
+.drawer-container {
+  width: 100%;
+  height: 100vh;
+  background-color: $color-body;
+}
+
+.drawer-sidenav {
+  padding: 20px;
+  width: 300px;
+}
+
+.drawer-secondary-container {
+  padding: 20px;
+}
+
+.container-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//#endregion Sidenav/

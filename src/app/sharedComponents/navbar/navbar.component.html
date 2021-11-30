@@ -17,13 +17,18 @@
       aria-label="Buscar Cuenta u oportunidad"
       aria-describedby="basic-addon2"
       matInput
-           [formControl]="searchData"
-           [matAutocomplete]="auto"
-           (keydown.enter)="search()"
-    >
+      [formControl]="searchData"
+      [matAutocomplete]="auto"
+      (keydown.enter)="search()"
+    />
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option (click)="setSearchId(option.id)" *ngFor="let option of filteredOptions | async" [value]="option.name+' '+option.location+' '+option.type">
-        {{option.name}} {{option.location}} <small class="small-type">{{option.type}}</small>
+      <mat-option
+        (click)="setSearchId(option.id)"
+        *ngFor="let option of filteredOptions | async"
+        [value]="option.name + ' ' + option.location + ' ' + option.type"
+      >
+        {{ option.name }} {{ option.location }}
+        <small class="small-type">{{ option.type }}</small>
       </mat-option>
     </mat-autocomplete>
 
@@ -54,7 +59,11 @@
       <span>{{ country.country }}</span>
     </button>
   </mat-menu>
-  <button class="btn-notifications me-4 px-2" mat-raised-button>
+  <button
+    (click)="displayNotification()"
+    class="btn-notifications me-4 px-2"
+    mat-raised-button
+  >
     <span
       class="
         position-absolute

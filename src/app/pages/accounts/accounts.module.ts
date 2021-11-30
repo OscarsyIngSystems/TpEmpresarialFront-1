@@ -27,6 +27,7 @@ import { OportunitiesComponent } from './components/oportunities/oportunities.co
 import { CellIndicatorsComponent } from './components/cell-indicators/cell-indicators.component';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -62,6 +63,7 @@ export function createTranslateLoader(http: HttpClient): any {
     MatButtonModule,
     MatListModule,
     MatCheckboxModule,
+    MatSelectModule,
   ],
 })
 export class AccountsModule {}

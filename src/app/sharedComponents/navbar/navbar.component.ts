@@ -15,7 +15,9 @@ import { FormControl } from '@angular/forms';
 })
 export class NavbarComponent {
   @Output() emiter = new EventEmitter();
+  @Output() emiterRight = new EventEmitter();
 
+  hasBackdrop = true;
   user!: User;
   lang: Language = JSON.parse(JSON.stringify(localStorage.getItem('lang')));
   countries: Language[] = LANGS;
@@ -83,9 +85,13 @@ export class NavbarComponent {
   }
 
   public displayMenu(): void {
-    this.emiter.emit(true);
+    this.hasBackdrop = true;
+    this.emiter.emit(this.hasBackdrop);
   }
-
+  public displayNotification(): void {
+    this.hasBackdrop = false;
+    this.emiterRight.emit(this.hasBackdrop);
+  }
   public getInitials(): string {
     return this.user.name.substr(0, 1) + ' ' + this.user.lastName.substr(0, 1);
   }

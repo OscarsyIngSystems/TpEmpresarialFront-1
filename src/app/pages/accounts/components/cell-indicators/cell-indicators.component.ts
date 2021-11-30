@@ -22,10 +22,12 @@ export class CellIndicatorsComponent implements OnInit {
     colors: ['#7E84D0', '#0595FF', '#5E5A6A', '#7ED1CA', '#93C2CE', '#E5AB4E'],
     labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
     chartType: 'line',
-    width: 500,
-    height: 150,
+    width: 650,
+    height: 180,
     class: 'chart-container-line',
   };
+
+  public selected: string = '';
 
   constructor() {}
 
