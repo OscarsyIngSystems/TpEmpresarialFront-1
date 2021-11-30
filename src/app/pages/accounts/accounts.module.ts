@@ -28,6 +28,8 @@ import { CellIndicatorsComponent } from './components/cell-indicators/cell-indic
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
+import { DialogOportunitiesComponent } from './components/dialog-oportunities/dialog-oportunities.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,6 +46,7 @@ export function createTranslateLoader(http: HttpClient): any {
     VariablePaymentComponent,
     OportunitiesComponent,
     CellIndicatorsComponent,
+    DialogOportunitiesComponent,
   ],
   imports: [
     CommonModule,
@@ -64,6 +67,7 @@ export function createTranslateLoader(http: HttpClient): any {
     MatListModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatDialogModule,
   ],
 })
 export class AccountsModule {}

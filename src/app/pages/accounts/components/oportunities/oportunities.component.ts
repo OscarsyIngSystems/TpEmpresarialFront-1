@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartComponentOptions } from 'src/app/models/ChartOptions';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogOportunitiesComponent } from '../dialog-oportunities/dialog-oportunities.component';
 
 @Component({
   selector: 'app-oportunities',
@@ -22,10 +24,18 @@ export class OportunitiesComponent implements OnInit {
     chartType: 'doughnut',
     width: 150,
     height: 150,
-    class: 'chart-container shadow'
+    class: 'chart-container shadow',
   };
 
-  constructor() {}
+  name = '“Prueba de sistemas”';
 
-  ngOnInit(): void {}
+  constructor(public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    const dialogRef = this.dialog.open(DialogOportunitiesComponent, {
+      width: '393px',
+      height: '291px',
+      data: { name: this.name },
+    });
+  }
 }

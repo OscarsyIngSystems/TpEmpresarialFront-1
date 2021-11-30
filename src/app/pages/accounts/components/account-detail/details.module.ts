@@ -12,8 +12,10 @@ import { AccountInfoComponent } from './account-info/account-info.component';
 import { OportunityCreateComponent } from './oportunity-create/oportunity-create.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OportunityFormComponent } from './oportunity-form/oportunity-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AccountDetailComponent,
     AccountInfoComponent,
     OportunityCreateComponent,
+    OportunityFormComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
   ],
 })
 export class DetailsModule {}
