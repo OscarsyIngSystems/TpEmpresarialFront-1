@@ -8,16 +8,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AccountInfoComponent implements OnInit {
   public contentLabels = 'accounts.account-detail-oportunity.';
-  public principalData!: FormGroup;
+  public principalDataForm!: FormGroup;
+  public addressInformationForm!: FormGroup;
+  public descriptionForm!: FormGroup;
+  public systemInformationForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.initPrincipalData();
+    this.initPrincipalDataForm();
+    this.initAddressInformationForm();
+    this.initDescriptionForm();
+    this.initSystemInformationForm();
   }
 
   ngOnInit(): void {}
 
-  public initPrincipalData(): void {
-    this.principalData = this.fb.group({
+  public initPrincipalDataForm(): void {
+    this.principalDataForm = this.fb.group({
       type: ['', Validators.required],
       name: ['', Validators.required],
       account: ['', Validators.required],
@@ -36,6 +42,38 @@ export class AccountInfoComponent implements OnInit {
       size: ['', Validators.required],
       employees_amount: ['', Validators.required],
       isVip: ['', Validators.required],
+    });
+  }
+
+  public initAddressInformationForm(): void {
+    this.addressInformationForm = this.fb.group({
+      street: ['', Validators.required],
+      number: ['', Validators.required],
+      interior_number: ['', Validators.required],
+      town: ['', Validators.required],
+      map: ['', Validators.required],
+      account_registration_type: ['', Validators.required],
+      county: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      cp: ['', Validators.required],
+      employees_amount: ['', Validators.required],
+      geolocation: ['', Validators.required],
+    });
+  }
+
+  public initDescriptionForm(): void {
+    this.descriptionForm = this.fb.group({
+      description: [''],
+    });
+  }
+
+  public initSystemInformationForm(): void {
+    this.systemInformationForm = this.fb.group({
+      createdBy: ['', Validators.required],
+      originCRM: ['', Validators.required],
+      lastUpdatedBy: ['', Validators.required],
+      accountOwner: ['', Validators.required],
     });
   }
 }
