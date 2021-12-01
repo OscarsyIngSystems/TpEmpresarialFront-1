@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogOportunitiesComponent } from '../../dialog-oportunities/dialog-oportunities.component';
 
 @Component({
   selector: 'app-oportunity-form',
@@ -8,8 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class OportunityFormComponent implements OnInit {
   public oportunityForm: FormGroup;
+  name = '“Prueba de sistemas”';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {
     this.oportunityForm = this.fb.group({
       accountName: [''],
       closeDate: ['', Validators.required],
@@ -25,4 +28,12 @@ export class OportunityFormComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOportunitiesComponent, {
+      width: '393px',
+      height: '291px',
+      data: { name: this.name },
+    });
+  }
 }
