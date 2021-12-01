@@ -17,6 +17,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { HeaderActionsComponent } from './header-actions/header-actions.component';
+import { EmptyComponent } from './empty/empty.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +25,14 @@ import { HeaderActionsComponent } from './header-actions/header-actions.componen
     TableComponent,
     HeaderDetailComponent,
     HeaderActionsComponent,
+    EmptyComponent,
   ],
   exports: [
     NavbarComponent,
     TableComponent,
     HeaderDetailComponent,
     HeaderActionsComponent,
+    EmptyComponent,
   ],
   imports: [
     CommonModule,

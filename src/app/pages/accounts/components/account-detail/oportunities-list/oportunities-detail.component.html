@@ -1,4 +1,11 @@
 <app-header-actions [title]="'Oportunidades'" [hidenCreateOportunity]="false">
 </app-header-actions>
 <app-header-detail></app-header-detail>
-<app-table [tableProps]="tableProps"></app-table>
+<app-empty
+  *ngIf="tableProps.dataSource.length === 0"
+  message="No hay oportunidades guardadas para esta cuenta."
+></app-empty>
+<app-table
+  *ngIf="tableProps.dataSource.length > 0"
+  [tableProps]="tableProps"
+></app-table>
