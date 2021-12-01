@@ -24,15 +24,14 @@ export class AccountInfoComponent implements OnInit {
 
   public initPrincipalDataForm(): void {
     this.principalDataForm = this.fb.group({
-      type: ['', Validators.required],
-      name: ['', Validators.required],
-      account: ['', Validators.required],
-      account_type: ['', Validators.required],
-      account_id: ['', Validators.required],
-      rfc: ['', Validators.required],
-      reference: ['', Validators.required],
+      regime: ['', Validators.required],
+      account_name: ['', Validators.required],
       enterprise_name: ['', Validators.required],
+      main_account: ['', Validators.required],
+      tax_identification: ['', Validators.required],
       account_class: ['', Validators.required],
+      account_number: ['', Validators.required],
+      urban_reference: ['', Validators.required],
       billing_segment: ['', Validators.required],
       potencial_billing_amount: ['', Validators.required],
       segment: ['', Validators.required],
@@ -42,6 +41,7 @@ export class AccountInfoComponent implements OnInit {
       size: ['', Validators.required],
       employees_amount: ['', Validators.required],
       isVip: ['', Validators.required],
+      account_id: ['', Validators.required],
     });
   }
 
