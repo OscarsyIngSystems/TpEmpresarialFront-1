@@ -48,7 +48,8 @@
         "colum3": "Numero de oportunidad",
         "colum4": "Etapa",
         "colum5": "Importe"
-      }
+      },
+      "message-empty": "No hay oportunidades guardadas para esta cuenta."
     },
     "accounts-opportunities": {},
     "dialogs-opportunities": {

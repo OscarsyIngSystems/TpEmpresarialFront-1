@@ -3,7 +3,7 @@
 <app-header-detail></app-header-detail>
 <app-empty
   *ngIf="tableProps.dataSource.length === 0"
-  message="No hay oportunidades guardadas para esta cuenta."
+  message=" {{ contentLabels + 'message-empty' | translate }}"
 ></app-empty>
 <app-table
   *ngIf="tableProps.dataSource.length > 0"

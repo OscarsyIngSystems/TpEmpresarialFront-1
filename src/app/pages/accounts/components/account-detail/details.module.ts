@@ -1,6 +1,7 @@
 import { MatInputModule } from '@angular/material/input';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { DetailsRoutingModule } from './details-routing.module';
 import { OportunitiesDetailComponent } from './oportunities-list/oportunities-detail.component';
@@ -40,6 +41,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
     ReactiveFormsModule,
     FormsModule,
+    TranslateModule,
   ],
 })
 export class DetailsModule {}
