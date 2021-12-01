@@ -6,7 +6,7 @@
   <!-- Menu -->
   <mat-sidenav #drawer class="drawer-sidenav" mode="over" autoFocus="false">
     <div class="container-menu">
-      <h1 class="mt-2 text-title text-bold">
+      <h1 class="mt-2 text-title text-bold ps-2">
         {{ contentLabels + "menu.title" | translate }}
       </h1>
       <mat-icon class="c-pointer" (click)="drawer.close(); drawerRight.close()"
@@ -47,22 +47,25 @@
     position="end"
   >
     <div class="container-menu">
-      <h1 class="mt-2 text-title text-bold">
+      <h1 class="mt-2 text-title text-bold ps-2">
         {{ contentLabels + "notifications.title" | translate }}
       </h1>
       <mat-icon class="c-pointer" (click)="drawerRight.close()">close</mat-icon>
     </div>
     <mat-nav-list role="list" class="m-2">
-      <mat-card routerLink="/accounts/dashboard" class="w-80 mb-4 c-pointer">
+      <mat-card
+        routerLink="/accounts/dashboard"
+        class="w-80 mb-4 c-pointer matCard"
+      >
         <div class="row justify-content-between">
           <div class="col-10">
-            <mat-card-title>{{
+            <mat-card-title class="matCardTitle">{{
               contentLabels + "notifications.card1-title" | translate
             }}</mat-card-title>
-            <mat-card-content>{{
+            <mat-card-content class="matCardContent">{{
               contentLabels + "notifications.card1-content" | translate
             }}</mat-card-content>
-            <mat-card-footer>{{
+            <mat-card-footer class="matCardFooter ps-3">{{
               contentLabels + "notifications.card1-footer" | translate
             }}</mat-card-footer>
           </div>
@@ -71,16 +74,19 @@
           </div>
         </div>
       </mat-card>
-      <mat-card routerLink="/accounts/dashboard" class="w-80 mb-4 c-pointer">
+      <mat-card
+        routerLink="/accounts/dashboard"
+        class="w-80 mb-4 c-pointer matCard"
+      >
         <div class="row justify-content-between">
           <div class="col-10">
-            <mat-card-title>{{
+            <mat-card-title class="matCardTitle">{{
               contentLabels + "notifications.card1-title" | translate
             }}</mat-card-title>
-            <mat-card-content>{{
+            <mat-card-content class="matCardContent">{{
               contentLabels + "notifications.card1-content" | translate
             }}</mat-card-content>
-            <mat-card-footer>{{
+            <mat-card-footer class="matCardFooter ps-3">{{
               contentLabels + "notifications.card1-footer" | translate
             }}</mat-card-footer>
           </div>

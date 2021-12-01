@@ -38,6 +38,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class DetailsModule {}
