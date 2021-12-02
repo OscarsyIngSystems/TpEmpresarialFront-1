@@ -58,6 +58,12 @@
       "btn-cancel": "Cerrar",
       "btn-ok": "Crear cotización"
     },
+    "dialogs-quotes": {
+      "p-text1": "La cotización",
+      "p-text2": "se creó exitosamente",
+      "btn-cancel": "Cerrar",
+      "btn-ok": "Cargar sitios"
+    },
     "layaut-accounts": {
       "menu": {
         "title": "Menu",

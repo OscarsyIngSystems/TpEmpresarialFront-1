@@ -1,0 +1,55 @@
+@import "../../../../../styles.scss";
+
+::ng-deep .mat-dialog-container {
+  border-radius: 15px !important;
+}
+
+.matDialogQuotes {
+  display: grid;
+  flex-direction: row;
+  align-content: space-around;
+  height: 100%;
+  text-align: center;
+}
+.matDialogActions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.quotesName {
+  color: $color-secondary;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.textDialog {
+  color: $color-primary;
+  font-size: 20px;
+}
+
+.btn-cancel {
+  border-radius: 25px;
+  color: $color-black;
+  background-color: $color-white;
+  width: 160px;
+  height: 35px;
+  border: solid 1px $color-primary;
+  line-height: normal;
+  &:hover {
+    background-color: $color-white;
+  }
+}
+
+.btn-ok {
+  border-radius: 25px;
+  color: $color-white;
+  background-color: $color-primary;
+  width: 160px;
+  height: 35px;
+  border: solid 1px $color-primary;
+  line-height: normal;
+  &:hover {
+    background-color: $color-hover;
+  }
+}
