@@ -41,7 +41,7 @@ export class AccountInfoComponent implements OnInit {
       sector: ['', Validators.required],
       size: ['', Validators.required],
       employees_amount: ['', Validators.required],
-      isVip: ['', Validators.required],
+      isVip: [true, Validators.required],
       account_id: ['', Validators.required],
     });
   }

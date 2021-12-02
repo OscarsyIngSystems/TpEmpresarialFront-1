@@ -319,13 +319,20 @@
         </div>
 
         <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>VIP</mat-label>
-            <input matInput placeholder="Ingrese VIP" formControlName="isVip" />
+          <div class="w-100 h-100 py-3" appearance="fill">
+            <mat-label>VIP: </mat-label>
+            <ui-switch
+              class="ms-3"
+              matInput
+              formControlName="isVip"
+              uncheckedLabel="NO"
+              checkedLabel="SI "
+            ></ui-switch>
+            <!-- <input matInput placeholder="Ingrese VIP" formControlName="isVip" />
             <mat-error *ngIf="principalDataForm.controls.isVip.invalid"
               >Campo obligatorio</mat-error
-            >
-          </mat-form-field>
+            > -->
+          </div>
         </div>
 
         <div class="col-4 input-container">
