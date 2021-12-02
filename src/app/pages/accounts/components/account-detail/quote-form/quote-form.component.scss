@@ -55,3 +55,34 @@
   display: flex;
   justify-content: center;
 }
+
+.hld {
+  color: $color-secondary;
+}
+
+.btn-check-quoteType {
+  font-size: 12px;
+}
+
+//#region btn-check-sent
+.btn-check-quoteType {
+  border-color: $color-border !important;
+  color: $color-black !important;
+  box-shadow: none !important;
+}
+
+.btn-check-quoteType:hover {
+  background-color: $color-white !important;
+  color: $color-black !important;
+}
+
+.btn-check:checked + .btn-check-quoteType {
+  color: $color-white !important;
+  border-color: $color-secondary !important;
+  background-color: $color-secondary !important;
+}
+
+.btn-check:checked + .btn-check-quoteType:focus {
+  box-shadow: none !important;
+}
+//#endregion btn-check-sent
