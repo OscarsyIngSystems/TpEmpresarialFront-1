@@ -12,6 +12,7 @@ export class AccountInfoComponent implements OnInit {
   public addressInformationForm!: FormGroup;
   public descriptionForm!: FormGroup;
   public systemInformationForm!: FormGroup;
+  public segments!: any[];
 
   constructor(private fb: FormBuilder) {
     this.initPrincipalDataForm();
@@ -34,7 +35,7 @@ export class AccountInfoComponent implements OnInit {
       urban_reference: ['', Validators.required],
       billing_segment: ['', Validators.required],
       potencial_billing_amount: ['', Validators.required],
-      segment: ['', Validators.required],
+      segment: ['1', Validators.required],
       phone: ['', Validators.required],
       website: ['', Validators.required],
       sector: ['', Validators.required],
