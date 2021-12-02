@@ -30,6 +30,7 @@ export function createTranslateLoader(http: HttpClient): any {
     MatDialogModule,
     FormsModule,
     NgxSpinnerModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

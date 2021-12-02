@@ -1,15 +1,64 @@
 <div class="matDialogMassiveLoad">
-  <div mat-dialog-title>
-    <mat-icon (click)="onNoClick()">home</mat-icon>
+  <div mat-dialog-title class="d-flex justify-content-end">
+    <mat-icon class="c-pointer" (click)="onNoClick()">close</mat-icon>
   </div>
-  <div mat-dialog-content>
-    <p>Soy Drag and Drop</p>
-    <button class="btn-ok" mat-button cdkFocusInitial>Adjuntar archivo</button>
+
+  <div mat-dialog-content class="contentDrop">
+    <div>
+      <ngx-file-drop
+        dropZoneLabel="Drop files here"
+        (onFileDrop)="dropped($event)"
+        (onFileOver)="fileOver($event)"
+        (onFileLeave)="fileLeave($event)"
+      >
+        <ng-template
+          ngx-file-drop-content-tmp
+          let-openFileSelector="openFileSelector"
+        >
+          <div>
+            <div>
+              <img src="../../../../../assets/img/upload.png" alt="" />
+            </div>
+            <div class="textDrop">
+              Arrastra y suelta aquí la plantilla con los sitios del cliente
+              para iniciar la carga.
+            </div>
+            <p class="lineDrop textDrop">ó</p>
+            <div>
+              <button
+                class="btn-ok"
+                (click)="openFileSelector()"
+                mat-button
+                cdkFocusInitial
+              >
+                Adjuntar archivo
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </ngx-file-drop>
+      <!-- <div class="upload-table">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody class="upload-name-style">
+            <tr *ngFor="let item of files; let i = index">
+              <td>
+                <strong>{{ item.relativePath }}</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div> -->
+    </div>
   </div>
   <div class="matDialogActions" mat-dialog-actions>
-    <p>
-      Si no cuentas con la plantilla, <a>descárgalo aquí</a> y solicita a tu
-      cliente que la llene.
+    <p class="textDropActions">
+      Si no cuentas con la plantilla, <a href="#">descárgala aquí</a> y solicita
+      a tu cliente que la llene.
     </p>
   </div>
 </div>

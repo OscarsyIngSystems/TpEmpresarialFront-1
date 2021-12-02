@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartComponentOptions } from 'src/app/models/ChartOptions';
+import { DialogMassiveLoadSitesComponent } from '../dialog-massive-load-sites/dialog-massive-load-sites.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-oportunities',
@@ -24,7 +26,12 @@ export class OportunitiesComponent implements OnInit {
     height: 150,
     class: 'chart-container shadow',
   };
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const dialogRef = this.dialog.open(DialogMassiveLoadSitesComponent, {
+      width: '452px',
+      height: '355px',
+    });
+  }
 }

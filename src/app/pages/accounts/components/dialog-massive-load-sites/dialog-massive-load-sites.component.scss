@@ -4,7 +4,7 @@
   border-radius: 15px !important;
 }
 
-.matDialogmatDialogMassiveLoad {
+.matDialogMassiveLoad {
   display: grid;
   flex-direction: row;
   align-content: space-around;
@@ -27,5 +27,64 @@
   line-height: normal;
   &:hover {
     background-color: $color-hover;
+  }
+}
+
+.contentDrop {
+  height: 200px;
+}
+
+::ng-deep .ngx-file-drop__drop-zone {
+  background: #f7fafc !important;
+  border: 2px dotted #deefff !important;
+  height: 190px !important;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+}
+
+img {
+  width: 41.24px;
+  height: 29.05px;
+}
+
+.lineDrop {
+  position: relative;
+  &::before {
+    position: absolute;
+    top: 26px;
+    transform: translateX(-150%);
+    content: " ";
+    width: 50px;
+    height: 1px;
+    background-color: $color-placeholder;
+  }
+  &::after {
+    position: absolute;
+    top: 26px;
+    transform: translateX(50%);
+    content: " ";
+    width: 50px;
+    height: 1px;
+    background-color: $color-placeholder;
+  }
+}
+
+.textDrop {
+  color: $color-placeholder;
+  font-size: 16px;
+  padding-top: 15px;
+}
+
+.textDropActions {
+  color: $color-hover;
+  font-size: 16px;
+
+  a {
+    font-weight: bold;
+    color: $color-hover;
   }
 }
