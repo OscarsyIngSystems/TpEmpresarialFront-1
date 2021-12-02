@@ -48,7 +48,19 @@
         "colum3": "Numero de oportunidad",
         "colum4": "Etapa",
         "colum5": "Importe"
-      }
+      },
+      "message-empty": "No hay oportunidades guardadas para esta cuenta."
+    },
+    "account_detail_quotes":{
+        "title": "Cotizaciones",
+        "table": {
+        "colum1": "Nº",
+        "colum2": "Nombre de la cotizacion",
+        "colum3": "Folio cotizacion",
+        "colum4": "Total-Recurrente mensual",
+        "colum5": "Estatus"
+      },
+      "message-empty": "No hay oportunidades guardadas para esta cuenta."
     },
     "accounts-opportunities": {},
     "dialogs-opportunities": {
@@ -56,6 +68,12 @@
       "p-text2": "se creó exitosamente",
       "btn-cancel": "Cerrar",
       "btn-ok": "Crear cotización"
+    },
+    "dialogs-quotes": {
+      "p-text1": "La cotización",
+      "p-text2": "se creó exitosamente",
+      "btn-cancel": "Cerrar",
+      "btn-ok": "Cargar sitios"
     },
     "layaut-accounts": {
       "menu": {

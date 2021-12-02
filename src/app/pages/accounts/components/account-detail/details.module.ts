@@ -1,6 +1,7 @@
 import { MatInputModule } from '@angular/material/input';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { DetailsRoutingModule } from './details-routing.module';
 import { OportunitiesDetailComponent } from './oportunities-list/oportunities-detail.component';
@@ -16,6 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OportunityFormComponent } from './oportunity-form/oportunity-form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { QuotesListDeatilComponent } from './quotes-list/quotes-list.component';
+import { QuotesCreateComponent } from './quotes-create/quotes-create.component';
+import { QuoteFormComponent } from './quote-form/quote-form.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,9 @@ import { MatSelectModule } from '@angular/material/select';
     AccountInfoComponent,
     OportunityCreateComponent,
     OportunityFormComponent,
+    QuotesListDeatilComponent,
+    QuotesCreateComponent,
+    QuoteFormComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +47,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
     ReactiveFormsModule,
     FormsModule,
+    TranslateModule,
   ],
 })
 export class DetailsModule {}

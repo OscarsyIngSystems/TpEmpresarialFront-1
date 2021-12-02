@@ -24,7 +24,6 @@ export class OportunitiesComponent implements OnInit {
     height: 150,
     class: 'chart-container shadow',
   };
-
   constructor() {}
 
   ngOnInit(): void {}

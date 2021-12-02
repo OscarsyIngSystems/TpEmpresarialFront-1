@@ -30,6 +30,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { DialogOportunitiesComponent } from './components/dialog-oportunities/dialog-oportunities.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogQuotesComponent } from './components/dialog-quotes/dialog-quotes.component';
+import { DialogMassiveLoadSitesComponent } from './components/dialog-massive-load-sites/dialog-massive-load-sites.component';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,6 +49,8 @@ export function createTranslateLoader(http: HttpClient): any {
     OportunitiesComponent,
     CellIndicatorsComponent,
     DialogOportunitiesComponent,
+    DialogQuotesComponent,
+    DialogMassiveLoadSitesComponent,
   ],
   imports: [
     CommonModule,

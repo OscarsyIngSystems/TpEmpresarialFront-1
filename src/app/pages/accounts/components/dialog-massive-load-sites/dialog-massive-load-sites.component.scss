@@ -1,0 +1,31 @@
+@import "../../../../../styles.scss";
+
+::ng-deep .mat-dialog-container {
+  border-radius: 15px !important;
+}
+
+.matDialogmatDialogMassiveLoad {
+  display: grid;
+  flex-direction: row;
+  align-content: space-around;
+  height: 100%;
+  text-align: center;
+}
+.matDialogActions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-ok {
+  border-radius: 25px;
+  color: $color-white;
+  background-color: $color-primary;
+  width: 160px;
+  height: 35px;
+  border: solid 1px $color-primary;
+  line-height: normal;
+  &:hover {
+    background-color: $color-hover;
+  }
+}
