@@ -168,17 +168,79 @@
         </div>
 
         <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Segmento</mat-label>
+          <div class="w-100 h-100 py-3" appearance="fill">
+            <mat-label>Segmento: </mat-label>
             <input
-              matInput
-              placeholder="Ingrese Segmento"
               formControlName="segment"
+              id="segment1"
+              type="radio"
+              class="btn-check"
+              autocomplete="off"
+              value="1"
+              checked
             />
-            <mat-error *ngIf="principalDataForm.controls.segment.invalid"
-              >Campo obligatorio</mat-error
+            <label
+              id="btn-check-segment1"
+              for="segment1"
+              class="
+                btn btn-sm btn-outline-primary
+                ms-3
+                me-2
+                btn-check-segment
+                px-4
+              "
             >
-          </mat-form-field>
+              I
+            </label>
+
+            <input
+              formControlName="segment"
+              id="segment2"
+              type="radio"
+              class="btn-check"
+              autocomplete="off"
+              value="2"
+            />
+            <label
+              id="btn-check-segment2"
+              for="segment2"
+              class="btn btn-sm btn-outline-primary me-2 btn-check-segment px-4"
+            >
+              II
+            </label>
+
+            <input
+              formControlName="segment"
+              id="segment3"
+              type="radio"
+              class="btn-check"
+              autocomplete="off"
+              value="3"
+            />
+            <label
+              id="btn-check-segment3"
+              for="segment3"
+              class="btn btn-sm btn-outline-primary me-2 btn-check-segment px-4"
+            >
+              III
+            </label>
+
+            <input
+              formControlName="segment"
+              id="segment4"
+              type="radio"
+              class="btn-check"
+              autocomplete="off"
+              value="4"
+            />
+            <label
+              id="btn-check-segment4"
+              for="segment4"
+              class="btn btn-sm btn-outline-primary me-2 btn-check-segment px-4"
+            >
+              IV
+            </label>
+          </div>
         </div>
 
         <div class="col-4 input-container">
@@ -257,13 +319,20 @@
         </div>
 
         <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>VIP</mat-label>
-            <input matInput placeholder="Ingrese VIP" formControlName="isVip" />
+          <div class="w-100 h-100 py-3" appearance="fill">
+            <mat-label>VIP: </mat-label>
+            <ui-switch
+              class="ms-3"
+              matInput
+              formControlName="isVip"
+              uncheckedLabel="NO"
+              checkedLabel="SI "
+            ></ui-switch>
+            <!-- <input matInput placeholder="Ingrese VIP" formControlName="isVip" />
             <mat-error *ngIf="principalDataForm.controls.isVip.invalid"
               >Campo obligatorio</mat-error
-            >
-          </mat-form-field>
+            > -->
+          </div>
         </div>
 
         <div class="col-4 input-container">

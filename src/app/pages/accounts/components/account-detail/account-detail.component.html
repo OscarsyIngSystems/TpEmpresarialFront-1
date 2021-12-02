@@ -20,6 +20,7 @@
     routerLink="/accounts/detail/quotes"
     routerLinkActive="active"
     class="list-group-item"
+    [class]="currentUrl == '/accounts/detail/create-quote' ? 'active' : ''"
     [routerLinkActiveOptions]="{ exact: true }"
     ><i class="fas fa-shopping-bag"></i> Cotizaciones</a
   >

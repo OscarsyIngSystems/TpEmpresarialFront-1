@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogQuotesComponent } from '../../dialog-quotes/dialog-quotes.component';
 
@@ -9,8 +10,16 @@ import { DialogQuotesComponent } from '../../dialog-quotes/dialog-quotes.compone
 })
 export class QuoteFormComponent implements OnInit {
   name = '“COT7808232”';
+  form: FormGroup;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      quoteName: ['', Validators.required],
+      eps: ['', Validators.required],
+      reason: ['', Validators.required],
+      quoteType: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {}
 

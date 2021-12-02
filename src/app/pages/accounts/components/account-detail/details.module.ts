@@ -20,6 +20,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { QuotesListDeatilComponent } from './quotes-list/quotes-list.component';
 import { QuotesCreateComponent } from './quotes-create/quotes-create.component';
 import { QuoteFormComponent } from './quote-form/quote-form.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { QuoteFormComponent } from './quote-form/quote-form.component';
     ReactiveFormsModule,
     FormsModule,
     TranslateModule,
+    UiSwitchModule,
   ],
 })
 export class DetailsModule {}
