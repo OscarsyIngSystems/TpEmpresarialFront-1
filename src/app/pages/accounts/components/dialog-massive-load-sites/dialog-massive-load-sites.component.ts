@@ -12,6 +12,8 @@ import {
   styleUrls: ['./dialog-massive-load-sites.component.scss'],
 })
 export class DialogMassiveLoadSitesComponent implements OnInit {
+  public contentLabels = 'accounts.dialogs-massive-load.';
+
   constructor(
     public dialogRef: MatDialogRef<DialogMassiveLoadSitesComponent> // @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}

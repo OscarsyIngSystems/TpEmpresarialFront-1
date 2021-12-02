@@ -20,8 +20,7 @@
               <img src="../../../../../assets/img/upload.png" alt="" />
             </div>
             <div class="textDrop">
-              Arrastra y suelta aquí la plantilla con los sitios del cliente
-              para iniciar la carga.
+              {{ contentLabels + "p-text1" | translate }}
             </div>
             <p class="lineDrop textDrop">ó</p>
             <div>
@@ -31,34 +30,19 @@
                 mat-button
                 cdkFocusInitial
               >
-                Adjuntar archivo
+                {{ contentLabels + "btn-ok" | translate }}
               </button>
             </div>
           </div>
         </ng-template>
       </ngx-file-drop>
-      <!-- <div class="upload-table">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-            </tr>
-          </thead>
-          <tbody class="upload-name-style">
-            <tr *ngFor="let item of files; let i = index">
-              <td>
-                <strong>{{ item.relativePath }}</strong>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div> -->
     </div>
   </div>
   <div class="matDialogActions" mat-dialog-actions>
     <p class="textDropActions">
-      Si no cuentas con la plantilla, <a href="#">descárgala aquí</a> y solicita
-      a tu cliente que la llene.
+      {{ contentLabels + "p-text2" | translate }}
+      <a href="#">{{ contentLabels + "link" | translate }}</a
+      >{{ contentLabels + "p-text3" | translate }}
     </p>
   </div>
 </div>

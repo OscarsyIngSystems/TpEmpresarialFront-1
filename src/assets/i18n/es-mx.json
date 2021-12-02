@@ -51,9 +51,9 @@
       },
       "message-empty": "No hay oportunidades guardadas para esta cuenta."
     },
-    "account_detail_quotes":{
-        "title": "Cotizaciones",
-        "table": {
+    "account_detail_quotes": {
+      "title": "Cotizaciones",
+      "table": {
         "colum1": "Nº",
         "colum2": "Nombre de la cotizacion",
         "colum3": "Folio cotizacion",
@@ -74,6 +74,13 @@
       "p-text2": "se creó exitosamente",
       "btn-cancel": "Cerrar",
       "btn-ok": "Cargar sitios"
+    },
+    "dialogs-massive-load": {
+      "p-text1": "Arrastra y suelta aquí la plantilla con los sitios del cliente para iniciar la carga.",
+      "p-text2": "Si no cuentas con la plantilla, ",
+      "link": "descárgala aquí",
+      "p-text3": " y solicita a tu cliente que la llene.",
+      "btn-ok": "Adjuntar archivo"
     },
     "layaut-accounts": {
       "menu": {
