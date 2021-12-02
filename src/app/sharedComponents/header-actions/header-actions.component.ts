@@ -10,11 +10,13 @@ export class HeaderActionsComponent implements OnInit {
   @Input() title!: string;
   @Input() hidenCreateOportunity!: boolean;
   @Input() hasBackButton!: boolean;
+  @Input() buttonText!: string;
+  @Input() route!: string;
 
   constructor(private router: Router) {}
 
   newOportunity() {
-    this.router.navigate(['accounts/detail/create-oportunity']);
+    this.router.navigate([this.route]);
   }
 
   ngOnInit(): void {}

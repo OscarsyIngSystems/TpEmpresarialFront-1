@@ -1,14 +1,12 @@
 <app-header-actions
-  title="Oportunidades"
-  buttonText="Crear oportunidad"
-  route="accounts/detail/create-oportunity"
-  [hidenCreateOportunity]="false"
->
-</app-header-actions>
+  title="Cotizaciones"
+  buttonText="Crear cotizacion"
+  route="accounts/detail/create-quote"
+></app-header-actions>
 <app-header-detail></app-header-detail>
 <app-empty
+  message="No se encontraron cotizaciones"
   *ngIf="tableProps.dataSource.length === 0"
-  message=" {{ contentLabels + 'message-empty' | translate }}"
 ></app-empty>
 <app-table
   *ngIf="tableProps.dataSource.length > 0"
