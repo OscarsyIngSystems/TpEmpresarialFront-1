@@ -51,6 +51,17 @@
       },
       "message-empty": "No hay oportunidades guardadas para esta cuenta."
     },
+    "account_detail_quotes":{
+        "title": "Cotizaciones",
+        "table": {
+        "colum1": "Nº",
+        "colum2": "Nombre de la cotizacion",
+        "colum3": "Folio cotizacion",
+        "colum4": "Total-Recurrente mensual",
+        "colum5": "Estatus"
+      },
+      "message-empty": "No hay oportunidades guardadas para esta cuenta."
+    },
     "accounts-opportunities": {},
     "dialogs-opportunities": {
       "p-text1": "La oportunidad",

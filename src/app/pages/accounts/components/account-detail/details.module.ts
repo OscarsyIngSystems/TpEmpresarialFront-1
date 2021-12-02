@@ -17,6 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OportunityFormComponent } from './oportunity-form/oportunity-form.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { QuotesListDeatilComponent } from './quotes-list/quotes-list.component';
+import { QuotesCreateComponent } from './quotes-create/quotes-create.component';
+import { QuoteFormComponent } from './quote-form/quote-form.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { MatSelectModule } from '@angular/material/select';
     AccountInfoComponent,
     OportunityCreateComponent,
     OportunityFormComponent,
+    QuotesListDeatilComponent,
+    QuotesCreateComponent,
+    QuoteFormComponent,
   ],
   imports: [
     CommonModule,
