@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartComponentOptions } from 'src/app/models/ChartOptions';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogQuotesComponent } from '../dialog-quotes/dialog-quotes.component';
 
 @Component({
   selector: 'app-oportunities',
@@ -26,14 +24,7 @@ export class OportunitiesComponent implements OnInit {
     height: 150,
     class: 'chart-container shadow',
   };
-  name = '“COT7808232”';
-  constructor(public dialog: MatDialog) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    const dialogRef = this.dialog.open(DialogQuotesComponent, {
-      width: '393px',
-      height: '291px',
-      data: { name: this.name },
-    });
-  }
+  ngOnInit(): void {}
 }
