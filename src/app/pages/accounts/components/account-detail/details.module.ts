@@ -21,6 +21,9 @@ import { QuotesListDeatilComponent } from './quotes-list/quotes-list.component';
 import { QuotesCreateComponent } from './quotes-create/quotes-create.component';
 import { QuoteFormComponent } from './quote-form/quote-form.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
+import { LoadSitesComponent } from './load-sites/load-sites.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     QuotesListDeatilComponent,
     QuotesCreateComponent,
     QuoteFormComponent,
+    LoadSitesComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +54,8 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     FormsModule,
     TranslateModule,
     UiSwitchModule,
+    MatAutocompleteModule,
+    MatListModule,
   ],
 })
 export class DetailsModule {}

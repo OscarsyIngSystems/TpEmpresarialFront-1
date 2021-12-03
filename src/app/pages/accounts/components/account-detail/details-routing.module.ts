@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountDetailComponent } from './account-detail.component';
 import { AccountInfoComponent } from './account-info/account-info.component';
+import { LoadSitesComponent } from './load-sites/load-sites.component';
 import { OportunitiesDetailComponent } from './oportunities-list/oportunities-detail.component';
 import { OportunityCreateComponent } from './oportunity-create/oportunity-create.component';
 import { QuotesCreateComponent } from './quotes-create/quotes-create.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'create-quote',
         component: QuotesCreateComponent,
+      },
+      {
+        path: 'load-sites',
+        component: LoadSitesComponent,
       },
     ],
   },
