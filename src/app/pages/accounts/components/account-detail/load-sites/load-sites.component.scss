@@ -110,9 +110,11 @@ img {
 
 .icon-clear-search {
   background-color: $color-btn-clear;
-  width: 25px;
-  height: 25px;
+  font-size: 14px;
+  width: 18px;
+  height: 18px;
   border-radius: 50% !important;
+  line-height: 19px;
 }
 .btn-clear-search {
   background-color: $color-white;
