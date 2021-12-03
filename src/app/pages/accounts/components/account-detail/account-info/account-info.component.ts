@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
   selector: 'app-account-info',
@@ -13,6 +14,28 @@ export class AccountInfoComponent implements OnInit {
   public descriptionForm!: FormGroup;
   public systemInformationForm!: FormGroup;
   public segments!: any[];
+  infoDetail: Array<InfoDetail> = [
+    {
+      name: 'Nombre de la cuenta',
+      value: 'Audi CDMX',
+    },
+    {
+      name: 'ID',
+      value: '9898987',
+    },
+    {
+      name: 'Folio Cuenta',
+      value: 'CRM-00022445',
+    },
+    {
+      name: 'RFC',
+      value: 'HSP030709EA2',
+    },
+    {
+      name: 'Segmento',
+      value: 'I',
+    },
+  ];
 
   constructor(private fb: FormBuilder) {
     this.initPrincipalDataForm();

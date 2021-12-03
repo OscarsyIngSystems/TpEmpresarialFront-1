@@ -5,7 +5,7 @@
   [hidenCreateOportunity]="false"
 >
 </app-header-actions>
-<app-header-detail></app-header-detail>
+<app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 <app-empty
   *ngIf="tableProps.dataSource.length === 0"
   message=" {{ contentLabels + 'message-empty' | translate }}"

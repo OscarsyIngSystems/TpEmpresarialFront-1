@@ -3,7 +3,7 @@
   buttonText="Crear cotizacion"
   route="accounts/detail/create-quote"
 ></app-header-actions>
-<app-header-detail></app-header-detail>
+<app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 <app-empty
   message="No se encontraron cotizaciones"
   *ngIf="tableProps.dataSource.length === 0"
