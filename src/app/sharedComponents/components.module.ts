@@ -18,6 +18,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { HeaderActionsComponent } from './header-actions/header-actions.component';
 import { EmptyComponent } from './empty/empty.component';
+import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -26,6 +36,7 @@ import { EmptyComponent } from './empty/empty.component';
     HeaderDetailComponent,
     HeaderActionsComponent,
     EmptyComponent,
+    NavigationMenuComponent,
   ],
   exports: [
     NavbarComponent,
@@ -33,9 +44,8 @@ import { EmptyComponent } from './empty/empty.component';
     HeaderDetailComponent,
     HeaderActionsComponent,
     EmptyComponent,
-  ],
-  imports: [
-    CommonModule,
+    NavigationMenuComponent,
+
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -43,13 +53,44 @@ import { EmptyComponent } from './empty/empty.component';
     MatBadgeModule,
     MatDividerModule,
     MatAutocompleteModule,
+    MatTableModule,
+    MatListModule,
+    MatInputModule,
+    MatDialogModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatSidenavModule,
+  ],
+  imports: [
+    CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTableModule,
     TranslateModule,
-    MatListModule,
-    MatSidenavModule,
     RouterModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatDividerModule,
+    MatAutocompleteModule,
+    MatTableModule,
+    MatListModule,
+    MatInputModule,
+    MatDialogModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatSidenavModule,
   ],
 })
 export class ComponentsModule {}

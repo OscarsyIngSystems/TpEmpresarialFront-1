@@ -1,3 +1,4 @@
+import { NavigationStart, Router } from '@angular/router';
 import { Sale } from './../../models/Sale';
 import { Observable } from 'rxjs';
 import { Component, EventEmitter, Output } from '@angular/core';
@@ -35,8 +36,9 @@ export class NavbarComponent {
   ];
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
+  currentUrl = '';
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private router: Router) {
     const lang = localStorage.getItem('lang');
     if (lang) {
       this.lang = JSON.parse(lang);
@@ -53,7 +55,16 @@ export class NavbarComponent {
       lastName: 'Cruz',
     };
 
-    this.loadOptions();
+    this.loadOptions(); // se encarga de mapear las opciones del autocomplete
+    this.showHide(); // se encarga de mostrar u ocultar la barra
+  }
+
+  private showHide(): void {
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationStart) {
+        this.currentUrl = event.url;
+      }
+    });
   }
 
   public search(): void {

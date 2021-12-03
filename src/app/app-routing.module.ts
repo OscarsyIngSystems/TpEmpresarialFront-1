@@ -1,3 +1,4 @@
+import { DashboardComponent } from './pages/accounts/components/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
@@ -16,6 +17,10 @@ const routes: Routes = [
     path: 'accounts',
     loadChildren: () =>
       import('./pages/accounts/accounts.module').then((m) => m.AccountsModule),
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
   },
   {
     path: 'quotes',

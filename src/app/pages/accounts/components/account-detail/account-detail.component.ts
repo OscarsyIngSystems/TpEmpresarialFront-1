@@ -7,15 +7,7 @@ import { NavigationStart, Router } from '@angular/router';
   styleUrls: ['./account-detail.component.scss'],
 })
 export class AccountDetailComponent implements OnInit {
-  currentUrl = '';
-  constructor(private router: Router) {
-    this.currentUrl = router.url;
-    this.router.events.subscribe((event: any) => {
-      if (event instanceof NavigationStart) {
-        this.currentUrl = event.url;
-      }
-    });
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 }

@@ -1,0 +1,48 @@
+<div class="list-group">
+  <a
+    routerLink="/accounts/detail"
+    routerLinkActive="active"
+    class="list-group-item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><i class="far fa-calendar-times"></i> Cuentas</a
+  >
+
+  <a
+    [routerLink]="['/accounts/detail/oportunities']"
+    routerLinkActive="active"
+    [class]="currentUrl == '/accounts/detail/create-oportunity' ? 'active' : ''"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="list-group-item"
+    ><i class="fas fa-tachometer-alt"></i> Oportunidades</a
+  >
+
+  <a
+    routerLink="/accounts/detail/quotes"
+    routerLinkActive="active"
+    class="list-group-item"
+    [class]="currentUrl == '/accounts/detail/create-quote' ? 'active' : ''"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><i class="fas fa-shopping-bag"></i> Cotizaciones</a
+  >
+  <a
+    routerLink="#"
+    routerLinkActive="active"
+    class="list-group-item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><i class="fas fa-stream"></i> Carga de sitios</a
+  >
+  <a
+    routerLink="#"
+    routerLinkActive="active"
+    class="list-group-item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><i class="fas fa-chart-pie"></i> Propuesta</a
+  >
+  <a
+    routerLink="#"
+    routerLinkActive="active"
+    class="list-group-item"
+    [routerLinkActiveOptions]="{ exact: true }"
+    ><i class="fas fa-receipt"></i> Descuentos</a
+  >
+</div>

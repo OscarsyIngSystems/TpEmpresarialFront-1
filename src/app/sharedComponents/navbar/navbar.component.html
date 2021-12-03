@@ -1,4 +1,4 @@
-<mat-toolbar class="shadow-sm">
+<mat-toolbar *ngIf="currentUrl !== '/login'" class="shadow-sm">
   <div class="btn-menu">
     <button (click)="displayMenu()" mat-icon-button>
       <mat-icon>menu</mat-icon>

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       this.loginForm.value.password === '12345'
     ) {
       setTimeout(() => {
-        this.router.navigate(['/accounts/dashboard']);
+        this.router.navigate(['/dashboard']);
         this.spinner.hide();
       }, 2000);
     } else {
