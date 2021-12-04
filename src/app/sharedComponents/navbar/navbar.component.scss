@@ -9,7 +9,7 @@ mat-toolbar {
   background-color: $color-body;
   position: sticky;
   top: 0;
-  z-index: 2000;
+  z-index: 5;
 }
 
 mat-toolbar img {
@@ -31,6 +31,29 @@ mat-toolbar img {
   background-size: cover;
   background-color: $color-body;
 }
+
+.input-group {
+  border-radius: 25px;
+}
+
+.small-type {
+  color: $color-placeholder;
+}
+
+.mat-option:hover:not(.mat-option-disabled),
+.mat-option:focus:not(.mat-option-disabled) {
+  background: rgba(236, 77, 152, 0.1);
+}
+
+.mat-option.mat-active {
+  background: $color-white;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+//#region search bar
 
 .search-bar {
   border-radius: 25px;
@@ -62,15 +85,13 @@ mat-toolbar img {
 .search-icon {
   color: $color-placeholder;
 }
-.input-group {
-  border-radius: 25px;
-}
 
-.small-type{
+.small-type {
   color: $color-placeholder;
 }
 
-.mat-option:hover:not(.mat-option-disabled), .mat-option:focus:not(.mat-option-disabled) {
+.mat-option:hover:not(.mat-option-disabled),
+.mat-option:focus:not(.mat-option-disabled) {
   background: rgba(236, 77, 152, 0.1);
 }
 
@@ -81,3 +102,17 @@ mat-toolbar img {
 .form-control:focus {
   box-shadow: none !important;
 }
+
+.icon-clear-search {
+  background-color: $color-btn-clear;
+  font-size: 14px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50% !important;
+  line-height: 19px;
+}
+.btn-clear-search {
+  background-color: $color-white;
+}
+
+//#endregion search bar

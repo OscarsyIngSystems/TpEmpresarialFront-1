@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { NavigationStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -7,8 +9,13 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  public contentLabels = 'accounts.layaut-accounts.';
+  @ViewChild('drawerRight') right!: MatSidenav;
+  @ViewChild('drawer') drawer!: MatSidenav;
+  hasBackdrop = true;
+  currentUrl = '';
   title = 'TpEmpresarialFront';
-  constructor(translate: TranslateService) {
+  constructor(translate: TranslateService, private router: Router) {
     let lang = JSON.parse(JSON.stringify(localStorage.getItem('lang')));
 
     lang = JSON.parse(lang);
@@ -22,5 +29,33 @@ export class AppComponent {
     } else {
       translate.use('es-mx');
     }
+
+    this.showHide();
+  }
+
+  public toggleRight(event: boolean): void {
+    this.hasBackdrop = event;
+    this.right.toggle();
+  }
+  public toggle(event: boolean): void {
+    this.hasBackdrop = event;
+    this.drawer.toggle();
+  }
+
+  public show(): boolean {
+    const blacklist = ['/login', '/'];
+    return blacklist.includes(this.currentUrl);
+  }
+
+  private async showHide(): Promise<any> {
+    this.currentUrl = this.router.url;
+    console.log(this.currentUrl);
+
+    await this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationStart) {
+        this.currentUrl = event.url;
+        console.log(this.currentUrl);
+      }
+    });
   }
 }

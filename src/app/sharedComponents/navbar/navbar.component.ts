@@ -59,10 +59,19 @@ export class NavbarComponent {
     this.showHide(); // se encarga de mostrar u ocultar la barra
   }
 
-  private showHide(): void {
-    this.router.events.subscribe((event: any) => {
+  public show(): boolean {
+    const blacklist = ['/login', '/'];
+    return blacklist.includes(this.currentUrl);
+  }
+
+  private async showHide(): Promise<any> {
+    this.currentUrl = this.router.url;
+    console.log(this.currentUrl);
+
+    await this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationStart) {
         this.currentUrl = event.url;
+        console.log(this.currentUrl);
       }
     });
   }
@@ -118,5 +127,12 @@ export class NavbarComponent {
     localStorage.setItem('lang', JSON.stringify(language));
     this.translate.use(language.code);
     this.countryFlag = language.img;
+  }
+
+  public clearSearch(): void {
+    console.log(this.searchData);
+
+    this.selectedIdOption = 0;
+    this.searchData.setValue('');
   }
 }

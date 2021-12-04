@@ -17,6 +17,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
 import { LoadSitesComponent } from './load-sites/load-sites.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,6 @@ import { MatListModule } from '@angular/material/list';
     FormsModule,
     TranslateModule,
     UiSwitchModule,
-    MatAutocompleteModule,
-    MatListModule,
   ],
 })
 export class DetailsModule {}

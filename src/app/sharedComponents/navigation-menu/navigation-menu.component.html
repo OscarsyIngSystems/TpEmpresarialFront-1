@@ -1,4 +1,4 @@
-<div class="list-group">
+<div class="list-group" *ngIf="!show()">
   <a
     routerLink="/accounts/detail"
     routerLinkActive="active"
@@ -25,7 +25,7 @@
     ><i class="fas fa-shopping-bag"></i> Cotizaciones</a
   >
   <a
-    routerLink="#"
+    routerLink="/accounts/detail/load-sites"
     routerLinkActive="active"
     class="list-group-item"
     [routerLinkActiveOptions]="{ exact: true }"

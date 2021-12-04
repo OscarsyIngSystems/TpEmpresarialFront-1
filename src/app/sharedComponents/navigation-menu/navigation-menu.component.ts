@@ -9,13 +9,25 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationMenuComponent implements OnInit {
   currentUrl = '';
   constructor(private router: Router) {
-    this.currentUrl = router.url;
-    this.router.events.subscribe((event: any) => {
-      if (event instanceof NavigationStart) {
-        this.currentUrl = event.url;
-      }
-    });
+    this.showHide();
   }
 
   ngOnInit(): void {}
+
+  public show(): boolean {
+    const blacklist = ['/login', '/'];
+    return blacklist.includes(this.currentUrl);
+  }
+
+  private async showHide(): Promise<any> {
+    this.currentUrl = this.router.url;
+    console.log(this.currentUrl);
+
+    await this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationStart) {
+        this.currentUrl = event.url;
+        console.log(this.currentUrl);
+      }
+    });
+  }
 }

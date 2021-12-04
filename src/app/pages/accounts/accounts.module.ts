@@ -21,6 +21,7 @@ import { DialogOportunitiesComponent } from './components/dialog-oportunities/di
 import { DialogQuotesComponent } from './components/dialog-quotes/dialog-quotes.component';
 import { DialogMassiveLoadSitesComponent } from './components/dialog-massive-load-sites/dialog-massive-load-sites.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { MatInputModule } from '@angular/material/input';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

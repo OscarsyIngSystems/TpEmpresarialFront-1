@@ -1,0 +1,26 @@
+@import "../styles.scss";
+
+.active {
+  border-left: solid 5px $color-secondary;
+}
+
+.matCard {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.matCardTitle {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.matCardContent {
+  font-size: 12px;
+  margin-bottom: 5px !important;
+}
+
+.matCardFooter {
+  font-size: 8px;
+  color: $color-placeholder;
+}
