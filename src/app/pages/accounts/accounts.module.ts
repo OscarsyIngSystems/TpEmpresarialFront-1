@@ -51,6 +51,7 @@ export function createTranslateLoader(http: HttpClient): any {
     ReactiveFormsModule,
     FormsModule,
     NgxFileDropModule,
+    MatInputModule,
   ],
 })
 export class AccountsModule {}

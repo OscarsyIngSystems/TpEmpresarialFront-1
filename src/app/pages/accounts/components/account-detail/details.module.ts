@@ -39,6 +39,7 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     TranslateModule,
     UiSwitchModule,
+    MatInputModule,
   ],
 })
 export class DetailsModule {}
