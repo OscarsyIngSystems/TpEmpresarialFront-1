@@ -3,7 +3,45 @@
     {{ contentLabels + "title" | translate }}
   </h1>
 </div>
-<table
+
+<div class="row">
+  <div class="col-4">
+    <select (change)="lengthChange()" name="length">
+      <option *ngFor="let l of lengthMenu" [value]="l">{{ l }}</option>
+    </select>
+  </div>
+  <div class="col-4">Buscar</div>
+  <div class="col-4">
+    <select></select
+    >>
+  </div>
+</div>
+<table id="dataTable" datatable [dtOptions]="dtOptions" class="row-border">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Nombre de cuenta</th>
+      <th>Folio de la cuenta</th>
+      <th>RFC</th>
+      <th>Segmento</th>
+      <th>Telefono</th>
+      <th>Contacto principal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-element-row shadow-sm" *ngFor="let account of dataSource">
+      <td class="mat-cell ps-3">{{ account.numberList }}</td>
+      <td class="mat-cell">{{ account.accountName }}</td>
+      <td class="mat-cell">{{ account.id }}</td>
+      <td class="mat-cell">{{ account.identification }}</td>
+      <td class="mat-cell">{{ account.segment }}</td>
+      <td class="mat-cell">{{ account.phone }}</td>
+      <td class="mat-cell">{{ account.contact }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- <table
   mat-table
   [dataSource]="dataSource"
   multiTemplateDataRows
@@ -42,4 +80,4 @@
     *matRowDef="let row; columns: ['expandedDetail']"
     class="table-detail-row"
   ></tr>
-</table>
+</table> -->

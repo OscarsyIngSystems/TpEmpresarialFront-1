@@ -83,6 +83,8 @@ body {
 
 table {
   width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0 1em !important;
 }
 
 .mat-cell {
@@ -127,6 +129,22 @@ tr.table-element-row {
   }
 }
 
+table.dataTable.no-footer {
+  border-bottom: none;
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+  border-bottom: none;
+}
+
+table.dataTable.row-border tbody th,
+table.dataTable.row-border tbody td,
+table.dataTable.display tbody th,
+table.dataTable.display tbody td {
+  border-top: none !important;
+}
+
 tr.table-element-row:not(.table-expanded-row):hover {
   background: url(./assets/img/chevron-right.svg) no-repeat;
   background-position: 98.8% 50%;
@@ -160,6 +178,12 @@ td.mat-footer-cell {
   padding: 4px;
   border-bottom-width: 0px !important;
   border-bottom-style: solid !important;
+}
+
+div.dataTables_wrapper div.dataTables_length select {
+  background-color: white;
+  border-radius: 5px;
+  border: none;
 }
 //#endregion Table
 
@@ -244,3 +268,68 @@ td.mat-footer-cell {
 //   color: $color-border !important;
 //   background-color: $color-white !important;
 // }
+
+//#region dataTableSort
+
+table.dataTable > thead .sorting:after,
+table.dataTable > thead .sorting_asc:after,
+table.dataTable > thead .sorting_desc:after,
+table.dataTable > thead .sorting_asc_disabled:after,
+table.dataTable > thead .sorting_desc_disabled:after {
+  content: none;
+}
+
+table.dataTable > thead .sorting:before,
+table.dataTable > thead .sorting_asc:before,
+table.dataTable > thead .sorting_desc:before,
+table.dataTable > thead .sorting_asc_disabled:before,
+table.dataTable > thead .sorting_desc_disabled:before {
+  content: none;
+}
+
+div.dataTables_wrapper div.dataTables_length select {
+  width: 100px !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 5px !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background-color: transparent !important;
+  border: none !important;
+  background: none !important;
+}
+
+.page-link {
+  border-radius: 5px !important;
+  box-shadow: 5px;
+  box-shadow: 0 0.125rem 0.25rem rgba($color-black, 0.075) !important;
+  color: $color-black;
+  font-size: 12px !important;
+}
+
+.page-item:focus-visible {
+  outline: none !important;
+}
+
+.page-link:hover {
+  background-color: $color-hover-secondary !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+  box-shadow: none !important;
+  background: none !important;
+  background-color: none !important;
+}
+
+.page-item.active .page-link {
+  background-color: $color-primary !important;
+  border-color: $color-primary;
+}
+
+#DataTables_Table_0_wrapper .row:nth-child(3) {
+  display: block;
+}
+
+//#endregion dataTableSort
