@@ -1,21 +1,23 @@
-<div class="conteiner-btn-accounts">
+<div class="conteiner-btn-accounts pb-3">
   <h1 class="mt-2 text-title ps-4 text-bold">
     {{ contentLabels + "title" | translate }}
   </h1>
+
+  <select class="order-by small-shadow" name="" placeholder="Ordenar por">
+    <option value="0" selected="true" disabled>Ordenar por</option>
+    <option id="order" value="1">Recientes</option>
+    <option value="2">Ultimos 7 dias</option>
+    <option value="3">Ultimo mes</option>
+    <option value="4">Ultimos 6 meses</option>
+  </select>
 </div>
 
-<div class="row">
-  <div class="col-4">
-    <select (change)="lengthChange()" name="length">
-      <option *ngFor="let l of lengthMenu" [value]="l">{{ l }}</option>
-    </select>
-  </div>
-  <div class="col-4">Buscar</div>
-  <div class="col-4">
-    <select></select
-    >>
-  </div>
-</div>
+<select className="select" name="cars" id="cars">
+  <option className="op" value="volvo">Volvo</option>
+  <option className="op" value="volvo">Volvo</option>
+  <option className="op" value="volvo">Volvo</option>
+</select>
+
 <table id="dataTable" datatable [dtOptions]="dtOptions" class="row-border">
   <thead>
     <tr>

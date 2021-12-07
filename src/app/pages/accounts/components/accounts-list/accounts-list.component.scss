@@ -3,10 +3,34 @@
 .conteiner-btn-accounts {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .btn-home {
   background-color: $color-white;
   color: $color-black;
+}
+
+.order-by {
+  border-radius: 5px;
+  height: 30px;
+  width: 133px;
+  background-color: $color-white;
+  border: none;
+}
+
+#order:hover {
+  background: yellow !important;
+}
+
+select {
+  background-color: yellow;
+}
+
+option {
+  background-color: green;
+}
+
+option:checked {
+  background-color: lime;
 }
