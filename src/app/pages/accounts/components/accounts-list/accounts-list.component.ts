@@ -13110,6 +13110,7 @@ export class AccountsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.dtOptions = {
+      dom: '<"top"i><"clear"><"top"fl>rt<"bottom"p>',
       pagingType: 'full_numbers',
       language: {
         lengthMenu: 'Mostrar _MENU_',
@@ -13120,7 +13121,10 @@ export class AccountsListComponent implements OnInit {
           next: '',
           previous: '',
         },
-        info: '',
+        info: '_TOTAL_ cuentas',
+        infoFiltered: '',
+        zeroRecords: 'No se encontraron cuentas',
+        infoEmpty: '',
       },
       lengthMenu: this.lengthMenu,
     };

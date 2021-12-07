@@ -19,13 +19,7 @@
   border: none;
 }
 
-.order:hover {
-  background: $color-hover-secondary !important;
-}
-
-::ng-deep .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
-  background: $color-primary !important;
-  color: $color-white;
-}
-.select-container {
+#dataTable_length {
+  padding-left: 20px !important;
+  line-height: 4px !important;
 }
