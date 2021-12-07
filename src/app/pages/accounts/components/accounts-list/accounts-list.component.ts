@@ -13110,7 +13110,10 @@ export class AccountsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.dtOptions = {
-      dom: '<"top"i><"clear"><"top"fl>rt<"bottom"p>',
+      dom:
+        "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
+        "<'row'<'col-12'tr>>" +
+        "<'row'<'col-12 d-flex justify-content-center'p>>",
       pagingType: 'full_numbers',
       language: {
         lengthMenu: 'Mostrar _MENU_',
