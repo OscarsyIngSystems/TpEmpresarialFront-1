@@ -19,18 +19,13 @@
   border: none;
 }
 
-#order:hover {
-  background: yellow !important;
+.order:hover {
+  background: $color-hover-secondary !important;
 }
 
-select {
-  background-color: yellow;
+::ng-deep .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+  background: $color-primary !important;
+  color: $color-white;
 }
-
-option {
-  background-color: green;
-}
-
-option:checked {
-  background-color: lime;
+.select-container {
 }

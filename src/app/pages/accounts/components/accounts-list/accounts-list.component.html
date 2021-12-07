@@ -5,18 +5,24 @@
 
   <select class="order-by small-shadow" name="" placeholder="Ordenar por">
     <option value="0" selected="true" disabled>Ordenar por</option>
-    <option id="order" value="1">Recientes</option>
+    <option value="1">Recientes</option>
     <option value="2">Ultimos 7 dias</option>
     <option value="3">Ultimo mes</option>
     <option value="4">Ultimos 6 meses</option>
   </select>
-</div>
 
-<select className="select" name="cars" id="cars">
-  <option className="op" value="volvo">Volvo</option>
-  <option className="op" value="volvo">Volvo</option>
-  <option className="op" value="volvo">Volvo</option>
-</select>
+  <!--   <div class="select-container">
+    <mat-form-field class="order-by" appearance="outline">
+      <mat-label>Favorite food</mat-label>
+      <mat-select name="food">
+        <mat-option value="1" class="order">Recientes</mat-option>
+        <mat-option value="2" class="order">Ultimos 7 dias</mat-option>
+        <mat-option value="3" class="order">Ultimo mes</mat-option>
+        <mat-option value="4" class="order">Ultimos 6 meses</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div> -->
+</div>
 
 <table id="dataTable" datatable [dtOptions]="dtOptions" class="row-border">
   <thead>
