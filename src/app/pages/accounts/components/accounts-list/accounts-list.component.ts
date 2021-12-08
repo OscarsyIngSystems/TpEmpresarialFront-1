@@ -44,15 +44,6 @@ export class AccountsListComponent implements OnInit {
   public contentLabels = 'accounts.acounts-list.';
 
   dataSource = ELEMENT_DATA;
-  // columnsToDisplay = [
-  //   'numberList',
-  //   'id',
-  //   'accountName',
-  //   'identification',
-  //   'segment',
-  //   'phone',
-  //   'typeAccount',
-  // ];
 
   columnsShow = [
     {
@@ -87,36 +78,5 @@ export class AccountsListComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    // this.dtOptions = {
-    //   dom:
-    //     "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
-    //     "<'row'<'col-12'tr>>" +
-    //     "<'row'<'col-12 d-flex justify-content-center'p>>",
-    //   pagingType: 'full_numbers',
-    //   language: {
-    //     lengthMenu: 'Mostrar _MENU_',
-    //     search: 'Buscar',
-    //     paginate: {
-    //       first: '',
-    //       last: '',
-    //       next: '',
-    //       previous: '',
-    //     },
-    //     info: '_TOTAL_ cuentas',
-    //     infoFiltered: '',
-    //     zeroRecords: 'No se encontraron cuentas',
-    //     infoEmpty: '',
-    //   },
-    //   lengthMenu: this.lengthMenu,
-    // };
-    // console.log(this.dataTable);
-  }
-
-  /**
-   * lengthChange
-   */
-  // public lengthChange() {
-  //   console.log(this.dataTable);
-  // }
+  ngOnInit(): void {}
 }

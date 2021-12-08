@@ -11,6 +11,10 @@
     <option value="4">Ultimos 6 meses</option>
   </select>
 </div>
+<app-empty
+  message="No se encontraron cuentas"
+  *ngIf="dataSource.length === 0"
+></app-empty>
 <app-table-general
   [idTableShow]="1"
   [columns]="columnsShow"

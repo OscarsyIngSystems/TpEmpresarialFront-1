@@ -6,9 +6,11 @@
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 <app-empty
   message="No se encontraron cotizaciones"
-  *ngIf="tableProps.dataSource.length === 0"
+  *ngIf="dataSource.length === 0"
 ></app-empty>
-<app-table
-  *ngIf="tableProps.dataSource.length > 0"
-  [tableProps]="tableProps"
-></app-table>
+<app-table-general
+  *ngIf="dataSource.length > 0"
+  [dataSource]="dataSource"
+  [idTableShow]="3"
+  [columns]="columnsShow"
+></app-table-general>
