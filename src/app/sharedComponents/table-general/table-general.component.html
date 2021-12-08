@@ -1,0 +1,24 @@
+<table
+  *ngIf="idTableShow == 1"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border"
+>
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns">{{ col.columnName | translate }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-element-row shadow-sm" *ngFor="let account of dataSource">
+      <td class="mat-cell ps-3">{{ account.numberList }}</td>
+      <td class="mat-cell">{{ account.accountName }}</td>
+      <td class="mat-cell">{{ account.id }}</td>
+      <td class="mat-cell">{{ account.identification }}</td>
+      <td class="mat-cell">{{ account.segment }}</td>
+      <td class="mat-cell">{{ account.phone }}</td>
+      <td class="mat-cell">{{ account.contact }}</td>
+    </tr>
+  </tbody>
+</table>

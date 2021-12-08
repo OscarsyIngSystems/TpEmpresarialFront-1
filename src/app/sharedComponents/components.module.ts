@@ -28,6 +28,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { TableGeneralComponent } from './table-general/table-general.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     HeaderActionsComponent,
     EmptyComponent,
     NavigationMenuComponent,
+    TableGeneralComponent,
   ],
   exports: [
     NavbarComponent,
@@ -45,6 +48,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     HeaderActionsComponent,
     EmptyComponent,
     NavigationMenuComponent,
+    TableGeneralComponent,
+    DataTablesModule,
 
     MatToolbarModule,
     MatIconModule,
@@ -91,6 +96,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSelectModule,
     MatExpansionModule,
     MatSidenavModule,
+    DataTablesModule,
   ],
 })
 export class ComponentsModule {}

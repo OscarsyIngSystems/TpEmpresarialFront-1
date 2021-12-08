@@ -1,9 +1,10 @@
 export interface Account {
-  numberLine: number;
+  numberList: number;
   id: number;
   accountName: string;
   identification: string;
   segment: string;
   phone: string;
   typeAccount: string;
+  contact: string;
 }
