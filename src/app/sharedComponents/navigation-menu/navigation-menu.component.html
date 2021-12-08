@@ -1,6 +1,6 @@
 <div class="list-group" *ngIf="!show()">
   <a
-    routerLink="/accounts/detail"
+    routerLink="/accounts"
     routerLinkActive="active"
     class="list-group-item"
     [routerLinkActiveOptions]="{ exact: true }"
@@ -8,24 +8,24 @@
   >
 
   <a
-    [routerLink]="['/accounts/detail/oportunities']"
+    [routerLink]="['/opportunities']"
     routerLinkActive="active"
-    [class]="currentUrl == '/accounts/detail/create-oportunity' ? 'active' : ''"
+    [class]="currentUrl == '/oportunities/create' ? 'active' : ''"
     [routerLinkActiveOptions]="{ exact: true }"
     class="list-group-item"
     ><i class="fas fa-tachometer-alt"></i> Oportunidades</a
   >
 
   <a
-    routerLink="/accounts/detail/quotes"
+    routerLink="/quotes"
     routerLinkActive="active"
     class="list-group-item"
-    [class]="currentUrl == '/accounts/detail/create-quote' ? 'active' : ''"
+    [class]="currentUrl == '/quotes/create' ? 'active' : ''"
     [routerLinkActiveOptions]="{ exact: true }"
     ><i class="fas fa-shopping-bag"></i> Cotizaciones</a
   >
   <a
-    routerLink="/accounts/detail/load-sites"
+    routerLink="/sites-upload"
     routerLinkActive="active"
     class="list-group-item"
     [routerLinkActiveOptions]="{ exact: true }"
