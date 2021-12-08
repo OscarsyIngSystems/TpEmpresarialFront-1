@@ -10,7 +10,11 @@
   *ngIf="tableProps.dataSource.length === 0"
   message=" {{ contentLabels + 'message-empty' | translate }}"
 ></app-empty>
-<app-table-general></app-table-general>
+<app-table-general
+  [columns]="tableProps.columnsShow"
+  [dataSource]="tableProps.dataSource"
+  [idTableShow]="2"
+></app-table-general>
 <!-- <app-table
   *ngIf="tableProps.dataSource.length > 0"
   [tableProps]="tableProps"
