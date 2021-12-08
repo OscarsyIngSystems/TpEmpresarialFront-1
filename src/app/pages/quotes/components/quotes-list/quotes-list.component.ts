@@ -1,38 +1,109 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
-
+import { InfoDetail } from 'src/app/models/infoDetail';
+import { TableOptions } from 'src/app/models/tableOptions';
 
 @Component({
   selector: 'app-quotes-list',
   templateUrl: './quotes-list.component.html',
-  styleUrls: ['./quotes-list.component.scss']
+  styleUrls: ['./quotes-list.component.scss'],
 })
-export class QuotesListComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+export class QuotesListDeatilComponent implements OnInit {
+  public tableProps!: TableOptions;
+  public contentLabels = 'accounts.account_detail_quotes.';
+  infoDetail: Array<InfoDetail> = [
+    {
+      name: 'Nombre de la cuenta',
+      value: 'Audi CDMX',
+    },
+    {
+      name: 'ID',
+      value: '9898987',
+    },
+    {
+      name: 'Folio Cuenta',
+      value: 'CRM-00022445',
+    },
+    {
+      name: 'RFC',
+      value: 'HSP030709EA2',
+    },
+    {
+      name: 'Segmento',
+      value: 'I',
+    },
+  ];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.tableProps = {
+      columnsShow: [
+        {
+          key: 'numberList',
+          columnName: this.contentLabels + 'table.colum1',
+        },
+        {
+          key: 'quoteName',
+          columnName: this.contentLabels + 'table.colum2',
+        },
+        {
+          key: 'quoteInvoice',
+          columnName: this.contentLabels + 'table.colum3',
+        },
+        {
+          key: 'total',
+          columnName: this.contentLabels + 'table.colum4',
+        },
+        {
+          key: 'status',
+          columnName: this.contentLabels + 'table.colum5',
+        },
+      ],
+      columsToDisplay: [
+        'numberList',
+        'quoteName',
+        'quoteInvoice',
+        'total',
+        'status',
+      ],
+      contentLabels: 'accounts.account-detail-oportunity.',
+      dataSource: [
+        {
+          numberList: 1,
+          quoteName: 'Cotizacion Audi',
+          quoteInvoice: 'COT7808232',
+          total: '$45454.22',
+          status: 'Borrador',
+        },
+        {
+          numberList: 2,
+          quoteName: 'Cotizacion Audi',
+          quoteInvoice: 'COT7808232',
+          total: '$45454.22',
+          status: 'Borrador',
+        },
+        {
+          numberList: 3,
+          quoteName: 'Cotizacion Audi',
+          quoteInvoice: 'COT7808232',
+          total: '$45454.22',
+          status: 'Borrador',
+        },
+        {
+          numberList: 4,
+          quoteName: 'Cotizacion Audi',
+          quoteInvoice: 'COT7808232',
+          total: '$45454.22',
+          status: 'Borrador',
+        },
+        {
+          numberList: 5,
+          quoteName: 'Cotizacion Audi',
+          quoteInvoice: 'COT7808232',
+          total: '$45454.22',
+          status: 'Borrador',
+        },
+      ],
+    };
   }
 
+  ngOnInit(): void {}
 }

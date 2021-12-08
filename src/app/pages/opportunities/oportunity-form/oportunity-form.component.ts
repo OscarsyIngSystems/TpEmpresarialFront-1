@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogOportunitiesComponent } from '../../dialog-oportunities/dialog-oportunities.component';
+import { DialogOportunitiesComponent } from '../../accounts/components/dialog-oportunities/dialog-oportunities.component';
 
 @Component({
   selector: 'app-oportunity-form',

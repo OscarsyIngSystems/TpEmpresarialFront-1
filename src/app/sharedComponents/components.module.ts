@@ -50,6 +50,7 @@ import { DataTablesModule } from 'angular-datatables';
     NavigationMenuComponent,
     TableGeneralComponent,
     DataTablesModule,
+    ReactiveFormsModule,
 
     MatToolbarModule,
     MatIconModule,
