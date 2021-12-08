@@ -1,3 +1,4 @@
+<!-- Tabla de cuentas -->
 <table
   *ngIf="idTableShow == 1"
   id="dataTable"
@@ -23,6 +24,7 @@
   </tbody>
 </table>
 
+<!-- Tabla de oportunidades -->
 <table
   *ngIf="idTableShow == 2"
   id="dataTable"
@@ -41,9 +43,32 @@
       <td class="mat-cell">{{ account.oportunityName }}</td>
       <td class="mat-cell">{{ account.oportunityNumber }}</td>
       <td class="mat-cell">{{ account.stage }}</td>
-      <td class="mat-cell">{{ account.segment }}</td>
-      <td class="mat-cell">{{ account.phone }}</td>
       <td class="mat-cell">{{ account.amount }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- tabla de cotizaciones -->
+
+<table
+  *ngIf="idTableShow == 3"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border"
+>
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns">{{ col.columnName | translate }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-element-row shadow-sm" *ngFor="let account of dataSource">
+      <td class="mat-cell ps-3">{{ account.numberList }}</td>
+      <td class="mat-cell">{{ account.quoteName }}</td>
+      <td class="mat-cell">{{ account.quoteInvoice }}</td>
+      <td class="mat-cell">{{ account.total }}</td>
+      <td class="mat-cell">{{ account.status }}</td>
     </tr>
   </tbody>
 </table>

@@ -1,0 +1,16 @@
+<app-header-actions
+  title="Cotizaciones"
+  buttonText="Crear cotizacion"
+  route="accounts/detail/create-quote"
+></app-header-actions>
+<app-header-detail [detailInfo]="infoDetail"></app-header-detail>
+<app-empty
+  message="No se encontraron cotizaciones"
+  *ngIf="dataSource.length === 0"
+></app-empty>
+<app-table-general
+  *ngIf="dataSource.length > 0"
+  [dataSource]="dataSource"
+  [idTableShow]="3"
+  [columns]="columnsShow"
+></app-table-general>

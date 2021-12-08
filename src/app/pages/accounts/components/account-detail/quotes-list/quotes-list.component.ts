@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { TableOptions } from 'src/app/models/tableOptions';
 
 @Component({
-  selector: 'app-oportunities-detail',
-  templateUrl: './oportunities-detail.component.html',
-  styleUrls: ['./oportunities-detail.component.scss'],
+  selector: 'app-quotes-list',
+  templateUrl: './quotes-list.component.html',
+  styleUrls: ['./quotes-list.component.scss'],
 })
-export class OportunitiesDetailComponent implements OnInit {
-  public contentLabels = 'accounts.account-detail-oportunity.';
+export class QuotesListDeatilComponent implements OnInit {
+  public tableProps!: TableOptions;
+  public contentLabels = 'accounts.account_detail_quotes.';
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -37,59 +39,61 @@ export class OportunitiesDetailComponent implements OnInit {
       columnName: this.contentLabels + 'table.colum1',
     },
     {
-      key: 'oportunityName',
+      key: 'quoteName',
       columnName: this.contentLabels + 'table.colum2',
     },
     {
-      key: 'oportunityNumber',
+      key: 'quoteInvoice',
       columnName: this.contentLabels + 'table.colum3',
     },
     {
-      key: 'stage',
+      key: 'total',
       columnName: this.contentLabels + 'table.colum4',
     },
     {
-      key: 'amount',
+      key: 'status',
       columnName: this.contentLabels + 'table.colum5',
     },
   ];
-  public dataSource = [
+
+  dataSource = [
     {
       numberList: 1,
-      oportunityName: 'Audi',
-      oportunityNumber: '3754545',
-      stage: 'Necesidades',
-      amount: '$45454.22',
+      quoteName: 'Cotizacion Audi',
+      quoteInvoice: 'COT7808232',
+      total: '$45454.22',
+      status: 'Borrador',
     },
     {
       numberList: 2,
-      oportunityName: 'Audi',
-      oportunityNumber: '3754545',
-      stage: 'Necesidades',
-      amount: '$45454.22',
+      quoteName: 'Cotizacion Audi',
+      quoteInvoice: 'COT7808232',
+      total: '$45454.22',
+      status: 'Borrador',
     },
     {
       numberList: 3,
-      oportunityName: 'Audi',
-      oportunityNumber: '3754545',
-      stage: 'Necesidades',
-      amount: '$45454.22',
+      quoteName: 'Cotizacion Audi',
+      quoteInvoice: 'COT7808232',
+      total: '$45454.22',
+      status: 'Borrador',
     },
     {
       numberList: 4,
-      oportunityName: 'Audi',
-      oportunityNumber: '3754545',
-      stage: 'Necesidades',
-      amount: '$45454.22',
+      quoteName: 'Cotizacion Audi',
+      quoteInvoice: 'COT7808232',
+      total: '$45454.22',
+      status: 'Borrador',
     },
     {
       numberList: 5,
-      oportunityName: 'Audi',
-      oportunityNumber: '3754545',
-      stage: 'Necesidades',
-      amount: '$45454.22',
+      quoteName: 'Cotizacion Audi',
+      quoteInvoice: 'COT7808232',
+      total: '$45454.22',
+      status: 'Borrador',
     },
   ];
+
   constructor() {}
 
   ngOnInit(): void {}

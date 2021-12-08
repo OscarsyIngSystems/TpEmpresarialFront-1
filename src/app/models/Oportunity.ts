@@ -7,6 +7,6 @@ export interface Oportunity {
   probability: string;
   badge: string;
   oportunutyOrigin: string;
-  tryby: boolean;
+  trybuy: boolean;
   executive: string;
 }
