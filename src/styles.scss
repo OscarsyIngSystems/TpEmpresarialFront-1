@@ -184,6 +184,7 @@ div.dataTables_wrapper div.dataTables_length select {
   background-color: white;
   border-radius: 5px;
   border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba($color-black, 0.075);
 }
 //#endregion Table
 
@@ -336,4 +337,20 @@ div.dataTables_wrapper div.dataTables_length select {
 
 .small-shadow {
   box-shadow: 0 0.125rem 0.25rem rgba($color-black, 0.075);
+}
+
+.dataTables_filter {
+  input {
+    border-radius: 50px !important;
+    background-color: white !important;
+    border: none !important;
+    box-shadow: 0 0.125rem 0.25rem rgba($color-black, 0.075) !important;
+  }
+}
+
+.order-by {
+  width: 158px;
+  height: 29px;
+  border: none;
+  border-radius: 5px;
 }

@@ -1,5 +1,5 @@
 import { NavigationStart, Router } from '@angular/router';
-import { Sale } from './../../models/Sale';
+import { Sale } from './../../models/sale';
 import { Observable } from 'rxjs';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -66,25 +66,20 @@ export class NavbarComponent {
 
   private async showHide(): Promise<any> {
     this.currentUrl = this.router.url;
-    console.log(this.currentUrl);
 
     await this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationStart) {
         this.currentUrl = event.url;
-        console.log(this.currentUrl);
       }
     });
   }
 
   public search(): void {
-    console.log(this.searchData); // Valor del formulario para la busqueda
     alert('Buscando... ' + this.searchData.value);
   }
 
   public setSearchId(id: number): void {
-    console.log(id);
     this.selectedIdOption = id;
-    console.log(this.selectedIdOption);
   }
 
   private loadOptions(): void {
@@ -122,16 +117,12 @@ export class NavbarComponent {
   }
 
   public selectCountry(language: Language): void {
-    console.log(language);
-
     localStorage.setItem('lang', JSON.stringify(language));
     this.translate.use(language.code);
     this.countryFlag = language.img;
   }
 
   public clearSearch(): void {
-    console.log(this.searchData);
-
     this.selectedIdOption = 0;
     this.searchData.setValue('');
   }

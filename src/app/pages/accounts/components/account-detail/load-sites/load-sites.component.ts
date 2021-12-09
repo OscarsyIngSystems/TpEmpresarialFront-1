@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Sale } from 'src/app/models/Sale';
+import { Sale } from 'src/app/models/sale';
 import { map, startWith } from 'rxjs/operators';
 
 @Component({
@@ -30,14 +30,11 @@ export class LoadSitesComponent implements OnInit {
   ngOnInit(): void {}
 
   public search(): void {
-    console.log(this.searchData); // Valor del formulario para la busqueda
     alert('Buscando... ' + this.searchData.value);
   }
 
   public setSearchId(id: number): void {
-    console.log(id);
     this.selectedIdOption = id;
-    console.log(this.selectedIdOption);
   }
 
   private loadOptions(): void {
@@ -58,8 +55,6 @@ export class LoadSitesComponent implements OnInit {
   }
 
   clearSearch() {
-    console.log(this.searchData);
-
     this.selectedIdOption = 0;
     this.searchData.setValue('');
   }
