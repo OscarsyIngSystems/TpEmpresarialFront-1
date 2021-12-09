@@ -12,7 +12,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="table-element-row shadow-sm" *ngFor="let account of dataSource">
+    <tr
+      [routerLink]="['/accounts/detail', account.id]"
+      class="table-element-row shadow-sm"
+      *ngFor="let account of dataSource"
+    >
       <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.accountName }}</td>
       <td class="mat-cell">{{ account.id }}</td>

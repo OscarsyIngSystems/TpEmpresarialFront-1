@@ -1,11 +1,24 @@
-<app-header-actions
-  title="Oportunidades"
+<!-- <app-header-actions
+  title="Mis oportunidades"
   buttonText="Crear oportunidad"
   route="accounts/detail/create-oportunity"
   [hidenCreateOportunity]="false"
 >
 </app-header-actions>
-<app-header-detail [detailInfo]="infoDetail"></app-header-detail>
+<app-header-detail [detailInfo]="infoDetail"></app-header-detail> -->
+<div class="conteiner-btn-accounts">
+  <h1 class="mt-2 text-title ps-4 text-bold">
+    {{ contentLabels + "title" | translate }}
+  </h1>
+
+  <select class="order-by small-shadow" name="" placeholder="Ordenar por">
+    <option value="0" selected="true" disabled>Ordenar por</option>
+    <option value="1">Recientes</option>
+    <option value="2">Ultimos 7 dias</option>
+    <option value="3">Ultimo mes</option>
+    <option value="4">Ultimos 6 meses</option>
+  </select>
+</div>
 <app-empty
   *ngIf="dataSource.length === 0"
   message=" {{ contentLabels + 'message-empty' | translate }}"

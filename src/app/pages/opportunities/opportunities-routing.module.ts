@@ -10,7 +10,7 @@ const routes: Routes = [
     component: OpportunitiesComponent,
     children: [
       {
-        path: '',
+        path: ':id',
         component: OportunitiesDetailComponent,
       },
       {
