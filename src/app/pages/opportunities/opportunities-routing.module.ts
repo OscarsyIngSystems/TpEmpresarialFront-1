@@ -10,9 +10,13 @@ const routes: Routes = [
     component: OpportunitiesComponent,
     children: [
       {
-        path: ':id',
+        path: '',
         component: OportunitiesDetailComponent,
       },
+      // {
+      //   path: ':id',
+      //   component: OportunitiesDetailComponent,
+      // },
       {
         path: 'create',
         component: OportunityCreateComponent,

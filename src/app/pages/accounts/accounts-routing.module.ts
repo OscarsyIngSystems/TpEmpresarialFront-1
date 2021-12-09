@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OportunityCreateComponent } from '../opportunities/oportunity-create/oportunity-create.component';
+import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { AccountsListComponent } from './components/accounts-list/accounts-list.component';
 import { LayautAccountsComponent } from './layaut-accounts.component';
 
@@ -14,11 +15,8 @@ const routes: Routes = [
         component: AccountsListComponent,
       },
       {
-        path: 'detail',
-        loadChildren: () =>
-          import('./components/account-detail/details.module').then(
-            (m) => m.DetailsModule
-          ),
+        path: 'detail/:id',
+        component: AccountInfoComponent,
       },
       {
         path: 'create',

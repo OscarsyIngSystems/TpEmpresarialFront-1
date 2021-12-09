@@ -1,18 +1,20 @@
-@import "./../../../../../styles.scss";
+@import "./../../../../styles.scss";
 
-.carousel-control-next-icon, .carousel-control-prev-icon{
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
   background-image: none !important;
   color: black;
 }
-.carousel-item{
+.carousel-item {
   padding: 0 30px;
 }
 
-.carousel-control-next, .carousel-control-prev{
-  width:10% !important;
+.carousel-control-next,
+.carousel-control-prev {
+  width: 10% !important;
 }
 
-.mat-form-field{
+.mat-form-field {
   width: 100% !important;
 }
 

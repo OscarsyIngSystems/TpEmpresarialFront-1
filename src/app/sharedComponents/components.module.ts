@@ -30,7 +30,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { TableGeneralComponent } from './table-general/table-general.component';
 import { DataTablesModule } from 'angular-datatables';
-
+import { QuoteComponent } from './dashboad-components/quote/quote.component';
+import { CellIndicatorsComponent } from './dashboad-components/cell-indicators/cell-indicators.component';
+import { ChartComponent } from './dashboad-components/chart/chart.component';
+import { SegmentAccountComponent } from './dashboad-components/segment-account/segment-account.component';
+import { VariablePaymentComponent } from './dashboad-components/variable-payment/variable-payment.component';
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -40,8 +45,14 @@ import { DataTablesModule } from 'angular-datatables';
     EmptyComponent,
     NavigationMenuComponent,
     TableGeneralComponent,
+    QuoteComponent,
+    CellIndicatorsComponent,
+    ChartComponent,
+    SegmentAccountComponent,
+    VariablePaymentComponent,
   ],
   exports: [
+    ChartsModule,
     NavbarComponent,
     TableComponent,
     HeaderDetailComponent,
@@ -49,9 +60,13 @@ import { DataTablesModule } from 'angular-datatables';
     EmptyComponent,
     NavigationMenuComponent,
     TableGeneralComponent,
+    QuoteComponent,
+    CellIndicatorsComponent,
+    ChartComponent,
+    SegmentAccountComponent,
     DataTablesModule,
     ReactiveFormsModule,
-
+    VariablePaymentComponent,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -73,6 +88,7 @@ import { DataTablesModule } from 'angular-datatables';
     MatSidenavModule,
   ],
   imports: [
+    ChartsModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,

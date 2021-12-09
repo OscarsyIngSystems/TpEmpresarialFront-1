@@ -5,18 +5,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DetailsRoutingModule } from './details-routing.module';
 import { AccountDetailComponent } from './account-detail.component';
 import { ComponentsModule } from 'src/app/sharedComponents/components.module';
-import { AccountInfoComponent } from './account-info/account-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { LoadSitesComponent } from './load-sites/load-sites.component';
 import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [
-    AccountDetailComponent,
-    AccountInfoComponent,
-    LoadSitesComponent,
-  ],
+  declarations: [AccountDetailComponent, LoadSitesComponent],
   imports: [
     CommonModule,
     DetailsRoutingModule,
