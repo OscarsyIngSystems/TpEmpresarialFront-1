@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-/*     this._service.getPosts().subscribe((response) => {
+    /*     this._service.getPosts().subscribe((response) => {
       console.log(response);
       this.doughnutChartData.data = response;
       this.baseChart.chart.update();
@@ -53,8 +53,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   private renderizeChart() {
-    console.log(this.baseChart.chart.canvas);
-
     let suma: number = 0;
     this.doughnutChartData.data[0].forEach((e: any) => {
       suma = suma + e;

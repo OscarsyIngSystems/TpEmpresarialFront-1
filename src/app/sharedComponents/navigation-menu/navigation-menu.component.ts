@@ -21,12 +21,10 @@ export class NavigationMenuComponent implements OnInit {
 
   private async showHide(): Promise<any> {
     this.currentUrl = this.router.url;
-    console.log(this.currentUrl);
 
     await this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationStart) {
         this.currentUrl = event.url;
-        console.log(this.currentUrl);
       }
     });
   }
