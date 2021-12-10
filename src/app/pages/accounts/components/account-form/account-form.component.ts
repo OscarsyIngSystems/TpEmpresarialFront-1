@@ -20,10 +20,6 @@ export class AccountFormComponent implements OnInit {
       value: 'Audi CDMX',
     },
     {
-      name: 'ID',
-      value: '9898987',
-    },
-    {
       name: 'Folio Cuenta',
       value: 'CRM-00022445',
     },

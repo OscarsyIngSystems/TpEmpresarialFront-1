@@ -42,7 +42,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="table-element-row shadow-sm" *ngFor="let account of dataSource">
+    <tr
+      [routerLink]="['/opportunities', account.numberList]"
+      class="table-element-row shadow-sm"
+      *ngFor="let account of dataSource"
+    >
       <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.oportunityName }}</td>
       <td class="mat-cell">{{ account.oportunityNumber }}</td>
@@ -67,7 +71,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="table-element-row shadow-sm" *ngFor="let account of dataSource">
+    <tr
+      class="table-element-row shadow-sm"
+      [routerLink]="['/quotes', account.numberList]"
+      *ngFor="let account of dataSource"
+    >
       <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.quoteName }}</td>
       <td class="mat-cell">{{ account.quoteInvoice }}</td>

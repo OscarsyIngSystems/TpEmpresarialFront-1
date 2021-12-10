@@ -10,6 +10,7 @@ import { HeaderActionsComponent } from 'src/app/sharedComponents/header-actions/
 import { HeaderDetailComponent } from 'src/app/sharedComponents/header-detail/header-detail.component';
 import { QuoteFormComponent } from './components/quote-form/quote-form.component';
 import { QuotesCreateComponent } from './components/quotes-create/quotes-create.component';
+import { QuotesDetailComponent } from './components/quotes-detail/quotes-detail.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { QuotesCreateComponent } from './components/quotes-create/quotes-create.
     QuoteFormComponent,
     QuoteFormComponent,
     QuotesCreateComponent,
+    QuotesDetailComponent,
   ],
   imports: [
     CommonModule,

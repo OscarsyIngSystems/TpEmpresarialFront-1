@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OportunitiesListComponent } from './oportunities-list/oportunities-list.component';
 import { OportunityCreateComponent } from './oportunity-create/oportunity-create.component';
+import { OportunitiesDetailComponent } from './oportunities-detail/oportunities-detail.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        component: OportunitiesListComponent, //cambiar por detalle
+        component: OportunitiesDetailComponent, //cambiar por detalle
       },
       {
         path: 'create',

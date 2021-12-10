@@ -8,6 +8,7 @@ import { OportunitiesListComponent } from './oportunities-list/oportunities-list
 import { ComponentsModule } from 'src/app/sharedComponents/components.module';
 import { OportunityFormComponent } from './oportunity-form/oportunity-form.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { OportunitiesDetailComponent } from './oportunities-detail/oportunities-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
     OportunitiesListComponent,
     OportunityCreateComponent,
     OportunityFormComponent,
+    OportunitiesDetailComponent,
   ],
   imports: [
     CommonModule,
