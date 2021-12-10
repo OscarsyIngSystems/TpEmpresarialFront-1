@@ -13,7 +13,6 @@ export class TableGeneralComponent implements OnInit {
 
   @ViewChild('dataTable') dataTable: any;
   dtOptions: DataTables.Settings = {};
-  public contentLabels = 'accounts.acounts-list.';
 
   expandedElement!: Account | null;
   lengthMenu = [10, 20];

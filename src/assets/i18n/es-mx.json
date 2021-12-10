@@ -51,17 +51,6 @@
       },
       "message-empty": "No hay oportunidades guardadas para esta cuenta."
     },
-    "account_detail_quotes": {
-      "title": "Cotizaciones",
-      "table": {
-        "colum1": "Nº",
-        "colum2": "Nombre de la cotizacion",
-        "colum3": "Folio cotizacion",
-        "colum4": "Total-Recurrente mensual",
-        "colum5": "Estatus"
-      },
-      "message-empty": "No hay oportunidades guardadas para esta cuenta."
-    },
     "accounts-opportunities": {},
     "dialogs-opportunities": {
       "p-text1": "La oportunidad",
@@ -109,6 +98,15 @@
         "card1-content": "La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá el 23 noviembre 2021 a las 13:35 hrs.",
         "card1-footer": "Hace 2 min"
       }
-    }
+    },
+    "title": "Mis cotizaciones",
+    "table": {
+      "colum1": "Nº",
+      "colum2": "Nombre de la cotizacion",
+      "colum3": "Folio cotizacion",
+      "colum4": "Total-Recurrente mensual",
+      "colum5": "Estatus"
+    },
+    "message-empty": "No hay oportunidades guardadas para esta cuenta."
   }
 }

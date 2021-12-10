@@ -10,3 +10,10 @@
 .mat-expansion-panel {
   background: transparent !important;
 }
+
+.conteiner-btn-accounts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}

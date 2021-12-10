@@ -9,7 +9,7 @@ import { TableOptions } from 'src/app/models/tableOptions';
 })
 export class QuotesListDeatilComponent implements OnInit {
   public tableProps!: TableOptions;
-  public contentLabels = 'accounts.account_detail_quotes.';
+  public contentLabels = 'quotes.';
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
