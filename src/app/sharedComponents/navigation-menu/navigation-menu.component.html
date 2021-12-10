@@ -3,7 +3,7 @@
     routerLink="/accounts"
     routerLinkActive="active"
     class="list-group-item"
-    [routerLinkActiveOptions]="{ exact: true }"
+    [routerLinkActiveOptions]="{ exact: false }"
     ><i class="far fa-calendar-times"></i> Cuentas</a
   >
 
@@ -11,7 +11,7 @@
     [routerLink]="['/opportunities']"
     routerLinkActive="active"
     [class]="currentUrl == '/opportunities/create' ? 'active' : ''"
-    [routerLinkActiveOptions]="{ exact: true }"
+    [routerLinkActiveOptions]="{ exact: false }"
     class="list-group-item"
     ><i class="fas fa-tachometer-alt"></i> Oportunidades</a
   >
@@ -21,28 +21,28 @@
     routerLinkActive="active"
     class="list-group-item"
     [class]="currentUrl == '/quotes/create' ? 'active' : ''"
-    [routerLinkActiveOptions]="{ exact: true }"
+    [routerLinkActiveOptions]="{ exact: false }"
     ><i class="fas fa-shopping-bag"></i> Cotizaciones</a
   >
   <a
     routerLink="/sites-upload"
     routerLinkActive="active"
     class="list-group-item"
-    [routerLinkActiveOptions]="{ exact: true }"
+    [routerLinkActiveOptions]="{ exact: false }"
     ><i class="fas fa-stream"></i> Carga de sitios</a
   >
   <a
     routerLink="#"
     routerLinkActive="active"
     class="list-group-item"
-    [routerLinkActiveOptions]="{ exact: true }"
+    [routerLinkActiveOptions]="{ exact: false }"
     ><i class="fas fa-chart-pie"></i> Propuesta</a
   >
   <a
     routerLink="#"
     routerLinkActive="active"
     class="list-group-item"
-    [routerLinkActiveOptions]="{ exact: true }"
+    [routerLinkActiveOptions]="{ exact: false }"
     ><i class="fas fa-receipt"></i> Descuentos</a
   >
 </div>

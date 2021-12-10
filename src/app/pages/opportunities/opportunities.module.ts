@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { OpportunitiesRoutingModule } from './opportunities-routing.module';
 import { OpportunitiesComponent } from './opportunities.component';
-import { OportunitiesDetailComponent } from './oportunities-list/oportunities-detail.component';
+import { OportunitiesListComponent } from './oportunities-list/oportunities-list.component';
 import { ComponentsModule } from 'src/app/sharedComponents/components.module';
 import { OportunityFormComponent } from './oportunity-form/oportunity-form.component';
 import { TranslateModule } from '@ngx-translate/core';
@@ -12,7 +12,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [
     OpportunitiesComponent,
-    OportunitiesDetailComponent,
+    OportunitiesListComponent,
     OportunityCreateComponent,
     OportunityFormComponent,
   ],

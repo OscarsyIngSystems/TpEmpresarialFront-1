@@ -1,7 +1,7 @@
 import { OpportunitiesComponent } from './opportunities.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OportunitiesDetailComponent } from './oportunities-list/oportunities-detail.component';
+import { OportunitiesListComponent } from './oportunities-list/oportunities-list.component';
 import { OportunityCreateComponent } from './oportunity-create/oportunity-create.component';
 
 const routes: Routes = [
@@ -11,12 +11,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: OportunitiesDetailComponent,
+        component: OportunitiesListComponent,
       },
-      // {
-      //   path: ':id',
-      //   component: OportunitiesDetailComponent,
-      // },
+      {
+        path: ':id',
+        component: OportunitiesListComponent, //cambiar por detalle
+      },
       {
         path: 'create',
         component: OportunityCreateComponent,

@@ -18,7 +18,7 @@ import { DialogMassiveLoadSitesComponent } from './components/dialog-massive-loa
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatInputModule } from '@angular/material/input';
 import { DataTablesModule } from 'angular-datatables';
-import { AccountInfoComponent } from './components/account-info/account-info.component';
+import { AccountFormComponent } from './components/account-form/account-form.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 
 export function createTranslateLoader(http: HttpClient): any {
@@ -34,7 +34,7 @@ export function createTranslateLoader(http: HttpClient): any {
     DialogOportunitiesComponent,
     DialogQuotesComponent,
     DialogMassiveLoadSitesComponent,
-    AccountInfoComponent,
+    AccountFormComponent,
   ],
   imports: [
     CommonModule,

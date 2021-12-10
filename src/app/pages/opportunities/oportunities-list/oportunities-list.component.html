@@ -1,12 +1,12 @@
 <!-- <app-header-actions
-  title="Mis oportunidades"
+  [title]="contentLabels + 'title' | translate"
   buttonText="Crear oportunidad"
   route="opportunities/create"
   [hidenCreateOportunity]="false"
 >
 </app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail> -->
-<div class="conteiner-btn-accounts">
+<div class="conteiner-btn-accounts mt-2">
   <h1 class="mt-2 text-title ps-4 text-bold">
     {{ contentLabels + "title" | translate }}
   </h1>

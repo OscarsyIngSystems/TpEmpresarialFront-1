@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OportunityCreateComponent } from '../opportunities/oportunity-create/oportunity-create.component';
-import { AccountInfoComponent } from './components/account-info/account-info.component';
+import { AccountFormComponent } from './components/account-form/account-form.component';
 import { AccountsListComponent } from './components/accounts-list/accounts-list.component';
 import { LayautAccountsComponent } from './layaut-accounts.component';
 
@@ -16,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: 'detail/:id',
-        component: AccountInfoComponent,
+        component: AccountFormComponent,
       },
       {
         path: 'create',

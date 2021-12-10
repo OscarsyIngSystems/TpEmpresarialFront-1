@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
-  selector: 'app-account-info',
-  templateUrl: './account-info.component.html',
-  styleUrls: ['./account-info.component.scss'],
+  selector: 'app-account-form',
+  templateUrl: './account-form.component.html',
+  styleUrls: ['./account-form.component.scss'],
 })
-export class AccountInfoComponent implements OnInit {
+export class AccountFormComponent implements OnInit {
   public contentLabels = 'accounts.account-detail-oportunity.';
   public principalDataForm!: FormGroup;
   public addressInformationForm!: FormGroup;

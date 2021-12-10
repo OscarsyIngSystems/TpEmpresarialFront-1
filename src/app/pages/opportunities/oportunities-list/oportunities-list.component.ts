@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
-  selector: 'app-oportunities-detail',
-  templateUrl: './oportunities-detail.component.html',
-  styleUrls: ['./oportunities-detail.component.scss'],
+  selector: 'app-oportunities-list',
+  templateUrl: './oportunities-list.component.html',
+  styleUrls: ['./oportunities-list.component.scss'],
 })
-export class OportunitiesDetailComponent implements OnInit {
+export class OportunitiesListComponent implements OnInit {
   public contentLabels = 'accounts.account-detail-oportunity.';
   infoDetail: Array<InfoDetail> = [
     {

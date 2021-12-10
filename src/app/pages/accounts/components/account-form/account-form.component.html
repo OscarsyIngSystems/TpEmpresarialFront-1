@@ -7,7 +7,7 @@
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 
 <div class="row g-0 mt-2">
-  <mat-expansion-panel class="w-100 h-100">
+  <mat-expansion-panel class="w-100 h-100" expanded>
     <mat-expansion-panel-header>
       <mat-panel-title class="text-bold"> Datos principales </mat-panel-title>
     </mat-expansion-panel-header>
@@ -534,30 +534,6 @@
               >Campo obligatorio</mat-error
             >
           </mat-form-field>
-        </div>
-      </div>
-    </form>
-  </mat-expansion-panel>
-</div>
-
-<div class="row g-0 mt-2">
-  <mat-expansion-panel class="w-100 h-100">
-    <mat-expansion-panel-header>
-      <mat-panel-title class="text-bold"> Descripción </mat-panel-title>
-    </mat-expansion-panel-header>
-    <form class="login-form" [formGroup]="descriptionForm" novalidate>
-      <div class="row">
-        <div class="col-12 input-container">
-          <div class="form-floating">
-            <textarea
-              formControlName="description"
-              class="form-control"
-              placeholder="Ingrese Leave a comment here"
-              id="floatingTextarea2"
-              style="height: 100px"
-            ></textarea>
-            <label for="floatingTextarea2">Comments</label>
-          </div>
         </div>
       </div>
     </form>
