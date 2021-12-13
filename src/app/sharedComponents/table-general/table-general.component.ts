@@ -10,7 +10,7 @@ export class TableGeneralComponent implements OnInit {
   @Input() columns: any[] = []; //nombrs de las columnase
   @Input() dataSource: any[] = []; //datos de la tabla
   @Input() idTableShow: number = 0; //indicador de que tabla se muestra
-
+  @Input() showHeaderTable!: boolean;
   @ViewChild('dataTable') dataTable: any;
   dtOptions: DataTables.Settings = {};
 
@@ -18,12 +18,15 @@ export class TableGeneralComponent implements OnInit {
   lengthMenu = [10, 20];
   constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  ngAfterContentInit(): void {
     this.dtOptions = {
-      dom:
-        "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
-        "<'row'<'col-12'tr>>" +
-        "<'row'<'col-12 d-flex justify-content-center'p>>",
+      dom: !this.showHeaderTable
+        ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
+          "<'row'<'col-12'tr>>" +
+          "<'row'<'col-12 d-flex justify-content-center'p>>"
+        : '<"bottom"t <"d-flex justify-content-center" p>>',
       pagingType: 'full_numbers',
       language: {
         lengthMenu: 'Mostrar _MENU_',

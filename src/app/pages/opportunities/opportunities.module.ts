@@ -11,7 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { OportunitiesDetailComponent } from './oportunities-detail/oportunities-detail.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
-
+import { RelatedOportunitiesComponent } from './related-oportunities/related-oportunities.component';
 @NgModule({
   declarations: [
     OpportunitiesComponent,
@@ -19,6 +19,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     OportunityCreateComponent,
     OportunityFormComponent,
     OportunitiesDetailComponent,
+    RelatedOportunitiesComponent,
   ],
   imports: [
     CommonModule,

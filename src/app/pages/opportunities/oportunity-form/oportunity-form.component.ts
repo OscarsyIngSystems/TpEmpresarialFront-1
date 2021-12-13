@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Oportunity } from 'src/app/models/Oportunity';
 import { DialogOportunitiesComponent } from '../../accounts/components/dialog-oportunities/dialog-oportunities.component';
 
 @Component({
@@ -9,6 +10,7 @@ import { DialogOportunitiesComponent } from '../../accounts/components/dialog-op
   styleUrls: ['./oportunity-form.component.scss'],
 })
 export class OportunityFormComponent implements OnInit {
+  @Input() oportunityDetailData!: Oportunity;
   public oportunityForm: FormGroup;
   name = '“Prueba de sistemas”';
 
@@ -31,6 +33,13 @@ export class OportunityFormComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  ngAfterContentInit(): void {
+    if (this.oportunityDetailData) {
+      this.oportunityForm.patchValue(this.oportunityDetailData);
+      this.oportunityForm.disable();
+    }
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOportunitiesComponent, {

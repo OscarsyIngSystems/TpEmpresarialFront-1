@@ -1,5 +1,5 @@
 <app-header-actions
-  [title]="contentLabels + 'title-detail' | translate"
+  [title]="contentLabels + 'title-related' | translate"
   buttonText="Crear cotizacion"
   route="opportunities/create"
   relatedRoute="opportunities/1/related"
@@ -7,4 +7,9 @@
 >
 </app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
-<app-oportunity-form [oportunityDetailData]="oportunity"></app-oportunity-form>
+<app-table-general
+  [showHeaderTable]="true"
+  [columns]="columnsShow"
+  [dataSource]="dataSource"
+  [idTableShow]="4"
+></app-table-general>

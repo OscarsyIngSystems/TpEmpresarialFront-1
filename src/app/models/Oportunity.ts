@@ -1,12 +1,14 @@
 export interface Oportunity {
   accountName: string;
-  closeDate: string;
-  postSaleFlow: string;
+  closeDate: Date;
   description: string;
   oportunityName: string;
   probability: string;
   badge: string;
-  oportunutyOrigin: string;
   trybuy: boolean;
+  stage: string;
+  amount: number;
+  reason: string;
+  oportunityOrigin: string;
   executive: string;
 }

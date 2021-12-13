@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { Oportunity } from 'src/app/models/Oportunity';
 
 @Component({
   selector: 'app-oportunities-detail',
@@ -7,7 +8,7 @@ import { InfoDetail } from 'src/app/models/infoDetail';
   styleUrls: ['./oportunities-detail.component.scss'],
 })
 export class OportunitiesDetailComponent implements OnInit {
-  public contentLabels = 'accounts.account-detail-oportunity.';
+  public contentLabels = 'oportunities.';
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -30,6 +31,21 @@ export class OportunitiesDetailComponent implements OnInit {
       value: '31/08/2021',
     },
   ];
+
+  oportunity: Oportunity = {
+    accountName: 'Audi CDMX',
+    amount: 200,
+    badge: 'Necesidades',
+    closeDate: new Date(),
+    description: 'Esto es una descripcion',
+    executive: 'Nombre del ejecutivo',
+    oportunityName: 'Audi CDMX Op',
+    probability: '10%',
+    oportunityOrigin: '',
+    reason: 'Superioridad tecnica',
+    stage: 'Peso Mexicano',
+    trybuy: true,
+  };
   constructor() {}
 
   ngOnInit(): void {}
