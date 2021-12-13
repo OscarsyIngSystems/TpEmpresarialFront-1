@@ -8,17 +8,17 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 col-lg-4 col-xl-4">
+      <div class="col-md-4 col-lg-3 col-xl-3">
         <div class="input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field"
+            <mat-label class="label-form-field" placeholder="Ingrese el motivo"
               >Nombre de la cotizacion</mat-label
             >
             <input matInput formControlName="quoteName" />
           </mat-form-field>
         </div>
       </div>
-      <div class="col-md-4 col-lg-4 col-xl-4">
+      <div class="col-md-4 col-lg-3 col-xl-3">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field">Asignacion de EPS</mat-label>
@@ -29,116 +29,123 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="col-md-4 col-lg-4 col-xl-4">
+
+      <div class="col-md-2 col-lg-3 col-xl-3">
         <div class="input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Motivo</mat-label>
-            <input formControlName="reason" matInput />
+            <mat-label class="label-form-field">Vigencia</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="dataPicker"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
       </div>
+      <div class="col-md-2 col-lg-3 col-xl-3">
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-sent"
+          autocomplete="off"
+          checked
+          formControlName="isMainQuotation"
+        />
+        <label
+          class="
+            btn btn-sm btn-outline-primary
+            me-2
+            btn-check-sent
+            mt-3
+            cot-primary
+          "
+          for="btn-check-sent"
+          >Cotizacion principal</label
+        >
+      </div>
     </div>
     <div class="row">
-      <div class="col-md-4 col-lg-4 col-xl-4">
-        <div class="input-container">
-          <div class="w-100 h-100 py-3" appearance="fill">
-            <input
-              formControlName="quoteType"
-              id="quoteType1"
-              type="radio"
-              class="btn-check"
-              autocomplete="off"
-              value="1"
-              checked
-            />
-            <label
-              id="btn-check-quoteType1"
-              for="quoteType1"
-              class="
-                btn btn-sm btn-outline-primary
-                ms-3
-                me-2
-                btn-check-quoteType
-                px-4
-              "
-            >
-              Cotizacion principal
-            </label>
-
-            <input
-              formControlName="quoteType"
-              id="quoteType2"
-              type="radio"
-              class="btn-check"
-              autocomplete="off"
-              value="2"
-            />
-            <label
-              id="btn-check-quoteType2"
-              for="quoteType2"
-              class="
-                btn btn-sm btn-outline-primary
-                me-2
-                btn-check-quoteType
-                px-4
-              "
-            >
-              RFP
-            </label>
-          </div>
+      <div class="col-md-2 col-lg-2 col-xl-2">
+        <input
+          formControlName="quoteType"
+          id="quoteType2"
+          type="radio"
+          class="btn-check"
+          autocomplete="off"
+          value="2"
+        />
+        <label
+          id="btn-check-quoteType2"
+          for="quoteType2"
+          class="btn btn-sm btn-outline-primary me-2 btn-check-sent px-4"
+        >
+          RFP
+        </label>
+      </div>
+      <div class="col-md-2 col-lg-2 col-xl-2">
+        <input
+          formControlName="quoteType"
+          id="quoteType3"
+          type="radio"
+          class="btn-check"
+          autocomplete="off"
+          value="3"
+        />
+        <label
+          id="btn-check-quoteType3"
+          for="quoteType3"
+          class="btn btn-sm btn-outline-primary me-2 btn-check-sent px-4"
+        >
+          Licitación
+        </label>
+      </div>
+      <div class="col-md-2 col-lg-2 col-xl-2">
+        <input
+          formControlName="quoteType"
+          id="quoteType4"
+          type="radio"
+          class="btn-check"
+          autocomplete="off"
+          value="4"
+        />
+        <label
+          id="btn-check-quoteType4"
+          for="quoteType4"
+          class="btn btn-sm btn-outline-primary me-2 btn-check-sent px-4"
+        >
+          Try & by
+        </label>
+      </div>
+      <div class="col-md-3 col-lg-3 col-xl-3">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Motivo</mat-label>
+          <input
+            matInput
+            placeholder="Ingrese el motivo"
+            formControlName="reason"
+          />
+          <mat-error *ngIf="form.controls.reason.invalid"
+            >Campo obligatorio</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
+          <button class="btn-see">ver</button>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+          <button class="btn-upload">
+            <p class="text-bold m-0 pt-2">Cargar</p>
+            <p>HLD</p>
+          </button>
         </div>
       </div>
-
-      <div class="col-md-4 col-lg-4 col-xl-4">
-        <div class="input-container">
-          <div class="w-100 h-100 py-3">
-            <input
-              formControlName="quoteType"
-              id="quoteType3"
-              type="radio"
-              class="btn-check"
-              autocomplete="off"
-              value="3"
-            />
-            <label
-              id="btn-check-quoteType3"
-              for="quoteType3"
-              class="
-                btn btn-sm btn-outline-primary
-                me-2
-                btn-check-quoteType
-                px-4
-              "
-            >
-              Licitacion
-            </label>
-
-            <input
-              formControlName="quoteType"
-              id="quoteType4"
-              type="radio"
-              class="btn-check"
-              autocomplete="off"
-              value="4"
-            />
-            <label
-              id="btn-check-quoteType4"
-              for="quoteType4"
-              class="
-                btn btn-sm btn-outline-primary
-                me-2
-                btn-check-quoteType
-                px-4
-              "
-            >
-              Try & by
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-4 col-xl-4">
-        <a class="hld" href="#">Ver HLD</a>
-      </div>
+      <div class="col-md-2 col-lg-2 col-xl-2"></div>
     </div>
   </form>
 </div>

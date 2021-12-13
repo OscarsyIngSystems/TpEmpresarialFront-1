@@ -1,4 +1,11 @@
+@import "../../../styles.scss";
+
 .btn-back {
   background-color: white;
   color: black;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  color: $color-white;
 }

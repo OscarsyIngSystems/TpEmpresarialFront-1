@@ -18,23 +18,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 40px;
+  // width: 100px;
+  // height: 40px;
   border: 1px solid $color-border !important;
   border-radius: 5px;
   color: $color-border !important;
   box-shadow: none !important;
 }
 
+#btn-check-quoteType4 {
+  width: 115px !important;
+}
+
 .btn-check-sent:hover {
   background-color: $color-white !important;
-  color: $color-secondary !important;
+  color: $color-primary !important;
 }
 
 .btn-check:checked + .btn-check-sent {
-  border-color: $color-secondary !important;
+  border-color: $color-primary !important;
   color: $color-white !important;
-  background-color: $color-secondary !important;
+  background-color: $color-primary !important;
 }
 
 .btn-check:checked + .btn-check-sent:focus {
@@ -86,3 +90,26 @@
   box-shadow: none !important;
 }
 //#endregion btn-check-sent
+
+.btn-see {
+  width: 62px;
+  height: 30px;
+  background: #bac5df;
+  border: 1px solid #bac5df;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #1d172e;
+}
+
+.btn-upload {
+  width: 62px;
+  height: 60px;
+  background: $color-white;
+  border: 1px solid #bac5df;
+  border-radius: 5px;
+  color: #1d172e;
+}
+
+.cot-primary {
+  width: 185px;
+}

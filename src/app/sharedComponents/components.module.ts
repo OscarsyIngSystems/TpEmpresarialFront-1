@@ -86,6 +86,7 @@ import { ChartsModule } from 'ng2-charts';
     MatSelectModule,
     MatExpansionModule,
     MatSidenavModule,
+    MatDatepickerModule,
   ],
   imports: [
     ChartsModule,
@@ -114,6 +115,7 @@ import { ChartsModule } from 'ng2-charts';
     MatExpansionModule,
     MatSidenavModule,
     DataTablesModule,
+    MatDatepickerModule,
   ],
 })
 export class ComponentsModule {}
