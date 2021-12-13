@@ -42,6 +42,7 @@
     },
     "account-detail-oportunity": {
       "title": "Mis oportunidades",
+      "title-detail":"Detalle de la oportunidad",
       "table": {
         "colum1": "Nº",
         "colum2": "Nombre de la oportunidad",

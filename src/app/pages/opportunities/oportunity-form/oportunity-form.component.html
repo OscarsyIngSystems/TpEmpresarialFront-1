@@ -14,24 +14,42 @@
         </div>
 
         <div class="input-container">
-          <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field"
-              >Fecha estimada de cierre</mat-label
-            >
-            <mat-select formControlName="closeDate">
-              <mat-option value="one">Hoy</mat-option>
-              <mat-option value="two">Manana</mat-option>
-            </mat-select>
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label class="label-form-field">Etapa</mat-label>
+            <input formControlName="stage" matInput />
           </mat-form-field>
         </div>
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Flujo postventa</mat-label>
-            <mat-select formControlName="postSaleFlow">
-              <mat-option value="one">Renovacion</mat-option>
-              <mat-option value="two">Nueva</mat-option>
-            </mat-select>
+            <mat-label class="label-form-field">Importe</mat-label>
+            <input matInput formControlName="amount" type="number" />
           </mat-form-field>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 mt-2">
+            <div class="check-container">
+              <input
+                formControlName="tryby"
+                type="checkbox"
+                class="btn-check"
+                id="btn-check-sent"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-sm btn-outline-primary me-2 btn-check-sent"
+                for="btn-check-sent"
+                >Try & by</label
+              >
+            </div>
+          </div>
+          <div class="col-9">
+            <div class="input-container">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label class="label-form-field">Motivo</mat-label>
+                <input matInput formControlName="reason" type="number" />
+              </mat-form-field>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-md-4 col-lg-4 col-xl-4">
@@ -46,21 +64,24 @@
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field">Probabilidad (%)</mat-label>
-            <mat-select formControlName="probability">
-              <mat-option value="one"
-                >Definir criterios de probabilidad</mat-option
-              >
-            </mat-select>
+            <input matInput formControlName="probability" />
           </mat-form-field>
         </div>
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field"
-              >Definir criterios de probabilidad</mat-label
+              >Divisa de la oportunidad</mat-label
             >
             <mat-select formControlName="badge">
               <mat-option value="one"> MXN - Peso Mexicano</mat-option>
             </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <mat-form-field class="w-100 mt-2" appearance="fill">
+            <mat-label class="label-form-field">Descripcion</mat-label>
+            <input formControlName="description" matInput />
           </mat-form-field>
         </div>
       </div>
@@ -75,32 +96,36 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div class="check-container">
-          <input
-            formControlName="tryby"
-            type="checkbox"
-            class="btn-check"
-            id="btn-check-sent"
-            autocomplete="off"
-          />
-          <label
-            class="btn btn-sm btn-outline-primary me-2 btn-check-sent"
-            for="btn-check-sent"
-            >Try & by</label
-          >
+        <div class="input-container">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Fecha estimada de cierre</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="closeDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
         </div>
+
         <div class="input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field">Nombre del ejecutivo</mat-label>
             <input formControlName="executive" matInput value="Audi cdmx" />
           </mat-form-field>
         </div>
-      </div>
-      <div class="input-container">
-        <mat-form-field class="w-100 mt-2" appearance="fill">
-          <mat-label class="label-form-field">Descripcion</mat-label>
-          <input formControlName="description" matInput />
-        </mat-form-field>
+
+        <div class="d-flex flex-row">
+          <div class="d-flex flex-column me-2">
+            <button mat-button class="view-button"><strong>Ver</strong></button>
+            <small>Nombre.pdf</small>
+          </div>
+          <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div>
+        </div>
       </div>
     </div>
   </form>

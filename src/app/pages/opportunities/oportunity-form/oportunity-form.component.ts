@@ -16,7 +16,9 @@ export class OportunityFormComponent implements OnInit {
     this.oportunityForm = this.fb.group({
       accountName: [''],
       closeDate: ['', Validators.required],
-      postSaleFlow: [''],
+      stage: [''],
+      amount: [''],
+      reason: [''],
       description: [''],
       oportunityName: ['', Validators.required],
       probability: [''],
@@ -25,6 +27,7 @@ export class OportunityFormComponent implements OnInit {
       tryby: [false],
       executive: [''],
     });
+    // this.oportunityForm.disable();
   }
 
   ngOnInit(): void {}
