@@ -2,7 +2,8 @@
   [title]="contentLabels + 'title-related' | translate"
   buttonText="Crear cotizacion"
   route="opportunities/create"
-  relatedRoute="opportunities/1/related"
+  relatedRoute="opportunities/1"
+  relatedText="Detalles"
   [hidenCreateOportunity]="false"
 >
 </app-header-actions>
@@ -14,9 +15,12 @@
   [idTableShow]="4"
 ></app-table-general>
 
-<app-tabs-related [cardNames]="cardNames"></app-tabs-related>
+<app-tabs-related
+  (currentTabEmmiter)="changeTab($event)"
+  [cardNames]="cardNames"
+></app-tabs-related>
 
-<div class="contacts-container">
+<div class="contacts-container" *ngIf="currentTab === 0">
   <div class="d-flex justify-content-end">
     <button mat-button class="rounded-button-outline">
       <mat-icon>add</mat-icon> Agregar contacto
@@ -28,4 +32,8 @@
     [dataSource]="dataContacts.dataSource"
     [idTableShow]="5"
   ></app-table-general>
+</div>
+
+<div class="files-container" *ngIf="currentTab === 1">
+  <app-upload-file></app-upload-file>
 </div>
