@@ -1,1 +1,21 @@
-<p>related-quotes works!</p>
+<app-header-actions
+  [title]="'Relacionado cotizacion'"
+  buttonText="Cargar sitios"
+  route=""
+  relatedRoute="quotes/1"
+  relatedText="Detalles"
+  [hidenCreateOportunity]="false"
+>
+</app-header-actions>
+<app-header-detail [detailInfo]="infoDetail"></app-header-detail>
+<app-table-general
+  [showHeaderTable]="true"
+  [columns]="columnsShow"
+  [dataSource]="dataSource"
+  [idTableShow]="6"
+></app-table-general>
+<mat-tab-group>
+  <mat-tab label="Contactos (2)"> Content 1 </mat-tab>
+  <mat-tab label="Archivos (0)"> Content 2 </mat-tab>
+  <mat-tab label="Historial de actividades (8)"> Content 3 </mat-tab>
+</mat-tab-group>
