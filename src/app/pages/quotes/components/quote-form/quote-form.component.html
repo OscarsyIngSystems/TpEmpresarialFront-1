@@ -1,24 +1,69 @@
 <div class="mat-elevation-z1 card-form p-3">
   <form [formGroup]="form">
-    <div class="row">
-      <h2 class="text-bold">Detalle de la cotizacion</h2>
-      <div class="d-flex flex-row">
-        <span class="me-1">Etapa:</span> <strong class="me-3">Borrador</strong>
-        <span class="me-1">Oportunidad:</span> <strong> Audi</strong>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-lg-3 col-xl-3">
-        <div class="input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field" placeholder="Ingrese el motivo"
-              >Nombre de la cotizacion</mat-label
-            >
-            <input matInput formControlName="quoteName" />
-          </mat-form-field>
+    <div>
+      <div class="row"><h2 class="text-bold">Detalle de la cotizacion</h2></div>
+      <div class="row">
+        <div class="col-6">
+          <span class="me-1">Etapa:</span>
+          <strong class="me-3">Borrador</strong>
+        </div>
+        <div class="col-6">
+          <span class="me-1">Oportunidad:</span> <strong> Audi</strong>
         </div>
       </div>
-      <div class="col-md-4 col-lg-3 col-xl-3">
+      <div class="row">
+        <div class="col-12">
+          <div class="input-container">
+            <mat-form-field class="w-100" appearance="fill">
+              <mat-label
+                class="label-form-field"
+                placeholder="Ingrese el motivo"
+                >Nombre de la cotizacion</mat-label
+              >
+              <input matInput formControlName="quoteName" />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="col-md-2 col-lg-2 col-xl-2">
+            <input
+              formControlName="quoteType"
+              id="quoteType2"
+              type="radio"
+              class="btn-check"
+              autocomplete="off"
+              value="2"
+            />
+            <label
+              id="btn-check-quoteType2"
+              for="quoteType2"
+              class="btn btn-sm btn-outline-primary me-2 btn-check-sent px-4"
+            >
+              RFP
+            </label>
+          </div>
+          <div class="col-6">
+            <input
+              formControlName="quoteType"
+              id="quoteType3"
+              type="radio"
+              class="btn-check"
+              autocomplete="off"
+              value="3"
+            />
+            <label
+              id="btn-check-quoteType3"
+              for="quoteType3"
+              class="btn btn-sm btn-outline-primary me-2 btn-check-sent px-4"
+            >
+              Licitación
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field">Asignacion de EPS</mat-label>
@@ -28,124 +73,105 @@
             </mat-select>
           </mat-form-field>
         </div>
-      </div>
-
-      <div class="col-md-2 col-lg-3 col-xl-3">
-        <div class="input-container">
+        <div class="col-md-2 col-lg-2 col-xl-2">
+          <input
+            formControlName="quoteType"
+            id="quoteType4"
+            type="radio"
+            class="btn-check"
+            autocomplete="off"
+            value="4"
+          />
+          <label
+            id="btn-check-quoteType4"
+            for="quoteType4"
+            class="btn btn-sm btn-outline-primary me-2 btn-check-sent px-4"
+          >
+            Try & by
+          </label>
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Vigencia</mat-label>
+            <mat-label>Motivo</mat-label>
             <input
               matInput
-              [matDatepicker]="picker"
-              formControlName="dataPicker"
+              placeholder="Ingrese el motivo"
+              formControlName="reason"
             />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="form.controls.reason.invalid"
+              >Campo obligatorio</mat-error
+            >
           </mat-form-field>
         </div>
       </div>
-      <div class="col-md-2 col-lg-3 col-xl-3">
-        <input
-          type="checkbox"
-          class="btn-check"
-          id="btn-check-sent"
-          autocomplete="off"
-          checked
-          formControlName="isMainQuotation"
-        />
-        <label
-          class="
-            btn btn-sm btn-outline-primary
-            me-2
-            btn-check-sent
-            mt-3
-            cot-primary
-          "
-          for="btn-check-sent"
-          >Cotizacion principal</label
-        >
+      <div class="column">
+        <div class="row">
+          <div class="col-3">
+            <mat-form-field class="w-100" appearance="fill">
+              <mat-label class="label-form-field">Vigencia</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="dataPicker"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-9">
+            <input
+              type="checkbox"
+              class="btn-check"
+              id="btn-check-sent"
+              autocomplete="off"
+              checked
+              formControlName="isMainQuotation"
+            />
+            <label
+              class="
+                btn btn-sm btn-outline-primary
+                me-2
+                btn-check-sent
+                mt-3
+                cot-primary
+              "
+              for="btn-check-sent"
+              >Cotizacion principal</label
+            >
+            <div
+              class="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center"
+            >
+              <div class="col-6 d-flex justify-content-center">
+                <button class="btn-see">ver</button>
+              </div>
+              <div class="col-6 d-flex justify-content-center">
+                <button class="btn-upload">
+                  <p class="text-bold m-0 pt-2">Cargar</p>
+                  <p>HLD</p>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-1 col-lg-1 col-xl-1">f</div>
+            <div class="col-md-1 col-lg-1 col-xl-1">f</div>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <!-- Columnas -->
+
+      <!-- <div class="row"></div>
     <div class="row">
-      <div class="col-md-2 col-lg-2 col-xl-2">
-        <input
-          formControlName="quoteType"
-          id="quoteType2"
-          type="radio"
-          class="btn-check"
-          autocomplete="off"
-          value="2"
-        />
-        <label
-          id="btn-check-quoteType2"
-          for="quoteType2"
-          class="btn btn-sm btn-outline-primary me-2 btn-check-sent px-4"
-        >
-          RFP
-        </label>
+      <div class="col-md-4 col-lg-3 col-xl-3"></div>
+      <div class="col-md-4 col-lg-3 col-xl-3"></div>
+
+      <div class="col-md-2 col-lg-3 col-xl-3">
+        <div class="input-container"></div>
       </div>
-      <div class="col-md-2 col-lg-2 col-xl-2">
-        <input
-          formControlName="quoteType"
-          id="quoteType3"
-          type="radio"
-          class="btn-check"
-          autocomplete="off"
-          value="3"
-        />
-        <label
-          id="btn-check-quoteType3"
-          for="quoteType3"
-          class="btn btn-sm btn-outline-primary me-2 btn-check-sent px-4"
-        >
-          Licitación
-        </label>
-      </div>
-      <div class="col-md-2 col-lg-2 col-xl-2">
-        <input
-          formControlName="quoteType"
-          id="quoteType4"
-          type="radio"
-          class="btn-check"
-          autocomplete="off"
-          value="4"
-        />
-        <label
-          id="btn-check-quoteType4"
-          for="quoteType4"
-          class="btn btn-sm btn-outline-primary me-2 btn-check-sent px-4"
-        >
-          Try & by
-        </label>
-      </div>
-      <div class="col-md-3 col-lg-3 col-xl-3">
-        <mat-form-field class="w-100" appearance="fill">
-          <mat-label>Motivo</mat-label>
-          <input
-            matInput
-            placeholder="Ingrese el motivo"
-            formControlName="reason"
-          />
-          <mat-error *ngIf="form.controls.reason.invalid"
-            >Campo obligatorio</mat-error
-          >
-        </mat-form-field>
-      </div>
-      <div class="col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
-        <div class="col-6 d-flex justify-content-center">
-          <button class="btn-see">ver</button>
-        </div>
-        <div class="col-6 d-flex justify-content-center">
-          <button class="btn-upload">
-            <p class="text-bold m-0 pt-2">Cargar</p>
-            <p>HLD</p>
-          </button>
-        </div>
-      </div>
-      <div class="col-md-2 col-lg-2 col-xl-2"></div>
+      <div class="col-md-2 col-lg-3 col-xl-3"></div>
+    </div> -->
     </div>
   </form>
 </div>
