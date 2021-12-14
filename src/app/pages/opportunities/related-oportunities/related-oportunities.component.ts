@@ -8,6 +8,7 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 })
 export class RelatedOportunitiesComponent implements OnInit {
   public contentLabels = 'oportunities.';
+
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -62,7 +63,7 @@ export class RelatedOportunitiesComponent implements OnInit {
     },
     {
       key: 'mainCot',
-      columnName: this.contentLabels + 'table-related.colum7',
+      columnName: this.contentLabels + 'table-related.colum6',
     },
   ];
   public dataSource = [
@@ -129,6 +130,76 @@ export class RelatedOportunitiesComponent implements OnInit {
       validity: '19/12/2021',
       mainCot: false,
     },
+  ];
+
+  dataContacts = {
+    columnsShow: [
+      {
+        key: 'numberList',
+        columnName: this.contentLabels + 'table-contacts.colum1',
+      },
+      {
+        key: 'quoteName',
+        columnName: this.contentLabels + 'table-contacts.colum2',
+      },
+      {
+        key: 'invoice',
+        columnName: this.contentLabels + 'table-contacts.colum3',
+      },
+      {
+        key: 'mounthTotal',
+        columnName: this.contentLabels + 'table-contacts.colum4',
+      },
+      {
+        key: 'status',
+        columnName: this.contentLabels + 'table-contacts.colum5',
+      },
+      {
+        key: 'validity',
+        columnName: this.contentLabels + 'table-contacts.colum6',
+      },
+    ],
+    dataSource: [
+      {
+        name: 'Manuel ventas LATAM',
+        position: 'Cargo',
+        email: 'manuel@ventas.mx',
+        phone: '55265555',
+        contactType: 'Finanzas',
+        isMain: false,
+      },
+      {
+        name: 'Manuel ventas LATAM',
+        position: 'Cargo',
+        email: 'manuel@ventas.mx',
+        phone: '55265555',
+        contactType: 'Finanzas',
+        isMain: true,
+      },
+      {
+        name: 'Manuel ventas LATAM',
+        position: 'Cargo',
+        email: 'manuel@ventas.mx',
+        phone: '55265555',
+        contactType: 'Finanzas',
+        isMain: false,
+      },
+      {
+        name: 'Manuel ventas LATAM',
+        position: 'Cargo',
+        email: 'manuel@ventas.mx',
+        phone: '55265555',
+        contactType: 'Finanzas',
+        isMain: false,
+      },
+    ],
+  };
+
+  cardNames = [
+    'Contactos',
+    'Archivos',
+    'Historial de actividades',
+    'Historial de etapa',
   ];
   constructor() {}
 

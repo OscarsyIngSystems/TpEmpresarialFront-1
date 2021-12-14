@@ -26,7 +26,7 @@ export class OportunityFormComponent implements OnInit {
       probability: [''],
       badge: ['', Validators.required],
       oportunityOrigin: ['', Validators.required],
-      tryby: [false],
+      trybuy: [false],
       executive: [''],
     });
     // this.oportunityForm.disable();

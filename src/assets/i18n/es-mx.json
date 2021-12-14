@@ -118,6 +118,14 @@
       "colum6": "Vigencia",
       "colum7": "Cot. Principal"
     },
+    "table-contacts": {
+      "colum1": "Nombre del contacto",
+      "colum2": "Cargo",
+      "colum3": "Correo",
+      "colum4": "Telefono",
+      "colum5": "Tipo de contacto",
+      "colum6": "Principal"
+    },
     "message-empty": "No hay oportunidades guardadas para esta cuenta."
   }
 }

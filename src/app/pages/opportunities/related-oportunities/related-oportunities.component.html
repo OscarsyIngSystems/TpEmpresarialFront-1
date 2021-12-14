@@ -13,3 +13,19 @@
   [dataSource]="dataSource"
   [idTableShow]="4"
 ></app-table-general>
+
+<app-tabs-related [cardNames]="cardNames"></app-tabs-related>
+
+<div class="contacts-container">
+  <div class="d-flex justify-content-end">
+    <button mat-button class="rounded-button-outline">
+      <mat-icon>add</mat-icon> Agregar contacto
+    </button>
+  </div>
+  <app-table-general
+    [showHeaderTable]="true"
+    [columns]="dataContacts.columnsShow"
+    [dataSource]="dataContacts.dataSource"
+    [idTableShow]="5"
+  ></app-table-general>
+</div>
