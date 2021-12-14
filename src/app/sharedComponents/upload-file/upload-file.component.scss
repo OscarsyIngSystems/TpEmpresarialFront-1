@@ -1,0 +1,90 @@
+@import "../../../styles.scss";
+
+::ng-deep .mat-dialog-container {
+  border-radius: 15px !important;
+}
+
+.matDialogMassiveLoad {
+  display: grid;
+  flex-direction: row;
+  align-content: space-around;
+  height: 100%;
+  text-align: center;
+}
+.matDialogActions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-ok {
+  border-radius: 25px;
+  color: $color-white;
+  background-color: $color-primary;
+  width: 160px;
+  height: 35px;
+  border: solid 1px $color-primary;
+  line-height: normal;
+  &:hover {
+    background-color: $color-hover;
+  }
+}
+
+.contentDrop {
+  height: 200px;
+}
+
+::ng-deep .ngx-file-drop__drop-zone {
+  background: $color-white !important;
+  border: 2px dashed #deefff !important;
+  height: 190px !important;
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+}
+
+img {
+  width: 41.24px;
+  height: 29.05px;
+}
+
+.lineDrop {
+  position: relative;
+  &::before {
+    position: absolute;
+    top: 26px;
+    transform: translateX(-150%);
+    content: " ";
+    width: 50px;
+    height: 1px;
+    background-color: $color-placeholder;
+  }
+  &::after {
+    position: absolute;
+    top: 26px;
+    transform: translateX(50%);
+    content: " ";
+    width: 50px;
+    height: 1px;
+    background-color: $color-placeholder;
+  }
+}
+
+.textDrop {
+  color: $color-placeholder;
+  font-size: 16px;
+  padding-top: 15px;
+}
+
+.textDropActions {
+  color: $color-hover;
+  font-size: 16px;
+
+  a {
+    font-weight: bold;
+    color: $color-hover;
+  }
+}

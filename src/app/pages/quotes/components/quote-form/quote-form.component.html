@@ -28,7 +28,11 @@
                   placeholder="Ingrese el motivo"
                   >Nombre de la cotizacion</mat-label
                 >
-                <input matInput formControlName="quoteName" />
+                <input
+                  matInput
+                  formControlName="quoteName"
+                  [readonly]="!isAdmin()"
+                />
               </mat-form-field>
             </div>
           </div>
@@ -41,7 +45,8 @@
               type="radio"
               class="btn-check"
               autocomplete="off"
-              value="2"
+              value="1"
+              name="quoteType"
             />
             <label
               id="btn-check-quoteType2"
@@ -58,7 +63,8 @@
               type="radio"
               class="btn-check"
               autocomplete="off"
-              value="3"
+              value="2"
+              name="quoteType"
             />
             <label
               id="btn-check-quoteType3"
@@ -76,7 +82,7 @@
           <div class="input-container">
             <mat-form-field appearance="fill" class="w-100">
               <mat-label class="label-form-field">Asignacion de EPS</mat-label>
-              <mat-select formControlName="eps">
+              <mat-select [disabled]="!isAdmin()" formControlName="eps">
                 <mat-option value="one">EPS</mat-option>
                 <mat-option value="two">Otro</mat-option>
               </mat-select>
@@ -91,7 +97,8 @@
               type="radio"
               class="btn-check"
               autocomplete="off"
-              value="4"
+              value="3"
+              name="quoteType"
             />
             <label
               id="btn-check-quoteType4"
@@ -108,6 +115,7 @@
                 matInput
                 placeholder="Ingrese el motivo"
                 formControlName="reason"
+                [readonly]="!isAdmin()"
               />
               <mat-error *ngIf="form.controls.reason.invalid"
                 >Campo obligatorio</mat-error
@@ -125,14 +133,10 @@
               <mat-label class="label-form-field">Vigencia</mat-label>
               <input
                 matInput
-                [matDatepicker]="picker"
                 formControlName="dataPicker"
+                [readonly]="!isAdmin()"
               />
-              <mat-datepicker-toggle
-                matSuffix
-                [for]="picker"
-              ></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <mat-icon matSuffix>event</mat-icon>
             </mat-form-field>
           </div>
           <div class="col-6">
@@ -175,7 +179,7 @@
     </div>
   </form>
 </div>
-<!-- <div class="d-flex justify-content-center mt-2">
+<div *ngIf="isCreate" class="d-flex justify-content-center mt-2">
   <button mat-button class="rounded-button-outline form-actions me-2">
     Cancelar
   </button>
@@ -183,4 +187,3 @@
     Guardar
   </button>
 </div>
- -->

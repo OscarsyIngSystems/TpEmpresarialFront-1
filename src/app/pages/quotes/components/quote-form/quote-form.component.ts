@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogQuotesComponent } from 'src/app/pages/accounts/components/dialog-quotes/dialog-quotes.component';
@@ -9,17 +9,22 @@ import { DialogQuotesComponent } from 'src/app/pages/accounts/components/dialog-
   styleUrls: ['./quote-form.component.scss'],
 })
 export class QuoteFormComponent implements OnInit {
+  @Input() isCreate: boolean = false;
+
   name = '“COT7808232”';
   form: FormGroup;
+  public isAdmin(): boolean {
+    return false;
+  }
 
   constructor(public dialog: MatDialog, private fb: FormBuilder) {
     this.form = this.fb.group({
-      quoteName: ['', Validators.required],
-      eps: ['', Validators.required],
-      dataPicker: ['', Validators.required],
-      isMainQuotation: ['', Validators.required],
-      reason: ['', Validators.required],
-      quoteType: ['', Validators.required],
+      quoteName: ['Audi CDMX-COT', Validators.required],
+      eps: ['EPS IV', Validators.required],
+      dataPicker: ['22-Dic-2021', Validators.required],
+      isMainQuotation: [true, Validators.required],
+      reason: ['Superioridad técnica', Validators.required],
+      quoteType: ['3', Validators.required],
     });
   }
 
