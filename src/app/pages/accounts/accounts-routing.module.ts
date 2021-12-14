@@ -1,9 +1,11 @@
+import { RelatedOportunitiesComponent } from './../opportunities/related-oportunities/related-oportunities.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OportunityCreateComponent } from '../opportunities/oportunity-create/oportunity-create.component';
 import { AccountFormComponent } from './components/account-form/account-form.component';
 import { AccountsListComponent } from './components/accounts-list/accounts-list.component';
 import { LayautAccountsComponent } from './layaut-accounts.component';
+import { RelatedComponent } from './components/related/related.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: OportunityCreateComponent,
+      },
+      {
+        path: 'related/:id',
+        component: RelatedComponent,
       },
     ],
   },

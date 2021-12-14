@@ -1,0 +1,30 @@
+<!-- Titulo y botones superiores -->
+<app-header-actions
+  [title]="'Relacionado'"
+  buttonText="Crear oportunidad"
+  route="opportunities/create"
+  relatedRoute="accounts/related/"
+  [hidenCreateOportunity]="false"
+>
+</app-header-actions>
+<!-- FIN Titulo y botones superiores -->
+
+<!-- Barra de detalles -->
+<app-header-detail [detailInfo]="infoDetail"></app-header-detail>
+<!-- FIN Barra de detalles -->
+
+<!-- Tabla de contenido -->
+<h2 class="mt-1 text-bold">
+  Oportunidades de la cuenta ({{ dataSource.length }})
+</h2>
+<app-table-general
+  [showHeaderTable]="true"
+  [columns]="columnsShow"
+  [dataSource]="dataSource"
+  [idTableShow]="6"
+></app-table-general>
+<!-- FIN Tabla de contenido -->
+
+<!-- Tabs y tablas inferiores -->
+<app-accounts-list-bottom-tabs></app-accounts-list-bottom-tabs>
+<!-- FIN Tabs y tablas inferiores -->

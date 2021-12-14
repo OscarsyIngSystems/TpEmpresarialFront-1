@@ -168,3 +168,92 @@
     </tr>
   </tbody>
 </table>
+
+<!-- tabla de oportunidades (relacionado a cuentas) -->
+<table
+  *ngIf="idTableShow == 6"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
+  <thead>
+    <tr>
+      <th class="text-center" *ngFor="let col of columns">
+        {{ col.columnName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+    >
+      <td class="mat-cell text-center">{{ account.numberList }}</td>
+      <td class="mat-cell text-center">{{ account.name }}</td>
+      <td class="mat-cell text-center">{{ account.status }}</td>
+      <td class="mat-cell text-center">{{ account.mounthTotal }}</td>
+      <td class="mat-cell text-center">{{ account.closeDate }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- tabla de contactos -->
+<div *ngIf="idTableShow == 7" class="table-container m-2 shadow-sm">
+  <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nombre del contacto</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Cargo Column -->
+    <ng-container matColumnDef="range">
+      <th mat-header-cell *matHeaderCellDef>Cargo</th>
+      <td mat-cell *matCellDef="let element">{{ element.range }}</td>
+    </ng-container>
+
+    <!-- Correo Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Correo</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <!-- Telefono Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+      <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+    </ng-container>
+
+    <!-- Tipo de contacto Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Tipo de contacto</th>
+      <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+    </ng-container>
+
+    <!-- Principal Column -->
+    <ng-container matColumnDef="principal">
+      <th mat-header-cell *matHeaderCellDef>Principal</th>
+      <!-- <td mat-cell *matCellDef="let element">{{ element.principal }}</td> -->
+      <td
+        mat-cell
+        *matCellDef="let element; let i = index"
+        class="mat-cell justify-content-center"
+      >
+        <div>
+          <input
+            [id]="'contact-' + i"
+            class="radio-custom"
+            name="radio-contact"
+            type="radio"
+            [checked]="element.principal"
+          />
+          <label [for]="'contact-' + i" class="radio-custom-label"></label>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns"></tr>
+  </table>
+</div>
