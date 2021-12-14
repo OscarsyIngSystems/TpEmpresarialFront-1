@@ -1,0 +1,11 @@
+<div class="list-tab list-group">
+  <a
+    (click)="changeTab(i)"
+    role="button"
+    *ngFor="let card of cardNames; let i = index"
+    class="list-tab-item list-group-item"
+    [class]="i == currentTab ? 'active' : ''"
+  >
+    {{ card }}</a
+  >
+</div>

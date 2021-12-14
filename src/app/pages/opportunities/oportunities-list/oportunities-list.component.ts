@@ -7,7 +7,7 @@ import { InfoDetail } from 'src/app/models/infoDetail';
   styleUrls: ['./oportunities-list.component.scss'],
 })
 export class OportunitiesListComponent implements OnInit {
-  public contentLabels = 'accounts.account-detail-oportunity.';
+  public contentLabels = 'oportunities.';
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',

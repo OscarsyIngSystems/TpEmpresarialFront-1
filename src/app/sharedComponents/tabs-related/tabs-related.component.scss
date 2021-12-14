@@ -1,0 +1,31 @@
+@import "../../../styles.scss";
+
+.list-tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  width: 100%;
+  a {
+    margin-right: 20px;
+    font-size: 16px;
+    color: $color-primary !important;
+  }
+}
+
+.list-tab-item {
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: $color-white !important;
+  border: none;
+  color: $color-primary !important;
+  box-shadow: 0 0.125rem 0.25rem rgba($color-black, 0.075);
+}
+
+.list-tab-item.active {
+  background-color: transparent !important;
+  font-weight: bold;
+  color: $color-primary !important;
+  border: none;
+  padding: none;
+  box-shadow: unset;
+}

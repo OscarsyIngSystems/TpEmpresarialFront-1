@@ -40,17 +40,6 @@
         "colum7": "Contacto principal"
       }
     },
-    "account-detail-oportunity": {
-      "title": "Mis oportunidades",
-      "table": {
-        "colum1": "Nº",
-        "colum2": "Nombre de la oportunidad",
-        "colum3": "Numero de oportunidad",
-        "colum4": "Etapa",
-        "colum5": "Importe"
-      },
-      "message-empty": "No hay oportunidades guardadas para esta cuenta."
-    },
     "accounts-opportunities": {},
     "dialogs-opportunities": {
       "p-text1": "La oportunidad",
@@ -106,6 +95,36 @@
       "colum3": "Folio cotizacion",
       "colum4": "Total-Recurrente mensual",
       "colum5": "Estatus"
+    },
+    "message-empty": "No hay oportunidades guardadas para esta cuenta."
+  },
+  "oportunities": {
+    "title": "Mis oportunidades",
+    "title-detail": "Detalle de la oportunidad",
+    "title-related": "Relacionado oportunidad",
+    "table": {
+      "colum1": "Nº",
+      "colum2": "Nombre de la oportunidad",
+      "colum3": "Numero de oportunidad",
+      "colum4": "Etapa",
+      "colum5": "Importe"
+    },
+    "table-related": {
+      "colum1": "Nº",
+      "colum2": "Nombre de la cotización",
+      "colum3": "Folio de la cotización",
+      "colum4": "Total recurrencia mensual",
+      "colum5": "Estatus",
+      "colum6": "Vigencia",
+      "colum7": "Cot. Principal"
+    },
+    "table-contacts": {
+      "colum1": "Nombre del contacto",
+      "colum2": "Cargo",
+      "colum3": "Correo",
+      "colum4": "Telefono",
+      "colum5": "Tipo de contacto",
+      "colum6": "Principal"
     },
     "message-empty": "No hay oportunidades guardadas para esta cuenta."
   }

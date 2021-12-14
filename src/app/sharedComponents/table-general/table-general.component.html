@@ -84,3 +84,87 @@
     </tr>
   </tbody>
 </table>
+
+<!-- tabla de oportunidades (relacionado)-->
+
+<table
+  *ngIf="idTableShow == 4"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
+  <thead>
+    <tr>
+      <th class="text-center" *ngFor="let col of columns">
+        {{ col.columnName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+    >
+      <td class="mat-cell text-center">{{ account.numberList }}</td>
+      <td class="mat-cell text-center">{{ account.quoteName }}</td>
+      <td class="mat-cell text-center">{{ account.invoice }}</td>
+      <td class="mat-cell text-center">{{ account.mounthTotal }}</td>
+      <td class="mat-cell text-center">{{ account.status }}</td>
+      <td class="mat-cell text-center">{{ account.validity }}</td>
+      <td class="mat-cell d-flex justify-content-center">
+        <div>
+          <input
+            [id]="'radio-' + i"
+            class="radio-custom"
+            name="radio-group"
+            type="radio"
+            [checked]="account.mainCot"
+          />
+          <label [for]="'radio-' + i" class="radio-custom-label"></label>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!--tabla de contactos-->
+<table
+  *ngIf="idTableShow == 5"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
+  <thead>
+    <tr>
+      <th class="text-center" *ngFor="let col of columns">
+        {{ col.columnName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+    >
+      <td class="mat-cell text-center">{{ account.name }}</td>
+      <td class="mat-cell text-center">{{ account.position }}</td>
+      <td class="mat-cell text-center">{{ account.email }}</td>
+      <td class="mat-cell text-center">{{ account.phone }}</td>
+      <td class="mat-cell text-center">{{ account.contactType }}</td>
+      <td class="mat-cell d-flex justify-content-center">
+        <div>
+          <input
+            [id]="'contact-' + i"
+            class="radio-custom"
+            name="radio-contact"
+            type="radio"
+            [checked]="account.isMain"
+          />
+          <label [for]="'contact-' + i" class="radio-custom-label"></label>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

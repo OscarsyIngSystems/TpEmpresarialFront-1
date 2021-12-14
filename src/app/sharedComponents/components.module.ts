@@ -37,6 +37,7 @@ import { SegmentAccountComponent } from './dashboad-components/segment-account/s
 import { VariablePaymentComponent } from './dashboad-components/variable-payment/variable-payment.component';
 import { ChartsModule } from 'ng2-charts';
 import { MatTabsModule } from '@angular/material/tabs';
+import { TabsRelatedComponent } from './tabs-related/tabs-related.component';
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -51,6 +52,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     ChartComponent,
     SegmentAccountComponent,
     VariablePaymentComponent,
+    TabsRelatedComponent,
   ],
   exports: [
     ChartsModule,
@@ -89,6 +91,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSidenavModule,
     MatDatepickerModule,
     MatTabsModule,
+    TabsRelatedComponent,
   ],
   imports: [
     ChartsModule,

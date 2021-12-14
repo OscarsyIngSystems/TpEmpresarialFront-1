@@ -365,3 +365,9 @@ div.dataTables_wrapper div.dataTables_length select {
   border: none;
   border-radius: 5px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

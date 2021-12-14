@@ -12,11 +12,15 @@ export class HeaderActionsComponent implements OnInit {
   @Input() hasBackButton!: boolean;
   @Input() buttonText!: string;
   @Input() route!: string;
-
+  @Input() relatedRoute!: string;
   constructor(private router: Router) {}
 
-  newOportunity() {
+  newOportunity(): void {
     this.router.navigate([this.route]);
+  }
+
+  openRelated(): void {
+    this.router.navigate([this.relatedRoute]);
   }
 
   ngOnInit(): void {}

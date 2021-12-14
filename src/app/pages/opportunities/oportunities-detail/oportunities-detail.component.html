@@ -1,9 +1,10 @@
 <app-header-actions
-  [title]="contentLabels + 'title' | translate"
+  [title]="contentLabels + 'title-detail' | translate"
   buttonText="Crear cotizacion"
   route="opportunities/create"
+  relatedRoute="opportunities/1/related"
   [hidenCreateOportunity]="false"
 >
 </app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
-<app-oportunity-form></app-oportunity-form>
+<app-oportunity-form [oportunityDetailData]="oportunity"></app-oportunity-form>
