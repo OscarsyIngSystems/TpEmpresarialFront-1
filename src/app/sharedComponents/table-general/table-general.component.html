@@ -85,6 +85,36 @@
   </tbody>
 </table>
 
+<!-- tabla de cotizaciones (relacionado) -->
+
+<table
+  *ngIf="idTableShow == 6"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="general-table row-border"
+>
+  <thead>
+    <tr>
+      <th class="text-center" *ngFor="let col of columns">
+        {{ col.columnName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="c-pointer shadow-sm" *ngFor="let account of dataSource">
+      <td class="mat-cell text-center ps-3">{{ account.numberList }}</td>
+      <td class="mat-cell text-center">{{ account.siteFolio }}</td>
+      <td class="mat-cell text-center">{{ account.street }}</td>
+      <td class="mat-cell text-center">{{ account.colony }}</td>
+      <td class="mat-cell text-center">{{ account.delegation }}</td>
+      <td class="mat-cell text-center">{{ account.city }}</td>
+      <td class="mat-cell text-center">{{ account.state }}</td>
+      <td class="mat-cell text-center">{{ account.cp }}</td>
+    </tr>
+  </tbody>
+</table>
+
 <!-- tabla de oportunidades (relacionado)-->
 
 <table

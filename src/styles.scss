@@ -203,20 +203,24 @@ div.dataTables_wrapper div.dataTables_length select {
   border-radius: 20px !important;
   padding: 5px;
   height: 35px;
+  width: 163px;
   background-color: $color-secondary;
   color: $color-white;
   display: flex !important;
   align-items: center !important;
+  justify-content: center;
 }
 
 .rounded-button-outline {
   border-radius: 20px !important;
   padding: 5px;
   height: 35px;
+  width: 163px;
   border: 2px solid $color-primary !important;
   color: $color-primary;
   display: flex !important;
   align-items: center !important;
+  justify-content: center;
 }
 .warn-btn {
   color: $color-secondary;
