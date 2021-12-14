@@ -38,6 +38,9 @@ import { VariablePaymentComponent } from './dashboad-components/variable-payment
 import { ChartsModule } from 'ng2-charts';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TabsRelatedComponent } from './tabs-related/tabs-related.component';
+import { UploadFileComponent } from './upload-file/upload-file.component';
+import { NgxFileDropModule } from 'ngx-file-drop';
+
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -53,6 +56,7 @@ import { TabsRelatedComponent } from './tabs-related/tabs-related.component';
     SegmentAccountComponent,
     VariablePaymentComponent,
     TabsRelatedComponent,
+    UploadFileComponent,
   ],
   exports: [
     ChartsModule,
@@ -92,6 +96,7 @@ import { TabsRelatedComponent } from './tabs-related/tabs-related.component';
     MatDatepickerModule,
     MatTabsModule,
     TabsRelatedComponent,
+    UploadFileComponent,
   ],
   imports: [
     ChartsModule,
@@ -122,6 +127,7 @@ import { TabsRelatedComponent } from './tabs-related/tabs-related.component';
     MatTabsModule,
     DataTablesModule,
     MatDatepickerModule,
+    NgxFileDropModule,
   ],
 })
 export class ComponentsModule {}

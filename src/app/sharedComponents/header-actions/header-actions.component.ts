@@ -13,6 +13,7 @@ export class HeaderActionsComponent implements OnInit {
   @Input() buttonText!: string;
   @Input() route!: string;
   @Input() relatedRoute!: string;
+  @Input() relatedText = 'Relaciondo';
   constructor(private router: Router) {}
 
   newOportunity(): void {

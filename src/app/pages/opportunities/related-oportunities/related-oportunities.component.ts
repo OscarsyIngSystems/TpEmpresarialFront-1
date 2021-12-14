@@ -8,6 +8,7 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 })
 export class RelatedOportunitiesComponent implements OnInit {
   public contentLabels = 'oportunities.';
+  currentTab = 0;
 
   infoDetail: Array<InfoDetail> = [
     {
@@ -202,6 +203,10 @@ export class RelatedOportunitiesComponent implements OnInit {
     'Historial de etapa',
   ];
   constructor() {}
+
+  changeTab(activeTab: number) {
+    this.currentTab = activeTab;
+  }
 
   ngOnInit(): void {}
 }
