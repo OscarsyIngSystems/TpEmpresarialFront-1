@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
@@ -14,6 +15,7 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 })
 export class AccountFormComponent implements OnInit {
   public contentLabels = 'accounts.account-detail-oportunity.';
+  public accountId;
   public principalDataForm!: FormGroup;
   public addressInformationForm!: FormGroup;
   public systemInformationForm!: FormGroup;
@@ -37,7 +39,9 @@ export class AccountFormComponent implements OnInit {
     },
   ];
 
-  constructor(private fb: FormBuilder) {
+  // tslint:disable-next-line: variable-name
+  constructor(private _url: ActivatedRoute, private fb: FormBuilder) {
+    this.accountId = this._url.snapshot.paramMap.get('id');
     this.initPrincipalDataForm();
     this.initAddressInformationForm();
     this.initSystemInformationForm();

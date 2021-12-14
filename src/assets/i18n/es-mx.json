@@ -72,6 +72,13 @@
         "card1-content": "La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá el 23 noviembre 2021 a las 13:35 hrs.",
         "card1-footer": "Hace 2 min"
       }
+    },
+    "table-related": {
+      "colum1": "Nº",
+      "colum2": "Nombre de la oportunidad",
+      "colum3": "Etapa",
+      "colum4": "Importe",
+      "colum6": "Fecha de cierre"
     }
   },
   "quotes": {

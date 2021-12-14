@@ -21,6 +21,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { AccountFormComponent } from './components/account-form/account-form.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { AccountsListBottomTabsComponent } from './components/accounts-list-bottom-tabs/accounts-list-bottom-tabs.component';
+import { RelatedComponent } from './components/related/related.component';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,6 +38,7 @@ export function createTranslateLoader(http: HttpClient): any {
     DialogMassiveLoadSitesComponent,
     AccountFormComponent,
     AccountsListBottomTabsComponent,
+    RelatedComponent,
   ],
   imports: [
     CommonModule,
