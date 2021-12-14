@@ -12,7 +12,12 @@
     <mat-expansion-panel-header>
       <mat-panel-title class="text-bold"> Datos principales </mat-panel-title>
     </mat-expansion-panel-header>
-    <form class="login-form" [formGroup]="principalDataForm" novalidate>
+    <form
+      class="login-form"
+      [formGroup]="principalDataForm"
+      novalidate
+      autocomplete="off"
+    >
       <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
@@ -21,23 +26,9 @@
               matInput
               placeholder="Ingrese Tipo de persona"
               formControlName="regime"
-              autocomplete="off"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="principalDataForm.controls.regime.invalid"
-              >Campo obligatorio</mat-error
-            >
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Nombre de la cuenta</mat-label>
-            <input
-              matInput
-              placeholder="Ingrese Nombre de la cuenta"
-              formControlName="account_name"
-            />
-            <mat-error *ngIf="principalDataForm.controls.account_name.invalid"
               >Campo obligatorio</mat-error
             >
           </mat-form-field>
@@ -50,6 +41,7 @@
               matInput
               placeholder="Ingrese Razon social"
               formControlName="enterprise_name"
+              [readonly]="!isAdmin()"
             />
             <mat-error
               *ngIf="principalDataForm.controls.enterprise_name.invalid"
@@ -57,9 +49,7 @@
             >
           </mat-form-field>
         </div>
-      </div>
 
-      <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Cuenta principal</mat-label>
@@ -67,37 +57,9 @@
               matInput
               placeholder="Ingrese Cuenta principal"
               formControlName="main_account"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="principalDataForm.controls.main_account.invalid"
-              >Campo obligatorio</mat-error
-            >
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>RFC</mat-label>
-            <input
-              matInput
-              placeholder="Ingrese RFC"
-              formControlName="tax_identification"
-            />
-            <mat-error
-              *ngIf="principalDataForm.controls.tax_identification.invalid"
-              >Campo obligatorio</mat-error
-            >
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Clase de cuenta</mat-label>
-            <input
-              matInput
-              placeholder="Ingrese Clase de cuenta"
-              formControlName="account_class"
-            />
-            <mat-error *ngIf="principalDataForm.controls.account_class.invalid"
               >Campo obligatorio</mat-error
             >
           </mat-form-field>
@@ -107,11 +69,27 @@
       <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Clase de cuenta</mat-label>
+            <input
+              matInput
+              placeholder="Ingrese Clase de cuenta"
+              formControlName="account_class"
+              [readonly]="!isAdmin()"
+            />
+            <mat-error *ngIf="principalDataForm.controls.account_class.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
             <mat-label>Numero de la cuenta</mat-label>
             <input
               matInput
               placeholder="Ingrese Numero de la cuenta"
               formControlName="account_number"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="principalDataForm.controls.account_number.invalid"
               >Campo obligatorio</mat-error
@@ -126,24 +104,10 @@
               matInput
               placeholder="Ingrese Referencia Urbana"
               formControlName="urban_reference"
+              [readonly]="!isAdmin()"
             />
             <mat-error
               *ngIf="principalDataForm.controls.urban_reference.invalid"
-              >Campo obligatorio</mat-error
-            >
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Segmento facturación</mat-label>
-            <input
-              matInput
-              placeholder="Ingrese Segmento facturación"
-              formControlName="billing_segment"
-            />
-            <mat-error
-              *ngIf="principalDataForm.controls.billing_segment.invalid"
               >Campo obligatorio</mat-error
             >
           </mat-form-field>
@@ -153,11 +117,28 @@
       <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Segmento facturación</mat-label>
+            <input
+              matInput
+              placeholder="Ingrese Segmento facturación"
+              formControlName="billing_segment"
+              [readonly]="!isAdmin()"
+            />
+            <mat-error
+              *ngIf="principalDataForm.controls.billing_segment.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
             <mat-label>Monto facturación potencial</mat-label>
             <input
               matInput
               placeholder="Ingrese Monto facturación potencial"
               formControlName="potencial_billing_amount"
+              [readonly]="!isAdmin()"
             />
             <mat-error
               *ngIf="
@@ -168,6 +149,23 @@
           </mat-form-field>
         </div>
 
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Teléfono</mat-label>
+            <input
+              matInput
+              placeholder="Ingrese Teléfono"
+              formControlName="phone"
+              [readonly]="!isAdmin()"
+            />
+            <mat-error *ngIf="principalDataForm.controls.phone.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- <div class="row">
         <div class="col-4 input-container">
           <div class="w-100 h-100 py-3" appearance="fill">
             <mat-label>Segmento: </mat-label>
@@ -243,21 +241,7 @@
             </label>
           </div>
         </div>
-
-        <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Teléfono</mat-label>
-            <input
-              matInput
-              placeholder="Ingrese Teléfono"
-              formControlName="phone"
-            />
-            <mat-error *ngIf="principalDataForm.controls.phone.invalid"
-              >Campo obligatorio</mat-error
-            >
-          </mat-form-field>
-        </div>
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="col-4 input-container">
@@ -267,6 +251,7 @@
               matInput
               placeholder="Ingrese Sitio Web"
               formControlName="website"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="principalDataForm.controls.website.invalid"
               >Campo obligatorio</mat-error
@@ -281,6 +266,7 @@
               matInput
               placeholder="Ingrese Sector"
               formControlName="sector"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="principalDataForm.controls.sector.invalid"
               >Campo obligatorio</mat-error
@@ -295,6 +281,7 @@
               matInput
               placeholder="Ingrese Tamaño"
               formControlName="size"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="principalDataForm.controls.size.invalid"
               >Campo obligatorio</mat-error
@@ -311,6 +298,7 @@
               matInput
               placeholder="Ingrese Empleados"
               formControlName="employees_amount"
+              [readonly]="!isAdmin()"
             />
             <mat-error
               *ngIf="principalDataForm.controls.employees_amount.invalid"
@@ -328,6 +316,7 @@
               formControlName="isVip"
               uncheckedLabel="NO"
               checkedLabel="SI "
+              [disabled]="!isAdmin()"
             ></ui-switch>
             <!-- <input matInput placeholder="Ingrese VIP" formControlName="isVip" />
             <mat-error *ngIf="principalDataForm.controls.isVip.invalid"
@@ -342,9 +331,11 @@
             <input
               matInput
               placeholder="Ingrese Folio cuenta"
-              formControlName="account_id"
+              formControlName="principal_contact"
+              [readonly]="!isAdmin()"
             />
-            <mat-error *ngIf="principalDataForm.controls.account_id.invalid"
+            <mat-error
+              *ngIf="principalDataForm.controls.principal_contact.invalid"
               >Campo obligatorio</mat-error
             >
           </mat-form-field>
@@ -370,6 +361,7 @@
               matInput
               placeholder="Ingrese Calle"
               formControlName="street"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="addressInformationForm.controls.street.invalid"
               >Campo obligatorio</mat-error
@@ -384,6 +376,7 @@
               matInput
               placeholder="Ingrese Número exterior"
               formControlName="number"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="addressInformationForm.controls.number.invalid"
               >Campo obligatorio</mat-error
@@ -398,6 +391,7 @@
               matInput
               placeholder="Ingrese Número interior"
               formControlName="interior_number"
+              [readonly]="!isAdmin()"
             />
             <mat-error
               *ngIf="addressInformationForm.controls.interior_number.invalid"
@@ -414,6 +408,7 @@
               matInput
               placeholder="Ingrese CP Colonia"
               formControlName="town"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="addressInformationForm.controls.town.invalid"
               >Campo obligatorio</mat-error
@@ -421,15 +416,20 @@
           </mat-form-field>
         </div>
 
-        <div class="col-4 input-container">
+        <!-- <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Mapa</mat-label>
-            <input matInput placeholder="Ingrese Mapa" formControlName="map" />
+            <input
+              matInput
+              placeholder="Ingrese Mapa"
+              formControlName="map"
+              [readonly]="!isAdmin()"
+            />
             <mat-error *ngIf="addressInformationForm.controls.map.invalid"
               >Campo obligatorio</mat-error
             >
           </mat-form-field>
-        </div>
+        </div> -->
 
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
@@ -438,6 +438,7 @@
               matInput
               placeholder="Ingrese Número interior"
               formControlName="account_registration_type"
+              [readonly]="!isAdmin()"
             />
             <mat-error
               *ngIf="
@@ -448,8 +449,7 @@
             >
           </mat-form-field>
         </div>
-      </div>
-      <div class="row">
+
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Delegación / Municipio</mat-label>
@@ -457,13 +457,15 @@
               matInput
               placeholder="Ingrese Delegación / Municipio"
               formControlName="county"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="addressInformationForm.controls.county.invalid"
               >Campo obligatorio</mat-error
             >
           </mat-form-field>
         </div>
-
+      </div>
+      <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Ciudad</mat-label>
@@ -471,6 +473,7 @@
               matInput
               placeholder="Ingrese Ciudad"
               formControlName="city"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="addressInformationForm.controls.city.invalid"
               >Campo obligatorio</mat-error
@@ -485,8 +488,24 @@
               matInput
               placeholder="Ingrese Estado"
               formControlName="state"
+              [readonly]="!isAdmin()"
             />
             <mat-error *ngIf="addressInformationForm.controls.state.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Código Postal</mat-label>
+            <input
+              matInput
+              placeholder="Ingrese Código Postal"
+              formControlName="cp"
+              [readonly]="!isAdmin()"
+            />
+            <mat-error *ngIf="addressInformationForm.controls.cp.invalid"
               >Campo obligatorio</mat-error
             >
           </mat-form-field>
@@ -495,25 +514,12 @@
       <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Código Postal</mat-label>
-            <input
-              matInput
-              placeholder="Ingrese Código Postal"
-              formControlName="cp"
-            />
-            <mat-error *ngIf="addressInformationForm.controls.cp.invalid"
-              >Campo obligatorio</mat-error
-            >
-          </mat-form-field>
-        </div>
-
-        <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
             <mat-label>Empleados</mat-label>
             <input
               matInput
               placeholder="Ingrese Empleados"
               formControlName="employees_amount"
+              [readonly]="!isAdmin()"
             />
             <mat-error
               *ngIf="addressInformationForm.controls.employees_amount.invalid"
@@ -529,6 +535,7 @@
               matInput
               placeholder="Ingrese Geolocalización"
               formControlName="geolocation"
+              [readonly]="!isAdmin()"
             />
             <mat-error
               *ngIf="addressInformationForm.controls.geolocation.invalid"
@@ -550,13 +557,14 @@
     </mat-expansion-panel-header>
     <form class="login-form" [formGroup]="systemInformationForm" novalidate>
       <div class="row">
-        <div class="col-3 input-container">
+        <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Creado por</mat-label>
             <input
               matInput
               placeholder="Ingrese Creado por"
               formControlName="createdBy"
+              [readonly]="true"
             />
             <mat-error *ngIf="systemInformationForm.controls.createdBy.invalid"
               >Campo obligatorio</mat-error
@@ -564,27 +572,47 @@
           </mat-form-field>
         </div>
 
-        <div class="col-3 input-container">
+        <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Id CRM origen</mat-label>
+            <mat-label>Fecha de creaci&oacute;n</mat-label>
             <input
               matInput
-              placeholder="Ingrese Id CRM origen"
-              formControlName="originCRM"
+              placeholder="Fecha de creaci&oacute;n"
+              formControlName="creationDate"
+              [readonly]="true"
             />
-            <mat-error *ngIf="systemInformationForm.controls.originCRM.invalid"
+            <mat-error
+              *ngIf="systemInformationForm.controls.creationDate.invalid"
               >Campo obligatorio</mat-error
             >
           </mat-form-field>
         </div>
 
-        <div class="col-3 input-container">
+        <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Última modificación</mat-label>
+            <mat-label>Propietario de la cuenta</mat-label>
             <input
               matInput
-              placeholder="Ingrese Última modificación"
+              placeholder="Propietario de la cuenta"
+              formControlName="accountOwner"
+              [readonly]="true"
+            />
+            <mat-error
+              *ngIf="systemInformationForm.controls.accountOwner.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Última modificación por</mat-label>
+            <input
+              matInput
+              placeholder="Modificado ultima vez por"
               formControlName="lastUpdatedBy"
+              [readonly]="true"
             />
             <mat-error
               *ngIf="systemInformationForm.controls.lastUpdatedBy.invalid"
@@ -593,16 +621,32 @@
           </mat-form-field>
         </div>
 
-        <div class="col-3 input-container">
+        <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Propietario de la cuenta</mat-label>
+            <mat-label>Fecha de &uacute;ltima modificaci&oacute;n</mat-label>
             <input
               matInput
-              placeholder="Ingrese Propietario de la cuenta"
-              formControlName="accountOwner"
+              placeholder="Fecha de &uacute;ltima modificaci&oacute;"
+              formControlName="lastUpdatedDate"
+              [readonly]="true"
             />
             <mat-error
-              *ngIf="systemInformationForm.controls.accountOwner.invalid"
+              *ngIf="systemInformationForm.controls.lastUpdatedDate.invalid"
+              >Campo obligatorio</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="col-4 input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label>Id CRM origen</mat-label>
+            <input
+              matInput
+              placeholder="Ingrese Id CRM origen"
+              formControlName="originCRM"
+              [readonly]="true"
+            />
+            <mat-error *ngIf="systemInformationForm.controls.originCRM.invalid"
               >Campo obligatorio</mat-error
             >
           </mat-form-field>

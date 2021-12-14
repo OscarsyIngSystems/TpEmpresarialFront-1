@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
@@ -11,7 +16,6 @@ export class AccountFormComponent implements OnInit {
   public contentLabels = 'accounts.account-detail-oportunity.';
   public principalDataForm!: FormGroup;
   public addressInformationForm!: FormGroup;
-  public descriptionForm!: FormGroup;
   public systemInformationForm!: FormGroup;
   public segments!: any[];
   infoDetail: Array<InfoDetail> = [
@@ -36,64 +40,63 @@ export class AccountFormComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.initPrincipalDataForm();
     this.initAddressInformationForm();
-    this.initDescriptionForm();
     this.initSystemInformationForm();
   }
 
   ngOnInit(): void {}
 
+  public isAdmin(): boolean {
+    return false;
+  }
+
   public initPrincipalDataForm(): void {
     this.principalDataForm = this.fb.group({
-      regime: ['', Validators.required],
-      account_name: ['', Validators.required],
-      enterprise_name: ['', Validators.required],
-      main_account: ['', Validators.required],
-      tax_identification: ['', Validators.required],
-      account_class: ['', Validators.required],
-      account_number: ['', Validators.required],
-      urban_reference: ['', Validators.required],
-      billing_segment: ['', Validators.required],
-      potencial_billing_amount: ['', Validators.required],
-      segment: ['1', Validators.required],
-      phone: ['', Validators.required],
-      website: ['', Validators.required],
-      sector: ['', Validators.required],
-      size: ['', Validators.required],
-      employees_amount: ['', Validators.required],
+      regime: ['Moral', Validators.required],
+      // account_name: ['', Validators.required],
+      enterprise_name: ['Hazak Seguridad Privada', Validators.required],
+      main_account: ['Pequeñas', Validators.required],
+      // tax_identification: ['', Validators.required],
+      account_class: ['Prospecto', Validators.required],
+      account_number: ['HSP030709EA2', Validators.required],
+      urban_reference: ['Clase de cuenta', Validators.required],
+      billing_segment: ['Estratégicas', Validators.required],
+      potencial_billing_amount: ['Más de $ 1,000,000.00', Validators.required],
+      // segment: ['1', Validators.required],
+      phone: ['55 7216 9827', Validators.required],
+      website: ['elimm.com.mx', Validators.required],
+      sector: ['Servicios', Validators.required],
+      size: ['Corporativo -  más de 250', Validators.required],
+      employees_amount: ['1000', Validators.required],
       isVip: [true, Validators.required],
-      account_id: ['', Validators.required],
+      principal_contact: ['Alan 4G 4', Validators.required],
     });
   }
 
   public initAddressInformationForm(): void {
     this.addressInformationForm = this.fb.group({
-      street: ['', Validators.required],
-      number: ['', Validators.required],
+      street: ['Av. San Jeronimo', Validators.required],
+      number: [252, Validators.required],
       interior_number: ['', Validators.required],
-      town: ['', Validators.required],
-      map: ['', Validators.required],
-      account_registration_type: ['', Validators.required],
-      county: ['', Validators.required],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
-      cp: ['', Validators.required],
-      employees_amount: ['', Validators.required],
-      geolocation: ['', Validators.required],
-    });
-  }
-
-  public initDescriptionForm(): void {
-    this.descriptionForm = this.fb.group({
-      description: [''],
+      town: ['Tizapan San Angel', Validators.required],
+      // map: ['', Validators.required],
+      account_registration_type: ['Enlace', Validators.required],
+      county: ['Coyoacan', Validators.required],
+      city: ['Ciudad de Mexico', Validators.required],
+      state: ['CDMX', Validators.required],
+      cp: ['04519', Validators.required],
+      employees_amount: [1000, Validators.required],
+      geolocation: ['19.3340101,-99.1986951', Validators.required],
     });
   }
 
   public initSystemInformationForm(): void {
     this.systemInformationForm = this.fb.group({
-      createdBy: ['', Validators.required],
-      originCRM: ['', Validators.required],
-      lastUpdatedBy: ['', Validators.required],
-      accountOwner: ['', Validators.required],
+      createdBy: ['Gabriela López Velázquez', Validators.required],
+      creationDate: ['21-Nov-2021 / 12:15 pm', Validators.required],
+      accountOwner: ['Gabriela López Velázquez', Validators.required],
+      lastUpdatedBy: ['Gabriela López Velázquez', Validators.required],
+      lastUpdatedDate: ['02-Dic-2021 / 18:50 pm', Validators.required],
+      originCRM: ['Lorem Ipsum', Validators.required],
     });
   }
 }

@@ -81,7 +81,7 @@ body {
 }
 //#region Table
 
-table {
+.general-table {
   width: 100%;
   border-collapse: separate !important;
   border-spacing: 0 1em !important;
@@ -92,16 +92,16 @@ table {
   font-weight: medium !important;
 }
 
-tr.table-detail-row {
+.general-table tr.table-detail-row {
   height: 0;
 }
 
-tr.table-element-row:not(.table-expanded-row) {
+.general-table tr.table-element-row:not(.table-expanded-row) {
   border-radius: 10px !important;
   background-color: $color-white;
 }
 
-tr.table-element-row {
+.general-table tr.table-element-row {
   background-color: $color-active-secondary;
   border-radius: 10px !important;
   position: relative;
@@ -129,52 +129,53 @@ tr.table-element-row {
   }
 }
 
-table.dataTable.no-footer {
+.general-table.dataTable.no-footer {
   border-bottom: none;
 }
 
-table.dataTable thead th,
-table.dataTable thead td {
+.general-table.dataTable thead th,
+.general-table.dataTable thead td {
   border-bottom: none;
 }
 
-table.dataTable.row-border tbody th,
-table.dataTable.row-border tbody td,
-table.dataTable.display tbody th,
-table.dataTable.display tbody td {
+.general-table.dataTable.row-border tbody th,
+.general-table.dataTable.row-border tbody td,
+.general-table.dataTable.display tbody th,
+.general-table.dataTable.display tbody td {
   border-top: none !important;
 }
 
-tr.table-element-row:not(.table-expanded-row):hover {
+.general-table tr.table-element-row:not(.table-expanded-row):hover {
   background: url(./assets/img/chevron-right.svg) no-repeat;
   background-position: 98.8% 50%;
   background-color: $color-hover-secondary;
   cursor: pointer;
 }
 
-tr.table-element-row:not(.table-expanded-row):active {
+.general-table tr.table-element-row:not(.table-expanded-row):active {
   background: $color-hover-secondary;
 }
 
-.table-element-row td {
+.general-table .table-element-row td {
   border-bottom-width: none;
 }
 
-.mat-table {
+// .mat-table {
+.general-table {
   background: transparent !important;
 }
 
-tr > td:last-child {
+.general-table tr > td:last-child {
   border-top-right-radius: 10px !important;
   border-bottom-right-radius: 10px !important;
 }
-tr > td:first-child {
+.general-table tr > td:first-child {
   border-top-left-radius: 10px !important;
   border-bottom-left-radius: 10px !important;
 }
-th.mat-header-cell,
-td.mat-cell,
-td.mat-footer-cell {
+.general-table th.mat-header-cell,
+.general-table td.mat-cell,
+.general-table td.mat-footer-cell {
   padding: 4px;
   border-bottom-width: 0px !important;
   border-bottom-style: solid !important;
