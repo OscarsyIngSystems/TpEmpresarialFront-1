@@ -126,6 +126,14 @@
       "colum5": "Tipo de contacto",
       "colum6": "Principal"
     },
+    "table-activities-history": {
+      "colum1": "Nº",
+      "colum2": "Asunto",
+      "colum3": "Nombre",
+      "colum4": "Relacionado con",
+      "colum5": "Vencimiento",
+      "colum6": "Asignado a"
+    },
     "message-empty": "No hay oportunidades guardadas para esta cuenta."
   }
 }

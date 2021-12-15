@@ -14,26 +14,34 @@
   [dataSource]="dataSource"
   [idTableShow]="4"
 ></app-table-general>
-
+<!--
 <app-tabs-related
   (currentTabEmmiter)="changeTab($event)"
   [cardNames]="cardNames"
-></app-tabs-related>
+></app-tabs-related> -->
 
-<div class="contacts-container" *ngIf="currentTab === 0">
-  <div class="d-flex justify-content-end">
-    <button mat-button class="rounded-button-outline">
-      <mat-icon>add</mat-icon> Agregar contacto
-    </button>
-  </div>
-  <app-table-general
-    [showHeaderTable]="true"
-    [columns]="dataContacts.columnsShow"
-    [dataSource]="dataContacts.dataSource"
-    [idTableShow]="5"
-  ></app-table-general>
-</div>
-
-<div class="files-container" *ngIf="currentTab === 1">
-  <app-upload-file></app-upload-file>
-</div>
+<mat-tab-group>
+  <mat-tab label="Contactos">
+    <div class="d-flex justify-content-end">
+      <button mat-button class="rounded-button-outline">
+        <mat-icon>add</mat-icon> Agregar contacto
+      </button>
+    </div>
+    <app-table-general
+      [showHeaderTable]="true"
+      [columns]="dataContacts.columnsShow"
+      [dataSource]="dataContacts.dataSource"
+      [idTableShow]="5"
+    ></app-table-general>
+  </mat-tab>
+  <mat-tab label="Archivos"> <app-upload-file></app-upload-file> </mat-tab>
+  <mat-tab label="Historial de actividades">
+    <app-table-general
+      [showHeaderTable]="true"
+      [columns]="dataActivityHistory.columnsShow"
+      [dataSource]="dataActivityHistory.dataSource"
+      [idTableShow]="6"
+    ></app-table-general>
+  </mat-tab>
+  <mat-tab label="Historial de Etapas"></mat-tab>
+</mat-tab-group>

@@ -28,6 +28,7 @@ export class OportunityFormComponent implements OnInit {
       oportunityOrigin: ['', Validators.required],
       trybuy: [false],
       executive: [''],
+      whoIntegrated: [''],
     });
     // this.oportunityForm.disable();
   }
