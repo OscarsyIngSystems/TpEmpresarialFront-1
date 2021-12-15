@@ -18,39 +18,26 @@ export class CellIndicatorsComponent implements OnInit {
   public chartProps: ChartComponentOptions = {
     data: [
       { data: [165, 159, 280, 281, 356, 255, 240], label: 'Enviadas' },
-      { data: [28, 48, 40, 19, 86, 27, 90], label: 'En proceso' },
-      {
-        data: [180, 480, 770, 90, 1000, 270, 400],
-        label: 'Cerradas',
-      },
+      { data: [28, 56, 34, 80, 356], label: 'En proceso' },
     ],
     colors: [
       {
         // enviadas
         backgroundColor: 'rgba(0,0,0,0)',
-        borderColor: '#8246AF',
+        borderColor: 'lawngreen',
         pointBackgroundColor: '#FFF',
-        pointBorderColor: '#8246AF',
-        pointHoverBackgroundColor: '#8246AF',
-        pointHoverBorderColor: '#8246AF',
+        pointBorderColor: 'lawngreen',
+        pointHoverBackgroundColor: 'lawngreen',
+        pointHoverBorderColor: 'lawngreen',
       },
       {
         // en proceso
         backgroundColor: 'rgba(0,0,0,0)',
-        borderColor: '#2E94F7',
+        borderColor: 'violet',
         pointBackgroundColor: '#FFF',
-        pointBorderColor: '#2E94F7',
-        pointHoverBackgroundColor: '#2E94F7',
-        pointHoverBorderColor: '#2E94F7',
-      },
-      {
-        // cerradas
-        backgroundColor: 'rgba(0,0,0,0)',
-        borderColor: '#09C47C',
-        pointBackgroundColor: '#FFF',
-        pointBorderColor: '#09C47C',
-        pointHoverBackgroundColor: '#09C47C',
-        pointHoverBorderColor: '#09C47C',
+        pointBorderColor: 'violet',
+        pointHoverBackgroundColor: 'violet',
+        pointHoverBorderColor: 'violet',
       },
     ],
     labels: this.months,
@@ -58,6 +45,17 @@ export class CellIndicatorsComponent implements OnInit {
     width: 650,
     height: 180,
     class: 'chart-container-line',
+  };
+
+  chartCircular: ChartComponentOptions = {
+    data: [30, 22],
+    title: 'Total cumplido',
+    colors: ['lawngreen', 'violet'],
+    labels: ['l', 'll'],
+    chartType: 'doughnut',
+    width: 150,
+    height: 150,
+    class: 'chart-container shadow',
   };
 
   constructor() {}

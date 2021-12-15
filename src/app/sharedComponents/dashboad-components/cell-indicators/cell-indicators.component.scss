@@ -79,3 +79,19 @@
 //#endregion btn-check-closed
 
 //#endregion btn-check
+
+app-chart > .chartjs-render-monitor {
+  height: 400px !important;
+}
+
+.total-sales {
+  li::marker {
+    color: lawngreen;
+  }
+}
+
+.goal-sales {
+  li::marker {
+    color: violet;
+  }
+}

@@ -18,6 +18,11 @@
   // border-radius: 50%;
   display: flex;
   align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  canvas {
+    height: 250px !important;
+  }
 }
 
 .chart-sum {
