@@ -63,7 +63,7 @@ export class RelatedOportunitiesComponent implements OnInit {
     },
     {
       key: 'mainCot',
-      columnName: this.contentLabels + 'table-related.colum6',
+      columnName: this.contentLabels + 'table-related.colum7',
     },
   ];
   public dataSource = [
@@ -133,6 +133,7 @@ export class RelatedOportunitiesComponent implements OnInit {
   ];
 
   dataContacts = {
+    displayedColumns: ['name', 'range', 'email', 'phone', 'type', 'principal'],
     columnsShow: [
       {
         key: 'numberList',
@@ -161,36 +162,53 @@ export class RelatedOportunitiesComponent implements OnInit {
     ],
     dataSource: [
       {
-        name: 'Manuel ventas LATAM',
-        position: 'Cargo',
-        email: 'manuel@ventas.mx',
-        phone: '55265555',
-        contactType: 'Finanzas',
-        isMain: false,
+        name: 'Hydrogen',
+        range: 'Lorem Ipsum',
+        email: 'mail@email.com',
+        phone: '5567212132',
+        type: 'Proveedores',
       },
       {
-        name: 'Manuel ventas LATAM',
-        position: 'Cargo',
-        email: 'manuel@ventas.mx',
-        phone: '55265555',
-        contactType: 'Finanzas',
-        isMain: true,
+        name: 'Hydrogen',
+        range: 'Lorem Ipsum',
+        email: 'mail@email.com',
+        phone: '5567212132',
+        type: 'Proveedores',
       },
       {
-        name: 'Manuel ventas LATAM',
-        position: 'Cargo',
-        email: 'manuel@ventas.mx',
-        phone: '55265555',
-        contactType: 'Finanzas',
-        isMain: false,
+        name: 'Hydrogen',
+        range: 'Lorem Ipsum',
+        email: 'mail@email.com',
+        phone: '5567212132',
+        type: 'Proveedores',
       },
       {
-        name: 'Manuel ventas LATAM',
-        position: 'Cargo',
-        email: 'manuel@ventas.mx',
-        phone: '55265555',
-        contactType: 'Finanzas',
-        isMain: false,
+        name: 'Hydrogen',
+        range: 'Lorem Ipsum',
+        email: 'mail@email.com',
+        phone: '5567212132',
+        type: 'Proveedores',
+      },
+      {
+        name: 'Hydrogen',
+        range: 'Lorem Ipsum',
+        email: 'mail@email.com',
+        phone: '5567212132',
+        type: 'Proveedores',
+      },
+      {
+        name: 'Hydrogen',
+        range: 'Lorem Ipsum',
+        email: 'mail@email.com',
+        phone: '5567212132',
+        type: 'Proveedores',
+      },
+      {
+        name: 'Hydrogen',
+        range: 'Lorem Ipsum',
+        email: 'mail@email.com',
+        phone: '5567212132',
+        type: 'Proveedores',
       },
     ],
   };

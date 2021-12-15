@@ -22,16 +22,11 @@
 
 <mat-tab-group>
   <mat-tab label="Contactos">
-    <div class="d-flex justify-content-end">
-      <button mat-button class="rounded-button-outline">
-        <mat-icon>add</mat-icon> Agregar contacto
-      </button>
-    </div>
     <app-table-general
       [showHeaderTable]="true"
-      [columns]="dataContacts.columnsShow"
+      [columns]="dataContacts.displayedColumns"
       [dataSource]="dataContacts.dataSource"
-      [idTableShow]="5"
+      [idTableShow]="7"
     ></app-table-general>
   </mat-tab>
   <mat-tab label="Archivos"> <app-upload-file></app-upload-file> </mat-tab>
