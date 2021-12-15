@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
@@ -8,6 +9,7 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 })
 export class RelatedComponent implements OnInit {
   public contentLabels = 'accounts.';
+  public accountId;
 
   infoDetail: Array<InfoDetail> = [
     {
@@ -165,7 +167,9 @@ export class RelatedComponent implements OnInit {
       closeDate: '19/12/2021',
     },
   ];
-  constructor() {}
+  constructor(private _url: ActivatedRoute) {
+    this.accountId = this._url.snapshot.paramMap.get('id');
+  }
 
   ngOnInit(): void {}
 }
