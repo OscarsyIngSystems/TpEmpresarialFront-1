@@ -212,6 +212,66 @@ export class RelatedQuotesComponent implements OnInit {
     },
   ];
 
+  displayedColumns: string[] = [
+    'name',
+    'range',
+    'email',
+    'phone',
+    'type',
+    'principal',
+  ];
+  dataSourceContacts = [
+    {
+      name: 'Hydrogen',
+      range: 'Lorem Ipsum',
+      email: 'mail@email.com',
+      phone: '5567212132',
+      type: 'Proveedores',
+    },
+    {
+      name: 'Hydrogen',
+      range: 'Lorem Ipsum',
+      email: 'mail@email.com',
+      phone: '5567212132',
+      type: 'Proveedores',
+    },
+    {
+      name: 'Hydrogen',
+      range: 'Lorem Ipsum',
+      email: 'mail@email.com',
+      phone: '5567212132',
+      type: 'Proveedores',
+    },
+    {
+      name: 'Hydrogen',
+      range: 'Lorem Ipsum',
+      email: 'mail@email.com',
+      phone: '5567212132',
+      type: 'Proveedores',
+    },
+    {
+      name: 'Hydrogen',
+      range: 'Lorem Ipsum',
+      email: 'mail@email.com',
+      phone: '5567212132',
+      type: 'Proveedores',
+    },
+    {
+      name: 'Hydrogen',
+      range: 'Lorem Ipsum',
+      email: 'mail@email.com',
+      phone: '5567212132',
+      type: 'Proveedores',
+    },
+    {
+      name: 'Hydrogen',
+      range: 'Lorem Ipsum',
+      email: 'mail@email.com',
+      phone: '5567212132',
+      type: 'Proveedores',
+    },
+  ];
+
   constructor() {}
 
   ngOnInit(): void {}

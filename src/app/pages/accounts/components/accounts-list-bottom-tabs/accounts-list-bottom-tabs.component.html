@@ -1,18 +1,11 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Contactos (2)">
-    <div class="wrapper mt-1">
-      <div class="d-flex justify-content-end">
-        <button mat-button class="rounded-button-outline">
-          <mat-icon>add</mat-icon> Agregar contacto
-        </button>
-      </div>
-      <app-table-general
-        [showHeaderTable]="true"
-        [columns]="displayedColumns"
-        [dataSource]="dataSource"
-        [idTableShow]="7"
-      ></app-table-general>
-    </div>
+    <app-table-general
+      [showHeaderTable]="true"
+      [columns]="displayedColumns"
+      [dataSource]="dataSource"
+      [idTableShow]="7"
+    ></app-table-general>
   </mat-tab>
   <mat-tab label="Archivos (3)">Content 2</mat-tab>
   <mat-tab label="Historial de actividades (8)">Content 3</mat-tab>
