@@ -17,10 +17,10 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        component: OportunitiesDetailComponent, //cambiar por detalle
+        component: OportunitiesDetailComponent,
       },
       {
-        path: 'create',
+        path: 'new/op',
         component: OportunityCreateComponent,
       },
       {
