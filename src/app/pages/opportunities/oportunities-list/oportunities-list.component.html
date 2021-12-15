@@ -10,14 +10,111 @@
   <h1 class="mt-2 text-title ps-4 text-bold">
     {{ contentLabels + "title" | translate }}
   </h1>
+  <div class="d-flex flex-row">
+    <div class="me-2">
+      <div class="row g-0 row-cols-lg-auto justify-content-end mb-2">
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-need"
+          autocomplete="off"
+        />
+        <label
+          class="
+            btn btn-sm btn-outline-primary
+            me-2
+            btn-check-need btn-check-no-shadow
+          "
+          for="btn-check-need"
+          >Necesidades</label
+        >
 
-  <select class="order-by small-shadow" name="" placeholder="Ordenar por">
-    <option value="0" selected="true" disabled>Ordenar por</option>
-    <option value="1">Recientes</option>
-    <option value="2">Ultimos 7 dias</option>
-    <option value="3">Ultimo mes</option>
-    <option value="4">Ultimos 6 meses</option>
-  </select>
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-design"
+          autocomplete="off"
+        />
+        <label
+          class="
+            btn btn-sm btn-outline-primary
+            me-2
+            btn-check-design btn-check-no-shadow
+          "
+          for="btn-check-design"
+          >Diseño</label
+        >
+
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-proposal"
+          autocomplete="off"
+        />
+        <label
+          class="
+            btn
+            me-2
+            btn-sm btn-outline-primary btn-check-proposal btn-check-no-shadow
+          "
+          for="btn-check-proposal"
+          >Propuesta</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-credit"
+          autocomplete="off"
+        />
+        <label
+          class="
+            btn btn-sm btn-outline-primary
+            me-2
+            btn-check-credit btn-check-no-shadow
+          "
+          for="btn-check-credit"
+          >Credito</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-firm"
+          autocomplete="off"
+        />
+        <label
+          class="
+            btn btn-sm btn-outline-primary
+            me-2
+            btn-check-firm btn-check-no-shadow
+          "
+          for="btn-check-firm"
+          >Firma</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-won"
+          autocomplete="off"
+        />
+        <label
+          class="
+            btn btn-sm btn-outline-primary
+            me-2
+            btn-check-won btn-check-no-shadow
+          "
+          for="btn-check-won"
+          >Ganada</label
+        >
+      </div>
+    </div>
+    <select class="order-by small-shadow" name="" placeholder="Ordenar por">
+      <option value="0" selected="true" disabled>Ordenar por</option>
+      <option value="1">Recientes</option>
+      <option value="2">Ultimos 7 dias</option>
+      <option value="3">Ultimo mes</option>
+      <option value="4">Ultimos 6 meses</option>
+    </select>
+  </div>
 </div>
 <app-empty
   *ngIf="dataSource.length === 0"
