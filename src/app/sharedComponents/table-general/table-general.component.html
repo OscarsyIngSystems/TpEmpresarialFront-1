@@ -301,3 +301,35 @@
     </div>
   </div>
 </div>
+
+<!--Tabla de historial de actividades-->
+<table
+  *ngIf="idTableShow == 9"
+  id="history"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
+  <thead>
+    <tr>
+      <th class="text-center" *ngFor="let col of columns">
+        {{ col.columnName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+    >
+      <td class="mat-cell text-center">{{ account.numberList }}</td>
+      <td class="mat-cell text-center">{{ account.subject }}</td>
+      <td class="mat-cell text-center">{{ account.name }}</td>
+      <td class="mat-cell text-center">{{ account.relatedWith }}</td>
+      <td class="mat-cell text-center">{{ account.expirationDate }}</td>
+      <td class="mat-cell d-flex justify-content-center">
+        {{ account.assignedTo }}
+      </td>
+    </tr>
+  </tbody>
+</table>
