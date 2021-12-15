@@ -15,6 +15,10 @@ export class OportunitiesDetailComponent implements OnInit {
       value: 'Audi CDMX',
     },
     {
+      name: 'ID cliente unico',
+      value: '5545455',
+    },
+    {
       name: 'Numero de oportunidad',
       value: '00022445',
     },
@@ -27,8 +31,12 @@ export class OportunitiesDetailComponent implements OnInit {
       value: 'Estrategicas',
     },
     {
-      name: 'Fecha',
+      name: 'Fecha de cierre',
       value: '31/08/2021',
+    },
+    {
+      name: 'Propietario de la cuenta',
+      value: 'Sergio Aparicio Contreras',
     },
   ];
 
@@ -43,8 +51,9 @@ export class OportunitiesDetailComponent implements OnInit {
     probability: '10%',
     oportunityOrigin: '',
     reason: 'Superioridad tecnica',
-    stage: 'Peso Mexicano',
+    stage: 'Necesidades',
     trybuy: true,
+    whoIntegrated: 'Sergio Aragon',
   };
   constructor() {}
 

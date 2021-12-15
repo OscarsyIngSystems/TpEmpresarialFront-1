@@ -11,4 +11,5 @@ export interface Oportunity {
   reason: string;
   oportunityOrigin: string;
   executive: string;
+  whoIntegrated: string;
 }

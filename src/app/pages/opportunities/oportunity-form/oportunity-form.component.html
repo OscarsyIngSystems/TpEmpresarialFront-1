@@ -7,12 +7,59 @@
       </div>
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
-          <mat-form-field class="w-100 mt-2" appearance="fill">
+          <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field">Nombre de la cuenta</mat-label>
             <input formControlName="accountName" matInput />
           </mat-form-field>
         </div>
-
+        <div class="input-container">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label class="label-form-field"
+              >Origen de la oportunidad</mat-label
+            >
+            <mat-select formControlName="oportunityOrigin">
+              <mat-option value="one"></mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Fecha estimada de cierre</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="closeDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label class="label-form-field">Nombre del ejecutivo</mat-label>
+            <input formControlName="executive" matInput value="Audi cdmx" />
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-row">
+          <div class="d-flex flex-column me-2">
+            <button mat-button class="view-button"><strong>Ver</strong></button>
+            <small>Nombre.pdf</small>
+          </div>
+          <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4 col-xl-4">
+        <div class="input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label class="label-form-field"
+              >Nombre de la oportunidad</mat-label
+            >
+            <input matInput formControlName="oportunityName" />
+          </mat-form-field>
+        </div>
         <div class="input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field">Etapa</mat-label>
@@ -25,7 +72,7 @@
             <input matInput formControlName="amount" type="number" />
           </mat-form-field>
         </div>
-        <div class="row mt-2">
+        <div class="row">
           <div class="col-3 mt-2">
             <div class="check-container">
               <input
@@ -54,11 +101,13 @@
       </div>
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
-          <mat-form-field class="w-100 mt-2" appearance="fill">
+          <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field"
-              >Nombre de la oportunidad</mat-label
+              >Quien integra la propuesta</mat-label
             >
-            <input matInput formControlName="oportunityName" />
+            <mat-select formControlName="badge">
+              <mat-option value="one"> </mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div class="input-container">
@@ -83,48 +132,6 @@
             <mat-label class="label-form-field">Descripcion</mat-label>
             <input formControlName="description" matInput />
           </mat-form-field>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-4 col-xl-4">
-        <div class="input-container mt-2">
-          <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field"
-              >Origen de la oportunidad</mat-label
-            >
-            <mat-select formControlName="oportunityOrigin">
-              <mat-option value="one"></mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="input-container">
-          <mat-form-field appearance="fill" class="w-100">
-            <mat-label>Fecha estimada de cierre</mat-label>
-            <input
-              matInput
-              [matDatepicker]="picker"
-              formControlName="closeDate"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
-
-        <div class="input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Nombre del ejecutivo</mat-label>
-            <input formControlName="executive" matInput value="Audi cdmx" />
-          </mat-form-field>
-        </div>
-
-        <div class="d-flex flex-row">
-          <div class="d-flex flex-column me-2">
-            <button mat-button class="view-button"><strong>Ver</strong></button>
-            <small>Nombre.pdf</small>
-          </div>
-          <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div>
         </div>
       </div>
     </div>

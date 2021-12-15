@@ -8,7 +8,6 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 })
 export class RelatedOportunitiesComponent implements OnInit {
   public contentLabels = 'oportunities.';
-  currentTab = 0;
 
   infoDetail: Array<InfoDetail> = [
     {
@@ -196,17 +195,46 @@ export class RelatedOportunitiesComponent implements OnInit {
     ],
   };
 
-  cardNames = [
-    'Contactos',
-    'Archivos',
-    'Historial de actividades',
-    'Historial de etapa',
-  ];
-  constructor() {}
+  dataActivityHistory = {
+    columnsShow: [
+      {
+        key: 'numberList',
+        columnName: this.contentLabels + 'table-activities-history.colum1',
+      },
+      {
+        key: 'subject',
+        columnName: this.contentLabels + 'table-activities-history.colum2',
+      },
+      {
+        key: 'name',
+        columnName: this.contentLabels + 'table-activities-history.colum3',
+      },
+      {
+        key: 'relatedWith',
+        columnName: this.contentLabels + 'table-activities-history.colum4',
+      },
+      {
+        key: 'expirationDate',
+        columnName: this.contentLabels + 'table-activities-history.colum5',
+      },
+      {
+        key: 'assignedTo',
+        columnName: this.contentLabels + 'table-activities-history.colum6',
+      },
+    ],
+    dataSource: [
+      {
+        numberList: 1,
+        subject: 'Meet - seguimiento de la cuenta',
+        name: 'Jesus Camacho',
+        relatedWith: 'Audi CDMX SA de Cv',
+        expirationDate: '19/12/2021',
+        assignedTo: 'Elizabeth Reynoso',
+      },
+    ],
+  };
 
-  changeTab(activeTab: number) {
-    this.currentTab = activeTab;
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }
