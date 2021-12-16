@@ -33,7 +33,7 @@ export class QuoteComponent implements OnInit {
 
   constructor() {
     this.chartOptions = {
-      // series: [4, 3, 1], //se comenta porque utilizo chartSeries para dar valores diferentes a cada chart
+      series: [4, 3, 1], //se comenta porque utilizo chartSeries para dar valores diferentes a cada chart
       colors: this.colors,
       chart: {
         type: 'donut',

@@ -6,89 +6,7 @@
     <div class="col-6 d-flex justify-content-end">
       <span class="text-bold"> 01-dic-2021 a 30-dic-2021 </span>
     </div>
-    <!--     <div class="col-8 gx-0">
-      <mat-form-field appearance="fill" class="date-range-input">
-        <mat-label>{{ "generic.date-range" | translate }}</mat-label>
-        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-          <input
-            matStartDate
-            formControlName="start"
-            [placeholder]="'generic.date-start' | translate"
-            readonly
-            (click)="picker.open()"
-          />
-          <input
-            matEndDate
-            formControlName="end"
-            [placeholder]="'generic.date-end' | translate"
-            readonly
-            (click)="picker.open()"
-          />
-        </mat-date-range-input>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-
-        <mat-error
-          *ngIf="range.controls.start.hasError('matStartDateInvalid')"
-          >{{ "generic.date-start-invalid" | translate }}</mat-error
-        >
-        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">{{
-          "generic.date-end-invalid" | translate
-        }}</mat-error>
-      </mat-form-field>
-    </div> -->
   </div>
-  <!--   <div class="row">
-    <div
-      id="carouselExampleIndicators"
-      class="carousel slide"
-      data-bs-ride="false"
-      data-interval="-1"
-    >
-      <div class="carousel-inner">
-        <div
-          class="carousel-item"
-          [ngClass]="{ active: i == 0 }"
-          *ngFor="let item of payments; index as i"
-        >
-          <div class="row gx-0">
-            <div class="col-4" *ngFor="let pay of item">
-              <h4 class="my-0">
-                <strong>{{ pay.month }}</strong>
-              </h4>
-              <h4 class="my-0 tx-12">{{ pay.amount | currency }}</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true">
-          <mat-icon aria-hidden="false" aria-label="Navigate to previous"
-            >navigate_before</mat-icon
-          >
-        </span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true">
-          <mat-icon aria-hidden="false" aria-label="Navigate to next"
-            >navigate_next</mat-icon
-          >
-        </span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div> -->
 
   <div class="row h-100">
     <div class="col-4 d-flex flex-column justify-content-center">
@@ -109,19 +27,10 @@
         *ngIf="chartCircular"
         [graphOptions]="chartCircular"
       ></app-chart>
-      <button mat-button class="text-bold warn-btn">
+      <button mat-button class="text-bold warn-btn px-0 pt-2">
         {{ contentLabels + "clarity-portal" | translate }}
         <mat-icon>chevron_right</mat-icon>
       </button>
     </div>
   </div>
-
-  <!--   <div class="row g-0 mt-1 d-flex justify-content-end">
-    <div class="col-6 offset-6">
-      <button mat-button class="text-bold warn-btn">
-        {{ contentLabels + "clarity-portal" | translate }}
-        <mat-icon>chevron_right</mat-icon>
-      </button>
-    </div>
-  </div> -->
 </mat-card>
