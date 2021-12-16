@@ -68,7 +68,7 @@ export class QuoteComponent implements OnInit {
               value: {
                 show: true,
                 fontSize: '15px',
-                fontFamily: 'Helvetica, Arial, sans-serif',
+                fontFamily: 'Montserrat, sans-serif',
                 fontWeight: 800,
                 // color: undefined,
                 offsetY: -10,
