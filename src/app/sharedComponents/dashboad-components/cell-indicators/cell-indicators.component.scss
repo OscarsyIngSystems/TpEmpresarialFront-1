@@ -86,12 +86,23 @@ app-chart > .chartjs-render-monitor {
 
 .total-sales {
   li::marker {
-    color: lawngreen;
+    color: #8246af;
   }
 }
 
 .goal-sales {
   li::marker {
-    color: violet;
+    color: #dbe442;
   }
+}
+
+::ng-deep .apexcharts-legend {
+  display: none !important;
+}
+
+.circular-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90% !important;
 }

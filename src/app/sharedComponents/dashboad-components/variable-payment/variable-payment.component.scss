@@ -23,3 +23,15 @@
 //   position: initial !important;
 //   background-color: $color-placeholder;
 // }
+
+.total-sales {
+  li::marker {
+    color: #59cbe8;
+  }
+}
+
+.goal-sales {
+  li::marker {
+    color: #f7ea48;
+  }
+}

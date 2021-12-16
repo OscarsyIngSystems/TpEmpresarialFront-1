@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartComponentOptions } from 'src/app/models/ChartOptions';
 
 @Component({
@@ -8,6 +8,7 @@ import { ChartComponentOptions } from 'src/app/models/ChartOptions';
 })
 export class SegmentAccountComponent implements OnInit {
   public contentLabels = 'accounts.accounts-dashboard.';
+
   chartProps: ChartComponentOptions = {
     data: [7, 2, 3],
     title: 'Cuentas',
@@ -16,7 +17,7 @@ export class SegmentAccountComponent implements OnInit {
     chartType: 'doughnut',
     width: 150,
     height: 150,
-    class: 'chart-container shadow'
+    class: 'chart-container shadow',
   };
   constructor() {}
 

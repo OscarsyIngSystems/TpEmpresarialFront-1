@@ -7,11 +7,22 @@
     </div>
   </div>
 
-  <div class="row mb-1">
+  <div class="row mb-1 h-100">
     <div class="col-9">
-      <app-chart [graphOptions]="chartProps"></app-chart>
+      <!-- <app-chart [graphOptions]="chartProps"></app-chart> -->
+      <div id="chart">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [dataLabels]="chartOptions.dataLabels"
+          [grid]="chartOptions.grid"
+          [stroke]="chartOptions.stroke"
+          [title]="chartOptions.title"
+        ></apx-chart>
+      </div>
     </div>
-    <div class="col-3">
+    <div class="col-3 circular-section">
       <div class="d-flex flex-column">
         <span>Venta total</span>
         <ul class="total-sales">
@@ -30,12 +41,12 @@
         *ngIf="chartCircular"
         [graphOptions]="chartCircular"
       ></app-chart>
+      <div class="d-flex justify-content-end">
+        <button mat-button class="text-bold warn-btn">
+          {{ "generic.view-more" | translate }}
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="d-flex justify-content-end">
-    <button mat-button class="text-bold warn-btn">
-      {{ "generic.view-more" | translate }}
-      <mat-icon>chevron_right</mat-icon>
-    </button>
   </div>
 </mat-card>

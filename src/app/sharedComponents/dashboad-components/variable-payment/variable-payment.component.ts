@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ChartComponentOptions } from 'src/app/models/ChartOptions';
 
 @Component({
   selector: 'app-variable-payment',
@@ -49,6 +50,17 @@ export class VariablePaymentComponent implements OnInit {
       },
     ],
   ];
+
+  chartCircular: ChartComponentOptions = {
+    data: [30, 22],
+    title: 'Total cumplido',
+    colors: ['#59cbe8', '#f7ea48'],
+    labels: ['l', 'll'],
+    chartType: 'doughnut',
+    width: 150,
+    height: 150,
+    class: 'chart-container shadow',
+  };
 
   constructor() {}
 

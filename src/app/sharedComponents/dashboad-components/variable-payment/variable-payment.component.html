@@ -1,9 +1,12 @@
 <mat-card class="h-100">
-  <div class="row g-0">
-    <div class="col-4 gx-0">
+  <div class="row g-0 mb-2">
+    <div class="gx-0 col-6">
       <span class="text-bold">{{ contentLabels + "payment" | translate }}</span>
     </div>
-    <div class="col-8 gx-0">
+    <div class="col-6 d-flex justify-content-end">
+      <span class="text-bold"> 01-dic-2021 a 30-dic-2021 </span>
+    </div>
+    <!--     <div class="col-8 gx-0">
       <mat-form-field appearance="fill" class="date-range-input">
         <mat-label>{{ "generic.date-range" | translate }}</mat-label>
         <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
@@ -33,9 +36,9 @@
           "generic.date-end-invalid" | translate
         }}</mat-error>
       </mat-form-field>
-    </div>
+    </div> -->
   </div>
-  <div class="row">
+  <!--   <div class="row">
     <div
       id="carouselExampleIndicators"
       class="carousel slide"
@@ -58,12 +61,6 @@
           </div>
         </div>
       </div>
-      <!-- Se deja deshabilitado por si alguna vez se usa en version mobile. -->
-      <!-- <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div> -->
       <button
         class="carousel-control-prev"
         type="button"
@@ -91,13 +88,40 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  </div>
-  <div class="row g-0 mt-1 d-flex justify-content-end">
-    <div class="col-6 offset-6">
+  </div> -->
+
+  <div class="row h-100">
+    <div class="col-4 d-flex flex-column justify-content-center">
+      <span>Venta real</span>
+      <ul class="total-sales">
+        <li><h3 class="text-bold">$56,990</h3></li>
+      </ul>
+    </div>
+    <div class="col-4 d-flex flex-column justify-content-center">
+      <span>Meta del mes</span>
+      <ul class="goal-sales">
+        <li><h3 class="text-bold">$160,990</h3></li>
+      </ul>
+    </div>
+    <div class="col-4">
+      <span>Total cumplido</span>
+      <app-chart
+        *ngIf="chartCircular"
+        [graphOptions]="chartCircular"
+      ></app-chart>
       <button mat-button class="text-bold warn-btn">
         {{ contentLabels + "clarity-portal" | translate }}
-        <mat-icon>east</mat-icon>
+        <mat-icon>chevron_right</mat-icon>
       </button>
     </div>
   </div>
+
+  <!--   <div class="row g-0 mt-1 d-flex justify-content-end">
+    <div class="col-6 offset-6">
+      <button mat-button class="text-bold warn-btn">
+        {{ contentLabels + "clarity-portal" | translate }}
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div> -->
 </mat-card>
