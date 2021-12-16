@@ -9,7 +9,7 @@ export interface ChartComponentOptions {
     | Array<Color>;
   labels: Array<string>;
   chartType: ChartType;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   class: string;
 }
