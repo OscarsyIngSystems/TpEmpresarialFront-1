@@ -40,6 +40,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { TabsRelatedComponent } from './tabs-related/tabs-related.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     MatTabsModule,
     TabsRelatedComponent,
     UploadFileComponent,
+    NgApexchartsModule,
   ],
   imports: [
     ChartsModule,
@@ -128,6 +130,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     DataTablesModule,
     MatDatepickerModule,
     NgxFileDropModule,
+    NgApexchartsModule,
   ],
 })
 export class ComponentsModule {}
