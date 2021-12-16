@@ -25,10 +25,15 @@ export class QuoteComponent implements OnInit {
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: any;
   private colors = ['#f04e98', '#59cbe8', '#8246af'];
+  public chartSeries = [
+    [4, 3, 1],
+    [7, 4, 4],
+    [4, 3, 0],
+  ];
 
   constructor() {
     this.chartOptions = {
-      series: [4, 3, 1],
+      // series: [4, 3, 1], //se comenta porque utilizo chartSeries para dar valores diferentes a cada chart
       colors: this.colors,
       chart: {
         type: 'donut',
@@ -42,9 +47,9 @@ export class QuoteComponent implements OnInit {
             chart: {
               width: 200,
             },
-            legend: {
-              position: 'bottom',
-            },
+            // legend: {
+            //   position: 'bottom',
+            // },
           },
         },
       ],
@@ -59,11 +64,24 @@ export class QuoteComponent implements OnInit {
         pie: {
           donut: {
             labels: {
-              show: false,
-              // total: {
-              //   showAlways: true,
-              //   show: true,
-              // },
+              show: true,
+              value: {
+                show: true,
+                fontSize: '15px',
+                fontFamily: 'Helvetica, Arial, sans-serif',
+                fontWeight: 800,
+                // color: undefined,
+                offsetY: -10,
+                // formatter(val: any) {
+                //   console.log(val);
+                //   return val;
+                // },
+              },
+              total: {
+                show: true,
+                showAlways: true,
+                label: '',
+              },
             },
           },
         },

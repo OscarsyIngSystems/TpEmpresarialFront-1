@@ -32,7 +32,7 @@
     <div class="col-2">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
-        [series]="chartOptions.series"
+        [series]="chartSeries[0]"
         [chart]="chartOptions.chart"
         [labels]="chartOptions.labels"
         [responsive]="chartOptions.responsive"
@@ -45,7 +45,7 @@
     <div class="col-2">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
-        [series]="chartOptions.series"
+        [series]="chartSeries[1]"
         [chart]="chartOptions.chart"
         [labels]="chartOptions.labels"
         [responsive]="chartOptions.responsive"
@@ -58,7 +58,7 @@
     <div class="col-2">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
-        [series]="chartOptions.series"
+        [series]="chartSeries[2]"
         [chart]="chartOptions.chart"
         [labels]="chartOptions.labels"
         [responsive]="chartOptions.responsive"
