@@ -10,7 +10,6 @@
   <a
     [routerLink]="['/opportunities']"
     routerLinkActive="active"
-    [class]="currentUrl == '/opportunities/new/op' ? 'active' : ''"
     [routerLinkActiveOptions]="{ exact: false }"
     class="list-group-item"
     ><i class="fas fa-tachometer-alt"></i> Oportunidades</a
@@ -20,7 +19,6 @@
     routerLink="/quotes"
     routerLinkActive="active"
     class="list-group-item"
-    [class]="currentUrl == '/quotes/create' ? 'active' : ''"
     [routerLinkActiveOptions]="{ exact: false }"
     ><i class="fas fa-shopping-bag"></i> Cotizaciones</a
   >
