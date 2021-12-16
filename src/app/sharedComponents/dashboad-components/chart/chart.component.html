@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-start pb-1 text-bold">
+<div *ngIf="showTitle" class="d-flex justify-content-center pb-1">
   <span>{{ graphOptions.title }}</span>
 </div>
 <div *ngIf="doughnutChartData" [class]="graphOptions.class">

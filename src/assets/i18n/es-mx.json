@@ -22,10 +22,11 @@
     "accounts-dashboard": {
       "title": "Mis Ventas",
       "acounts": "Cuentas por segmento",
+      "acounts2": "Cuentas con retraso de pago",
       "quotes": "Cotizaciones",
       "opportunities": "Oportunidades",
       "indicators": "Indicadores Célula",
-      "payment": "Pago variable",
+      "payment": "Productividad por ejecutivo",
       "clarity-portal": "Portal de Claridad"
     },
     "acounts-list": {

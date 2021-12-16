@@ -2,8 +2,9 @@
 <app-header-actions
   [title]="'Relacionado'"
   buttonText="Crear oportunidad"
-  route="opportunities/new/op"
-  relatedRoute="accounts/related/"
+  route="opportunities/create"
+  relatedText="Detalles"
+  [relatedRoute]="'accounts/detail/' + accountId"
   [hidenCreateOportunity]="false"
 >
 </app-header-actions>

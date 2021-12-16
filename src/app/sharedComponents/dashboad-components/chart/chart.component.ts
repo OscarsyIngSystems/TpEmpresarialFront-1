@@ -1,15 +1,16 @@
 import {
   Component,
   Input,
-  OnInit,
   ViewChild,
   AfterViewInit,
   AfterContentInit,
 } from '@angular/core';
-import { ChartOptions, ChartType } from 'chart.js';
-import { BaseChartDirective, Color, Label } from 'ng2-charts';
+import { ChartConfiguration, ChartOptions, ChartType } from 'chart.js';
+import { data } from 'jquery';
+import { BaseChartDirective, Label, SingleOrMultiDataSet } from 'ng2-charts';
 import { ChartComponentOptions } from 'src/app/models/ChartOptions';
 import { AccountsService } from 'src/app/services/accounts/accounts.service';
+// import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-chart',
@@ -17,7 +18,8 @@ import { AccountsService } from 'src/app/services/accounts/accounts.service';
   styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements AfterViewInit, AfterContentInit {
-  @Input() graphOptions!: ChartComponentOptions;
+  @Input() graphOptions!: ChartComponentOptions | any;
+  @Input() showTitle: boolean = false;
   @ViewChild(BaseChartDirective) baseChart!: BaseChartDirective;
 
   public suma = 0;
@@ -46,16 +48,6 @@ export class ChartComponent implements AfterViewInit, AfterContentInit {
     if (this.graphOptions.chartType === 'line') {
       this.doughnutChartData = this.graphOptions.data;
       this.lineChartColors = this.graphOptions.colors;
-      // this.doughnutChartData = [
-      //   {
-      //     data: this.graphOptions.data,
-      //     backgroundColor: 'transparent',
-      //     borderColor: ['#59CBE8', 'red', 'yellow'],
-      //     pointBackgroundColor: '#FFF',
-      //     pointBorderColor: '#59CBE8',
-      //     pointRadius: 5,
-      //   },
-      // ];
     } else {
       this.doughnutChartData = [
         {

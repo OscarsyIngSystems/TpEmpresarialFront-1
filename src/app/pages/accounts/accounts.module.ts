@@ -22,6 +22,7 @@ import { AccountFormComponent } from './components/account-form/account-form.com
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { AccountsListBottomTabsComponent } from './components/accounts-list-bottom-tabs/accounts-list-bottom-tabs.component';
 import { RelatedComponent } from './components/related/related.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -52,6 +53,7 @@ export function createTranslateLoader(http: HttpClient): any {
     MatInputModule,
     DataTablesModule,
     UiSwitchModule,
+    NgApexchartsModule,
   ],
 })
 export class AccountsModule {}
