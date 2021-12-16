@@ -13,7 +13,7 @@ export class OportunityCreateComponent implements OnInit {
       value: 'Audi CDMX',
     },
     {
-      name: 'ID',
+      name: 'ID Cliente único',
       value: '9898987',
     },
     {

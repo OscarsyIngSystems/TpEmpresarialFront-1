@@ -111,7 +111,9 @@
       (emiter)="toggle($event)"
     ></app-navbar>
     <div [class]="show() ? 'p-0' : 'drawer-secondary-container'">
-      <app-navigation-menu></app-navigation-menu>
+      <app-navigation-menu
+        *ngIf="currentUrl != '/dashboard'"
+      ></app-navigation-menu>
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

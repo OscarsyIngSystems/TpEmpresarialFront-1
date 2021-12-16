@@ -9,7 +9,7 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 export class QuotesDetailComponent implements OnInit {
   infoDetail: Array<InfoDetail> = [
     {
-      name: 'Numero de oportunidad',
+      name: 'Número de oportunidad',
       value: '678676',
     },
     {

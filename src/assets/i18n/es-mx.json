@@ -33,7 +33,7 @@
       "title": "Mis cuentas",
       "table": {
         "colum1": "Nº",
-        "colum2": "ID",
+        "colum2": "ID Cliente único",
         "colum3": "Nombre de la cuenta",
         "colum4": "RFC",
         "colum5": "Segmento",
@@ -99,8 +99,8 @@
     "title": "Mis cotizaciones",
     "table": {
       "colum1": "Nº",
-      "colum2": "Nombre de la cotizacion",
-      "colum3": "Folio cotizacion",
+      "colum2": "Nombre de la cotización",
+      "colum3": "Folio cotización",
       "colum4": "Total-Recurrente mensual",
       "colum5": "Estatus"
     },
@@ -113,7 +113,7 @@
     "table": {
       "colum1": "Nº",
       "colum2": "Nombre de la oportunidad",
-      "colum3": "Numero de oportunidad",
+      "colum3": "Número de oportunidad",
       "colum4": "Etapa",
       "colum5": "Importe"
     },
@@ -130,7 +130,7 @@
       "colum1": "Nombre del contacto",
       "colum2": "Cargo",
       "colum3": "Correo",
-      "colum4": "Telefono",
+      "colum4": "Teléfono",
       "colum5": "Tipo de contacto",
       "colum6": "Principal"
     },

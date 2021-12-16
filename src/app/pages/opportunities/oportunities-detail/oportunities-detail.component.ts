@@ -15,11 +15,11 @@ export class OportunitiesDetailComponent implements OnInit {
       value: 'Audi CDMX',
     },
     {
-      name: 'ID cliente unico',
+      name: 'ID cliente único',
       value: '5545455',
     },
     {
-      name: 'Numero de oportunidad',
+      name: 'Número de oportunidad',
       value: '00022445',
     },
     {
@@ -45,7 +45,7 @@ export class OportunitiesDetailComponent implements OnInit {
     amount: 200,
     badge: 'Necesidades',
     closeDate: new Date(),
-    description: 'Esto es una descripcion',
+    description: 'Esto es una descripción',
     executive: 'Nombre del ejecutivo',
     oportunityName: 'Audi CDMX Op',
     probability: '10%',

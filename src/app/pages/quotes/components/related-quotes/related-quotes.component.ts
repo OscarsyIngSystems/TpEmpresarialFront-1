@@ -10,7 +10,7 @@ export class RelatedQuotesComponent implements OnInit {
   public contentLabels = 'oportunities.';
   infoDetail: Array<InfoDetail> = [
     {
-      name: 'Numero de oportunidad',
+      name: 'Número de oportunidad',
       value: '07552222',
     },
     {

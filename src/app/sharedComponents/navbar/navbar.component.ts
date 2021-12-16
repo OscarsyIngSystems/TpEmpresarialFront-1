@@ -26,13 +26,13 @@ export class NavbarComponent {
   searchData = new FormControl();
   options: Sale[] = [
     { id: 1, name: 'Audi', type: 'Oportunidad', location: 'CDMX' },
-    { id: 2, name: 'Audi', type: 'Cotizacion', location: 'Polanco' },
+    { id: 2, name: 'Audi', type: 'Cotización', location: 'Polanco' },
     { id: 3, name: 'Audi', type: 'Cuenta', location: 'Guadalajara' },
     { id: 4, name: 'FEMSA', type: 'Cuenta', location: 'CDMX' },
-    { id: 5, name: 'OXXO', type: 'Cotizacion', location: 'Monterrey' },
+    { id: 5, name: 'OXXO', type: 'Cotización', location: 'Monterrey' },
     { id: 6, name: 'Grupo Carso', type: 'Oportunidad', location: 'CDMX' },
     { id: 7, name: 'Penafiel', type: 'Oportunidad', location: 'Puebla' },
-    { id: 8, name: 'Culiacan Inn', type: 'Cotizacion', location: 'Sinaloa' },
+    { id: 8, name: 'Culiacan Inn', type: 'Cotización', location: 'Sinaloa' },
   ];
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
