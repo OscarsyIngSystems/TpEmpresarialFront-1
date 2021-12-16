@@ -10,28 +10,6 @@ import { TableOptions } from 'src/app/models/tableOptions';
 export class QuotesListDeatilComponent implements OnInit {
   public tableProps!: TableOptions;
   public contentLabels = 'quotes.';
-  infoDetail: Array<InfoDetail> = [
-    {
-      name: 'Nombre de la cuenta',
-      value: 'Audi CDMX',
-    },
-    {
-      name: 'ID',
-      value: '9898987',
-    },
-    {
-      name: 'Folio Cuenta',
-      value: 'CRM-00022445',
-    },
-    {
-      name: 'RFC',
-      value: 'HSP030709EA2',
-    },
-    {
-      name: 'Segmento',
-      value: 'I',
-    },
-  ];
 
   columnsShow = [
     {

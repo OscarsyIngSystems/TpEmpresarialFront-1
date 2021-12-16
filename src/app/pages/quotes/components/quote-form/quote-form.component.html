@@ -5,7 +5,7 @@
         <h2 class="text-bold">Detalle de la cotización</h2>
       </div>
       <div class="col-3 d-flex justify-content-end">
-        <a href="#">Editar</a>
+        <a *ngIf="!isCreate" class="editQuotes" href="#">Editar</a>
       </div>
     </div>
     <div class="row">
@@ -28,11 +28,7 @@
                   placeholder="Ingrese el motivo"
                   >Nombre de la cotización</mat-label
                 >
-                <input
-                  matInput
-                  formControlName="quoteName"
-                  [readonly]="!isAdmin()"
-                />
+                <input matInput formControlName="quoteName" />
               </mat-form-field>
             </div>
           </div>
@@ -81,8 +77,8 @@
         <div class="row">
           <div class="input-container">
             <mat-form-field appearance="fill" class="w-100">
-              <mat-label class="label-form-field">Asignación de EPS</mat-label>
-              <mat-select [disabled]="!isAdmin()" formControlName="eps">
+              <mat-label class="label-form-field">Asignacion de EPS</mat-label>
+              <mat-select formControlName="eps">
                 <mat-option value="one">EPS</mat-option>
                 <mat-option value="two">Otro</mat-option>
               </mat-select>
@@ -115,7 +111,6 @@
                 matInput
                 placeholder="Ingrese el motivo"
                 formControlName="reason"
-                [readonly]="!isAdmin()"
               />
               <mat-error *ngIf="form.controls.reason.invalid"
                 >Campo obligatorio</mat-error
@@ -131,11 +126,7 @@
           <div class="col-6">
             <mat-form-field class="w-100" appearance="fill">
               <mat-label class="label-form-field">Vigencia</mat-label>
-              <input
-                matInput
-                formControlName="dataPicker"
-                [readonly]="!isAdmin()"
-              />
+              <input matInput formControlName="dataPicker" />
               <mat-icon matSuffix>event</mat-icon>
             </mat-form-field>
           </div>

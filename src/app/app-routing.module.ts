@@ -2,7 +2,6 @@ import { DashboardComponent } from './pages/accounts/components/dashboard/dashbo
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-import { LoadSitesComponent } from './pages/accounts/components/account-detail/load-sites/load-sites.component';
 
 const routes: Routes = [
   {
@@ -31,10 +30,7 @@ const routes: Routes = [
         (m) => m.OpportunitiesModule
       ),
   },
-  {
-    path: 'sites-upload',
-    component: LoadSitesComponent,
-  },
+
   {
     path: 'dashboard',
     component: DashboardComponent,

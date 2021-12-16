@@ -7,11 +7,10 @@ import { AccountDetailComponent } from './account-detail.component';
 import { ComponentsModule } from 'src/app/sharedComponents/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UiSwitchModule } from 'ngx-ui-switch';
-import { LoadSitesComponent } from './load-sites/load-sites.component';
 import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [AccountDetailComponent, LoadSitesComponent],
+  declarations: [AccountDetailComponent],
   imports: [
     CommonModule,
     DetailsRoutingModule,

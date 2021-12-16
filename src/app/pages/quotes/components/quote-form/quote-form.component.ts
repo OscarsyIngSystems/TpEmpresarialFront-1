@@ -30,6 +30,11 @@ export class QuoteFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  ngAfterContentInit(): void {
+    if (!this.isCreate) {
+      this.form.disable();
+    }
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogQuotesComponent, {
       width: '393px',
