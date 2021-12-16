@@ -1,12 +1,12 @@
 @import "./../../../../styles.scss";
 
 .count-sales {
-  display: flex;
+  display: inline-block;
   justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  // align-items: center;
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
   margin-right: 5px;
 }
 

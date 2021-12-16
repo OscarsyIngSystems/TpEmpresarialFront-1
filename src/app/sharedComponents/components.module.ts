@@ -41,6 +41,7 @@ import { TabsRelatedComponent } from './tabs-related/tabs-related.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { NgApexchartsModule } from 'ng-apexcharts';
+
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -97,6 +98,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     MatTabsModule,
     TabsRelatedComponent,
     UploadFileComponent,
+    NgApexchartsModule,
   ],
   imports: [
     ChartsModule,
