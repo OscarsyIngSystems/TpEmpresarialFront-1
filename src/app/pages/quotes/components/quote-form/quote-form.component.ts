@@ -26,6 +26,7 @@ export class QuoteFormComponent implements OnInit {
       reason: ['Superioridad técnica', Validators.required],
       quoteType: ['3', Validators.required],
     });
+    this.form.disable();
   }
 
   ngOnInit(): void {}

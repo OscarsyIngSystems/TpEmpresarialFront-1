@@ -38,6 +38,26 @@
       >
         {{ contentLabels + "menu.item-list2" | translate }}</mat-list-item
       >
+      <mat-list-item
+        routerLink="/opportunities"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        role="listitem"
+        class="c-pointer hover"
+        (click)="drawer.close(); drawerRight.close()"
+      >
+        {{ contentLabels + "menu.item-list3" | translate }}</mat-list-item
+      >
+      <mat-list-item
+        routerLink="/quotes"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        role="listitem"
+        class="c-pointer hover"
+        (click)="drawer.close(); drawerRight.close()"
+      >
+        {{ contentLabels + "menu.item-list4" | translate }}</mat-list-item
+      >
     </mat-nav-list>
   </mat-sidenav>
   <!-- End Menu -->

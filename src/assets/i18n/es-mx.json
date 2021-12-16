@@ -65,7 +65,9 @@
       "menu": {
         "title": "Menu",
         "item-list1": "Dashboard",
-        "item-list2": "Cuentas"
+        "item-list2": "Cuentas",
+        "item-list3": "Oportunidades",
+        "item-list4": "Cotizaciones"
       },
       "notifications": {
         "title": "Notificaciones",
