@@ -64,7 +64,7 @@ export class OportunitiesComponent implements OnInit {
       'Disenio',
       'Propuesta',
       'Firma',
-      'Credito',
+      'Crédito',
       'Ganada',
     ],
     chartType: 'doughnut',
@@ -76,7 +76,7 @@ export class OportunitiesComponent implements OnInit {
     this.chartOptions = {
       series: [
         {
-          name: 'distibuted',
+          name: '',
           data: [21, 22, 10, 28, 16, 21],
         },
       ],
@@ -106,10 +106,10 @@ export class OportunitiesComponent implements OnInit {
       xaxis: {
         categories: [
           'Necesidades',
-          'Diseno',
+          'Diseño',
           'Propuesta',
           'Firma',
-          'Credito',
+          'Crédito',
           'Ganada',
         ],
         labels: {
