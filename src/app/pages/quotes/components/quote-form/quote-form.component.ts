@@ -26,11 +26,15 @@ export class QuoteFormComponent implements OnInit {
       reason: ['Superioridad técnica', Validators.required],
       quoteType: ['3', Validators.required],
     });
-    this.form.disable();
   }
 
   ngOnInit(): void {}
 
+  ngAfterContentInit(): void {
+    if (!this.isCreate) {
+      this.form.disable();
+    }
+  }
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogQuotesComponent, {
       width: '393px',
