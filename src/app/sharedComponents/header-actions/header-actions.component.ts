@@ -22,6 +22,7 @@ export class HeaderActionsComponent implements OnInit {
 
   openRelated(): void {
     this.router.navigate([this.relatedRoute]);
+    console.log(this.relatedRoute);
   }
 
   ngOnInit(): void {}
