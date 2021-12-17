@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <tr
-      [routerLink]="['/accounts/detail', account.id]"
+      (click)="goAccountDetail(account)"
       class="table-element-row shadow-sm"
       *ngFor="let account of dataSource"
     >

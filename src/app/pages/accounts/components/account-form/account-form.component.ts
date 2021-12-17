@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
   selector: 'app-account-form',
@@ -21,10 +22,10 @@ export class AccountFormComponent implements OnInit {
   public systemInformationForm!: FormGroup;
   public segments!: any[];
   infoDetail: Array<InfoDetail> = [
-    {
+    /*     {
       name: 'Nombre de la cuenta',
       value: 'Audi CDMX',
-    },
+    }, */
     {
       name: 'ID Cliente único',
       value: '873827',
@@ -44,7 +45,11 @@ export class AccountFormComponent implements OnInit {
   ];
 
   // tslint:disable-next-line: variable-name
-  constructor(private _url: ActivatedRoute, private fb: FormBuilder) {
+  constructor(
+    private _url: ActivatedRoute,
+    private fb: FormBuilder,
+    public storageService: StorageService
+  ) {
     this.accountId = this._url.snapshot.paramMap.get('id');
     this.initPrincipalDataForm();
     this.initAddressInformationForm();

@@ -53,6 +53,11 @@ $custom-typography: mat-typography-config(
   color: $color-secondary;
 }
 
+.text-subtitle {
+  color: $color-black !important;
+  font-weight: 500 !important;
+}
+
 .text-bold {
   font-weight: bold !important;
 }
@@ -90,7 +95,7 @@ body {
 .general-table {
   width: 100%;
   border-collapse: separate !important;
-  border-spacing: 0 1em !important;
+  border-spacing: 0 0.4em !important;
 }
 
 .mat-cell {
@@ -109,7 +114,7 @@ body {
 
 .general-table tr.table-element-row {
   background-color: $color-active-secondary;
-  border-radius: 10px !important;
+  border-radius: 5px !important;
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -172,12 +177,12 @@ body {
 }
 
 .general-table tr > td:last-child {
-  border-top-right-radius: 10px !important;
-  border-bottom-right-radius: 10px !important;
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
 }
 .general-table tr > td:first-child {
-  border-top-left-radius: 10px !important;
-  border-bottom-left-radius: 10px !important;
+  border-top-left-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
 }
 .general-table th.mat-header-cell,
 .general-table td.mat-cell,
