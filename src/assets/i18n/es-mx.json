@@ -32,7 +32,7 @@
     "acounts-list": {
       "title": "Mis cuentas",
       "table": {
-        "colum1": "Nº",
+        "colum1": "Nº fila",
         "colum2": "ID Cliente único",
         "colum3": "Nombre de la cuenta",
         "colum4": "RFC",
@@ -77,7 +77,7 @@
       }
     },
     "table-related": {
-      "colum1": "Nº Fila",
+      "colum1": "Nº fila",
       "colum2": "Nombre de la oportunidad",
       "colum3": "Etapa",
       "colum7": "Número de la oportunidad",
@@ -101,7 +101,7 @@
     },
     "title": "Mis cotizaciones",
     "table": {
-      "colum1": "Nº",
+      "colum1": "Nº fila",
       "colum2": "Nombre de la cotización",
       "colum3": "Folio cotización",
       "colum4": "Total-Recurrente mensual",
@@ -114,14 +114,15 @@
     "title-detail": "Detalle de la oportunidad",
     "title-related": "Relacionado oportunidad",
     "table": {
-      "colum1": "Nº",
+      "colum1": "Nº fila",
       "colum2": "Nombre de la oportunidad",
       "colum3": "Número de oportunidad",
+      "colum6": "Nombre de la cuenta",
       "colum4": "Etapa",
       "colum5": "Importe"
     },
     "table-related": {
-      "colum1": "Nº",
+      "colum1": "Nº fila",
       "colum2": "Nombre de la cotización",
       "colum3": "Folio de la cotización",
       "colum4": "Total recurrencia mensual",
@@ -138,7 +139,7 @@
       "colum6": "Principal"
     },
     "table-activities-history": {
-      "colum1": "Nº",
+      "colum1": "Nº fila",
       "colum2": "Asunto",
       "colum3": "Nombre",
       "colum4": "Relacionado con",
