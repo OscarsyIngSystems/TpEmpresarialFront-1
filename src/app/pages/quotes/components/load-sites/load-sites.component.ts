@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Sale } from 'src/app/models/sale';
 import { map, startWith } from 'rxjs/operators';
+import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
   selector: 'app-load-sites',
@@ -10,6 +11,28 @@ import { map, startWith } from 'rxjs/operators';
   styleUrls: ['./load-sites.component.scss'],
 })
 export class LoadSitesComponent implements OnInit {
+  infoDetail: Array<InfoDetail> = [
+    {
+      name: 'Nombre de la cuenta',
+      value: 'Audi CDMX',
+    },
+    {
+      name: 'Numero de la oportunidad',
+      value: '0755222',
+    },
+    {
+      name: 'Folio de la cotización',
+      value: 'COT3781611',
+    },
+    {
+      name: 'Vigencia cotización',
+      value: '19/11/2021',
+    },
+    {
+      name: 'Propietario de la cuenta',
+      value: 'Sergio Aparicio Contreras',
+    },
+  ];
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;

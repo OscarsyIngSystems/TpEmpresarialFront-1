@@ -21,7 +21,7 @@ const routes: Routes = [
         component: LoadSitesComponent,
       },
       {
-        path: 'create',
+        path: 'create/:id',
         component: QuotesCreateComponent,
       },
       {

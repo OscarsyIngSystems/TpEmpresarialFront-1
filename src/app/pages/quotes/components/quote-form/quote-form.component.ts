@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { DialogQuotesComponent } from 'src/app/pages/accounts/components/dialog-quotes/dialog-quotes.component';
 
 @Component({
@@ -10,6 +11,7 @@ import { DialogQuotesComponent } from 'src/app/pages/accounts/components/dialog-
 })
 export class QuoteFormComponent implements OnInit {
   @Input() isCreate: boolean = false;
+  public opportunityNumber;
 
   name = '“COT7808232”';
   form: FormGroup;
@@ -17,14 +19,19 @@ export class QuoteFormComponent implements OnInit {
     return false;
   }
 
-  constructor(public dialog: MatDialog, private fb: FormBuilder) {
+  constructor(
+    public dialog: MatDialog,
+    private _url: ActivatedRoute,
+    private fb: FormBuilder
+  ) {
+    this.opportunityNumber = this._url.snapshot.paramMap.get('id');
     this.form = this.fb.group({
       quoteName: ['Audi CDMX-COT', Validators.required],
-      eps: ['EPS IV', Validators.required],
-      dataPicker: ['22-Dic-2021', Validators.required],
-      isMainQuotation: [true, Validators.required],
-      reason: ['Superioridad técnica', Validators.required],
-      quoteType: ['3', Validators.required],
+      eps: ['one', Validators.required],
+      dataPicker: [new Date(), Validators.required],
+      isMainQuotation: [true],
+      reason: ['Superioridad técnica'],
+      quoteType: ['3'],
     });
   }
 
@@ -36,6 +43,7 @@ export class QuoteFormComponent implements OnInit {
     }
   }
   openDialog(): void {
+    this.name = this.form.controls.quoteName.value;
     const dialogRef = this.dialog.open(DialogQuotesComponent, {
       width: '393px',
       height: '291px',
