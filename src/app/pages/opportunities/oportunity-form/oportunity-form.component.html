@@ -115,6 +115,7 @@
             <mat-label>Fecha estimada de cierre</mat-label>
             <input
               matInput
+              (click)="picker.open()"
               [matDatepicker]="picker"
               formControlName="closeDate"
               readonly

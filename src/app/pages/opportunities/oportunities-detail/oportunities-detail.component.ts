@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { Oportunity } from 'src/app/models/Oportunity';
 
@@ -9,6 +10,7 @@ import { Oportunity } from 'src/app/models/Oportunity';
 })
 export class OportunitiesDetailComponent implements OnInit {
   public contentLabels = 'oportunities.';
+  public opportunityNumber;
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -55,7 +57,9 @@ export class OportunitiesDetailComponent implements OnInit {
     trybuy: true,
     whoIntegrated: 'Sergio Aragon',
   };
-  constructor() {}
+  constructor(private _url: ActivatedRoute) {
+    this.opportunityNumber = this._url.snapshot.paramMap.get('id');
+  }
 
   ngOnInit(): void {}
 }

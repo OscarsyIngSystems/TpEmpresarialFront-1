@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { DialogQuotesComponent } from 'src/app/pages/accounts/components/dialog-quotes/dialog-quotes.component';
 
 @Component({
@@ -10,6 +11,7 @@ import { DialogQuotesComponent } from 'src/app/pages/accounts/components/dialog-
 })
 export class QuoteFormComponent implements OnInit {
   @Input() isCreate: boolean = false;
+  public opportunityNumber;
 
   name = '“COT7808232”';
   form: FormGroup;
@@ -17,7 +19,12 @@ export class QuoteFormComponent implements OnInit {
     return false;
   }
 
-  constructor(public dialog: MatDialog, private fb: FormBuilder) {
+  constructor(
+    public dialog: MatDialog,
+    private _url: ActivatedRoute,
+    private fb: FormBuilder
+  ) {
+    this.opportunityNumber = this._url.snapshot.paramMap.get('id');
     this.form = this.fb.group({
       quoteName: ['Audi CDMX-COT', Validators.required],
       eps: ['one', Validators.required],
