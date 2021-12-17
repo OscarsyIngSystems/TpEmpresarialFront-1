@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
   selector: 'app-account-form',
@@ -44,7 +45,11 @@ export class AccountFormComponent implements OnInit {
   ];
 
   // tslint:disable-next-line: variable-name
-  constructor(private _url: ActivatedRoute, private fb: FormBuilder) {
+  constructor(
+    private _url: ActivatedRoute,
+    private fb: FormBuilder,
+    public storageService: StorageService
+  ) {
     this.accountId = this._url.snapshot.paramMap.get('id');
     this.initPrincipalDataForm();
     this.initAddressInformationForm();

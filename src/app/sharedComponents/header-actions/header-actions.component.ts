@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
   selector: 'app-header-actions',
@@ -15,7 +16,8 @@ export class HeaderActionsComponent implements OnInit {
   @Input() relatedRoute!: string;
   @Input() relatedText = 'Relacionado';
   @Input() isCreate: boolean = false;
-  constructor(private router: Router) {}
+
+  constructor(private router: Router, public storageService: StorageService) {}
 
   newOportunity(): void {
     this.router.navigate([this.route]);
@@ -23,7 +25,6 @@ export class HeaderActionsComponent implements OnInit {
 
   openRelated(): void {
     this.router.navigate([this.relatedRoute]);
-    console.log(this.relatedRoute);
   }
 
   ngOnInit(): void {}
