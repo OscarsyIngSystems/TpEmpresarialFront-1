@@ -1,17 +1,7 @@
 <div class="mat-elevation-z1 card-form p-3">
   <form [formGroup]="oportunityForm">
     <div class="row">
-      <h2 class="text-bold">Detalle de la oportunidad</h2>
-      <div class="d-flex flex-row">
-        <span class="me-1">Etapa:</span> <strong>Necesidades</strong>
-      </div>
       <div class="col-md-4 col-lg-4 col-xl-4">
-        <div class="input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Nombre de la cuenta</mat-label>
-            <input formControlName="accountName" matInput />
-          </mat-form-field>
-        </div>
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field"
@@ -63,7 +53,15 @@
         <div class="input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field">Etapa</mat-label>
-            <input formControlName="stage" matInput />
+            <!-- <input formControlName="stage" matInput /> -->
+            <mat-select formControlName="stage">
+              <mat-option value="0">Necesidades</mat-option>
+              <mat-option value="1">Diseño</mat-option>
+              <mat-option value="2">Propuesta</mat-option>
+              <mat-option value="3">Crédito</mat-option>
+              <mat-option value="4">Firma</mat-option>
+              <mat-option value="5">Ganada</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div class="input-container">
@@ -121,14 +119,12 @@
             <mat-label class="label-form-field"
               >Divisa de la oportunidad</mat-label
             >
-            <mat-select formControlName="badge">
-              <mat-option value="one"> MXN - Peso Mexicano</mat-option>
-            </mat-select>
+            <input formControlName="badge" matInput />
           </mat-form-field>
         </div>
 
         <div class="input-container">
-          <mat-form-field class="w-100 mt-2" appearance="fill">
+          <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field">Descripción</mat-label>
             <input formControlName="description" matInput />
           </mat-form-field>
@@ -137,11 +133,11 @@
     </div>
   </form>
 </div>
-<!-- <div  class="d-flex justify-content-center mt-2">
+<div *ngIf="!oportunityDetailData" class="d-flex justify-content-center mt-2">
   <button mat-button class="rounded-button-outline form-actions me-2">
     Cancelar
   </button>
   <button mat-button (click)="openDialog()" class="rounded-button form-actions">
     Guardar
   </button>
-</div> -->
+</div>

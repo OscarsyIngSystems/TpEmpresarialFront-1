@@ -14,6 +14,7 @@ export class HeaderActionsComponent implements OnInit {
   @Input() route!: string;
   @Input() relatedRoute!: string;
   @Input() relatedText = 'Relacionado';
+  @Input() isCreate: boolean = false;
   constructor(private router: Router) {}
 
   newOportunity(): void {

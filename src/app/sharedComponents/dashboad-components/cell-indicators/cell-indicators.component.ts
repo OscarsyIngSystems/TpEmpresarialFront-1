@@ -57,12 +57,15 @@ export class CellIndicatorsComponent implements OnInit {
       series: [
         {
           name: 'Venta total',
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
+          data: [
+            100000, 410000, 350000, 510000, 490000, 620000, 690000, 910000,
+            1480000,
+          ],
           color: '#8246af',
         },
         {
           name: 'Meta de venta',
-          data: [0, 20, 10, 8, 6, 62],
+          data: [1000, 100000, 300000, 500000, 700000, 925000],
           color: '#dbe442',
         },
       ],
@@ -89,17 +92,10 @@ export class CellIndicatorsComponent implements OnInit {
         },
       },
       xaxis: {
-        categories: [
-          'Jan',
-          'Feb',
-          'Mar',
-          'Apr',
-          'May',
-          'Jun',
-          'Jul',
-          'Aug',
-          'Sep',
-        ],
+        categories: ['Diciembre'],
+      },
+      yaxis: {
+        categories: ['1000', '100000'],
       },
     };
   }

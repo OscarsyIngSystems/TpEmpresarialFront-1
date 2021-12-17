@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between my-2">
   <div class="d-flex flex-row align-items-center mb-1">
     <span class="text-title text-bold">{{ title }}</span>
   </div>
@@ -14,13 +14,18 @@
       {{ buttonText }}
     </button>
     <button
+      *ngIf="!isCreate"
       (click)="openRelated()"
       mat-button
       class="rounded-button-outline btn-primary tx-12 text-bold ms-2"
     >
       {{ relatedText }}
     </button>
-    <button mat-button class="rounded-button-outline ms-2 tx-12 text-bold">
+    <button
+      *ngIf="!isCreate"
+      mat-button
+      class="rounded-button-outline ms-2 tx-12 text-bold"
+    >
       <mat-icon>chat</mat-icon>
       Chatter
     </button>

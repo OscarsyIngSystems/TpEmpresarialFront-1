@@ -13,7 +13,7 @@
   </div>
 
   <div class="row mt-1 h-75 align-items-center justify-content-center">
-    <div class="col-4">
+    <div class="col-4 px-0">
       <div class="col">
         <div
           class="row tx-12"
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="col-2">
+    <div class="col-2 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
         [series]="chartSeries[0]"
@@ -41,8 +41,9 @@
         [legend]="chartOptions.legend"
         [colors]="chartOptions.colors"
       ></apx-chart>
+      <span class="text-bold ps-2 tx-12">Enviadas</span>
     </div>
-    <div class="col-2">
+    <div class="col-2 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
         [series]="chartSeries[1]"
@@ -54,8 +55,9 @@
         [legend]="chartOptions.legend"
         [colors]="chartOptions.colors"
       ></apx-chart>
+      <span class="text-bold ps-2 tx-12">En proceso</span>
     </div>
-    <div class="col-2">
+    <div class="col-2 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
         [series]="chartSeries[2]"
@@ -67,11 +69,12 @@
         [legend]="chartOptions.legend"
         [colors]="chartOptions.colors"
       ></apx-chart>
+      <span class="text-bold ps-2 tx-12">Cerradas</span>
     </div>
 
     <div class="d-flex justify-content-end mt-3">
       <button routerLink="/quotes" mat-button class="text-bold warn-btn">
-        Ver mas
+        Ver más
         <mat-icon>keyboard_arrow_right</mat-icon>
       </button>
     </div>

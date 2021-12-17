@@ -78,6 +78,7 @@ export class AccountFormComponent implements OnInit {
       isVip: [true, Validators.required],
       principal_contact: ['Alan 4G 4', Validators.required],
     });
+    this.principalDataForm.disable();
   }
 
   public initAddressInformationForm(): void {
@@ -87,7 +88,6 @@ export class AccountFormComponent implements OnInit {
       interior_number: ['', Validators.required],
       town: ['Tizapan San Angel', Validators.required],
       // map: ['', Validators.required],
-      account_registration_type: ['Enlace', Validators.required],
       county: ['Coyoacan', Validators.required],
       city: ['Ciudad de Mexico', Validators.required],
       state: ['CDMX', Validators.required],
@@ -95,6 +95,7 @@ export class AccountFormComponent implements OnInit {
       employees_amount: [1000, Validators.required],
       geolocation: ['19.3340101,-99.1986951', Validators.required],
     });
+    this.addressInformationForm.disable();
   }
 
   public initSystemInformationForm(): void {
@@ -105,6 +106,8 @@ export class AccountFormComponent implements OnInit {
       lastUpdatedBy: ['Gabriela López Velázquez', Validators.required],
       lastUpdatedDate: ['02-Dic-2021 / 18:50 pm', Validators.required],
       originCRM: ['Lorem Ipsum', Validators.required],
+      account_registration_type: ['Enlace', Validators.required],
     });
+    this.systemInformationForm.disable();
   }
 }

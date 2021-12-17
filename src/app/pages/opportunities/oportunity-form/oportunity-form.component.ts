@@ -18,19 +18,20 @@ export class OportunityFormComponent implements OnInit {
     this.oportunityForm = this.fb.group({
       accountName: [''],
       closeDate: ['', Validators.required],
-      stage: [''],
+      stage: ['0'],
       amount: [''],
       reason: [''],
       description: [''],
       oportunityName: ['', Validators.required],
-      probability: [''],
-      badge: ['', Validators.required],
+      probability: ['10%'],
+      badge: ['MXN - Peso Mexicano', Validators.required],
       oportunityOrigin: ['', Validators.required],
       trybuy: [false],
       executive: [''],
       whoIntegrated: [''],
     });
-    // this.oportunityForm.disable();
+    this.oportunityForm.get('badge')?.disable();
+    this.oportunityForm.get('probability')?.disable();
   }
 
   ngOnInit(): void {}

@@ -20,14 +20,14 @@
   },
   "accounts": {
     "accounts-dashboard": {
-      "title": "Mis Ventas",
+      "title": "Mis ventas",
       "acounts": "Cuentas por segmento",
       "acounts2": "Cuentas con retraso de pago",
       "quotes": "Cotizaciones",
       "opportunities": "Oportunidades",
-      "indicators": "Indicadores Célula",
+      "indicators": "Indicadores célula",
       "payment": "Productividad por ejecutivo",
-      "clarity-portal": "Portal de Claridad"
+      "clarity-portal": "Portal de claridad"
     },
     "acounts-list": {
       "title": "Mis cuentas",
@@ -63,7 +63,7 @@
     },
     "layaut-accounts": {
       "menu": {
-        "title": "Menu",
+        "title": "Menú",
         "item-list1": "Dashboard",
         "item-list2": "Cuentas",
         "item-list3": "Oportunidades",
@@ -71,7 +71,7 @@
       },
       "notifications": {
         "title": "Notificaciones",
-        "card1-title": "Notificacion 1",
+        "card1-title": "Notificación 1",
         "card1-content": "La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá el 23 noviembre 2021 a las 13:35 hrs.",
         "card1-footer": "Hace 2 min"
       }
@@ -87,13 +87,13 @@
   "quotes": {
     "layaut-quotes": {
       "menu": {
-        "title": "Menu",
+        "title": "Menú",
         "item-list1": "Dashboard",
         "item-list2": "Cuentas"
       },
       "notifications": {
         "title": "Notificaciones",
-        "card1-title": "Notificacion 1",
+        "card1-title": "Notificación 1",
         "card1-content": "La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá el 23 noviembre 2021 a las 13:35 hrs.",
         "card1-footer": "Hace 2 min"
       }
