@@ -70,3 +70,8 @@
 .view-button {
   background-color: $color-border;
 }
+
+.mat-button.mat-button-disabled.mat-button-disabled {
+  background: $color-disabled-button;
+  color: $color-primary;
+}

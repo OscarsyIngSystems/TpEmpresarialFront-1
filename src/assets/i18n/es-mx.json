@@ -77,9 +77,10 @@
       }
     },
     "table-related": {
-      "colum1": "Nº",
+      "colum1": "Nº Fila",
       "colum2": "Nombre de la oportunidad",
       "colum3": "Etapa",
+      "colum7": "Número de la oportunidad",
       "colum4": "Importe",
       "colum6": "Fecha de cierre"
     }

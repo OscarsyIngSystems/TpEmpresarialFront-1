@@ -17,24 +17,20 @@ export class RelatedComponent implements OnInit {
       value: 'Audi CDMX',
     },
     {
-      name: 'Número de la oportunidad',
-      value: '9898987',
+      name: 'ID Cliente único',
+      value: '873827',
     },
     {
-      name: 'Etapa',
-      value: 'Necesidades',
+      name: 'Folio Cuenta',
+      value: 'CRM-00022445',
     },
     {
-      name: 'Importe',
-      value: 'Estratégicas',
+      name: 'RFC',
+      value: 'HSP030709EA2',
     },
     {
-      name: 'Fecha de cierre',
-      value: '21/12/2021',
-    },
-    {
-      name: 'Propietario de la cuenta',
-      value: 'Sergio aparicio contreras',
+      name: 'Segmento',
+      value: 'I',
     },
   ];
 
@@ -46,6 +42,10 @@ export class RelatedComponent implements OnInit {
     {
       key: 'name',
       columnName: this.contentLabels + 'table-related.colum2',
+    },
+    {
+      key: 'opportunity_number',
+      columnName: this.contentLabels + 'table-related.colum7',
     },
     {
       key: 'status',
@@ -64,6 +64,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 1,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -71,6 +72,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 2,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -78,6 +80,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 3,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -85,6 +88,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 4,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -92,6 +96,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 5,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -99,6 +104,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 6,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -106,6 +112,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 7,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -113,6 +120,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 8,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -120,6 +128,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 9,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -127,6 +136,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 10,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -134,6 +144,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 11,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -141,6 +152,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 12,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -148,6 +160,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 13,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -155,6 +168,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 14,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',
@@ -162,6 +176,7 @@ export class RelatedComponent implements OnInit {
     {
       numberList: 15,
       name: 'Audi-CDMX-Cot',
+      opportunity_number: '0987654',
       status: 'Borrador',
       mounthTotal: '$2225.21 MXN',
       closeDate: '19/12/2021',

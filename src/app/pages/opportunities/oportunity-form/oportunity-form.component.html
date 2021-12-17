@@ -8,46 +8,8 @@
               >Origen de la oportunidad</mat-label
             >
             <mat-select formControlName="oportunityOrigin">
-              <mat-option value="one"></mat-option>
+              <mat-option value="one">Primera opción</mat-option>
             </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="input-container">
-          <mat-form-field appearance="fill" class="w-100">
-            <mat-label>Fecha estimada de cierre</mat-label>
-            <input
-              matInput
-              [matDatepicker]="picker"
-              formControlName="closeDate"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <div class="input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Nombre del ejecutivo</mat-label>
-            <input formControlName="executive" matInput value="Audi cdmx" />
-          </mat-form-field>
-        </div>
-        <div class="d-flex flex-row">
-          <div class="d-flex flex-column me-2">
-            <button mat-button class="view-button"><strong>Ver</strong></button>
-            <small>Nombre.pdf</small>
-          </div>
-          <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-4 col-xl-4">
-        <div class="input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field"
-              >Nombre de la oportunidad</mat-label
-            >
-            <input matInput formControlName="oportunityName" />
           </mat-form-field>
         </div>
         <div class="input-container">
@@ -67,7 +29,8 @@
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field">Importe</mat-label>
-            <input matInput formControlName="amount" type="number" />
+            <span matPrefix>$</span>
+            <input matInput formControlName="amount" />
           </mat-form-field>
         </div>
         <div class="row">
@@ -99,15 +62,14 @@
       </div>
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
-          <mat-form-field appearance="fill" class="w-100">
+          <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field"
-              >Quien integra la propuesta</mat-label
+              >Nombre de la oportunidad</mat-label
             >
-            <mat-select formControlName="whoIntegrated">
-              <mat-option value="one"> </mat-option>
-            </mat-select>
+            <input matInput formControlName="oportunityName" />
           </mat-form-field>
         </div>
+
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field">Probabilidad (%)</mat-label>
@@ -136,6 +98,48 @@
           </mat-form-field>
         </div>
       </div>
+      <div class="col-md-4 col-lg-4 col-xl-4">
+        <div class="input-container">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label class="label-form-field"
+              >Quien integra la propuesta</mat-label
+            >
+            <mat-select formControlName="whoIntegrated">
+              <mat-option value="one">Juanito Pérez</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="input-container">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Fecha estimada de cierre</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="closeDate"
+              readonly
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="input-container">
+          <mat-form-field class="w-100" appearance="fill">
+            <mat-label class="label-form-field">Nombre del ejecutivo</mat-label>
+            <input formControlName="executive" matInput />
+          </mat-form-field>
+        </div>
+        <div class="d-flex flex-row">
+          <div class="d-flex flex-column me-2">
+            <button mat-button class="view-button"><strong>Ver</strong></button>
+            <small>Nombre.pdf</small>
+          </div>
+          <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div>
+        </div>
+      </div>
     </div>
   </form>
 </div>
@@ -143,7 +147,12 @@
   <button mat-button class="rounded-button-outline form-actions me-2">
     Cancelar
   </button>
-  <button mat-button (click)="openDialog()" class="rounded-button form-actions">
+  <button
+    [disabled]="oportunityForm.invalid"
+    mat-button
+    (click)="openDialog()"
+    class="rounded-button form-actions"
+  >
     Guardar
   </button>
 </div>

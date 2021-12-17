@@ -17,21 +17,22 @@ export class OportunityFormComponent implements OnInit {
   constructor(private fb: FormBuilder, public dialog: MatDialog) {
     this.oportunityForm = this.fb.group({
       accountName: [''],
-      closeDate: ['', Validators.required],
+      closeDate: [new Date(), Validators.required],
       stage: ['0'],
-      amount: [''],
+      amount: ['1,290,800'],
       reason: [''],
       description: [''],
       oportunityName: ['', Validators.required],
       probability: ['10%'],
       badge: ['MXN - Peso Mexicano', Validators.required],
-      oportunityOrigin: ['', Validators.required],
+      oportunityOrigin: ['one', Validators.required],
       trybuy: [false],
-      executive: [''],
-      whoIntegrated: [''],
+      executive: ['Sergio Aparicio Contreras'],
+      whoIntegrated: ['one'],
     });
     this.oportunityForm.get('badge')?.disable();
     this.oportunityForm.get('probability')?.disable();
+    this.oportunityForm.get('executive')?.disable();
   }
 
   ngOnInit(): void {}
@@ -44,6 +45,7 @@ export class OportunityFormComponent implements OnInit {
   }
 
   openDialog(): void {
+    this.name = this.oportunityForm.controls.oportunityName.value;
     const dialogRef = this.dialog.open(DialogOportunitiesComponent, {
       width: '393px',
       height: '291px',
