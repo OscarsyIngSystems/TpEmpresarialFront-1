@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { Oportunity } from 'src/app/models/Oportunity';
 import { DialogOportunitiesComponent } from '../../accounts/components/dialog-oportunities/dialog-oportunities.component';
 
@@ -11,10 +12,17 @@ import { DialogOportunitiesComponent } from '../../accounts/components/dialog-op
 })
 export class OportunityFormComponent implements OnInit {
   @Input() oportunityDetailData!: Oportunity;
+  public accountId;
   public oportunityForm: FormGroup;
   name = '“Prueba de sistemas”';
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) {
+  constructor(
+    private fb: FormBuilder,
+    public dialog: MatDialog,
+    private _url: ActivatedRoute
+  ) {
+    // console.log(this._url);
+    this.accountId = this._url.snapshot.paramMap.get('id');
     this.oportunityForm = this.fb.group({
       accountName: [''],
       closeDate: [new Date(), Validators.required],
