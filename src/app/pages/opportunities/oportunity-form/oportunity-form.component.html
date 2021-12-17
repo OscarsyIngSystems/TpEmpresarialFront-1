@@ -103,7 +103,7 @@
             <mat-label class="label-form-field"
               >Quien integra la propuesta</mat-label
             >
-            <mat-select formControlName="badge">
+            <mat-select formControlName="whoIntegrated">
               <mat-option value="one"> </mat-option>
             </mat-select>
           </mat-form-field>
@@ -114,7 +114,10 @@
             <input matInput formControlName="probability" />
           </mat-form-field>
         </div>
-        <div class="input-container">
+        <div
+          class="input-container"
+          [class]="!oportunityDetailData ? 'mtn-10' : ''"
+        >
           <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field"
               >Divisa de la oportunidad</mat-label
@@ -123,7 +126,10 @@
           </mat-form-field>
         </div>
 
-        <div class="input-container">
+        <div
+          class="input-container"
+          [class]="!oportunityDetailData ? 'mtn-10' : ''"
+        >
           <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field">Descripción</mat-label>
             <input formControlName="description" matInput />
