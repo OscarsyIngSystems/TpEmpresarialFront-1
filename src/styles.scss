@@ -407,3 +407,9 @@ input::-webkit-inner-spin-button {
 .mtn-10 {
   margin-top: -10px;
 }
+
+//boton desabilitado para
+.mat-button.mat-button-disabled.mat-button-disabled {
+  background: $color-disabled-button;
+  color: $color-primary;
+}

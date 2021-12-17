@@ -190,7 +190,12 @@
   <button mat-button class="rounded-button-outline form-actions me-2">
     Cancelar
   </button>
-  <button mat-button (click)="openDialog()" class="rounded-button form-actions">
+  <button
+    mat-button
+    [disabled]="form.invalid"
+    (click)="openDialog()"
+    class="rounded-button form-actions"
+  >
     Guardar
   </button>
 </div>

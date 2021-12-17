@@ -20,11 +20,11 @@ export class QuoteFormComponent implements OnInit {
   constructor(public dialog: MatDialog, private fb: FormBuilder) {
     this.form = this.fb.group({
       quoteName: ['Audi CDMX-COT', Validators.required],
-      eps: ['EPS IV', Validators.required],
+      eps: ['one', Validators.required],
       dataPicker: [new Date(), Validators.required],
-      isMainQuotation: [true, Validators.required],
-      reason: ['Superioridad técnica', Validators.required],
-      quoteType: ['3', Validators.required],
+      isMainQuotation: [true],
+      reason: ['Superioridad técnica'],
+      quoteType: ['3'],
     });
   }
 
@@ -36,6 +36,7 @@ export class QuoteFormComponent implements OnInit {
     }
   }
   openDialog(): void {
+    this.name = this.form.controls.quoteName.value;
     const dialogRef = this.dialog.open(DialogQuotesComponent, {
       width: '393px',
       height: '291px',
