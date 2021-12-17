@@ -21,7 +21,7 @@ export class QuoteFormComponent implements OnInit {
     this.form = this.fb.group({
       quoteName: ['Audi CDMX-COT', Validators.required],
       eps: ['EPS IV', Validators.required],
-      dataPicker: ['22-Dic-2021', Validators.required],
+      dataPicker: [new Date(), Validators.required],
       isMainQuotation: [true, Validators.required],
       reason: ['Superioridad técnica', Validators.required],
       quoteType: ['3', Validators.required],

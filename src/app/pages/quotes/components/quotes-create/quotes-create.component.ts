@@ -14,7 +14,7 @@ export class QuotesCreateComponent implements OnInit {
     },
     {
       name: 'Tipo',
-      value: 'Nuevo',
+      value: 'Nueva',
     },
     {
       name: 'Etapa',
@@ -22,16 +22,13 @@ export class QuotesCreateComponent implements OnInit {
     },
     {
       name: 'Importe',
-      value: 'Estrategica',
+      value: '$1,290,800',
     },
     {
-      name: 'Fecha de cierre',
+      name: 'Fecha estimada de cierre',
       value: '10/10/2021',
     },
-    {
-      name: 'Fecha estimada entrega',
-      value: '10/10/2021',
-    },
+
     {
       name: 'Propietario de la cuenta',
       value: 'Sergio Aparicio Contreras',

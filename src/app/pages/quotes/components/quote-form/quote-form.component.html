@@ -33,7 +33,7 @@
             </div>
           </div>
         </div>
-        <div class="row d-flex justify-content-between">
+        <div class="row d-flex justify-content-between mt-19">
           <div class="col-5">
             <input
               formControlName="quoteType"
@@ -79,13 +79,15 @@
             <mat-form-field appearance="fill" class="w-100">
               <mat-label class="label-form-field">Asignacion de EPS</mat-label>
               <mat-select formControlName="eps">
-                <mat-option value="one">EPS</mat-option>
-                <mat-option value="two">Otro</mat-option>
+                <mat-option value="one">EPS I</mat-option>
+                <mat-option value="two">EPS II</mat-option>
+                <mat-option value="two">EPS III</mat-option>
+                <mat-option value="two">EPS IV</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
         </div>
-        <div class="row d-flex">
+        <div class="row d-flex align-items-center">
           <div class="col-3">
             <input
               formControlName="quoteType"
@@ -124,10 +126,19 @@
       <div class="col-4">
         <div class="row">
           <div class="col-6 input-container">
-            <mat-form-field class="w-100" appearance="fill">
-              <mat-label class="label-form-field">Vigencia</mat-label>
-              <input matInput formControlName="dataPicker" />
-              <mat-icon matSuffix>event</mat-icon>
+            <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Vigencia</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="dataPicker"
+                readonly
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
           <div class="col-6">
@@ -175,7 +186,7 @@
     </div>
   </form>
 </div>
-<div *ngIf="isCreate" class="d-flex justify-content-center mt-2">
+<div *ngIf="isCreate" class="d-flex justify-content-center mt-4">
   <button mat-button class="rounded-button-outline form-actions me-2">
     Cancelar
   </button>
