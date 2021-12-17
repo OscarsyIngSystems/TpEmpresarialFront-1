@@ -22,7 +22,8 @@
     "accounts-dashboard": {
       "title": "Mis ventas",
       "acounts": "Cuentas por segmento",
-      "acounts2": "Cuentas con retraso de pago",
+      "acounts2": "Cuentas con ",
+      "acounts3": "retraso de pago",
       "quotes": "Cotizaciones",
       "opportunities": "Oportunidades",
       "indicators": "Indicadores célula",

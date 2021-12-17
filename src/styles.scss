@@ -43,9 +43,28 @@ $custom-typography: mat-typography-config(
 );
 
 @include angular-material-typography($custom-typography);
-
+// #region textos
 .tx-12 {
   font-size: 12px;
+}
+.tx-14 {
+  font-size: 14px;
+}
+.tx-18 {
+  font-size: 18px;
+}
+.tx-20 {
+  font-size: 20px;
+}
+.tx-22 {
+  font-size: 22px;
+}
+.tx-24 {
+  font-size: 24px;
+}
+.tx-25 {
+  font-size: 25px;
+  color: $color-primary;
 }
 
 .text-title {
@@ -61,7 +80,33 @@ $custom-typography: mat-typography-config(
 .text-bold {
   font-weight: bold !important;
 }
-
+// #endregion textos
+// #region heights
+.h-10 {
+  height: 10% !important;
+}
+.h-20 {
+  height: 20% !important;
+}
+.h-30 {
+  height: 30% !important;
+}
+.h-40 {
+  height: 40% !important;
+}
+.h-60 {
+  height: 60% !important;
+}
+.h-70 {
+  height: 70% !important;
+}
+.h-80 {
+  height: 80% !important;
+}
+.h-90 {
+  height: 90% !important;
+}
+// #endregion heights
 body {
   height: 100%;
   margin: 0;
