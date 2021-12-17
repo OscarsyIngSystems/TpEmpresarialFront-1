@@ -20,7 +20,7 @@ const routes: Routes = [
         component: OportunitiesDetailComponent,
       },
       {
-        path: 'new/op',
+        path: 'new/op/:id',
         component: OportunityCreateComponent,
       },
       {

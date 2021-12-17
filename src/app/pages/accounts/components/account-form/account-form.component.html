@@ -2,7 +2,7 @@
   [title]="'Detalle'"
   [hasBackButton]="true"
   buttonText="Crear oportunidad"
-  route="opportunities/new/op"
+  [route]="'opportunities/new/op/' + accountId"
   [hidenCreateOportunity]="false"
   [relatedRoute]="'accounts/related/' + accountId"
 >
