@@ -210,7 +210,7 @@
 >
   <thead>
     <tr>
-      <th class="text-center" *ngFor="let col of columns">
+      <th *ngFor="let col of columns">
         {{ col.columnName | translate }}
       </th>
     </tr>
@@ -221,12 +221,12 @@
       (click)="goOportunitiesDetail(account)"
       *ngFor="let account of dataSource; let i = index"
     >
-      <td class="mat-cell text-center">{{ account.numberList }}</td>
-      <td class="mat-cell text-center">{{ account.name }}</td>
-      <td class="mat-cell text-center">{{ account.opportunity_number }}</td>
-      <td class="mat-cell text-center">{{ account.status }}</td>
-      <td class="mat-cell text-center">{{ account.mounthTotal }}</td>
-      <td class="mat-cell text-center">{{ account.closeDate }}</td>
+      <td class="mat-cell ps-4">{{ account.numberList }}</td>
+      <td class="mat-cell ps-4">{{ account.name }}</td>
+      <td class="mat-cell ps-4">{{ account.opportunity_number }}</td>
+      <td class="mat-cell ps-4">{{ account.status }}</td>
+      <td class="mat-cell ps-4">{{ account.mounthTotal }}</td>
+      <td class="mat-cell ps-4">{{ account.closeDate }}</td>
     </tr>
   </tbody>
 </table>

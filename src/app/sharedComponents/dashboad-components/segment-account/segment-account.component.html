@@ -13,45 +13,65 @@
   </div>
 </div>
 <div class="row h-60 my-2 align-items-center justify-content-center">
-  <div class="col-6">
+  <div class="col-5">
     <div class="row g-0">
-      <div class="col-4">
+      <div class="col-4 mt-4">
         <div
           class="row mt-1 tx-12 g-0"
-          *ngFor="let numbers of chartProps.data; let i = index"
+          *ngFor="let numbers of chartSeries; let i = index"
         >
           <div
-            [style]="'background-color:' + chartProps.colors[i]"
+            [style]="'background-color:' + colors[i]"
             class="count-sales primary-sale text-bold"
           >
             {{ numbers }}
           </div>
-          {{ chartProps.labels[i] }}
+          {{ labels[i] }}
         </div>
       </div>
-      <div class="col-8">
-        <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart>
+      <div class="col-8 mt-3">
+        <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
+        <apx-chart
+          [series]="chartSeries"
+          [chart]="donutChartOptions.chart"
+          [labels]="donutChartOptions.labels"
+          [responsive]="donutChartOptions.responsive"
+          [dataLabels]="donutChartOptions.dataLabels"
+          [plotOptions]="donutChartOptions.plotOptions"
+          [legend]="donutChartOptions.legend"
+          [colors]="donutChartOptions.colors"
+        ></apx-chart>
       </div>
     </div>
   </div>
-  <div class="col-6">
+  <div class="col-7">
     <div class="row g-0">
-      <div class="col-4">
+      <div class="col-6 mt-4">
         <div
           class="row mt-1 tx-12 g-0"
-          *ngFor="let numbers of chartProps.data; let i = index"
+          *ngFor="let numbers of chartSeries; let i = index"
         >
           <div
-            [style]="'background-color:' + chartProps.colors[i]"
+            [style]="'background-color:' + colors[i]"
             class="count-sales primary-sale text-bold"
           >
             {{ numbers }}
           </div>
-          {{ chartProps.labels[i] }}
+          {{ labels[i] }} {{ amounts[i] }}
         </div>
       </div>
-      <div class="col-8">
-        <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart>
+      <div class="col-6 mt-3">
+        <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
+        <apx-chart
+          [series]="chartSeries"
+          [chart]="donutChartOptions.chart"
+          [labels]="donutChartOptions.labels"
+          [responsive]="donutChartOptions.responsive"
+          [dataLabels]="donutChartOptions.dataLabels"
+          [plotOptions]="donutChartOptions.plotOptions"
+          [legend]="donutChartOptions.legend"
+          [colors]="donutChartOptions.colors"
+        ></apx-chart>
       </div>
     </div>
   </div>

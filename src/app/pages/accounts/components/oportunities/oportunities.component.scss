@@ -23,3 +23,7 @@
 .no-margin-col {
   margin-left: -12px;
 }
+
+::ng-deep .apexcharts-canvas {
+  margin: auto !important;
+}
