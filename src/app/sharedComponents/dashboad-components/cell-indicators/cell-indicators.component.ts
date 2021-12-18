@@ -52,20 +52,17 @@ export class CellIndicatorsComponent implements OnInit {
   constructor() {
     this.chartOptions = {
       legend: {
-        show: false,
+        show: true,
       },
       series: [
         {
           name: 'Venta total',
-          data: [
-            100000, 410000, 350000, 510000, 490000, 620000, 690000, 910000,
-            1480000,
-          ],
+          data: [100000, 150000, 350000, 400000],
           color: '#8246af',
         },
         {
           name: 'Meta de venta',
-          data: [1000, 100000, 300000, 500000, 700000, 925000],
+          data: [1000, 100000, 360000],
           color: '#dbe442',
         },
       ],
@@ -92,11 +89,11 @@ export class CellIndicatorsComponent implements OnInit {
         },
       },
       xaxis: {
-        categories: ['Diciembre'],
+        categories: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
       },
-      yaxis: {
-        categories: ['1000', '100000'],
-      },
+      // yaxis: {
+      //   categories: ['1000', '100000', '0', '0'],
+      // },
     };
   }
 
