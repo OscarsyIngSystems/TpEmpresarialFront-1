@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Account } from 'src/app/models/account';
+import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
   selector: 'app-table-general',
@@ -16,7 +18,7 @@ export class TableGeneralComponent implements OnInit {
 
   expandedElement!: Account | null;
   lengthMenu = [10, 20];
-  constructor() {}
+  constructor(private route: Router, private storageService: StorageService) {}
 
   ngOnInit(): void {}
 
@@ -44,5 +46,10 @@ export class TableGeneralComponent implements OnInit {
       },
       lengthMenu: this.lengthMenu,
     };
+  }
+
+  goAccountDetail(account: Account): void {
+    this.storageService.setDataName(account.accountName);
+    this.route.navigate(['/accounts/detail', account.id]);
   }
 }
