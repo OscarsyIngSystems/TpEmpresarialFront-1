@@ -63,6 +63,7 @@ export class QuoteComponent implements OnInit {
       plotOptions: {
         pie: {
           donut: {
+            size: '70',
             labels: {
               show: true,
               value: {

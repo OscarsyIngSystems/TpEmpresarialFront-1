@@ -45,7 +45,8 @@ export type ChartOptions = {
 export class OportunitiesComponent implements OnInit {
   public contentLabels = 'accounts.accounts-dashboard.';
   @ViewChild('chart') chart!: ChartComponent;
-  public chartOptions: any;
+  public barChartOptions: any;
+  public donutChartOptions: any;
   private colors = [
     '#59cbe8',
     '#8246af',
@@ -54,30 +55,23 @@ export class OportunitiesComponent implements OnInit {
     '#FFBF3F',
     '#dbe442',
   ];
+  public chartSeries = [21, 22, 10, 28, 16, 21];
+  public labels = [
+    'Necesidades',
+    'Diseño',
+    'Propuesta',
+    'Firma',
+    'Crédito',
+    'Ganada',
+  ];
+  public title = 'Total de oportunidades';
 
-  doughnutChartProps: ChartComponentOptions = {
-    title: 'Total de oportunidades',
-    data: [3, 5, 1, 1, 1, 1],
-    colors: ['#7E84D0', '#0595FF', '#5E5A6A', '#7ED1CA', '#93C2CE', '#E5AB4E'],
-    labels: [
-      'Necesidades',
-      'Disenio',
-      'Propuesta',
-      'Firma',
-      'Crédito',
-      'Ganada',
-    ],
-    chartType: 'doughnut',
-    width: 150,
-    height: 150,
-    class: 'chart-container shadow',
-  };
   constructor() {
-    this.chartOptions = {
+    this.barChartOptions = {
       series: [
         {
           name: '',
-          data: [21, 22, 10, 28, 16, 21],
+          data: this.chartSeries,
         },
       ],
       chart: {
@@ -104,18 +98,66 @@ export class OportunitiesComponent implements OnInit {
         show: false,
       },
       xaxis: {
-        categories: [
-          'Necesidades',
-          'Diseño',
-          'Propuesta',
-          'Firma',
-          'Crédito',
-          'Ganada',
-        ],
+        categories: this.labels,
         labels: {
           style: {
             // colors: this.colors,
             fontSize: '10px',
+          },
+        },
+      },
+    };
+    this.donutChartOptions = {
+      colors: this.colors,
+      chart: {
+        type: 'donut',
+        width: 150,
+        height: 150,
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
+            },
+            // legend: {
+            //   position: 'bottom',
+            // },
+          },
+        },
+      ],
+      labels: this.labels,
+      dataLabels: {
+        enabled: false,
+      },
+      legend: {
+        show: false,
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            size: '84',
+            labels: {
+              show: true,
+              value: {
+                show: true,
+                fontSize: '15px',
+                fontFamily: 'Montserrat, sans-serif',
+                fontWeight: 800,
+                // color: undefined,
+                offsetY: -10,
+                // formatter(val: any) {
+                //   console.log(val);
+                //   return val;
+                // },
+              },
+              total: {
+                show: true,
+                showAlways: true,
+                label: '',
+              },
+            },
           },
         },
       },
