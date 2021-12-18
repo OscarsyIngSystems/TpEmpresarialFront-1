@@ -52,4 +52,9 @@ export class TableGeneralComponent implements OnInit {
     this.storageService.setDataName(account.accountName);
     this.route.navigate(['/accounts/detail', account.id]);
   }
+
+  goOportunitiesDetail(account: any): void {
+    this.storageService.setDataName(account.name);
+    this.route.navigate(['/opportunities', account.numberList]);
+  }
 }

@@ -218,6 +218,7 @@
   <tbody>
     <tr
       class="shadow-sm c-pointer"
+      (click)="goOportunitiesDetail(account)"
       *ngFor="let account of dataSource; let i = index"
     >
       <td class="mat-cell text-center">{{ account.numberList }}</td>
