@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DialogMassiveLoadSitesComponent } from 'src/app/pages/accounts/components/dialog-massive-load-sites/dialog-massive-load-sites.component';
 import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
@@ -15,9 +17,15 @@ export class HeaderActionsComponent implements OnInit {
   @Input() route!: string;
   @Input() relatedRoute!: string;
   @Input() relatedText = 'Relacionado';
+  @Input() loadSitesText = 'Carga masiva de sitios';
   @Input() isCreate: boolean = false;
+  @Input() isLoadSites: boolean = false;
 
-  constructor(private router: Router, public storageService: StorageService) {}
+  constructor(
+    private router: Router,
+    public storageService: StorageService,
+    private dialog: MatDialog
+  ) {}
 
   newOportunity(): void {
     this.router.navigate([this.route]);
@@ -27,5 +35,8 @@ export class HeaderActionsComponent implements OnInit {
     this.router.navigate([this.relatedRoute]);
   }
 
+  openDialogLoadMassive() {
+    this.dialog.open(DialogMassiveLoadSitesComponent);
+  }
   ngOnInit(): void {}
 }
