@@ -41,10 +41,17 @@
         </ul>
       </div>
       <span class="tx-12 ms-2">Porcentaje cumplido</span>
-      <app-chart
-        *ngIf="chartCircular"
-        [graphOptions]="chartCircular"
-      ></app-chart>
+
+      <apx-chart
+        [series]="chartSeries"
+        [chart]="donutChartOptions.chart"
+        [labels]="donutChartOptions.labels"
+        [responsive]="donutChartOptions.responsive"
+        [dataLabels]="donutChartOptions.dataLabels"
+        [plotOptions]="donutChartOptions.plotOptions"
+        [legend]="donutChartOptions.legend"
+        [colors]="donutChartOptions.colors"
+      ></apx-chart>
       <div class="d-flex justify-content-end">
         <button mat-button class="text-bold warn-btn">
           {{ "generic.view-more" | translate }}

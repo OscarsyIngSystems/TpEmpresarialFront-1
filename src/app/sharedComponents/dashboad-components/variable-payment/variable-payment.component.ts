@@ -50,19 +50,74 @@ export class VariablePaymentComponent implements OnInit {
       },
     ],
   ];
+  public donutChartOptions: any;
+  chartSeries = [160990, 56990];
 
-  chartCircular: ChartComponentOptions = {
-    data: [30, 22],
-    title: 'Total cumplido',
-    colors: ['#59cbe8', '#f7ea48'],
-    labels: ['l', 'll'],
-    chartType: 'doughnut',
-    width: 150,
-    height: 150,
-    class: 'chart-container shadow',
-  };
+  public colors = ['#FFBF3F', '#59cbe8'];
+  labels = ['l', 'll', 'lll'];
 
-  constructor() {}
+  constructor() {
+    this.donutChartOptions = {
+      colors: this.colors,
+      chart: {
+        type: 'donut',
+        width: 130,
+        height: 130,
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
+            },
+            // legend: {
+            //   position: 'bottom',
+            // },
+          },
+        },
+      ],
+      labels: this.labels,
+      dataLabels: {
+        enabled: false,
+      },
+      legend: {
+        show: false,
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            size: '84',
+            labels: {
+              show: true,
+              value: {
+                show: true,
+                fontSize: '15px',
+                fontFamily: 'Montserrat, sans-serif',
+                fontWeight: 800,
+                // color: undefined,
+                offsetY: -10,
+                // formatter(val: any) {
+                //   console.log(val);
+                //   return val;
+                // },
+              },
+              total: {
+                show: true,
+                showAlways: true,
+                label: '',
+                formatter: function (val: any) {
+                  const venta = val.globals.series[1];
+                  const meta = val.globals.series[0];
+                  return ((venta * 100) / meta).toFixed(0) + '%';
+                },
+              },
+            },
+          },
+        },
+      },
+    };
+  }
 
   ngOnInit(): void {}
 }

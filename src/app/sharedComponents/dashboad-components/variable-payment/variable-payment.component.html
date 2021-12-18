@@ -25,11 +25,21 @@
     </div>
     <div class="col-4 g-0">
       <span class="tx-12 ms-3">Porcentaje cumplido</span>
-      <app-chart
+      <!-- <app-chart
         *ngIf="chartCircular"
         [graphOptions]="chartCircular"
-      ></app-chart>
-      <button mat-button class="text-bold warn-btn px-0 pt-2">
+      ></app-chart> -->
+      <apx-chart
+        [series]="chartSeries"
+        [chart]="donutChartOptions.chart"
+        [labels]="donutChartOptions.labels"
+        [responsive]="donutChartOptions.responsive"
+        [dataLabels]="donutChartOptions.dataLabels"
+        [plotOptions]="donutChartOptions.plotOptions"
+        [legend]="donutChartOptions.legend"
+        [colors]="donutChartOptions.colors"
+      ></apx-chart>
+      <button mat-button class="text-bold warn-btn px-0">
         {{ contentLabels + "clarity-portal" | translate }}
         <mat-icon>chevron_right</mat-icon>
       </button>
