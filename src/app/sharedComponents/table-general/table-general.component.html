@@ -136,6 +136,7 @@
     <tr
       class="shadow-sm c-pointer"
       *ngFor="let account of dataSource; let i = index"
+      (click)="goQuotesDetail(account)"
     >
       <td class="mat-cell text-center">{{ account.numberList }}</td>
       <td class="mat-cell text-center">{{ account.quoteName }}</td>
