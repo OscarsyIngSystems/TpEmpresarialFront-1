@@ -24,7 +24,7 @@ export class QuoteComponent implements OnInit {
 
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: any;
-  private colors = ['#f04e98', '#59cbe8', '#8246af'];
+  private colors = ['#9bd3dd', '#846b99', '#dddd9b'];
   public chartSeries = [
     [4, 3, 1],
     [7, 4, 4],

@@ -13,7 +13,7 @@ export class SegmentAccountComponent implements OnInit {
   chartSeries = [7, 2, 5];
   amounts = ['- $360,720', '- $280,100', '- $600,250'];
   title = 'Cuentas';
-  public colors = ['#8246af', '#59cbe8', '#FFBF3F'];
+  public colors = ['#3b4559', '#9bd3dd', '#b1b3b3'];
   labels = ['l', 'll', 'lll'];
 
   constructor() {

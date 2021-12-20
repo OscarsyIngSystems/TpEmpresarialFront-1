@@ -41,13 +41,13 @@ export class CellIndicatorsComponent implements OnInit {
   chartSeries = [30, 22];
   amounts = ['- $360,720', '- $280,100', '- $600,250'];
   title = 'Cuentas';
-  public colors = ['#dbe442', '#8246af'];
+  public colors = ['#846b99', '#9bd3dd'];
   labels = ['l', 'll', 'lll'];
 
   chartCircular: ChartComponentOptions = {
     data: [30, 22],
     title: 'Total cumplido',
-    colors: ['#dbe442', '#8246af'],
+    colors: ['#846b99', '#9bd3dd'],
     labels: ['l', 'll'],
     chartType: 'doughnut',
     width: 150,
@@ -64,12 +64,12 @@ export class CellIndicatorsComponent implements OnInit {
         {
           name: 'Venta total',
           data: [100000, 150000, 350000, 400000],
-          color: '#8246af',
+          color: '#9bd3dd',
         },
         {
           name: 'Meta de venta',
           data: [1000, 100000, 360000],
-          color: '#dbe442',
+          color: '#846b99',
         },
       ],
       chart: {

@@ -53,7 +53,7 @@ export class VariablePaymentComponent implements OnInit {
   public donutChartOptions: any;
   chartSeries = [160990, 56990];
 
-  public colors = ['#FFBF3F', '#59cbe8'];
+  public colors = ['#9bd3dd', '#846b99'];
   labels = ['l', 'll', 'lll'];
 
   constructor() {

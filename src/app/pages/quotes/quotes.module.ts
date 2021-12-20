@@ -12,7 +12,6 @@ import { QuotesDetailComponent } from './components/quotes-detail/quotes-detail.
 import { RelatedQuotesComponent } from './components/related-quotes/related-quotes.component';
 import { LoadSitesComponent } from './components/load-sites/load-sites.component';
 import { MatSelectModule } from '@angular/material/select';
-import { HeaderActionsComponent } from 'src/app/sharedComponents/header-actions/header-actions.component';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 

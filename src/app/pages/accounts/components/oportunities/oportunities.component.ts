@@ -48,12 +48,12 @@ export class OportunitiesComponent implements OnInit {
   public barChartOptions: any;
   public donutChartOptions: any;
   private colors = [
-    '#59cbe8',
-    '#8246af',
-    '#f04e98',
-    '#e4002b',
-    '#FFBF3F',
-    '#dbe442',
+    '#3b4549',
+    '#9bd3dd',
+    '#75787b',
+    '#fcc565',
+    '#846b99',
+    '#dddd9b',
   ];
   public chartSeries = [21, 22, 10, 28, 16, 21];
   public labels = [
