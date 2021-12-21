@@ -14,6 +14,7 @@ import { LoadSitesComponent } from './components/load-sites/load-sites.component
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import { LoadedSitesComponent } from './components/loaded-sites/loaded-sites.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
     QuotesDetailComponent,
     RelatedQuotesComponent,
     LoadSitesComponent,
+    LoadedSitesComponent,
   ],
   imports: [
     CommonModule,
