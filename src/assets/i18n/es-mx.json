@@ -108,6 +108,14 @@
       "colum4": "Total-Recurrente mensual",
       "colum5": "Estatus"
     },
+    "table-loaded-sites": {
+      "colum1": "",
+      "colum2": "Nº fila",
+      "colum3": "Sitio",
+      "colum4": "Cobertura",
+      "colum5": "Medio de acceso",
+      "colum6": ""
+    },
     "message-empty": "No hay oportunidades guardadas para esta cuenta."
   },
   "oportunities": {

@@ -17,6 +17,7 @@ export class HeaderActionsComponent implements OnInit {
   @Input() route!: string;
   @Input() relatedRoute!: string;
   @Input() relatedText = 'Relacionado';
+  @Input() showRelatedText = true;
   @Input() loadSitesText = 'Carga masiva de sitios';
   @Input() isCreate: boolean = false;
   @Input() isLoadSites: boolean = false;
