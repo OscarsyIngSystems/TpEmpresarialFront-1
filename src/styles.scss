@@ -107,6 +107,11 @@ $custom-typography: mat-typography-config(
   height: 90% !important;
 }
 // #endregion heights
+//#region min height
+.mh-50 {
+  min-height: 50px;
+}
+// #endregion min height
 body {
   height: 100%;
   margin: 0;

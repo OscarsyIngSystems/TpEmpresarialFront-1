@@ -1,112 +1,108 @@
-<!-- <app-header-actions
-  [title]="contentLabels + 'title' | translate"
-  buttonText="Crear oportunidad"
-  route="opportunities/create"
-  [hidenCreateOportunity]="false"
->
-</app-header-actions>
-<app-header-detail [detailInfo]="infoDetail"></app-header-detail> -->
-<div class="conteiner-btn-accounts mt-2">
-  <h1 class="mt-2 text-title ps-4 text-bold">
-    {{ contentLabels + "title" | translate }}
-  </h1>
-  <div class="d-flex flex-row">
-    <div class="me-2">
-      <div class="row g-0 row-cols-lg-auto justify-content-end mb-2">
-        <input
-          type="checkbox"
-          class="btn-check"
-          id="btn-check-need"
-          autocomplete="off"
-        />
-        <label
-          class="
-            btn btn-sm btn-outline-primary
-            me-2
-            btn-check-need btn-check-no-shadow
-          "
-          for="btn-check-need"
-          >Necesidades</label
-        >
+<div class="row py-2 ps-4 align-items-center mh-50">
+  <div class="col-3 d-flex flex-column justify-content-center">
+    <span class="text-title text-bold">
+      {{ contentLabels + "title" | translate }}
+    </span>
+  </div>
 
-        <input
-          type="checkbox"
-          class="btn-check"
-          id="btn-check-design"
-          autocomplete="off"
-        />
-        <label
-          class="
-            btn btn-sm btn-outline-primary
-            me-2
-            btn-check-design btn-check-no-shadow
-          "
-          for="btn-check-design"
-          >Diseño</label
-        >
+  <div class="col-7">
+    <div class="row g-0 row-cols-lg-auto justify-content-end">
+      <input
+        type="checkbox"
+        class="btn-check"
+        id="btn-check-need"
+        autocomplete="off"
+      />
+      <label
+        class="
+          btn btn-sm btn-outline-primary
+          me-2
+          btn-check-need btn-check-no-shadow
+        "
+        for="btn-check-need"
+        >Necesidades</label
+      >
 
-        <input
-          type="checkbox"
-          class="btn-check"
-          id="btn-check-proposal"
-          autocomplete="off"
-        />
-        <label
-          class="
-            btn
-            me-2
-            btn-sm btn-outline-primary btn-check-proposal btn-check-no-shadow
-          "
-          for="btn-check-proposal"
-          >Propuesta</label
-        >
-        <input
-          type="checkbox"
-          class="btn-check"
-          id="btn-check-credit"
-          autocomplete="off"
-        />
-        <label
-          class="
-            btn btn-sm btn-outline-primary
-            me-2
-            btn-check-credit btn-check-no-shadow
-          "
-          for="btn-check-credit"
-          >Crédito</label
-        >
-        <input
-          type="checkbox"
-          class="btn-check"
-          id="btn-check-firm"
-          autocomplete="off"
-        />
-        <label
-          class="
-            btn btn-sm btn-outline-primary
-            me-2
-            btn-check-firm btn-check-no-shadow
-          "
-          for="btn-check-firm"
-          >Firma</label
-        >
-        <input
-          type="checkbox"
-          class="btn-check"
-          id="btn-check-won"
-          autocomplete="off"
-        />
-        <label
-          class="
-            btn btn-sm btn-outline-primary
-            me-2
-            btn-check-won btn-check-no-shadow
-          "
-          for="btn-check-won"
-          >Ganada</label
-        >
-      </div>
+      <input
+        type="checkbox"
+        class="btn-check"
+        id="btn-check-design"
+        autocomplete="off"
+      />
+      <label
+        class="
+          btn btn-sm btn-outline-primary
+          me-2
+          btn-check-design btn-check-no-shadow
+        "
+        for="btn-check-design"
+        >Diseño</label
+      >
+
+      <input
+        type="checkbox"
+        class="btn-check"
+        id="btn-check-proposal"
+        autocomplete="off"
+      />
+      <label
+        class="
+          btn
+          me-2
+          btn-sm btn-outline-primary btn-check-proposal btn-check-no-shadow
+        "
+        for="btn-check-proposal"
+        >Propuesta</label
+      >
+      <input
+        type="checkbox"
+        class="btn-check"
+        id="btn-check-credit"
+        autocomplete="off"
+      />
+      <label
+        class="
+          btn btn-sm btn-outline-primary
+          me-2
+          btn-check-credit btn-check-no-shadow
+        "
+        for="btn-check-credit"
+        >Crédito</label
+      >
+      <input
+        type="checkbox"
+        class="btn-check"
+        id="btn-check-firm"
+        autocomplete="off"
+      />
+      <label
+        class="
+          btn btn-sm btn-outline-primary
+          me-2
+          btn-check-firm btn-check-no-shadow
+        "
+        for="btn-check-firm"
+        >Firma</label
+      >
+      <input
+        type="checkbox"
+        class="btn-check"
+        id="btn-check-won"
+        autocomplete="off"
+      />
+      <label
+        class="
+          btn btn-sm btn-outline-primary
+          me-2
+          btn-check-won btn-check-no-shadow
+        "
+        for="btn-check-won"
+        >Ganada</label
+      >
     </div>
+  </div>
+
+  <div class="col-2">
     <select class="order-by small-shadow" name="" placeholder="Ordenar por">
       <option value="0" selected="true" disabled>Ordenar por</option>
       <option value="1">Recientes</option>
