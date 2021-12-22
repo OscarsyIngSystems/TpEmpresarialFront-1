@@ -23,7 +23,7 @@
       {{ loadSitesText }}
     </button>
     <button
-      *ngIf="!isCreate"
+      *ngIf="!isCreate && showRelatedText"
       (click)="openRelated()"
       mat-button
       class="rounded-button-outline btn-primary tx-12 text-bold ms-2"
