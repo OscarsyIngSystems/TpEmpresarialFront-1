@@ -17,3 +17,36 @@
   justify-content: space-between;
   align-items: baseline;
 }
+
+
+// proposal draft
+.btn-check-draft {
+  border-color: $color-button-credit !important;
+  color: $color-hover !important;
+}
+
+.btn-check-draft:hover {
+  background-color: $color-white !important;
+  color: $color-button-credit !important;
+}
+
+.btn-check:checked + .btn-check-draft {
+  color: $color-white !important;
+  background-color: $color-button-credit !important;
+}
+
+// proposal completed
+.btn-check-completed {
+  border-color: $color-button-firm !important;
+  color: $color-button-firm !important;
+}
+
+.btn-check-completed:hover {
+  background-color: $color-white !important;
+  color: $color-button-firm !important;
+}
+
+.btn-check:checked + .btn-check-completed {
+  color: $color-white !important;
+  background-color: $color-button-firm !important;
+}
