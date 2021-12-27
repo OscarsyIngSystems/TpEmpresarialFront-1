@@ -21,32 +21,35 @@
 
 // proposal draft
 .btn-check-draft {
-  border-color: $color-button-credit !important;
-  color: $color-hover !important;
+  border-color: $color-button-draft !important;
+  color: $color-button-draft !important;
 }
 
 .btn-check-draft:hover {
   background-color: $color-white !important;
-  color: $color-button-credit !important;
+  color: $color-hover !important;
 }
 
 .btn-check:checked + .btn-check-draft {
-  color: $color-white !important;
-  background-color: $color-button-credit !important;
+  color: $color-primary !important;
+  border-color: $color-primary !important;
+  background-color: $color-white !important;
+
 }
 
 // proposal completed
 .btn-check-completed {
-  border-color: $color-button-firm !important;
-  color: $color-button-firm !important;
+  border-color: $color-button-completed !important;
+  color: $color-button-completed !important;
 }
 
 .btn-check-completed:hover {
   background-color: $color-white !important;
-  color: $color-button-firm !important;
+  color: $color-hover !important;
 }
 
 .btn-check:checked + .btn-check-completed {
-  color: $color-white !important;
-  background-color: $color-button-firm !important;
+  color: $color-primary !important;
+  border-color: $color-primary !important;
+  background-color: $color-white !important;
 }

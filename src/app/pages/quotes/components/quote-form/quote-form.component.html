@@ -8,17 +8,18 @@
         <a *ngIf="!isCreate" class="editQuotes" href="#">Editar</a>
       </div>
     </div>
-    <div class="row">
-      <div class="col-3">
-        <span class="me-1">Estatus:</span>
-        <strong class="me-3">Borrador</strong>
-      </div>
-      <div class="col-3">
-        <span class="me-1">Oportunidad:</span> <strong> Audi</strong>
-      </div>
-    </div>
+
     <div class="row">
       <div class="col-4">
+        <div class="row">
+          <div class="col-6">
+            <span class="me-1">Etapa:</span>
+            <strong class="me-3">Borrador</strong>
+          </div>
+          <div class="col-6">
+            <span class="me-1">Oportunidad:</span> <strong> Audi</strong>
+          </div>
+        </div>
         <div class="row">
           <div class="col-12">
             <div class="input-container">
@@ -75,6 +76,11 @@
       <!-- columna2 -->
       <div class="col-4">
         <div class="row">
+          <div class="col-6">
+            <span class="me-1 text-bold">Cotización principal</span>
+          </div>
+        </div>
+        <div class="row">
           <div class="input-container">
             <mat-form-field appearance="fill" class="w-100">
               <mat-label class="label-form-field">Asignacion de EPS</mat-label>
@@ -125,7 +131,12 @@
       <!-- columna3 -->
       <div class="col-4">
         <div class="row">
-          <div class="col-6 input-container">
+          <div class="col-6">
+            <span class="me-1 text-bold"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 input-container">
             <mat-form-field appearance="fill" class="w-100">
               <mat-label>Vigencia</mat-label>
               <input
@@ -142,42 +153,23 @@
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
-          <div class="col-6">
-            <input
-              type="checkbox"
-              class="btn-check"
-              id="btn-check-sent"
-              autocomplete="off"
-              checked
-              formControlName="isMainQuotation"
-            />
-            <label
-              class="
-                btn btn-sm btn-outline-primary
-                me-2
-                btn-check-sent
-                mt-3
-                cot-primary
-              "
-              for="btn-check-sent"
-              >Cotización principal</label
-            >
-          </div>
         </div>
         <div class="row">
-          <div class="col-6 d-flex">
+          <div class="col-10 d-flex">
             <div class="col-6 d-flex">
               <div class="d-flex flex-column me-2">
-                <button mat-button class="view-button">
-                  <strong>Ver</strong>
+                <button
+                  mat-button
+                  class="rounded-button-outline tx-12 text-bold"
+                >
+                  <mat-icon>add</mat-icon>
+                  Cargar HLD
                 </button>
-                <small>HLD-Audi.pdf</small>
               </div>
             </div>
             <div class="col-6 d-flex">
-              <button class="btn-upload">
-                <p class="text-bold m-0 pt-2">Cargar</p>
-                <p>HLD</p>
+              <button mat-button class="rounded-button-outline tx-12 text-bold">
+                Ver HLD
               </button>
             </div>
           </div>
