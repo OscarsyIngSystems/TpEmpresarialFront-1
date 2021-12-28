@@ -119,3 +119,12 @@ img {
 .btn-clear-search {
   background-color: $color-white;
 }
+.color {
+  background-color: #3b4559 !important;
+  color: $color-white;
+}
+.underline {
+  text-decoration: underline;
+  color: grey;
+  font-weight: 500; 
+}

@@ -4,9 +4,13 @@
   [isLoadSites]="true"
   title="Sitios Cargados"
 ></app-header-actions>
-<app-header-detail [detailInfo]="infoDetail"></app-header-detail>
-
-<div class="d-flex justify-content-center align-items-center">
+<app-header-detail [detailInfo]="infoDetail"
+></app-header-detail>
+<div class="d-flex justify-content-around m-3">
+  <div class="search-bar-divider">
+    <span class="underline">Sitios eliminados: 2</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
   <div class="input-group w-50 shadow-sm">
     <input
       type="text"
@@ -50,9 +54,35 @@
       <mat-icon class="search-icon">search</mat-icon>
     </button>
   </div>
-  <button type="button" [disabled]="selectedIdOption == 0" class="btn-add">
-    Agregar
+  <div class="search-bar-divider">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="underline">Eliminar sitio</span>
+  </div>
+
+  <button type="button" class="btn-add btn-primary color">
+    + Agregar sitio
   </button>
+</div>
+
+<div class="col-7 m-3">
+  <div class="row g-0 row-cols-lg-auto justify-content-end">
+    <input
+        type="checkbox"
+        class="btn-check"
+        id="btn-check-need"
+        autocomplete="off"
+      />
+      <label
+        class="
+          btn btn-sm btn-outline-primary
+          me-2
+          btn-check-need btn-check-no-shadow
+        "
+        for="btn-check-need"
+        >Necesidades</label
+      >
+  </div>
+
 </div>
 
 <div class="row">
