@@ -4,8 +4,7 @@
   [isLoadSites]="true"
   title="Sitios Cargados"
 ></app-header-actions>
-<app-header-detail [detailInfo]="infoDetail"
-></app-header-detail>
+<app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 <div class="d-flex justify-content-around m-3">
   <div class="search-bar-divider">
     <span class="underline">Sitios eliminados: 2</span>
@@ -66,23 +65,76 @@
 
 <div class="col-7 m-3">
   <div class="row g-0 row-cols-lg-auto justify-content-end">
-    <input
-        type="checkbox"
-        class="btn-check"
-        id="btn-check-need"
-        autocomplete="off"
-      />
-      <label
-        class="
-          btn btn-sm btn-outline-primary
-          me-2
-          btn-check-need btn-check-no-shadow
-        "
-        for="btn-check-need"
-        >Necesidades</label
-      >
-  </div>
+     <div class="container w-25">
+      <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option selected>Mostrar</option>
+        <option value="1">20</option>
+        <option value="2">40</option>
+        <option value="3">60</option>
+        </select>
+     </div>
 
+    <input
+      type="checkbox"
+      class="btn-check"
+      id="btn-check-need"
+      autocomplete="off"
+    />
+    <label
+      class="
+        btn btn-sm btn-outline-secondary
+        me-2
+        btn-check-need btn-check-no-shadow
+      "
+      for="btn-check-need"
+      >3 Fibra</label
+    >
+    <input
+      type="checkbox"
+      class="btn-check"
+      id="btn-check-design"
+      autocomplete="off"
+    />
+    <label
+      class="
+        btn btn-sm btn-outline-secondary
+        me-2
+        btn-check-need btn-check-no-shadow
+      "
+      for="btn-check-design"
+      >3 Microonda</label
+    >
+    <input
+      type="checkbox"
+      class="btn-check"
+      id="btn-check-proposal"
+      autocomplete="off"
+    />
+    <label
+      class="
+        btn btn-sm btn-outline-secondary
+        me-2
+        btn-check-need btn-check-no-shadow
+      "
+      for="btn-check-proposal"
+      >1 Metro</label
+    >
+    <input
+      type="checkbox"
+      class="btn-check"
+      id="btn-check-credit"
+      autocomplete="off"
+    />
+    <label
+      class="
+        btn btn-sm btn-outline-secondary
+        me-2
+        btn-check-need btn-check-no-shadow
+      "
+      for="btn-check-credit"
+      >3 Sin Cobertura</label
+    >
+  </div>
 </div>
 
 <div class="row">
