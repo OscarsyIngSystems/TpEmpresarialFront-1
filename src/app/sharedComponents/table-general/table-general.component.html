@@ -14,12 +14,13 @@
   <tbody>
     <tr
       (click)="goAccountDetail(account)"
-      class="table-element-row shadow-sm"
+      class="table-element-row shadow-sm t-row"
       *ngFor="let account of dataSource"
     >
       <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.id }}</td>
       <td class="mat-cell">{{ account.accountName }}</td>
+      <td class="mat-cell">{{ account.accountId }}</td>
       <td class="mat-cell">{{ account.identification }}</td>
       <td class="mat-cell">{{ account.segment }}</td>
       <td class="mat-cell">{{ account.phone }}</td>
@@ -80,8 +81,9 @@
       <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.quoteName }}</td>
       <td class="mat-cell">{{ account.quoteInvoice }}</td>
-      <td class="mat-cell">{{ account.total }}</td>
+      <td class="mat-cell">{{ account.opportunity }}</td>
       <td class="mat-cell">{{ account.status }}</td>
+      <td class="mat-cell">{{ account.validity }}</td>
     </tr>
   </tbody>
 </table>

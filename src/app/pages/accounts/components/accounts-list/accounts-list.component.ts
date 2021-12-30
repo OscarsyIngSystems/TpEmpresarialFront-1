@@ -6,6 +6,7 @@ const ELEMENT_DATA: Account[] = [
     numberList: 1,
     id: 873827,
     accountName: 'AUDI CDMX',
+    accountId: 'CRM-00022445',
     identification: 'HSP030709EA2',
     segment: 'I',
     phone: ' 55 27632571',
@@ -17,6 +18,7 @@ const ELEMENT_DATA: Account[] = [
     numberList: 8,
     id: 873827,
     accountName: 'AUDI CDMX',
+    accountId: 'CRM-00022445',
     identification: 'HSP030709EA2',
     segment: 'I',
     phone: ' 55 27632571',
@@ -28,6 +30,7 @@ const ELEMENT_DATA: Account[] = [
     numberList: 1,
     id: 873827,
     accountName: 'AUDI CDMX',
+    accountId: 'CRM-00022445',
     identification: 'HSP030709EA2',
     segment: 'I',
     phone: ' 55 27632571',
@@ -59,20 +62,24 @@ export class AccountsListComponent implements OnInit {
       columnName: this.contentLabels + 'table.colum3',
     },
     {
-      key: 'identification',
+      key: 'accountId',
       columnName: this.contentLabels + 'table.colum4',
     },
     {
-      key: 'segment',
+      key: 'identification',
       columnName: this.contentLabels + 'table.colum5',
     },
     {
-      key: 'phone',
+      key: 'segment',
       columnName: this.contentLabels + 'table.colum6',
     },
     {
-      key: 'typeAccount',
+      key: 'phone',
       columnName: this.contentLabels + 'table.colum7',
+    },
+    {
+      key: 'contact',
+      columnName: this.contentLabels + 'table.colum8',
     },
   ];
 
