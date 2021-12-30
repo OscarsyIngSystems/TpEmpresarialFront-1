@@ -15,7 +15,7 @@ export class OportunityFormComponent implements OnInit {
   public accountId;
   public oportunityForm: FormGroup;
   name = '“Prueba de sistemas”';
-
+  hld!: File;
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
@@ -37,6 +37,11 @@ export class OportunityFormComponent implements OnInit {
       trybuy: [false],
       executive: ['Sergio Aparicio Contreras'],
       whoIntegrated: ['one'],
+      saleType: ['1', Validators.required],
+      phinderfi: [''],
+      collaboratorName: [],
+      collaboratorNumber: [],
+      distributor: []
     });
     this.oportunityForm.get('badge')?.disable();
     this.oportunityForm.get('probability')?.disable();
@@ -59,5 +64,15 @@ export class OportunityFormComponent implements OnInit {
       height: '291px',
       data: { name: this.name },
     });
+  }
+
+
+  get saleType(): string {
+    return this.oportunityForm.value.saleType;
+  }
+
+
+  selectFile(file: File) {
+    this.hld = file;
   }
 }

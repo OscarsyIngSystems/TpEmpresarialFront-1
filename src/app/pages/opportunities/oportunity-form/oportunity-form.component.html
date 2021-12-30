@@ -32,7 +32,7 @@
           </mat-form-field>
         </div>
         <div class="row">
-          <div class="col-3 mt-2">
+          <div class="col-3">
             <div class="check-container">
               <input formControlName="trybuy" type="checkbox" class="btn-check" id="btn-check-sent"
                 autocomplete="off" />
@@ -104,12 +104,73 @@
           </mat-form-field>
         </div>
         <div class="d-flex flex-row">
-          <div class="d-flex flex-column me-2">
+          <!--           <div class="d-flex flex-column me-2">
             <button mat-button class="view-button"><strong>Ver</strong></button>
             <small>Nombre.pdf</small>
           </div>
-          <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div>
+          <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div> -->
+
+          <app-upload-button-file class="me-2" text="Cargar HLD" (handdleFile)="selectFile($event)">
+          </app-upload-button-file>
+          <button *ngIf="hld" class="rounded-button-outline-auto"><strong>Ver</strong> HLD</button>
         </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 col-lg-4 col-xl-4">
+          <div class="d-flex flex-row justify-content-between sale-type-container align-items-center">
+
+            <div>
+              <input id="mixed" value="1" class="radio-custom" name="saleType" type="radio"
+                formControlName="saleType" />
+              <label for="mixed" class="radio-custom-label d-flex flex-row text-bold">Venta mixta</label>
+
+            </div>
+
+            <div>
+              <input id="partner" class="radio-custom" name="saleType" type="radio" value='2'
+                formControlName="saleType" />
+              <label for="partner" class="radio-custom-label d-flex flex-row text-bold">Socio</label>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-4 col-lg-4 col-xl-4">
+          <div class="input-container" *ngIf="saleType=='1'">
+            <mat-form-field class="w-100" appearance="fill">
+              <mat-label class="label-form-field">Nombre del colaborador</mat-label>
+              <input matInput formControlName="collaboratorName" />
+            </mat-form-field>
+          </div>
+
+          <div class="input-container" *ngIf="saleType=='2'">
+            <mat-form-field class="w-100" appearance="fill">
+              <mat-label class="label-form-field">Distribuidor</mat-label>
+              <input matInput formControlName="distributor" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-xl-4">
+          <div class="input-container" *ngIf="saleType=='1'">
+            <mat-form-field class="w-100" appearance="fill">
+              <mat-label class="label-form-field">Número de colaborador</mat-label>
+              <input matInput formControlName="collaboratorNumber" />
+            </mat-form-field>
+          </div>
+
+          <div class="input-container" *ngIf="saleType=='2'">
+            <mat-form-field class="w-100" appearance="fill">
+              <mat-label class="label-form-field">PhinderFi</mat-label>
+              <input matInput formControlName="phinderfi" />
+            </mat-form-field>
+          </div>
+        </div>
+
       </div>
     </div>
   </form>
