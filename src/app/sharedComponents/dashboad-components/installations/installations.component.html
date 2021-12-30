@@ -9,11 +9,11 @@
   </div>
 
   <div class="row mt-1 h-75 align-items-center justify-content-center">
-    <div class="col-4 ps-5 align-items-start px-0">
+    <div class="col-3 ps-5 align-items-start px-0">
       <div class="col">
         <div
           class="row tx-12"
-          *ngFor="let numbers of chartSeries; let i = index"
+          *ngFor="let numbers of chartSeries[0]; let i = index"
         >
           <div class="col">
             <span
@@ -37,7 +37,7 @@
         [legend]="chartOptions.legend"
         [colors]="chartOptions.colors"
       ></apx-chart>
-      <span class="text-bold ps-2 tx-12">Por instalar</span>
+      <span class="text-bold ps-2 tx-12 color-by-installing">Por instalar</span>
     </div>
     <div class="col-2 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
@@ -51,7 +51,7 @@
         [legend]="chartOptions.legend"
         [colors]="chartOptions.colors"
       ></apx-chart>
-      <span class="text-bold ps-2 tx-12">En proceso</span>
+      <span class="text-bold ps-2 tx-12 color-in-process">En proceso</span>
     </div>
     <div class="col-2 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
@@ -65,19 +65,19 @@
         [legend]="chartOptions.legend"
         [colors]="chartOptions.colors"
       ></apx-chart>
-      <span class="text-bold ps-2 tx-12">Instaladas</span>
+      <span class="text-bold ps-2 tx-12 color-installed">Instaladas</span>
     </div>
-    <div class="col-2 text-center px-0">
+    <div class="col-3 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
-        [series]="chartSeries[2]"
-        [chart]="chartOptions.chart"
-        [labels]="chartOptions.labels"
-        [responsive]="chartOptions.responsive"
-        [dataLabels]="chartOptions.dataLabels"
-        [plotOptions]="chartOptions.plotOptions"
-        [legend]="chartOptions.legend"
-        [colors]="chartOptions.colors"
+        [series]="totalFinal"
+        [chart]="chartOptionsTotal.chart"
+        [labels]="labelsTotal"
+        [responsive]="chartOptionsTotal.responsive"
+        [dataLabels]="chartOptionsTotal.dataLabels"
+        [plotOptions]="chartOptionsTotal.plotOptions"
+        [legend]="chartOptionsTotal.legend"
+        [colors]="colorsTotal"
       ></apx-chart>
       <span class="text-bold ps-2 tx-12">TOTAL</span>
     </div>
