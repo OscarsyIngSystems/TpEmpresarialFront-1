@@ -6,13 +6,12 @@
       }}</span>
     </div>
     <div class="col-6 d-flex justify-content-end">
-      <span class="tx-14 text-bold"> Diciembre 2021 </span>
+      <span class="tx-14 text-bold"> 01-ene a 24-dic 2021 </span>
     </div>
   </div>
 
   <div class="row mb-1 h-100">
     <div class="col-9">
-      <!-- <app-chart [graphOptions]="chartProps"></app-chart> -->
       <div id="chart">
         <apx-chart
           [series]="chartOptions.series"
@@ -27,31 +26,20 @@
     </div>
     <div class="col-3 circular-section">
       <div class="d-flex flex-column">
-        <span>Venta real</span>
+        <span>Ingreso acumulado</span>
         <ul class="total-sales">
-          <li><h3>$340,990</h3></li>
+          <li><h3 class="text-bold">$340,990</h3></li>
         </ul>
       </div>
       <div class="d-flex flex-column">
-        <span>Meta de venta</span>
+        <span>Presupuesto</span>
         <ul class="goal-sales">
           <li>
-            <h3>$455,445</h3>
+            <h3 class="text-bold">$455,445</h3>
           </li>
         </ul>
       </div>
-      <span class="tx-12 ms-2">Porcentaje cumplido</span>
 
-      <apx-chart
-        [series]="chartSeries"
-        [chart]="donutChartOptions.chart"
-        [labels]="donutChartOptions.labels"
-        [responsive]="donutChartOptions.responsive"
-        [dataLabels]="donutChartOptions.dataLabels"
-        [plotOptions]="donutChartOptions.plotOptions"
-        [legend]="donutChartOptions.legend"
-        [colors]="donutChartOptions.colors"
-      ></apx-chart>
       <div class="d-flex justify-content-end">
         <button mat-button class="text-bold warn-btn">
           {{ "generic.view-more" | translate }}
