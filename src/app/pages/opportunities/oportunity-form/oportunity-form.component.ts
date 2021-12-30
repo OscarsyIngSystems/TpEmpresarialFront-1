@@ -28,11 +28,11 @@ export class OportunityFormComponent implements OnInit {
       closeDate: [new Date(), Validators.required],
       stage: ['0'],
       amount: ['1,290,800'],
-      reason: [''],
+      reason: ['0'],
       description: [''],
       oportunityName: ['', Validators.required],
       probability: ['10%'],
-      badge: ['MXN - Peso Mexicano', Validators.required],
+      badge: ['MXN - Peso Mexicano', [Validators.required]],
       oportunityOrigin: ['one', Validators.required],
       trybuy: [false],
       executive: ['Sergio Aparicio Contreras'],
@@ -43,7 +43,7 @@ export class OportunityFormComponent implements OnInit {
     this.oportunityForm.get('executive')?.disable();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   ngAfterContentInit(): void {
     if (this.oportunityDetailData) {

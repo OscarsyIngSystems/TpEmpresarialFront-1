@@ -4,9 +4,7 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field"
-              >Origen de la oportunidad</mat-label
-            >
+            <mat-label class="label-form-field">Origen de la oportunidad</mat-label>
             <mat-select formControlName="oportunityOrigin">
               <mat-option value="one">Primera opción</mat-option>
             </mat-select>
@@ -36,25 +34,18 @@
         <div class="row">
           <div class="col-3 mt-2">
             <div class="check-container">
-              <input
-                formControlName="trybuy"
-                type="checkbox"
-                class="btn-check"
-                id="btn-check-sent"
-                autocomplete="off"
-              />
-              <label
-                class="btn btn-sm btn-outline-primary me-2 btn-check-sent"
-                for="btn-check-sent"
-                >Try & buy</label
-              >
+              <input formControlName="trybuy" type="checkbox" class="btn-check" id="btn-check-sent"
+                autocomplete="off" />
+              <label class="btn btn-sm btn-outline-primary me-2 btn-check-sent" for="btn-check-sent">Try & buy</label>
             </div>
           </div>
           <div class="col-9">
             <div class="input-container">
               <mat-form-field appearance="fill" class="w-100">
                 <mat-label class="label-form-field">Motivo</mat-label>
-                <input matInput formControlName="reason" type="text" />
+                <mat-select formControlName="reason">
+                  <mat-option value="0">Superioridad técnica</mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
           </div>
@@ -63,9 +54,7 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field"
-              >Nombre de la oportunidad</mat-label
-            >
+            <mat-label class="label-form-field">Nombre de la oportunidad</mat-label>
             <input matInput formControlName="oportunityName" />
           </mat-form-field>
         </div>
@@ -76,22 +65,14 @@
             <input matInput formControlName="probability" />
           </mat-form-field>
         </div>
-        <div
-          class="input-container"
-          [class]="!oportunityDetailData ? 'mtn-10' : ''"
-        >
+        <div class="input-container" [class]="!oportunityDetailData ? 'mtn-10' : ''">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field"
-              >Divisa de la oportunidad</mat-label
-            >
+            <mat-label class="label-form-field">Divisa de la oportunidad</mat-label>
             <input formControlName="badge" matInput />
           </mat-form-field>
         </div>
 
-        <div
-          class="input-container"
-          [class]="!oportunityDetailData ? 'mtn-10' : ''"
-        >
+        <div class="input-container" [class]="!oportunityDetailData ? 'mtn-10' : ''">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field">Descripción</mat-label>
             <input formControlName="description" matInput />
@@ -101,9 +82,7 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field"
-              >Quien integra la propuesta</mat-label
-            >
+            <mat-label class="label-form-field">Quien integra la propuesta</mat-label>
             <mat-select formControlName="whoIntegrated">
               <mat-option value="one">Juanito Pérez</mat-option>
             </mat-select>
@@ -113,17 +92,8 @@
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label>Fecha estimada de cierre</mat-label>
-            <input
-              matInput
-              (click)="picker.open()"
-              [matDatepicker]="picker"
-              formControlName="closeDate"
-              readonly
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
+            <input matInput (click)="picker.open()" [matDatepicker]="picker" formControlName="closeDate" readonly />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
@@ -145,19 +115,10 @@
   </form>
 </div>
 <div *ngIf="!oportunityDetailData" class="d-flex justify-content-center mt-4">
-  <button
-    [routerLink]="'/accounts/detail/' + accountId"
-    mat-button
-    class="rounded-button-outline form-actions me-2"
-  >
+  <button [routerLink]="'/accounts/detail/' + accountId" mat-button class="rounded-button-outline form-actions me-2">
     Cancelar
   </button>
-  <button
-    [disabled]="oportunityForm.invalid"
-    mat-button
-    (click)="openDialog()"
-    class="rounded-button form-actions"
-  >
+  <button [disabled]="oportunityForm.invalid" mat-button (click)="openDialog()" class="rounded-button form-actions">
     Guardar
   </button>
 </div>

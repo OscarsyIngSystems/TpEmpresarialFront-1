@@ -7,98 +7,67 @@
 
   <div class="col-7">
     <div class="row g-0 row-cols-lg-auto justify-content-end">
-      <input
-        type="checkbox"
-        class="btn-check"
-        id="btn-check-need"
-        autocomplete="off"
-      />
-      <label
-        class="
+      <input value="1" type="radio" class="btn-check" id="btn-check-need" name="op" autocomplete="off"
+        [formControl]="filterParam" (click)="doFilter($event)" />
+      <label class="
           btn btn-sm btn-outline-primary
           me-2
           btn-check-need btn-check-no-shadow
-        "
-        for="btn-check-need"
-        >Necesidades</label
-      >
+        " for="btn-check-need">Necesidades</label>
 
-      <input
-        type="checkbox"
-        class="btn-check"
-        id="btn-check-design"
-        autocomplete="off"
-      />
-      <label
-        class="
+      <input value="2" [formControl]="filterParam" type="radio" class="btn-check" id="btn-check-design"
+        autocomplete="off" name="op" (click)="doFilter($event)" />
+      <label class="
           btn btn-sm btn-outline-primary
           me-2
           btn-check-design btn-check-no-shadow
-        "
-        for="btn-check-design"
-        >Diseño</label
-      >
+        " for="btn-check-design">Diseño</label>
 
-      <input
-        type="checkbox"
-        class="btn-check"
-        id="btn-check-proposal"
-        autocomplete="off"
-      />
-      <label
-        class="
+      <input value="3" [formControl]="filterParam" type="radio" class="btn-check" id="btn-check-proposal"
+        autocomplete="off" name="op" (click)="doFilter($event)" />
+      <label class="
           btn
           me-2
           btn-sm btn-outline-primary btn-check-proposal btn-check-no-shadow
-        "
-        for="btn-check-proposal"
-        >Propuesta</label
-      >
-      <input
-        type="checkbox"
-        class="btn-check"
-        id="btn-check-credit"
-        autocomplete="off"
-      />
-      <label
-        class="
-          btn btn-sm btn-outline-primary
-          me-2
-          btn-check-credit btn-check-no-shadow
-        "
-        for="btn-check-credit"
-        >Crédito</label
-      >
-      <input
-        type="checkbox"
-        class="btn-check"
-        id="btn-check-firm"
-        autocomplete="off"
-      />
-      <label
-        class="
+        " for="btn-check-proposal">Propuesta</label>
+
+
+      <input value="4" [formControl]="filterParam" type="radio" class="btn-check" id="btn-check-negociate"
+        autocomplete="off" name="op" (click)="doFilter($event)" />
+
+
+      <label class="
+                btn
+                me-2
+                btn-sm btn-outline-primary btn-check-proposal btn-check-no-shadow
+              " for="btn-check-negociate">Negociación</label>
+
+
+      <input value="5" [formControl]="filterParam" type="radio" class="btn-check" id="btn-check-firm" autocomplete="off"
+        name="op" (click)="doFilter($event)" />
+      <label class="
           btn btn-sm btn-outline-primary
           me-2
           btn-check-firm btn-check-no-shadow
-        "
-        for="btn-check-firm"
-        >Firma</label
-      >
-      <input
-        type="checkbox"
-        class="btn-check"
-        id="btn-check-won"
-        autocomplete="off"
-      />
-      <label
-        class="
+        " for="btn-check-firm">Firma</label>
+
+
+      <input value="6" [formControl]="filterParam" type="radio" class="btn-check" id="btn-check-credit"
+        autocomplete="off" name="op" (click)="doFilter($event)" />
+      <label class="
+                        btn btn-sm btn-outline-primary
+                        me-2
+                        btn-check-credit btn-check-no-shadow
+                      " for="btn-check-credit">Crédito</label>
+
+
+      <input value="7" [formControl]="filterParam" type="radio" class="btn-check" id="btn-check-won" autocomplete="off"
+        name="op" (click)="doFilter($event)" />
+      <label class="
           btn btn-sm btn-outline-primary
           me-2
           btn-check-won btn-check-no-shadow
-        "
-        for="btn-check-won"
-        >Ganada</label
-      >
+        " for="btn-check-won">Ganada</label>
     </div>
   </div>
 
@@ -112,12 +81,5 @@
     </select>
   </div>
 </div>
-<app-empty
-  *ngIf="dataSource.length === 0"
-  message=" {{ contentLabels + 'message-empty' | translate }}"
-></app-empty>
-<app-table-general
-  [columns]="columnsShow"
-  [dataSource]="dataSource"
-  [idTableShow]="2"
-></app-table-general>
+<app-empty *ngIf="dataSource.length === 0" message=" {{ contentLabels + 'message-empty' | translate }}"></app-empty>
+<app-table-general [columns]="columnsShow" [dataSource]="dataSource" [idTableShow]="2"></app-table-general>
