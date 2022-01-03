@@ -135,21 +135,112 @@ img {
 }
 
 //need toggle
+.conteiner-btn-accounts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.btn-check-no-shadow,
+.btn-check:checked + .btn-check:focus {
+  box-shadow: none !important;
+}
+
+//need toggle
 .btn-check-need {
-  border-color: $color-gpon !important;
-  color: $color-gpon !important;
-  font-weight: 500;
+  border-color: $color-button-needs !important;
+  color: $color-button-needs !important;
 }
 
 .btn-check-need:hover {
-  background-color: $color-gpon !important;
-  color: $color-fibra !important;
+  background-color: $color-white !important;
+  color: $color-button-needs !important;
 }
 
 .btn-check:checked + .btn-check-need {
-  color: green !important;
-  border: none !important;
-  background-color: $color-fibra !important;
+  color: $color-white !important;
+  background-color: $color-button-needs !important;
+}
+
+// design toggle
+.btn-check-design {
+  border-color: $color-button-design !important;
+  color: $color-button-design !important;
+}
+
+.btn-check-design:hover {
+  background-color: $color-white !important;
+  color: $color-button-design !important;
+}
+
+.btn-check:checked + .btn-check-design {
+  color: $color-white !important;
+  background-color: $color-button-design !important;
+}
+
+// proposal toggle
+.btn-check-proposal {
+  border-color: $color-hover !important;
+  color: $color-hover !important;
+}
+
+.btn-check-proposal:hover {
+  background-color: $color-white !important;
+  color: $color-hover !important;
+}
+
+.btn-check:checked + .btn-check-proposal {
+  color: $color-white !important;
+  background-color: $color-hover !important;
+}
+
+// proposal credit
+.btn-check-credit {
+  border-color: $color-button-credit !important;
+  color: $color-hover !important;
+}
+
+.btn-check-credit:hover {
+  background-color: $color-white !important;
+  color: $color-button-credit !important;
+}
+
+.btn-check:checked + .btn-check-credit {
+  color: $color-white !important;
+  background-color: $color-button-credit !important;
+}
+
+// proposal firm
+.btn-check-firm {
+  border-color: $color-button-firm !important;
+  color: $color-button-firm !important;
+}
+
+.btn-check-firm:hover {
+  background-color: $color-white !important;
+  color: $color-button-firm !important;
+}
+
+.btn-check:checked + .btn-check-firm {
+  color: $color-white !important;
+  background-color: $color-button-firm !important;
+}
+
+// proposal won
+.btn-check-won {
+  border-color: $color-button-won !important;
+  color: $color-button-won !important;
+}
+
+.btn-check-won:hover {
+  background-color: $color-white !important;
+  color: $color-button-won !important;
+}
+
+.btn-check:checked + .btn-check-won {
+  color: $color-white !important;
+  background-color: $color-button-won !important;
 }
 
 // .btn {
