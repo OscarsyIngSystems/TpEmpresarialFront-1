@@ -8,7 +8,6 @@
 <div class="d-flex justify-content-around m-3">
   <div class="search-bar-divider">
     <span class="underline">Sitios eliminados: 2</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </div>
   <div class="input-group w-50 shadow-sm">
     <input
@@ -43,7 +42,7 @@
     </mat-autocomplete>
 
     <div class="search-bar-divider">
-      <span class="search-bar-span">&nbsp;</span>
+
     </div>
     <button
       class="btn btn-outline-secondary pt-2 search-bar search-bar-btn"
@@ -63,22 +62,25 @@
   </button>
 </div>
 
-<div class="col-7 m-3">
+<div class="col-11 m-3">
   <div class="row g-0 row-cols-lg-auto justify-content-end">
-     <div class="container w-25">
-      <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+    <div class="container w-25">
+      <select
+        class="form-select form-select-sm"
+        aria-label=".form-select-sm example"
+      >
         <option selected>Mostrar</option>
         <option value="1">20</option>
         <option value="2">40</option>
         <option value="3">60</option>
-        </select>
-     </div>
+      </select>
+    </div>
 
     <input
       type="checkbox"
       class="btn-check"
       id="btn-check-need"
-      autocomplete="off"
+      autocomplete="off"co
     />
     <label
       class="
@@ -134,6 +136,11 @@
       for="btn-check-credit"
       >3 Sin Cobertura</label
     >
+    <button  type="button" class="btn-add btn-sites">
+      <div><mat-icon>send</mat-icon>
+        Enviar Sitios
+        </div>
+      </button>
   </div>
 </div>
 
@@ -146,4 +153,11 @@
       [idTableShow]="10"
     ></app-table-general>
   </div>
+
+  <div class="col-md-5 lg-5 xl-5">
+    <div >
+      <img src="../../../../../../assets/img/map_2.png" alt="" />
+    </div>
+  </div>
+
 </div>
