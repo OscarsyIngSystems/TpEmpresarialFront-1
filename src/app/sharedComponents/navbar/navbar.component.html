@@ -10,32 +10,16 @@
 
   <span class="toolbar-spacer"></span>
   <div class="input-group w-50 shadow-sm">
-    <input
-      type="text"
-      class="form-control search-bar mt-0"
-      placeholder="Buscar cuenta u oportunidad"
-      aria-label="Buscar cuenta u oportunidad"
-      aria-describedby="basic-addon2"
-      [formControl]="searchData"
-      [matAutocomplete]="auto"
-      (keydown.enter)="search()"
-    />
-    <button
-      class="btn-clear-search"
-      *ngIf="selectedIdOption"
-      matSuffix
-      mat-icon-button
-      aria-label="Clear"
-      (click)="clearSearch()"
-    >
+    <input type="text" class="form-control search-bar mt-0" placeholder="Buscar cuenta u oportunidad"
+      aria-label="Buscar cuenta u oportunidad" aria-describedby="basic-addon2" [formControl]="searchData"
+      [matAutocomplete]="auto" (keydown.enter)="search()" />
+    <button class="btn-clear-search" *ngIf="selectedIdOption" matSuffix mat-icon-button aria-label="Clear"
+      (click)="clearSearch()">
       <mat-icon class="icon-clear-search">close</mat-icon>
     </button>
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option
-        (click)="setSearchId(option.id)"
-        *ngFor="let option of filteredOptions | async"
-        [value]="option.name + ' ' + option.location + ' ' + option.type"
-      >
+      <mat-option (click)="setSearchId(option.id)" *ngFor="let option of filteredOptions | async"
+        [value]="option.name + ' ' + option.location + ' ' + option.type">
         {{ option.name }} {{ option.location }}
         <small class="small-type">{{ option.type }}</small>
       </mat-option>
@@ -44,37 +28,20 @@
     <div class="search-bar-divider">
       <span class="search-bar-span">&nbsp;</span>
     </div>
-    <button
-      class="btn btn-outline-secondary pt-2 search-bar search-bar-btn"
-      id="basic-addon2"
-      (click)="search()"
-    >
+    <button class="btn btn-outline-secondary pt-2 search-bar search-bar-btn" id="basic-addon2" (click)="search()">
       <mat-icon class="search-icon">search</mat-icon>
     </button>
   </div>
   <span class="toolbar-spacer"></span>
-  <button
-    class="btn-language me-4 px-2"
-    [matMenuTriggerFor]="menuLangs"
-    mat-mini-fab
-    [style]="'background-image: url(' + countryFlag + ');'"
-  ></button>
+  <button class="btn-language me-4 px-2 mat-elevation-z0" [matMenuTriggerFor]="menuLangs" mat-mini-fab
+    [style]="'background-image: url(' + countryFlag + ');'"></button>
   <mat-menu #menuLangs="matMenu">
-    <button
-      (click)="selectCountry(country)"
-      *ngFor="let country of countries"
-      mat-menu-item
-    >
+    <button (click)="selectCountry(country)" *ngFor="let country of countries" mat-menu-item>
       <span>{{ country.country }}</span>
     </button>
   </mat-menu>
-  <button
-    (click)="displayNotification()"
-    class="btn-notifications me-4 px-2"
-    mat-raised-button
-  >
-    <span
-      class="
+  <button (click)="displayNotification()" class="btn-notifications me-4 px-2" mat-raised-button>
+    <span class="
         position-absolute
         top-0
         start-100
@@ -82,8 +49,7 @@
         badge
         rounded-pill
         bg-danger
-      "
-    >
+      ">
       {{ countNotifications }}
       <span class="visually-hidden">unread messages</span>
     </span>
@@ -91,11 +57,8 @@
   </button>
 
   <div>
-    <button
-      mat-mini-fab
-      [matMenuTriggerFor]="menu"
-      aria-label="Example icon-button with a menu"
-    >
+    <button [style]="'background-color:'+profileColor" mat-mini-fab [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu" class="mat-elevation-z0">
       {{ getInitials() }}
     </button>
     <mat-menu #menu="matMenu">

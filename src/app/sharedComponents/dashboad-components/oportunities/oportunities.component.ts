@@ -51,15 +51,17 @@ export class OportunitiesComponent implements OnInit {
     '#3b4549',
     '#9bd3dd',
     '#75787b',
+    '#839AC7',
     '#fcc565',
     '#846b99',
     '#dddd9b',
   ];
-  public chartSeries = [21, 22, 10, 28, 16, 21];
+  public chartSeries = [21, 22, 10, 8, 28, 16, 21];
   public labels = [
     'Necesidades',
     'Diseño',
     'Propuesta',
+    'Negociación',
     'Firma',
     'Crédito',
     'Ganada',
@@ -164,5 +166,5 @@ export class OportunitiesComponent implements OnInit {
     };
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

@@ -1,19 +1,12 @@
-<app-header-actions
-  [title]="contentLabels + 'title-related' | translate"
-  buttonText="Crear cotización"
-  route="opportunities/new/op"
-  relatedRoute="opportunities/1"
-  relatedText="Detalles"
-  [hidenCreateOportunity]="false"
->
+<app-header-actions [title]="contentLabels + 'title-related' | translate" buttonText="Crear cotización"
+  route="opportunities/new/op" relatedRoute="opportunities/1" relatedText="Detalles" [hidenCreateOportunity]="false">
 </app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
-<app-table-general
-  [showHeaderTable]="true"
-  [columns]="columnsShow"
-  [dataSource]="dataSource"
-  [idTableShow]="4"
-></app-table-general>
+
+<h1 class="text-bold">Cotizaciones de la oportunidad</h1>
+
+<app-table-general [showHeaderTable]="true" [columns]="columnsShow" [dataSource]="dataSource" [idTableShow]="4">
+</app-table-general>
 <!--
 <app-tabs-related
   (currentTabEmmiter)="changeTab($event)"
@@ -22,21 +15,17 @@
 
 <mat-tab-group>
   <mat-tab label="Contactos">
-    <app-table-general
-      [showHeaderTable]="true"
-      [columns]="dataContacts.displayedColumns"
-      [dataSource]="dataContacts.dataSource"
-      [idTableShow]="7"
-    ></app-table-general>
+    <app-table-general [showHeaderTable]="true" [columns]="dataContacts.displayedColumns"
+      [dataSource]="dataContacts.dataSource" [idTableShow]="7"></app-table-general>
   </mat-tab>
-  <mat-tab label="Archivos"> <app-upload-file></app-upload-file> </mat-tab>
+  <mat-tab label="Archivos">
+    <app-upload-file></app-upload-file>
+  </mat-tab>
   <mat-tab label="Historial de actividades">
-    <app-table-general
-      [showHeaderTable]="true"
-      [columns]="dataActivityHistory.columnsShow"
-      [dataSource]="dataActivityHistory.dataSource"
-      [idTableShow]="9"
-    ></app-table-general>
+    <app-table-general [showHeaderTable]="true" [columns]="dataActivityHistory.columnsShow"
+      [dataSource]="dataActivityHistory.dataSource" [idTableShow]="9"></app-table-general>
   </mat-tab>
-  <mat-tab label="Historial de Etapas"></mat-tab>
+  <mat-tab label="Cuentas factura"></mat-tab>
+  <mat-tab label="Equipo de oportunidad"></mat-tab>
+  <mat-tab label="Socios de oportunidad"></mat-tab>
 </mat-tab-group>
