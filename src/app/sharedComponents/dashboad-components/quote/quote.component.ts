@@ -10,17 +10,7 @@ import { ChartComponent } from 'ng-apexcharts';
 export class QuoteComponent implements OnInit {
   public contentLabels = 'accounts.accounts-dashboard.';
 
-  /* Inservible por el momento
-  // chartProps: ChartComponentOptions = {
-  //   data: [3, 4, 7],
-  //   title: 'Cuentas',
-  //   colors: ['#59cbe8', '#f04e98', '#8246af'],
-  //   labels: ['Casa de productos', 'Building Blocks', 'Mixta'],
-  //   chartType: 'doughnut',
-  //   width: 100,
-  //   height: 100,
-  //   class: 'chart-container shadow',
-   };*/
+
 
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: any;
@@ -37,8 +27,8 @@ export class QuoteComponent implements OnInit {
       colors: this.colors,
       chart: {
         type: 'donut',
-        width: 100,
-        height: 100,
+        width: 130,
+        height: 130,
       },
       responsive: [
         {
@@ -63,7 +53,7 @@ export class QuoteComponent implements OnInit {
       plotOptions: {
         pie: {
           donut: {
-            size: '70',
+            size: '84',
             labels: {
               show: true,
               value: {

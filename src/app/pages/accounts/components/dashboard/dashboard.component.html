@@ -1,44 +1,8 @@
-<!-- <div class="container-fluid mb-4">
-  <h1 class="mt-2 text-title text-bold">
-    {{ contentLabels + "title" | translate }}
-  </h1>
-  <div class="row cards-top">
-    <div class="col-3 h-100">
-      <mat-card class="w-100 h-100">
-        <app-segment-account></app-segment-account>
-      </mat-card>
-    </div>
-    <div class="col-9 h-100">
-      <app-quote></app-quote>
-    </div>
-  </div>
-
-  <div class="row mt-4 cards-bottom">
-    <div class="col-4 h-100">
-      <div class="row sub-cards-bottom">
-        <div class="col-12 h-100">
-          <mat-card class="w-100 h-100">
-            <app-oportunities></app-oportunities>
-          </mat-card>
-        </div>
-      </div>
-      <div class="row mt-4 sub-cards-bottom">
-        <div class="col-12 h-100">
-          <app-variable-payment></app-variable-payment>
-        </div>
-      </div>
-    </div>
-    <div class="col-8 h-100">
-      <app-cell-indicators></app-cell-indicators>
-    </div>
-  </div>
-</div> -->
-
 <div class="container-fluid mb-4">
   <h1 class="mt-2 text-title text-bold">
     {{ contentLabels + "title" | translate }}
   </h1>
-  <div class="row cards-top">
+  <div class="row cards-top mb-3">
     <div class="col-5 h-100">
       <mat-card class="w-100 h-100">
         <app-segment-account></app-segment-account>
@@ -51,21 +15,22 @@
     </div>
   </div>
 
-  <div class="row mt-4 cards-bottom">
+  <div class="row cards-top mb-3">
     <div class="col-5 h-100">
-      <div class="row sub-cards-bottom">
-        <div class="col-12 h-100">
-          <app-quote></app-quote>
-        </div>
-      </div>
-      <div class="row mt-4 sub-cards-bottom">
-        <div class="col-12 h-100">
-          <app-variable-payment></app-variable-payment>
-        </div>
-      </div>
+      <app-quote></app-quote>
     </div>
     <div class="col-7 h-100">
       <app-cell-indicators></app-cell-indicators>
+    </div>
+  </div>
+
+  <div class="row cards-top">
+    <div class="col-5 h-100">
+      <app-variable-payment></app-variable-payment>
+    </div>
+    <div class="col-7 h-100">
+      <!-- cambiar por nuevo componente -->
+      <app-installations></app-installations>
     </div>
   </div>
 </div>

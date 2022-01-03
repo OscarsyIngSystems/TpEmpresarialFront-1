@@ -28,13 +28,13 @@
 
 .btn-check-sent:hover {
   background-color: $color-white !important;
-  color: $color-secondary !important;
+  color: $color-primary !important;
 }
 
 .btn-check:checked + .btn-check-sent {
-  border-color: $color-secondary !important;
+  border-color: $color-primary !important;
   color: $color-white !important;
-  background-color: $color-secondary !important;
+  background-color: $color-primary !important;
 }
 
 .btn-check:checked + .btn-check-sent:focus {
@@ -74,4 +74,8 @@
 .mat-button.mat-button-disabled.mat-button-disabled {
   background: $color-disabled-button;
   color: $color-primary;
+}
+
+.sale-type-container{
+  height:52.06px;
 }

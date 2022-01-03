@@ -11,7 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { OportunitiesComponent } from './components/oportunities/oportunities.component';
+import { OportunitiesComponent } from '../../sharedComponents/dashboad-components/oportunities/oportunities.component';
 import { DialogOportunitiesComponent } from './components/dialog-oportunities/dialog-oportunities.component';
 import { DialogQuotesComponent } from './components/dialog-quotes/dialog-quotes.component';
 import { DialogMassiveLoadSitesComponent } from './components/dialog-massive-load-sites/dialog-massive-load-sites.component';

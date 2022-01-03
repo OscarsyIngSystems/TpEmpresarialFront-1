@@ -45,14 +45,14 @@ export class OportunitiesDetailComponent implements OnInit {
   oportunity: Oportunity = {
     accountName: 'Audi CDMX',
     amount: 200,
-    badge: 'Necesidades',
+    badge: 'MXN - Peso Mexicano',
     closeDate: new Date(),
     description: 'Esto es una descripción',
     executive: 'Nombre del ejecutivo',
     oportunityName: 'Audi CDMX Op',
     probability: '10%',
     oportunityOrigin: '',
-    reason: 'Superioridad tecnica',
+    reason: '0',
     stage: 'Necesidades',
     trybuy: true,
     whoIntegrated: 'Sergio Aragon',
@@ -61,5 +61,5 @@ export class OportunitiesDetailComponent implements OnInit {
     this.opportunityNumber = this._url.snapshot.paramMap.get('id');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
