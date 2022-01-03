@@ -220,6 +220,44 @@ export class RelatedOportunitiesComponent implements OnInit {
     ],
   };
 
+  dataPartner = {
+    columnsShow: [
+      {
+        key: 'user',
+        columName: this.contentLabels + 'table-partner.colum1',
+      },
+      {
+        key: 'function',
+        columName: this.contentLabels + 'table-partner.colum2',
+      },
+    ],
+    dataSource: [
+      {
+        user: 'Sergio Aparicio Contreras',
+        function: 'Ventas',
+      },
+    ],
+  };
+
+  dataTeam = {
+    columnsShow: [
+      {
+        key: 'user',
+        columName: this.contentLabels + 'table-partner.colum1',
+      },
+      {
+        key: 'function',
+        columName: this.contentLabels + 'table-partner.colum2',
+      },
+    ],
+    dataSource: [
+      {
+        user: 'Sergio Aparicio Contreras',
+        function: 'Ventas',
+      },
+    ],
+  };
+
   dataActivityHistory = {
     columnsShow: [
       {
