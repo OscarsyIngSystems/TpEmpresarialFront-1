@@ -33,13 +33,14 @@
     "acounts-list": {
       "title": "Mis cuentas",
       "table": {
-        "colum1": "Nº fila",
+        "colum1": "Nº",
         "colum2": "ID Cliente único",
         "colum3": "Nombre de la cuenta",
-        "colum4": "RFC",
-        "colum5": "Segmento",
-        "colum6": "Teléfono",
-        "colum7": "Contacto principal"
+        "colum4": "Folio de la cuenta",
+        "colum5": "RFC",
+        "colum6": "Segmento",
+        "colum7": "Teléfono",
+        "colum8": "Contacto"
       }
     },
     "accounts-opportunities": {},
@@ -104,9 +105,10 @@
     "table": {
       "colum1": "Nº fila",
       "colum2": "Nombre de la cotización",
-      "colum3": "Folio cotización",
-      "colum4": "Total-Recurrente mensual",
-      "colum5": "Estatus"
+      "colum3": "Folio de la cotización",
+      "colum4": "Oportunidad",
+      "colum5": "Estatus",
+      "colum6": "Vigencia"
     },
     "table-loaded-sites": {
       "colum1": "",

@@ -1,0 +1,35 @@
+@import "./../../../../styles.scss";
+
+.count-sales {
+  display: inline-block;
+  justify-content: center;
+  // align-items: center;
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.primary-sale {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.warn-btn {
+  color: $color-secondary;
+}
+
+.badge-warning {
+  background-color: $color-secondary;
+  border-radius: 10px;
+}
+
+.color-by-installing {
+  color: #846b99;
+}
+.color-in-process {
+  color: #fcc565;
+}
+.color-installed {
+  color: #dddd9b;
+}

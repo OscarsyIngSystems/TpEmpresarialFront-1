@@ -44,16 +44,7 @@ export class CellIndicatorsComponent implements OnInit {
   public colors = ['#846b99', '#9bd3dd'];
   labels = ['l', 'll', 'lll'];
 
-  chartCircular: ChartComponentOptions = {
-    data: [30, 22],
-    title: 'Total cumplido',
-    colors: ['#846b99', '#9bd3dd'],
-    labels: ['l', 'll'],
-    chartType: 'doughnut',
-    width: 150,
-    height: 150,
-    class: 'chart-container shadow',
-  };
+
 
   constructor() {
     this.chartOptions = {
@@ -64,19 +55,19 @@ export class CellIndicatorsComponent implements OnInit {
         {
           name: 'Venta total',
           data: [100000, 150000, 350000, 400000],
-          color: '#9bd3dd',
-        },
-        {
-          name: 'Meta de venta',
-          data: [1000, 100000, 360000],
           color: '#846b99',
         },
+        // {
+        //   name: 'Meta de venta',
+        //   data: [1000, 100000, 360000],
+        //   color: '#846b99',
+        // },
       ],
       chart: {
         toolbar: {
           show: false,
         },
-        height: 350,
+        height: 170,
         type: 'line',
         zoom: {
           enabled: false,

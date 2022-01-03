@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
@@ -8,6 +9,9 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 })
 export class OportunitiesListComponent implements OnInit {
   public contentLabels = 'oportunities.';
+  filterParam: FormControl = new FormControl('1');
+  lastValue!: number;
+
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -99,7 +103,20 @@ export class OportunitiesListComponent implements OnInit {
       amount: '$45454.22',
     },
   ];
-  constructor() {}
+  constructor() {
+    this.lastValue = this.filterParam.value;
+  }
 
-  ngOnInit(): void {}
+  doFilter(event: any) {
+    if (this.lastValue !== event.target.value) {
+      this.lastValue = event.target.value;
+    }
+
+    else {
+      this.filterParam.setValue(0);
+      this.lastValue = 0;
+    }
+  }
+
+  ngOnInit(): void { }
 }
