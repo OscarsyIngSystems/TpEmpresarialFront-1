@@ -10,11 +10,11 @@ export class SegmentAccountComponent implements OnInit {
   public contentLabels = 'accounts.accounts-dashboard.';
 
   public donutChartOptions: any;
-  chartSeries = [7, 2, 5];
-  amounts = ['- $360,720', '- $280,100', '- $600,250'];
+  chartSeries = [7, 2, 5, 4];
+  amounts = ['- $360,720', '- $280,100', '- $600,250', '- $123,122'];
   title = 'Cuentas';
-  public colors = ['#3b4559', '#9bd3dd', '#b1b3b3'];
-  labels = ['l', 'll', 'lll'];
+  public colors = ['#3b4559', '#9bd3dd', '#b1b3b3', '#839AC7'];
+  labels = ['l', 'll', 'lll', 'IV'];
 
   constructor() {
     this.donutChartOptions = {

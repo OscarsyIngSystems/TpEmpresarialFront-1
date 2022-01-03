@@ -18,6 +18,7 @@ export class NavbarComponent {
   @Output() emiter = new EventEmitter();
   @Output() emiterRight = new EventEmitter();
 
+  profileColor!: string;
   hasBackdrop = true;
   user!: User;
   lang: Language = JSON.parse(JSON.stringify(localStorage.getItem('lang')));
@@ -57,6 +58,8 @@ export class NavbarComponent {
 
     this.loadOptions(); // se encarga de mapear las opciones del autocomplete
     this.showHide(); // se encarga de mostrar u ocultar la barra
+
+    this.randomColor(10);
   }
 
   public show(): boolean {
@@ -125,5 +128,20 @@ export class NavbarComponent {
   public clearSearch(): void {
     this.selectedIdOption = 0;
     this.searchData.setValue('');
+  }
+
+  randomColor(brightness: number) {
+    this.profileColor =
+      '#' +
+      this.randomChannel(brightness) +
+      this.randomChannel(brightness) +
+      this.randomChannel(brightness);
+  }
+
+  randomChannel(brightness: number) {
+    var r = 255 - brightness;
+    var n = 0 | (Math.random() * r + brightness);
+    var s = n.toString(16);
+    return s.length == 1 ? '0' + s : s;
   }
 }
