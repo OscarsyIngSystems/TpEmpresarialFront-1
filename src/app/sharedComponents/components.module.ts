@@ -42,6 +42,7 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { UploadButtonFileComponent } from './upload-button-file/upload-button-file.component';
+import { InstallationsComponent } from './dashboad-components/installations/installations.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { UploadButtonFileComponent } from './upload-button-file/upload-button-fi
     TabsRelatedComponent,
     UploadFileComponent,
     UploadButtonFileComponent,
+    InstallationsComponent,
   ],
   exports: [
     ChartsModule,
@@ -101,7 +103,8 @@ import { UploadButtonFileComponent } from './upload-button-file/upload-button-fi
     TabsRelatedComponent,
     UploadFileComponent,
     NgApexchartsModule,
-    UploadButtonFileComponent
+    UploadButtonFileComponent,
+    InstallationsComponent
   ],
   imports: [
     ChartsModule,
@@ -136,4 +139,4 @@ import { UploadButtonFileComponent } from './upload-button-file/upload-button-fi
     NgApexchartsModule,
   ],
 })
-export class ComponentsModule {}
+export class ComponentsModule { }

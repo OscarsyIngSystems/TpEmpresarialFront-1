@@ -119,3 +119,41 @@ img {
 .btn-clear-search {
   background-color: $color-white;
 }
+.color {
+  background-color: #3b4559 !important;
+  color: $color-white;
+}
+.underline {
+  text-decoration: underline;
+  color: grey;
+  font-weight: 500;
+}
+
+.btn-check-no-shadow,
+.btn-check:checked + .btn-check:focus {
+  box-shadow: none !important;
+}
+
+//need toggle
+.btn-check-need {
+  border-color: red !important;
+  color: $color-gpon-microwave !important;
+  font-weight: 500;
+}
+
+.btn-check-need:hover {
+  background-color: $color-button-quote !important;
+  color: black !important;
+}
+
+.btn-check:checked + .btn-check-need {
+  color: black !important;
+  border: none !important;
+  background-color: #E7E8EA !important;
+}
+
+.btn {
+  border: 1px solid $color-microwave !important;
+}
+
+

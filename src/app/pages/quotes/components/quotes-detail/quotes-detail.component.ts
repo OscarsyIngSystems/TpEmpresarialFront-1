@@ -14,7 +14,7 @@ export class QuotesDetailComponent implements OnInit {
     },
     {
       name: 'Tipo',
-      value: 'Nuevo',
+      value: 'Nueva',
     },
     {
       name: 'Etapa',
@@ -22,7 +22,7 @@ export class QuotesDetailComponent implements OnInit {
     },
     {
       name: 'Importe',
-      value: 'Estrategica',
+      value: 'Estratégica',
     },
     {
       name: 'Fecha de cierre',
