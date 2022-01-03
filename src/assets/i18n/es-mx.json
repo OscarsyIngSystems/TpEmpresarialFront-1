@@ -157,6 +157,14 @@
       "colum5": "Vencimiento",
       "colum6": "Asignado a"
     },
+    "table-partner":{
+      "colum1": "Usuario",
+      "colum2": "Función"
+    },
+        "table-team":{
+      "colum1": "Usuario",
+      "colum2": "Función"
+    },
     "message-empty": "No hay oportunidades guardadas para esta cuenta."
   }
 }
