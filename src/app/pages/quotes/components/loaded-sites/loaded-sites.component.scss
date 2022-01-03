@@ -136,28 +136,38 @@ img {
 
 //need toggle
 .btn-check-need {
-  border-color: red !important;
-  color: $color-gpon-microwave !important;
+  border-color: $color-gpon !important;
+  color: $color-gpon !important;
   font-weight: 500;
 }
 
 .btn-check-need:hover {
-  background-color: $color-button-quote !important;
-  color: black !important;
+  background-color: $color-gpon !important;
+  color: $color-green-fiber !important;
 }
 
 .btn-check:checked + .btn-check-need {
-  color: black !important;
+  color: $color-green-fiber !important;
   border: none !important;
-  background-color: #E7E8EA !important;
+  background-color: $color-gpon !important;
 }
 
-.btn {
-  border: 1px solid $color-microwave !important;
-}
+// .btn {
+//   border: 1px solid $color-microwave !important;
+// }
 
 .btn-sites {
-  background:red !important;
+  background: red !important;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
 }
 
+#red {
+  background: red !important;
+  font-weight: 400;
+}
 
+.font {
+  color:red;
+}
