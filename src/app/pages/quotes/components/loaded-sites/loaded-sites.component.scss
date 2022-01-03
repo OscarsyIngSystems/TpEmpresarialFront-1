@@ -143,13 +143,13 @@ img {
 
 .btn-check-need:hover {
   background-color: $color-gpon !important;
-  color: $color-green-fiber !important;
+  color: $color-fibra !important;
 }
 
 .btn-check:checked + .btn-check-need {
-  color: $color-green-fiber !important;
+  color: green !important;
   border: none !important;
-  background-color: $color-gpon !important;
+  background-color: $color-fibra !important;
 }
 
 // .btn {
