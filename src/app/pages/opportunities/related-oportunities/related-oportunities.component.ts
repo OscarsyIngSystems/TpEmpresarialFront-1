@@ -301,11 +301,9 @@ export class RelatedOportunitiesComponent implements OnInit {
 
   constructor(private dialog: MatDialog) {}
 
-  ngOnInit(): void {
-    this.openDialogTeam();
-  }
+  ngOnInit(): void {}
 
-  openDialogTeam(): void {
-    this.dialog.open(TeamComponent);
+  openDialogTeam(titulo: string): void {
+    this.dialog.open(TeamComponent, { data: titulo });
   }
 }
