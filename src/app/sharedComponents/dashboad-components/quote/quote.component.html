@@ -14,24 +14,21 @@
     </div>
   </div>
 
-  <div class="row mt-1 h-75 align-items-center justify-content-center">
-    <div class="col-4 px-0">
-      <div class="col">
-        <div
-          class="row tx-12"
-          *ngFor="let numbers of chartSeries; let i = index"
-        >
-          <div class="col">
-            <span
-              [style]="'background-color:' + chartOptions.colors[i]"
-              class="count-sales primary-sale"
-            ></span>
-            <small>{{ chartOptions.labels[i] }}</small>
-          </div>
+  <div class="row mt-1 ps-2 h-75 align-items-center">
+    <div class="col-3 px-0">
+      <!-- <div class="col"> -->
+      <div class="row tx-12" *ngFor="let numbers of chartSeries; let i = index">
+        <div class="col">
+          <span
+            [style]="'background-color:' + chartOptions.colors[i]"
+            class="count-sales primary-sale"
+          ></span>
+          <small>{{ chartOptions.labels[i] }}</small>
         </div>
       </div>
+      <!-- </div> -->
     </div>
-    <div class="col-2 text-center px-0">
+    <div class="col-3 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
         [series]="chartSeries[0]"
@@ -45,7 +42,7 @@
       ></apx-chart>
       <span class="text-bold ps-4 tx-12">Enviadas</span>
     </div>
-    <div class="col-2 text-center px-0">
+    <div class="col-3 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
         [series]="chartSeries[1]"
@@ -59,7 +56,7 @@
       ></apx-chart>
       <span class="text-bold ps-4 tx-12">En proceso</span>
     </div>
-    <div class="col-2 text-center px-0">
+    <div class="col-3 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
         [series]="chartSeries[2]"
