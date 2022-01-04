@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Form, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
@@ -11,6 +11,8 @@ import { Sale } from 'src/app/models/sale';
 })
 export class LoadedSitesComponent implements OnInit {
   public contentLabels = 'quotes.';
+  filterParam: FormControl = new FormControl('0');
+  lastValue: number;
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -170,7 +172,9 @@ export class LoadedSitesComponent implements OnInit {
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
 
-  constructor() {}
+  constructor() {
+    this.lastValue = this.filterParam.value;
+  }
 
   public setSearchId(id: number): void {
     this.selectedIdOption = id;
@@ -183,5 +187,17 @@ export class LoadedSitesComponent implements OnInit {
     this.selectedIdOption = 0;
     this.searchData.setValue('');
   }
+
+  doFilter(event: any) {
+    if (this.lastValue !== event.target.value) {
+      this.lastValue = event.target.value;
+    }
+
+    else {
+      this.filterParam.setValue(0);
+      this.lastValue = 0;
+    }
+  }
+
   ngOnInit(): void {}
 }

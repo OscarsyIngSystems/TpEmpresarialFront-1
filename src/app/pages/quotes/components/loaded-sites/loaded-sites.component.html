@@ -66,15 +66,16 @@
     <span>Con cobertura: 9</span>
   </div>
 
-  <div class="w-10" ><select
-    class="form-select form-select-sm"
-    aria-label="form-select-sm example"
-  >
-
-    <option value="1">20</option>
-    <option value="2">40</option>
-    <option value="3">60</option>
-  </select></div>
+  <div class="w-10">
+    <select
+      class="form-select form-select-sm"
+      aria-label="form-select-sm example"
+    >
+      <option value="1">20</option>
+      <option value="2">40</option>
+      <option value="3">60</option>
+    </select>
+  </div>
 
   <div class="col-5">
     <div class="row g-0 row-cols-lg-auto justify-revert">
@@ -85,9 +86,11 @@
         id="btn-check-need"
         name="op"
         autocomplete="off"
+        [formControl]="filterParam"
+        (click)="doFilter($event)"
       />
       <label
-        class="btn btn-sm btn-outline-primary me-2 btn-check-white btn-check-no-shadow"
+        class="btn btn-sm btn-outline-primary me-2 btn-check-need btn-check-no-shadow"
         for="btn-check-need"
         >3 Fibra</label
       >
@@ -99,14 +102,16 @@
         id="btn-check-design"
         autocomplete="off"
         name="op"
+        [formControl]="filterParam"
+        (click)="doFilter($event)"
       />
       <label
-        class="btn btn-sm btn-outline-primary me-2 btn-check-white btn-check-no-shadow"
+        class="btn btn-sm btn-outline-primary me-2 btn-check-design btn-check-no-shadow"
         for="btn-check-design"
         >3 Microonda</label
       >
 
-      <input
+      <!-- <input
         value="3"
         type="radio"
         class="btn-check"
@@ -118,9 +123,9 @@
         class="btn me-2 btn-sm btn-outline-primary btn-check-white btn-check-no-shadow"
         for="btn-check-proposal"
         >1 Metro</label
-      >
+      > -->
 
-      <input
+      <!-- <input
         value="4"
         type="radio"
         class="btn-check"
@@ -133,7 +138,7 @@
         class="btn me-2 btn-sm btn-outline-primary btn-check-white btn-check-no-shadow"
         for="btn-check-negociate"
         >3 Sin Cobertura</label
-      >
+      > -->
     </div>
   </div>
 

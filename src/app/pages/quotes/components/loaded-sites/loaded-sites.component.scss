@@ -147,54 +147,48 @@ img {
   box-shadow: none !important;
 }
 
-.btn-check-white{
-border: none;
-    color: black;
-    background: white;
-    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%)!important;
+.btn-check-need {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
 }
 
-.btn-check-white:hover {
-color: #FF0000 !important;
-    background-color: #FF0000;
-    /* opacity: 0.1; */
-    background: rgba(260,0,0,.1);
-    font-weight: 600;
-    border: none;
-}
-
-.btn-check:checked + .btn-check-white {
-color: #FF0000 !important;
-    background-color: #FF0000;
-    /* opacity: 0.1; */
-    background: rgba(260,0,0,.1);
-    font-weight: 600;
-    border: none;
-}
-
-// .btn {
-//   border: 1px solid $color-microwave !important;
+// .btn-check-need:hover {
+//   color: #ff0000 !important;
+//   background-color: #ff0000;
+//   /* opacity: 0.1; */
+//   background: rgba(260, 0, 0, 0.1);
+//   font-weight: 600;
+//   border: none;
 // }
 
-// .btn-sites {
-//   background: red !important;
-//   display: flex;
-//   flex-direction: row-reverse;
-//   justify-content: space-evenly;
+.btn-check:checked + .btn-check-need {
+  color: $color-button-fiber-text !important;
+  background-color: $color-gpon;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-check-design {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+// .btn-check-need:hover {
+//   color: #ff0000 !important;
+//   background-color: #ff0000;
+//   /* opacity: 0.1; */
+//   background: rgba(260, 0, 0, 0.1);
+//   font-weight: 600;
+//   border: none;
 // }
 
-#red {
-  background: red !important;
-  font-weight: 400;
+.btn-check:checked + .btn-check-design {
+  color: $color-button-microwave-text !important;
+  background-color: $color-button-microwave-bg;
+  font-weight: 600;
+  border: none;
 }
-
-.font {
-  color:red;
-}
-
-.flex-v-center {
-  display: flex;
-  align-items: center;
-}
-
-select.form-control{display:inline-block}
