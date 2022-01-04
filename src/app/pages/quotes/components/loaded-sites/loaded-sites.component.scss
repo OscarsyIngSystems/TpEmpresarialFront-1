@@ -147,14 +147,15 @@ img {
   box-shadow: none !important;
 }
 
-.btn-check-need {
+// fiber
+.btn-check-fiber {
   border: none;
   color: black;
   background: white;
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
 }
 
-// .btn-check-need:hover {
+// .btn-check-fiber:hover {
 //   color: #ff0000 !important;
 //   background-color: #ff0000;
 //   /* opacity: 0.1; */
@@ -163,21 +164,22 @@ img {
 //   border: none;
 // }
 
-.btn-check:checked + .btn-check-need {
+.btn-check:checked + .btn-check-fiber {
   color: $color-button-fiber-text !important;
   background-color: $color-gpon;
   font-weight: 600;
   border: none;
 }
 
-.btn-check-design {
+// microwave
+.btn-check-microwave {
   border: none;
   color: black;
   background: white;
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
 }
 
-// .btn-check-need:hover {
+// .btn-check-microwave:hover {
 //   color: #ff0000 !important;
 //   background-color: #ff0000;
 //   /* opacity: 0.1; */
@@ -186,9 +188,57 @@ img {
 //   border: none;
 // }
 
-.btn-check:checked + .btn-check-design {
+.btn-check:checked + .btn-check-microwave {
   color: $color-button-microwave-text !important;
   background-color: $color-button-microwave-bg;
+  font-weight: 600;
+  border: none;
+}
+
+// negociate
+.btn-check-negociate{
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+// .btn-check-negociate:hover {
+//   color: #ff0000 !important;
+//   background-color: #ff0000;
+//   /* opacity: 0.1; */
+//   background: rgba(260, 0, 0, 0.1);
+//   font-weight: 600;
+//   border: none;
+// }
+
+.btn-check:checked + .btn-check-negociate {
+  color: $color-button-coverage-text !important;
+  background-color: $color-button-coverage-bg !important;
+  font-weight: 600;
+  border: none;
+}
+
+// coverage
+.btn-check-coverage {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+// .btn-check-coverage:hover {
+//   color: #ff0000 !important;
+//   background-color: #ff0000;
+//   /* opacity: 0.1; */
+//   background: rgba(260, 0, 0, 0.1);
+//   font-weight: 600;
+//   border: none;
+// }
+
+.btn-check:checked + .btn-check-coverage {
+  color: $color-button-coverage-text !important;
+  background-color: $color-button-coverage-bg !important;
   font-weight: 600;
   border: none;
 }
