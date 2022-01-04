@@ -9,54 +9,60 @@
 </app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 
-<div class="d-flex m-3 justify-content-start align-items-center">
-  <div class="input-group w-50 shadow-sm">
-    <input
-      type="text"
-      class="form-control search-bar mt-0"
-      placeholder="Añade tu sitio(s) buscando la dirección o coordenada"
-      aria-label="Añade tu sitio(s) buscando la dirección o coordenada"
-      aria-describedby="basic-addon2"
-      [formControl]="searchData"
-      [matAutocomplete]="auto"
-      (keydown.enter)="search()"
-    />
-    <button
-      class="btn-clear-search"
-      *ngIf="selectedIdOption"
-      matSuffix
-      mat-icon-button
-      aria-label="Clear"
-      (click)="clearSearch()"
-    >
-      <mat-icon class="icon-clear-search">close</mat-icon>
-    </button>
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option
-        (click)="setSearchId(option.id)"
-        *ngFor="let option of filteredOptions | async"
-        [value]="option.name + ' ' + option.location + ' ' + option.type"
+<div class="align">
+  <div class="d-flex m-3 justify-content-start">
+    <div class="input-group w-50 shadow-sm">
+      <input
+        type="text"
+        class="form-control search-bar mt-0"
+        placeholder="Añade tu sitio(s) buscando la dirección o coordenada"
+        aria-label="Añade tu sitio(s) buscando la dirección o coordenada"
+        aria-describedby="basic-addon2"
+        [formControl]="searchData"
+        [matAutocomplete]="auto"
+        (keydown.enter)="search()"
+      />
+      <button
+        class="btn-clear-search"
+        *ngIf="selectedIdOption"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearSearch()"
       >
-        {{ option.name }} {{ option.location }}
-        <small class="small-type">{{ option.type }}</small>
-      </mat-option>
-    </mat-autocomplete>
+        <mat-icon class="icon-clear-search">close</mat-icon>
+      </button>
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option
+          (click)="setSearchId(option.id)"
+          *ngFor="let option of filteredOptions | async"
+          [value]="option.name + ' ' + option.location + ' ' + option.type"
+        >
+          {{ option.name }} {{ option.location }}
+          <small class="small-type">{{ option.type }}</small>
+        </mat-option>
+      </mat-autocomplete>
 
-    <div class="search-bar-divider">
-      <span class="search-bar-span">&nbsp;</span>
+      <div class="search-bar-divider">
+        <span class="search-bar-span">&nbsp;</span>
+      </div>
+      <button
+        class="btn btn-outline-secondary pt-2 search-bar search-bar-btn"
+        id="basic-addon2"
+        (click)="search()"
+      >
+        <mat-icon class="search-icon">search</mat-icon>
+      </button>
     </div>
-    <button
-      class="btn btn-outline-secondary pt-2 search-bar search-bar-btn"
-      id="basic-addon2"
-      (click)="search()"
-    >
-      <mat-icon class="search-icon">search</mat-icon>
+    <button type="button" [disabled]="selectedIdOption == 0" class="btn-add ">
+      Agregar
     </button>
   </div>
-  <button type="button" [disabled]="selectedIdOption == 0" class="btn-add ">
-    Agregar
-  </button>
 </div>
+
+
+
+
 <div class="row mt-5">
   <div class="col-9">
     <img src="../../../../../../assets/img/map.png" alt="" />
