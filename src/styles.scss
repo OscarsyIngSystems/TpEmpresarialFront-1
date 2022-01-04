@@ -32,13 +32,13 @@ $color-button-needs: #4a53be;
 $color-button-design: #0595ff;
 $color-button-credit: #68aaba;
 $color-button-firm: #4abeb5;
-$color-button-draft: #B1B3B3;
-$color-button-completed: #B1B3B3;
+$color-button-draft: #b1b3b3;
+$color-button-completed: #b1b3b3;
 $color-button-won: #db8906;
 $color-fibra: #dffcdf;
 $color-nd: #fbf5e7;
 $color-microonda: #eaf6f9;
-$color-button-quote: #F6F6F5;
+$color-button-quote: #f6f6f5;
 
 @import "~@angular/material/theming";
 
@@ -55,6 +55,9 @@ $custom-typography: mat-typography-config(
 }
 .tx-14 {
   font-size: 14px;
+}
+.tx-16 {
+  font-size: 16px;
 }
 .tx-18 {
   font-size: 18px;
@@ -488,7 +491,6 @@ input::-webkit-inner-spin-button {
   background: $color-disabled-button;
   color: $color-primary;
 }
-
 
 //#region radio/
 .radio-custom {

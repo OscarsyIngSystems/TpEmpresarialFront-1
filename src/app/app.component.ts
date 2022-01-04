@@ -12,6 +12,7 @@ export class AppComponent {
   public contentLabels = 'accounts.layaut-accounts.';
   @ViewChild('drawerRight') right!: MatSidenav;
   @ViewChild('drawer') drawer!: MatSidenav;
+  public panelOpenStateMenu = false;
   hasBackdrop = true;
   currentUrl = '';
   title = 'TpEmpresarialFront';
