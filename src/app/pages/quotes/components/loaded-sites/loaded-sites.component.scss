@@ -155,14 +155,13 @@ img {
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
 }
 
-// .btn-check-fiber:hover {
-//   color: #ff0000 !important;
-//   background-color: #ff0000;
-//   /* opacity: 0.1; */
-//   background: rgba(260, 0, 0, 0.1);
-//   font-weight: 600;
-//   border: none;
-// }
+.btn-check-fiber:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white ;//rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
 
 .btn-check:checked + .btn-check-fiber {
   color: $color-button-fiber-text !important;
@@ -179,14 +178,13 @@ img {
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
 }
 
-// .btn-check-microwave:hover {
-//   color: #ff0000 !important;
-//   background-color: #ff0000;
-//   /* opacity: 0.1; */
-//   background: rgba(260, 0, 0, 0.1);
-//   font-weight: 600;
-//   border: none;
-// }
+.btn-check-microwave:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white ;//rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
 
 .btn-check:checked + .btn-check-microwave {
   color: $color-button-microwave-text !important;
@@ -203,14 +201,13 @@ img {
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
 }
 
-// .btn-check-negociate:hover {
-//   color: #ff0000 !important;
-//   background-color: #ff0000;
-//   /* opacity: 0.1; */
-//   background: rgba(260, 0, 0, 0.1);
-//   font-weight: 600;
-//   border: none;
-// }
+.btn-check-negociate:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white ;//rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
 
 .btn-check:checked + .btn-check-negociate {
   color: $color-button-coverage-text !important;
@@ -227,18 +224,40 @@ img {
   box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
 }
 
-// .btn-check-coverage:hover {
-//   color: #ff0000 !important;
-//   background-color: #ff0000;
-//   /* opacity: 0.1; */
-//   background: rgba(260, 0, 0, 0.1);
-//   font-weight: 600;
-//   border: none;
-// }
+.btn-check-coverage:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white ;//rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
 
 .btn-check:checked + .btn-check-coverage {
   color: $color-button-coverage-text !important;
   background-color: $color-button-coverage-bg !important;
+  font-weight: 600;
+  border: none;
+}
+
+// meter
+.btn-check-meter {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+.btn-check-meter:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white ;//rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
+
+.btn-check:checked + .btn-check-meter {
+  color: $color-button-meter-text !important;
+  background-color: $color-button-meter-bg !important;
   font-weight: 600;
   border: none;
 }
