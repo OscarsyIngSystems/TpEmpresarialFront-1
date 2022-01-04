@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import {StorageService} from '../../../../services/shared/storage.service';
 
 @Component({
   selector: 'app-quotes-detail',
@@ -37,7 +38,10 @@ export class QuotesDetailComponent implements OnInit {
       value: 'Sergio Aparicio Contreras',
     },
   ];
-  constructor() {}
+  constructor( public stServices:StorageService) {
+
+    stServices.setDataName('Audi CDMX-COT')
+  }
 
   ngOnInit(): void {}
 }

@@ -127,3 +127,11 @@
 .mt-19 {
   margin-top: 19px;
 }
+
+//#region checkbox
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: $color-primary;
+}
+
+//#endregion checkbox

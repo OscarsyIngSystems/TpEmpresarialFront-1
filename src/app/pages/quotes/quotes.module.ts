@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadedSitesComponent } from './components/loaded-sites/loaded-sites.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LoadedSitesComponent } from './components/loaded-sites/loaded-sites.com
     MatSelectModule,
     MatListModule,
     MatIconModule,
+    MatCheckboxModule
   ],
 })
 export class QuotesModule {}
