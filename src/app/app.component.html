@@ -59,6 +59,28 @@
         {{ contentLabels + "menu.item-list4" | translate }}</mat-list-item
       >
     </mat-nav-list>
+    <mat-accordion>
+      <mat-expansion-panel
+        class="mat-elevation-z0"
+        (opened)="panelOpenStateMenu = true"
+        (closed)="panelOpenStateMenu = false"
+      >
+        <mat-expansion-panel-header class="hover ps-3">
+          <mat-panel-title class="tx-16"> Mesa de ayuda </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item class="c-pointer hover tx-16" role="listitem"
+            >Material de capacitación</mat-list-item
+          >
+          <mat-list-item class="c-pointer hover tx-16" role="listitem"
+            >Tickets Mesa de Ayuda</mat-list-item
+          >
+          <mat-list-item class="c-pointer hover tx-16" role="listitem"
+            >Soporte CallCenter</mat-list-item
+          >
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
   </mat-sidenav>
   <!-- End Menu -->
 

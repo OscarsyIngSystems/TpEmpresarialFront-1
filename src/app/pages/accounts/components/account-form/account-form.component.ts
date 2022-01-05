@@ -27,11 +27,11 @@ export class AccountFormComponent implements OnInit {
       value: '7-ELEVEN MEXICO',
     },
     {
-      name: 'ID Cliente único',
+      name: 'ID cliente único',
       value: '873827',
     },
     {
-      name: 'Folio Cuenta',
+      name: 'Folio cuenta',
       value: 'CRM-02010634',
     },
     {

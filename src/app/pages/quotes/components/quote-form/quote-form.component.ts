@@ -29,6 +29,7 @@ export class QuoteFormComponent implements OnInit {
       quoteName: ['Audi CDMX-COT', Validators.required],
       eps: ['one', Validators.required],
       dataPicker: [new Date(), Validators.required],
+      isMain :[true],
       isMainQuotation: [true],
       reason: ['Superioridad técnica'],
       quoteType: ['3'],
@@ -50,4 +51,5 @@ export class QuoteFormComponent implements OnInit {
       data: { name: this.name },
     });
   }
+
 }
