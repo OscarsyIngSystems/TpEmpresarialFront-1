@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoadedSitesComponent } from './components/loaded-sites/loaded-sites.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites/dialog-load-sites.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites
     MatSelectModule,
     MatListModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
   ],
 })
 export class QuotesModule {}
