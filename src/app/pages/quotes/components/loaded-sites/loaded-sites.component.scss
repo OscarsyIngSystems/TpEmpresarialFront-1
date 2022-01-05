@@ -34,6 +34,10 @@
   border-radius: 25px;
 }
 
+.width {
+  width: 37% !important;
+}
+
 .small-type {
   color: $color-placeholder;
 }
@@ -53,7 +57,7 @@
 
 .btn-add {
   border-radius: 25px;
-  background-color: $color-primary;
+  background-color: $color-secondary;
   width: 156px;
   height: 35px;
   color: $color-white;
@@ -263,7 +267,7 @@ img {
 }
 
 .position-filters  {
-  width: 56.666%;
+  width:  46.66%;
 }
 
 
