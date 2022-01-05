@@ -1,0 +1,21 @@
+@import "../../../../../../styles.scss";
+
+.mat-dialog-title {
+  text-align: center;
+}
+
+.btn-add {
+  border-radius: 25px;
+  background-color: $color-secondary !important;
+  width: 156px;
+  height: 35px;
+  color: white;
+  border: none;
+  margin-left:  11em;
+  margin-top: 5px;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $color-hover;
+  }
+}

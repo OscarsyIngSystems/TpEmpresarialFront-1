@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog-load-sites',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog-load-sites.component.scss']
 })
 export class DialogLoadSitesComponent implements OnInit {
+  public contentLabels = 'accounts.dialogs-massive-load.';
+  constructor(
+    private dialogRef: MatDialogRef<DialogLoadSitesComponent>
+    ) { }
 
-  constructor() { }
 
   ngOnInit(): void {
   }
