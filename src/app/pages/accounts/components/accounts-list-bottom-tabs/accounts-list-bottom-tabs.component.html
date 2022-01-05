@@ -9,12 +9,20 @@
   </mat-tab>
   <mat-tab label="Archivos (3)"><app-upload-file></app-upload-file></mat-tab>
   <!-- Esta tabla debe cambiar con el diseño que solicite el diseñador -->
-  <mat-tab label="Historial de actividades (8)"
-    ><app-table-general
+  <mat-tab label="Actividades (8)">
+    <app-table-general
       [showHeaderTable]="true"
-      [columns]="displayedColumns"
-      [dataSource]="dataSource"
-      [idTableShow]="7"
-    ></app-table-general
-  ></mat-tab>
+      [columns]="displayedColumnsActivities"
+      [dataSource]="dataSourceActivities"
+      [idTableShow]="13"
+    ></app-table-general>
+  </mat-tab>
+  <mat-tab label="Cuentas factura (6)">
+    <app-table-general
+      [showHeaderTable]="true"
+      [columns]="displayedColumnsAccounts"
+      [dataSource]="dataSourceAccounts"
+      [idTableShow]="14"
+    ></app-table-general>
+  </mat-tab>
 </mat-tab-group>

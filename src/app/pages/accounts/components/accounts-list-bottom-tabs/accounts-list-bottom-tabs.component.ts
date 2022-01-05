@@ -71,6 +71,68 @@ export class AccountsListBottomTabsComponent implements OnInit {
       principal: false,
     },
   ];
+
+  displayedColumnsActivities: string[] = [
+    'number',
+    'subject',
+    'name',
+    'related',
+    'expiration',
+    'assignedTo',
+  ];
+  dataSourceActivities = [
+    {
+      number: 1,
+      subject: 'Meet - Seguimiento a la cuenta',
+      name: 'Jesús Camacho Fernando ',
+      related: 'Audi CDMX S.A. de C.V. ',
+      expiration: '19-Nov-2021',
+      assignedTo: 'Elizabeth Reynoso Cuevas',
+    },
+    {
+      number: 2,
+      subject: 'Llamada de seguimiento',
+      name: 'Jesús Camacho Fernando ',
+      related: 'Audi CDMX S.A. de C.V. ',
+      expiration: '16-Nov-2021',
+      assignedTo: 'Ana Lilia Rodriguez Malfavon',
+    },
+  ];
+
+  displayedColumnsAccounts: string[] = ['name', 'brm', 'saleId', 'address'];
+  dataSourceAccounts = [
+    {
+      name: 'Audi México, S.A. de C.V.',
+      brm: '0200476666',
+      saleId: 'Lorem Ipsum',
+      address: 'Boulevard Q5 No. 1',
+    },
+    {
+      name: 'Audi México, S.A. de C.V.',
+      brm: '0200395814',
+      saleId: 'Lorem Ipsum',
+      address: 'Boulevard Q5 No. 1',
+    },
+    {
+      name: 'Audi México, S.A. de C.V.',
+      brm: '0200431091',
+      saleId: 'Lorem Ipsum',
+      address: 'Av. Presidente Masaryk Esq, Galileo 66',
+    },
+    {
+      name: 'Audi México, S.A. de C.V.',
+      brm: '0200440400',
+      saleId: 'Lorem Ipsum',
+      address: 'Juan Salvador Agraz 60',
+    },
+    {
+      name: 'Audi México, S.A. de C.V.',
+      brm: '0200228177',
+      saleId: 'Lorem Ipsum',
+      address: 'Boulevard Q5 No. 1',
+    },
+  ];
+
   constructor() {}
 
   ngOnInit(): void {}

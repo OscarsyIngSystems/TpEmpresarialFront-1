@@ -1,12 +1,22 @@
 <!-- Tabla de cuentas -->
-<table *ngIf="idTableShow == 1" id="dataTable" datatable [dtOptions]="dtOptions" class="general-table row-border">
+<table
+  *ngIf="idTableShow == 1"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="general-table row-border"
+>
   <thead>
     <tr>
       <th *ngFor="let col of columns">{{ col.columnName | translate }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr (click)="goAccountDetail(account)" class="table-element-row shadow-sm t-row" *ngFor="let account of dataSource">
+    <tr
+      (click)="goAccountDetail(account)"
+      class="table-element-row shadow-sm t-row"
+      *ngFor="let account of dataSource"
+    >
       <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.id }}</td>
       <td class="mat-cell">{{ account.accountName }}</td>
@@ -20,15 +30,24 @@
 </table>
 
 <!-- Tabla de oportunidades -->
-<table *ngIf="idTableShow == 2" id="dataTable" datatable [dtOptions]="dtOptions" class="general-table row-border">
+<table
+  *ngIf="idTableShow == 2"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="general-table row-border"
+>
   <thead>
     <tr>
       <th *ngFor="let col of columns">{{ col.columnName | translate }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr [routerLink]="['/opportunities', account.oportunityNumber]" class="table-element-row shadow-sm"
-      *ngFor="let account of dataSource">
+    <tr
+      [routerLink]="['/opportunities', account.oportunityNumber]"
+      class="table-element-row shadow-sm"
+      *ngFor="let account of dataSource"
+    >
       <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.oportunityName }}</td>
       <td class="mat-cell">{{ account.oportunityNumber }}</td>
@@ -41,15 +60,24 @@
 
 <!-- tabla de cotizaciones -->
 
-<table *ngIf="idTableShow == 3" id="dataTable" datatable [dtOptions]="dtOptions" class="general-table row-border">
+<table
+  *ngIf="idTableShow == 3"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="general-table row-border"
+>
   <thead>
     <tr>
       <th *ngFor="let col of columns">{{ col.columnName | translate }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr class="table-element-row shadow-sm" [routerLink]="['/quotes', account.numberList]"
-      *ngFor="let account of dataSource">
+    <tr
+      class="table-element-row shadow-sm"
+      [routerLink]="['/quotes', account.numberList]"
+      *ngFor="let account of dataSource"
+    >
       <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.quoteName }}</td>
       <td class="mat-cell">{{ account.quoteInvoice }}</td>
@@ -62,7 +90,13 @@
 
 <!-- tabla de cotizaciones (relacionado) -->
 
-<table *ngIf="idTableShow == 8" id="dataTable" datatable [dtOptions]="dtOptions" class="general-table row-border">
+<table
+  *ngIf="idTableShow == 8"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="general-table row-border"
+>
   <thead>
     <tr>
       <th class="text-center" *ngFor="let col of columns">
@@ -86,7 +120,13 @@
 
 <!-- tabla de oportunidades (relacionado)-->
 
-<table *ngIf="idTableShow == 4" id="dataTable" datatable [dtOptions]="dtOptions" class="row-border general-table">
+<table
+  *ngIf="idTableShow == 4"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
   <thead>
     <tr>
       <th class="text-center" *ngFor="let col of columns">
@@ -95,7 +135,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="shadow-sm c-pointer" *ngFor="let account of dataSource; let i = index" (click)="goQuotesDetail(account)">
+    <tr
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+      (click)="goQuotesDetail(account)"
+    >
       <td class="mat-cell text-center">{{ account.numberList }}</td>
       <td class="mat-cell text-center">{{ account.quoteName }}</td>
       <td class="mat-cell text-center">{{ account.invoice }}</td>
@@ -104,7 +148,13 @@
       <td class="mat-cell text-center">{{ account.validity }}</td>
       <td class="mat-cell d-flex justify-content-center">
         <div>
-          <input [id]="'radio-' + i" class="radio-custom" name="radio-group" type="radio" [checked]="account.mainCot" />
+          <input
+            [id]="'radio-' + i"
+            class="radio-custom"
+            name="radio-group"
+            type="radio"
+            [checked]="account.mainCot"
+          />
           <label [for]="'radio-' + i" class="radio-custom-label"></label>
         </div>
       </td>
@@ -113,7 +163,13 @@
 </table>
 
 <!--tabla de contactos-->
-<table *ngIf="idTableShow == 5" id="dataTable" datatable [dtOptions]="dtOptions" class="row-border general-table">
+<table
+  *ngIf="idTableShow == 5"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
   <thead>
     <tr>
       <th class="text-center" *ngFor="let col of columns">
@@ -122,7 +178,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="shadow-sm c-pointer" *ngFor="let account of dataSource; let i = index">
+    <tr
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+    >
       <td class="mat-cell text-center">{{ account.name }}</td>
       <td class="mat-cell text-center">{{ account.position }}</td>
       <td class="mat-cell text-center">{{ account.email }}</td>
@@ -130,8 +189,13 @@
       <td class="mat-cell text-center">{{ account.contactType }}</td>
       <td class="mat-cell d-flex justify-content-center">
         <div>
-          <input [id]="'contact-' + i" class="radio-custom" name="radio-contact" type="radio"
-            [checked]="account.isMain" />
+          <input
+            [id]="'contact-' + i"
+            class="radio-custom"
+            name="radio-contact"
+            type="radio"
+            [checked]="account.isMain"
+          />
           <label [for]="'contact-' + i" class="radio-custom-label"></label>
         </div>
       </td>
@@ -140,7 +204,13 @@
 </table>
 
 <!-- tabla de oportunidades (relacionado a cuentas) -->
-<table *ngIf="idTableShow == 6" id="dataTable" datatable [dtOptions]="dtOptions" class="row-border general-table">
+<table
+  *ngIf="idTableShow == 6"
+  id="dataTable"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
   <thead>
     <tr>
       <th *ngFor="let col of columns">
@@ -149,8 +219,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="shadow-sm c-pointer" (click)="goOportunitiesDetail(account)"
-      *ngFor="let account of dataSource; let i = index">
+    <tr
+      class="shadow-sm c-pointer"
+      (click)="goOportunitiesDetail(account)"
+      *ngFor="let account of dataSource; let i = index"
+    >
       <td class="mat-cell ps-4">{{ account.numberList }}</td>
       <td class="mat-cell ps-4">{{ account.name }}</td>
       <td class="mat-cell ps-4">{{ account.opportunity_number }}</td>
@@ -170,7 +243,12 @@
       </button>
     </div>
     <div class="table-container m-2 shadow-sm">
-      <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+      <table
+        mat-table
+        matSort
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+      >
         <!-- Nombre Column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef>Nombre del contacto</th>
@@ -205,10 +283,19 @@
         <ng-container matColumnDef="principal">
           <th mat-header-cell *matHeaderCellDef>Principal</th>
           <!-- <td mat-cell *matCellDef="let element">{{ element.principal }}</td> -->
-          <td mat-cell *matCellDef="let element; let i = index" class="mat-cell justify-content-center">
+          <td
+            mat-cell
+            *matCellDef="let element; let i = index"
+            class="mat-cell justify-content-center"
+          >
             <div>
-              <input [id]="'contact-' + i" class="radio-custom" name="radio-contact" type="radio"
-                [checked]="element.principal" />
+              <input
+                [id]="'contact-' + i"
+                class="radio-custom"
+                name="radio-contact"
+                type="radio"
+                [checked]="element.principal"
+              />
               <label [for]="'contact-' + i" class="radio-custom-label"></label>
             </div>
           </td>
@@ -222,7 +309,13 @@
 </div>
 
 <!--Tabla de historial de actividades-->
-<table *ngIf="idTableShow == 9" id="history" datatable [dtOptions]="dtOptions" class="row-border general-table">
+<table
+  *ngIf="idTableShow == 9"
+  id="history"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
   <thead>
     <tr>
       <th class="text-center" *ngFor="let col of columns">
@@ -231,7 +324,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="shadow-sm c-pointer" *ngFor="let account of dataSource; let i = index">
+    <tr
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+    >
       <td class="mat-cell text-center">{{ account.numberList }}</td>
       <td class="mat-cell text-center">{{ account.subject }}</td>
       <td class="mat-cell text-center">{{ account.name }}</td>
@@ -277,7 +373,12 @@
 </table>
 
 <!--Tabla de socios-->
-<table *ngIf="idTableShow == 11" datatable [dtOptions]="dtOptions" class="row-border general-table">
+<table
+  *ngIf="idTableShow == 11"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
   <thead>
     <tr>
       <th *ngFor="let col of columns; let i = index">
@@ -286,16 +387,23 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="shadow-sm c-pointer" *ngFor="let account of dataSource; let i = index">
+    <tr
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+    >
       <td class="mat-cell">{{ account.user }}</td>
       <td class="mat-cell">{{ account.function }}</td>
     </tr>
   </tbody>
 </table>
-
 
 <!-- Tabla de equipo-->
-<table *ngIf="idTableShow == 12" datatable [dtOptions]="dtOptions" class="row-border general-table">
+<table
+  *ngIf="idTableShow == 12"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
   <thead>
     <tr>
       <th *ngFor="let col of columns; let i = index">
@@ -304,9 +412,188 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="shadow-sm c-pointer" *ngFor="let account of dataSource; let i = index">
+    <tr
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+    >
       <td class="mat-cell">{{ account.user }}</td>
       <td class="mat-cell">{{ account.function }}</td>
     </tr>
   </tbody>
 </table>
+
+<!-- Actividades -->
+<div *ngIf="idTableShow == 13">
+  <div class="wrapper mt-3">
+    <div class="d-flex justify-content-end">
+      <button mat-button class="rounded-button-outline">
+        <mat-icon>add</mat-icon> Nueva tarea
+      </button>
+      <button mat-button class="rounded-button-outline ms-5">
+        <mat-icon>add</mat-icon> Nuevo evento
+      </button>
+    </div>
+    <!-- Actividades abiertas -->
+    <div class="row ps-4">
+      <p class="text-bold">Actividades abiertas (2)</p>
+    </div>
+    <div class="table-container m-2 shadow-sm">
+      <table
+        mat-table
+        matSort
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+      >
+        <!-- Number Column -->
+        <ng-container matColumnDef="number">
+          <th mat-header-cell *matHeaderCellDef>N°</th>
+          <td mat-cell *matCellDef="let element">{{ element.number }}</td>
+        </ng-container>
+
+        <!-- Subject Column -->
+        <ng-container matColumnDef="subject">
+          <th mat-header-cell *matHeaderCellDef>Asunto</th>
+          <td mat-cell *matCellDef="let element">{{ element.subject }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- related Column -->
+        <ng-container matColumnDef="related">
+          <th mat-header-cell *matHeaderCellDef>Relacionado con</th>
+          <td mat-cell *matCellDef="let element">{{ element.related }}</td>
+        </ng-container>
+
+        <!-- expiration Column -->
+        <ng-container matColumnDef="expiration">
+          <th mat-header-cell *matHeaderCellDef>Vencimiento</th>
+          <td mat-cell *matCellDef="let element">{{ element.expiration }}</td>
+        </ng-container>
+
+        <!-- assigned to Column -->
+        <ng-container matColumnDef="assignedTo">
+          <th mat-header-cell *matHeaderCellDef>Asignado a</th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+            class="mat-cell justify-content-center"
+          >
+            {{ element.assignedTo }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns"></tr>
+      </table>
+    </div>
+    <!-- FIN actividades abiertas -->
+
+    <!-- Historial de actividades -->
+    <div class="row ps-4 mt-3">
+      <p class="text-bold">Historial de actividades</p>
+    </div>
+    <div class="table-container m-2 shadow-sm">
+      <table
+        mat-table
+        matSort
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+      >
+        <!-- Number Column -->
+        <ng-container matColumnDef="number">
+          <th mat-header-cell *matHeaderCellDef>N°</th>
+          <td mat-cell *matCellDef="let element">{{ element.number }}</td>
+        </ng-container>
+
+        <!-- Subject Column -->
+        <ng-container matColumnDef="subject">
+          <th mat-header-cell *matHeaderCellDef>Asunto</th>
+          <td mat-cell *matCellDef="let element">{{ element.subject }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- related Column -->
+        <ng-container matColumnDef="related">
+          <th mat-header-cell *matHeaderCellDef>Relacionado con</th>
+          <td mat-cell *matCellDef="let element">{{ element.related }}</td>
+        </ng-container>
+
+        <!-- expiration Column -->
+        <ng-container matColumnDef="expiration">
+          <th mat-header-cell *matHeaderCellDef>Vencimiento</th>
+          <td mat-cell *matCellDef="let element">{{ element.expiration }}</td>
+        </ng-container>
+
+        <!-- assigned to Column -->
+        <ng-container matColumnDef="assignedTo">
+          <th mat-header-cell *matHeaderCellDef>Asignado a</th>
+          <td
+            mat-cell
+            *matCellDef="let element"
+            class="mat-cell justify-content-center"
+          >
+            {{ element.assignedTo }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns"></tr>
+      </table>
+    </div>
+    <!-- FIN historial actividades -->
+  </div>
+</div>
+
+<!-- Cuentas factura -->
+<div *ngIf="idTableShow == 14">
+  <div class="wrapper mt-3">
+    <!-- Actividades abiertas -->
+    <div class="table-container m-2 shadow-sm">
+      <table
+        mat-table
+        matSort
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+      >
+        <!-- name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>
+            Nombre completo/Razón Social
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- brm Column -->
+        <ng-container matColumnDef="brm">
+          <th mat-header-cell *matHeaderCellDef>Id de Cuenta BRM</th>
+          <td mat-cell *matCellDef="let element">{{ element.brm }}</td>
+        </ng-container>
+
+        <!-- saleId Column -->
+        <ng-container matColumnDef="saleId">
+          <th mat-header-cell *matHeaderCellDef>Folio de venta</th>
+          <td mat-cell *matCellDef="let element">{{ element.saleId }}</td>
+        </ng-container>
+
+        <!-- address Column -->
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef>Calle</th>
+          <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns"></tr>
+      </table>
+    </div>
+    <!-- FIN actividades abiertas -->
+  </div>
+</div>

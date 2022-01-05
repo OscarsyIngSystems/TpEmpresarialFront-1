@@ -49,23 +49,6 @@
             >
           </mat-form-field>
         </div>
-
-        <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Cuenta principal</mat-label>
-            <input
-              matInput
-              placeholder="Ingrese Cuenta principal"
-              formControlName="main_account"
-            />
-            <mat-error *ngIf="principalDataForm.controls.main_account.invalid"
-              >Campo obligatorio</mat-error
-            >
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Clase de cuenta</mat-label>
@@ -79,7 +62,9 @@
             >
           </mat-form-field>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Número de la cuenta</mat-label>
@@ -108,23 +93,6 @@
             >
           </mat-form-field>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Segmento facturación</mat-label>
-            <input
-              matInput
-              placeholder="Ingrese Segmento facturación"
-              formControlName="billing_segment"
-            />
-            <mat-error
-              *ngIf="principalDataForm.controls.billing_segment.invalid"
-              >Campo obligatorio</mat-error
-            >
-          </mat-form-field>
-        </div>
 
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
@@ -142,7 +110,9 @@
             >
           </mat-form-field>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Teléfono</mat-label>
@@ -156,9 +126,6 @@
             >
           </mat-form-field>
         </div>
-      </div>
-
-      <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Sitio Web</mat-label>
@@ -172,7 +139,6 @@
             >
           </mat-form-field>
         </div>
-
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Sector</mat-label>
@@ -186,7 +152,9 @@
             >
           </mat-form-field>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-4 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Tamaño</mat-label>
@@ -200,10 +168,7 @@
             >
           </mat-form-field>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col-4 input-container">
+        <div class="col-2 input-container">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label>Empleados</mat-label>
             <input
@@ -218,8 +183,8 @@
           </mat-form-field>
         </div>
 
-        <div class="col-4 input-container">
-          <div class="w-100 h-100 py-3" appearance="fill">
+        <div class="col-2 input-container">
+          <div class="w-100 h-100 py-3 custom-switches" appearance="fill">
             <mat-label>VIP: </mat-label>
             <ui-switch
               class="ms-3"
@@ -227,7 +192,10 @@
               formControlName="isVip"
               uncheckedLabel="NO"
               checkedLabel="SI "
-              [disabled]="!isAdmin()"
+              [disabled]="isAdmin()"
+              color="#3b4559"
+              checkedTextColor="#FFF"
+              uncheckedTextColor="#3b4559"
             ></ui-switch>
           </div>
         </div>
@@ -255,7 +223,7 @@
   <mat-expansion-panel class="w-100 h-100">
     <mat-expansion-panel-header>
       <mat-panel-title class="text-bold">
-        Información de facturación
+        Dirección de facturación
       </mat-panel-title>
     </mat-expansion-panel-header>
     <form class="login-form" [formGroup]="addressInformationForm" novalidate>
