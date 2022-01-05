@@ -46,8 +46,6 @@ export class TableGeneralComponent implements OnInit {
       },
       lengthMenu: this.lengthMenu,
     };
-
-    console.log(this.columns);
   }
 
   goAccountDetail(account: Account): void {

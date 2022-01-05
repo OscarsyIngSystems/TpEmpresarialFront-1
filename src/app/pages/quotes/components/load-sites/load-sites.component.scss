@@ -53,12 +53,12 @@
 
 .btn-add {
   border-radius: 25px;
-  background-color: $color-primary;
+  background-color: $color-disabled-button !important;
   width: 156px;
   height: 35px;
-  color: $color-white;
+  color: grey;
   border: none;
-  margin-left: 25px;
+  margin-left:  65px;
 
   &:hover {
     background-color: $color-hover;
@@ -119,3 +119,5 @@ img {
 .btn-clear-search {
   background-color: $color-white;
 }
+
+

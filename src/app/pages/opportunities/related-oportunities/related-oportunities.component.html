@@ -28,7 +28,7 @@
   <mat-tab label="Cuentas factura"></mat-tab>
   <mat-tab label="Equipo de oportunidad">
     <div class="d-flex flex-row justify-content-end">
-      <button mat-button class="rounded-button-outline mt-3">
+      <button (click)="openDialogTeam('equipo')" mat-button class="rounded-button-outline mt-3">
         <mat-icon>add</mat-icon> Agregar equipo
       </button>
     </div>
@@ -37,7 +37,7 @@
   </mat-tab>
   <mat-tab label="Socios de oportunidad">
     <div class="d-flex flex-row justify-content-end">
-      <button mat-button class="rounded-button-outline mt-3">
+      <button (click)="openDialogTeam('socio')" mat-button class="rounded-button-outline mt-3">
         <mat-icon>add</mat-icon> Agregar socio
       </button>
     </div>

@@ -135,29 +135,129 @@ img {
 }
 
 //need toggle
-.btn-check-need {
-  border-color: red !important;
-  color: $color-gpon-microwave !important;
-  font-weight: 500;
+.conteiner-btn-accounts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
-.btn-check-need:hover {
-  background-color: $color-button-quote !important;
+.btn-check-no-shadow,
+.btn-check:checked + .btn-check:focus {
+  box-shadow: none !important;
+}
+
+// fiber
+.btn-check-fiber {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+.btn-check-fiber:hover {
   color: black !important;
+  background-color: $color-white;
+  background: white ;//rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
 }
 
-.btn-check:checked + .btn-check-need {
+.btn-check:checked + .btn-check-fiber {
+  color: $color-button-fiber-text !important;
+  background-color: $color-gpon;
+  font-weight: 600;
+  border: none;
+}
+
+// microwave
+.btn-check-microwave {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+.btn-check-microwave:hover {
   color: black !important;
-  border: none !important;
-  background-color: #E7E8EA !important;
+  background-color: $color-white;
+  background: white ;//rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
 }
 
-.btn {
-  border: 1px solid $color-microwave !important;
+.btn-check:checked + .btn-check-microwave {
+  color: $color-button-microwave-text !important;
+  background-color: $color-button-microwave-bg;
+  font-weight: 600;
+  border: none;
 }
 
-.btn-sites {
-  background:red !important;
+// negociate
+.btn-check-negociate{
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
 }
 
+.btn-check-negociate:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white ;//rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
 
+.btn-check:checked + .btn-check-negociate {
+  color: $color-button-coverage-text !important;
+  background-color: $color-button-coverage-bg !important;
+  font-weight: 600;
+  border: none;
+}
+
+// coverage
+.btn-check-coverage {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+.btn-check-coverage:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white ;//rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
+
+.btn-check:checked + .btn-check-coverage {
+  color: $color-button-coverage-text !important;
+  background-color: $color-button-coverage-bg !important;
+  font-weight: 600;
+  border: none;
+}
+
+// meter
+.btn-check-meter {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+.btn-check-meter:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white ;//rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
+
+.btn-check:checked + .btn-check-meter {
+  color: $color-button-meter-text !important;
+  background-color: $color-button-meter-bg !important;
+  font-weight: 600;
+  border: none;
+}
