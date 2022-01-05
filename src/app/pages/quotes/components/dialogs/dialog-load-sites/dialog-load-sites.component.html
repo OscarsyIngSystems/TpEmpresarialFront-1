@@ -1,17 +1,22 @@
-<h1 class="text-title text-bold" mat-dialog-title>Agregar Sitio</h1>
 <div mat-dialog-content>
+  <h1 class="text-title text-bold" mat-dialog-title>Agregar Sitio</h1>
   <p>
     <mat-form-field appearance="legacy">
       <mat-label>Nombe del Sitio </mat-label>
-      <input matInput placeholder="Audi Pedregal" autocomplete="off">
+      <input matInput placeholder="Audi Pedregal" autocomplete="off" />
     </mat-form-field>
   </p>
-</div>
-<div mat-dialog-actions>
-    <button  type="button"  class="btn-add">
-      Cancelar
-    </button>
-    <button  type="button"  class="btn-add">
-      Agregar
-    </button>
+
+  <div class="dialog-actions">
+    <div>
+      <button type="button" class="button-dlg">
+        <span class="fw-button">Cancelar</span>
+      </button>
+    </div>
+    <div>
+      <button type="button" class="button-dlg">
+        <span class="fw-button">Agregar</span>
+      </button>
+    </div>
+  </div>
 </div>

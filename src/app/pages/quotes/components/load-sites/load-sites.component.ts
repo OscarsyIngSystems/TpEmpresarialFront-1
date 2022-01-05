@@ -48,9 +48,7 @@ export class LoadSitesComponent implements OnInit {
     { id: 7, name: 'Penafiel', type: 'Oportunidad', location: 'Puebla' },
     { id: 8, name: 'Culiacan Inn', type: 'Cotización', location: 'Sinaloa' },
   ];
-  constructor(
-    private dlg: MatDialog
-  ) {
+  constructor(private dlg: MatDialog) {
     this.loadOptions();
   }
 
@@ -81,9 +79,11 @@ export class LoadSitesComponent implements OnInit {
     );
   }
 
-
   public openDialog() {
-    this.dlg.open(DialogLoadSitesComponent)
+    this.dlg.open(DialogLoadSitesComponent, {
+      height: '300px',
+      width: '400px',
+    });
   }
   clearSearch() {
     this.selectedIdOption = 0;
