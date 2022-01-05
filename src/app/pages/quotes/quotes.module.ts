@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { QuotesRoutingModule } from './quotes-routing.module';
 import { LayautQuotesComponent } from './layaut-quotes.component';
 import { QuotesListDeatilComponent } from './components/quotes-list/quotes-list.component';
-import { ComponentsModule } from 'src/app/sharedComponents/components.module';
+import { ComponentsModule } from 'src/app/shared/components.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { QuoteFormComponent } from './components/quote-form/quote-form.component';
 import { QuotesCreateComponent } from './components/quotes-create/quotes-create.component';
