@@ -244,6 +244,38 @@
   </tbody>
 </table>
 
+<!--Tabla de sitios cargados-->
+<table *ngIf="idTableShow == 10" id="history" datatable [dtOptions]="dtOptions" class="row-border general-table">
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns; let i = index">
+        <mat-checkbox *ngIf="i == 0"></mat-checkbox>
+        {{ col.columnName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr [class]="{
+        fibra: account.accessMedia == 'Fibra',
+        microonda: account.accessMedia == 'Microonda',
+        nd: account.accessMedia == 'N/D'
+      }" class="shadow-sm c-pointer" *ngFor="let account of dataSource; let i = index">
+      <td class="mat-cell">
+        <mat-checkbox class="ms-3"></mat-checkbox>
+      </td>
+      <td class="mat-cell">{{ account.numberList }}</td>
+      <td class="mat-cell">{{ account.site }}</td>
+      <td class="mat-cell">{{ account.coverage }}</td>
+      <td class="mat-cell">{{ account.accessMedia }}</td>
+      <td class="mat-cell align-middle">
+        <button mat-mini-fab class="edit mat-elevation-z0">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <!--Tabla de socios-->
 <table *ngIf="idTableShow == 11" datatable [dtOptions]="dtOptions" class="row-border general-table">
   <thead>
