@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadedSitesComponent } from './components/loaded-sites/loaded-sites.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     RelatedQuotesComponent,
     LoadSitesComponent,
     LoadedSitesComponent,
+    DialogLoadSitesComponent,
   ],
   imports: [
     CommonModule,
