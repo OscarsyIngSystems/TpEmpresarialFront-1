@@ -17,7 +17,7 @@ export class TableGeneralComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
 
   expandedElement!: Account | null;
-  lengthMenu = [10, 20];
+  lengthMenu = [10, 20,30];
   constructor(private route: Router, private storageService: StorageService) {}
 
   ngOnInit(): void {}
