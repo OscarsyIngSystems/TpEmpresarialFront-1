@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { TeamComponent } from '../dialogs/team/team.component';
 
 @Component({
   selector: 'app-related-oportunities',
@@ -297,7 +299,11 @@ export class RelatedOportunitiesComponent implements OnInit {
     ],
   };
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
+
+  openDialogTeam(titulo: string): void {
+    this.dialog.open(TeamComponent, { data: titulo });
+  }
 }
