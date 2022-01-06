@@ -1,0 +1,179 @@
+<div>
+  <h2 class="text-bold">Nuevo evento</h2>
+</div>
+
+<form class="row" [formGroup]="form" role="form" novalidate>
+  <div class="row">
+    <div class="col-12 input-container">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Asunto</mat-label>
+        <mat-select formControlName="subject">
+          <mat-option value="0">Seleccione una opción</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 input-container mb-2">
+      <mat-checkbox class="example-margin" formControlName="allDayEvent"
+        >Evento todo el día</mat-checkbox
+      >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6 input-container">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Fecha de inicio</mat-label>
+        <input
+          matInput
+          (click)="picker1.open()"
+          [matDatepicker]="picker1"
+          formControlName="startDate"
+          readonly
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-6 input-container">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Fecha final</mat-label>
+        <input
+          matInput
+          (click)="picker2.open()"
+          [matDatepicker]="picker2"
+          formControlName="endDate"
+          readonly
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6 input-container">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Hora de inicio</mat-label>
+        <input
+          matInput
+          formControlName="startTime"
+          [ngxTimepicker]="toggleTimepicker1"
+          readonly
+        />
+        <mat-icon class="c-pointer" matSuffix (click)="toggleTimepicker1.open()"
+          >schedule</mat-icon
+        >
+        <ngx-material-timepicker
+          #toggleTimepicker1
+          [enableKeyboardInput]="true"
+          [editableHintTmpl]="hint"
+          [cancelBtnTmpl]="cancelBtnTmpl"
+          [confirmBtnTmpl]="confirmBtnTmpl"
+          [ESC]="false"
+          [timepickerClass]="'custome-class'"
+        ></ngx-material-timepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-6 input-container">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Hora final</mat-label>
+        <input
+          matInput
+          formControlName="endTime"
+          [ngxTimepicker]="toggleTimepicker2"
+          readonly
+        />
+        <mat-icon class="c-pointer" matSuffix (click)="toggleTimepicker2.open()"
+          >schedule</mat-icon
+        >
+        <ngx-material-timepicker
+          #toggleTimepicker2
+          [enableKeyboardInput]="true"
+          [editableHintTmpl]="hint"
+          [cancelBtnTmpl]="cancelBtnTmpl"
+          [confirmBtnTmpl]="confirmBtnTmpl"
+          [ESC]="false"
+          [timepickerClass]="'custome-class'"
+        ></ngx-material-timepicker>
+      </mat-form-field>
+    </div>
+    <ng-template #hint></ng-template>
+    <ng-template #cancelBtnTmpl>
+      <button mat-button class="rounded-button-outline btn-timepicker">
+        Cancelar
+      </button>
+    </ng-template>
+    <ng-template #confirmBtnTmpl
+      ><button
+        mat-button
+        class="rounded-button-outline btn-primary btn-timepicker ms-1"
+      >
+        Guardar
+      </button></ng-template
+    >
+  </div>
+
+  <div class="row">
+    <div class="col-12 input-container">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Recordatorio antes del evento</mat-label>
+        <mat-select formControlName="reminder">
+          <mat-option value="0">Seleccione una opción</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 input-container">
+      <mat-label>Invitar a</mat-label>
+      <mat-form-field class="input-group w-100 shadow-sm">
+        <input
+          type="text"
+          matInput
+          placeholder="Buscar contacto"
+          aria-label="Buscar contacto"
+          aria-describedby="basic-addon2"
+          [formControl]="searchData"
+          [matAutocomplete]="auto"
+          (keydown.enter)="search()"
+        />
+        <!-- <button
+          class="btn-clear-search"
+          *ngIf="selectedIdOption"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="clearSearch()"
+        >
+          <mat-icon class="icon-clear-search">close</mat-icon>
+        </button> -->
+        <mat-icon matSuffix class="search-icon">search</mat-icon>
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            (click)="setSelectedOption(option.name)"
+            [value]="option.name + ' ' + option.lastName"
+          >
+            {{ option.name }} {{ option.lastName }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+
+<mat-dialog-actions align="center">
+  <button mat-button class="rounded-button-outline" mat-dialog-close>
+    Cancelar
+  </button>
+  <button mat-button class="rounded-button-outline btn-primary">Guardar</button>
+</mat-dialog-actions>

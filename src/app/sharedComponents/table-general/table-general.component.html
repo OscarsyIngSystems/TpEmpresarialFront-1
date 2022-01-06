@@ -341,7 +341,13 @@
 </table>
 
 <!--Tabla de sitios cargados-->
-<table *ngIf="idTableShow == 10" id="history" datatable [dtOptions]="dtOptions" class="row-border general-table">
+<table
+  *ngIf="idTableShow == 10"
+  id="history"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
   <thead>
     <tr>
       <th *ngFor="let col of columns; let i = index">
@@ -351,11 +357,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr [class]="{
+    <tr
+      [class]="{
         fibra: account.accessMedia == 'Fibra',
         microonda: account.accessMedia == 'Microonda',
         nd: account.accessMedia == 'N/D'
-      }" class="shadow-sm c-pointer" *ngFor="let account of dataSource; let i = index">
+      }"
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+    >
       <td class="mat-cell">
         <mat-checkbox class="ms-3"></mat-checkbox>
       </td>
@@ -426,10 +436,18 @@
 <div *ngIf="idTableShow == 13">
   <div class="wrapper mt-3">
     <div class="d-flex justify-content-end">
-      <button mat-button class="rounded-button-outline">
+      <button
+        mat-button
+        class="rounded-button-outline"
+        (click)="openDialogTask()"
+      >
         <mat-icon>add</mat-icon> Nueva tarea
       </button>
-      <button mat-button class="rounded-button-outline ms-5">
+      <button
+        mat-button
+        class="rounded-button-outline ms-5"
+        (click)="openDialogEvent()"
+      >
         <mat-icon>add</mat-icon> Nuevo evento
       </button>
     </div>

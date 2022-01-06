@@ -1,7 +1,10 @@
+import { DialogTaskComponent } from './../../pages/accounts/components/dialog-task/dialog-task.component';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Account } from 'src/app/models/account';
 import { StorageService } from 'src/app/services/shared/storage.service';
+import { DialogEventComponent } from 'src/app/pages/accounts/components/dialog-event/dialog-event.component';
 
 @Component({
   selector: 'app-table-general',
@@ -17,8 +20,12 @@ export class TableGeneralComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
 
   expandedElement!: Account | null;
-  lengthMenu = [10, 20,30];
-  constructor(private route: Router, private storageService: StorageService) {}
+  lengthMenu = [10, 20, 30];
+  constructor(
+    private route: Router,
+    private storageService: StorageService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {}
 
@@ -61,5 +68,17 @@ export class TableGeneralComponent implements OnInit {
   goQuotesDetail(quote: any) {
     this.storageService.setDataName(quote.quoteName);
     this.route.navigate(['/quotes', quote.numberList]);
+  }
+
+  openDialogTask(): void {
+    this.dialog.open(DialogTaskComponent, { data: null, width: '30%' });
+  }
+
+  openDialogEvent(): void {
+    this.dialog.open(DialogEventComponent, {
+      data: null,
+      width: '30%',
+      disableClose: true,
+    });
   }
 }

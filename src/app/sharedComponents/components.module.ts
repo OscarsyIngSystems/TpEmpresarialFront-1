@@ -43,6 +43,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { UploadButtonFileComponent } from './upload-button-file/upload-button-file.component';
 import { InstallationsComponent } from './dashboad-components/installations/installations.component';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { InstallationsComponent } from './dashboad-components/installations/inst
     UploadFileComponent,
     NgApexchartsModule,
     UploadButtonFileComponent,
-    InstallationsComponent
+    InstallationsComponent,
+    NgxMaterialTimepickerModule,
   ],
   imports: [
     ChartsModule,
@@ -137,6 +139,7 @@ import { InstallationsComponent } from './dashboad-components/installations/inst
     MatDatepickerModule,
     NgxFileDropModule,
     NgApexchartsModule,
+    NgxMaterialTimepickerModule,
   ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
