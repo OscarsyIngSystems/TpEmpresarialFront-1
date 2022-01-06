@@ -83,6 +83,7 @@ export class LoadSitesComponent implements OnInit {
     this.dlg.open(DialogLoadSitesComponent, {
       height: '300px',
       width: '400px',
+      panelClass: 'custom-dd'
     });
   }
   clearSearch() {
