@@ -57,16 +57,12 @@
 
 .btn-add {
   border-radius: 25px;
-  background-color: $color-secondary;
+  background-color: $color-primary;
   width: 156px;
   height: 35px;
   color: $color-white;
   border: none;
   margin-left: 25px;
-
-  &:hover {
-    background-color: $color-hover;
-  }
 }
 
 .btn-add[disabled] {
@@ -162,7 +158,7 @@ img {
 .btn-check-fiber:hover {
   color: black !important;
   background-color: $color-white;
-  background: white ;//rgba(260, 0, 0, 0.1);
+  background: white; //rgba(260, 0, 0, 0.1);
   font-weight: 600;
   border: none;
 }
@@ -185,7 +181,7 @@ img {
 .btn-check-microwave:hover {
   color: black !important;
   background-color: $color-white;
-  background: white ;//rgba(260, 0, 0, 0.1);
+  background: white; //rgba(260, 0, 0, 0.1);
   font-weight: 600;
   border: none;
 }
@@ -198,7 +194,7 @@ img {
 }
 
 // negociate
-.btn-check-negociate{
+.btn-check-negociate {
   border: none;
   color: black;
   background: white;
@@ -208,7 +204,7 @@ img {
 .btn-check-negociate:hover {
   color: black !important;
   background-color: $color-white;
-  background: white ;//rgba(260, 0, 0, 0.1);
+  background: white; //rgba(260, 0, 0, 0.1);
   font-weight: 600;
   border: none;
 }
@@ -231,7 +227,7 @@ img {
 .btn-check-coverage:hover {
   color: black !important;
   background-color: $color-white;
-  background: white ;//rgba(260, 0, 0, 0.1);
+  background: white; //rgba(260, 0, 0, 0.1);
   font-weight: 600;
   border: none;
 }
@@ -254,7 +250,7 @@ img {
 .btn-check-meter:hover {
   color: black !important;
   background-color: $color-white;
-  background: white ;//rgba(260, 0, 0, 0.1);
+  background: white; //rgba(260, 0, 0, 0.1);
   font-weight: 600;
   border: none;
 }
@@ -266,11 +262,19 @@ img {
   border: none;
 }
 
-.position-filters  {
-  width:  46.66%;
+.position-filters {
+  width: 46.66%;
+}
+
+.space-img {
+  margin-top: 5rem;
+}
+
+.fw-button {
+  font-weight: 600;
 }
 
 
-.space-img {
-  margin-top:5rem;
+#red {
+  background: $color-secondary !important;
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Form, FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
+import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
   selector: 'app-loaded-sites',
@@ -172,9 +174,13 @@ export class LoadedSitesComponent implements OnInit {
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
 
-  constructor() {
+  constructor(
+    private dlg: MatDialog
+  ) {
     this.lastValue = this.filterParam.value;
   }
+
+  ngOnInit(): void {}
 
   public setSearchId(id: number): void {
     this.selectedIdOption = id;
@@ -199,5 +205,12 @@ export class LoadedSitesComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+
+  openDialog() {
+    this.dlg.open(DialogLoadSitesComponent, {
+      height: '300px',
+      width: '400px',
+      panelClass: 'custom-dd'
+    });
+  }
 }
