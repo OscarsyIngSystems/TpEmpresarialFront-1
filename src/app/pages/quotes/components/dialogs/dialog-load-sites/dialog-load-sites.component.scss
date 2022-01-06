@@ -24,7 +24,7 @@
   border: 2px solid $color-primary;
   font-weight: 500;
   &:hover {
-        background-color: $color-hover;
+        background-color: $color-disabled;
       }
 }
 
@@ -40,18 +40,4 @@
   }
 }
 
-// .btn-add {
-//   border-radius: 25px;
-//   background-color: $color-secondary !important;
-//   width: 156px;
-//   height: 35px;
-//   color: white;
-//   border: none;
-//   margin-left:  11em;
-//   margin-top: 5px;
-//   font-weight: 500;
 
-//   &:hover {
-//     background-color: $color-hover;
-//   }
-// }

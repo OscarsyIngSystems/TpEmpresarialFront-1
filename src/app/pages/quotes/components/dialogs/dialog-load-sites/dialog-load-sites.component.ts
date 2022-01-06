@@ -13,7 +13,10 @@ export class DialogLoadSitesComponent implements OnInit {
     ) { }
 
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onClose() {
+    this.dialogRef.close()
   }
 
 }
