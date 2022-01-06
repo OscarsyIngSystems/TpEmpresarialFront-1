@@ -95,7 +95,7 @@ $custom-typography: mat-typography-config(
 .text-bold {
   font-weight: bold !important;
 }
-// #endregion textos
+// #endregion textos @@
 // #region heights
 .h-10 {
   height: 10% !important;
@@ -538,3 +538,7 @@ input::-webkit-inner-spin-button {
   z-index: 9999 !important;
 }
 //#endregion timePicker
+// dialog-container - dialog-load-sites.component
+.custom-dd .mat-dialog-container {
+  border-radius: 15px;
+}

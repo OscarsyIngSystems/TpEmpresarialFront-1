@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Sale } from 'src/app/models/sale';
 import { map, startWith } from 'rxjs/operators';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
   selector: 'app-load-sites',
@@ -46,7 +48,7 @@ export class LoadSitesComponent implements OnInit {
     { id: 7, name: 'Penafiel', type: 'Oportunidad', location: 'Puebla' },
     { id: 8, name: 'Culiacan Inn', type: 'Cotización', location: 'Sinaloa' },
   ];
-  constructor() {
+  constructor(private dlg: MatDialog) {
     this.loadOptions();
   }
 
@@ -77,6 +79,13 @@ export class LoadSitesComponent implements OnInit {
     );
   }
 
+  public openDialog() {
+    this.dlg.open(DialogLoadSitesComponent, {
+      height: '300px',
+      width: '400px',
+      panelClass: 'custom-dd'
+    });
+  }
   clearSearch() {
     this.selectedIdOption = 0;
     this.searchData.setValue('');

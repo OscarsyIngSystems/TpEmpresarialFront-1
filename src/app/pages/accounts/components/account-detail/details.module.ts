@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { DetailsRoutingModule } from './details-routing.module';
 import { AccountDetailComponent } from './account-detail.component';
-import { ComponentsModule } from 'src/app/sharedComponents/components.module';
+import { ComponentsModule } from 'src/app/shared/components.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { MatInputModule } from '@angular/material/input';

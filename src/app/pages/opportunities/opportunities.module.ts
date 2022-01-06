@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { OpportunitiesRoutingModule } from './opportunities-routing.module';
 import { OpportunitiesComponent } from './opportunities.component';
 import { OportunitiesListComponent } from './oportunities-list/oportunities-list.component';
-import { ComponentsModule } from 'src/app/sharedComponents/components.module';
+import { ComponentsModule } from 'src/app/shared/components.module';
 import { OportunityFormComponent } from './oportunity-form/oportunity-form.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { OportunitiesDetailComponent } from './oportunities-detail/oportunities-detail.component';

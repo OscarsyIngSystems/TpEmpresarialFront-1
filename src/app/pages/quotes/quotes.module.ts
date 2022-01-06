@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { QuotesRoutingModule } from './quotes-routing.module';
 import { LayautQuotesComponent } from './layaut-quotes.component';
 import { QuotesListDeatilComponent } from './components/quotes-list/quotes-list.component';
-import { ComponentsModule } from 'src/app/sharedComponents/components.module';
+import { ComponentsModule } from 'src/app/shared/components.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { QuoteFormComponent } from './components/quote-form/quote-form.component';
 import { QuotesCreateComponent } from './components/quotes-create/quotes-create.component';
@@ -16,6 +16,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadedSitesComponent } from './components/loaded-sites/loaded-sites.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites/dialog-load-sites.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     RelatedQuotesComponent,
     LoadSitesComponent,
     LoadedSitesComponent,
+    DialogLoadSitesComponent,
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSelectModule,
     MatListModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
   ],
 })
 export class QuotesModule {}
