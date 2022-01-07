@@ -1,5 +1,7 @@
 <div class="mat-elevation-z1 card-form px-3 py-0">
   <form [formGroup]="oportunityForm">
+    <div *ngIf="oportunityDetailData && oportunityForm.disabled" class=" w-100 d-flex justify-content-end py-1"><a
+        (click)="editForm()" class="action-edit" role="button">Editar</a></div>
     <div class="row">
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
@@ -24,10 +26,9 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div class="input-container">
+        <div class="input-container pe-10px ">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field">Importe</mat-label>
-            <span matPrefix>$</span>
             <input matInput formControlName="amount" />
           </mat-form-field>
         </div>
@@ -97,7 +98,7 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
-        <div class="input-container">
+        <div class="input-container pe-10px ">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field">Nombre del ejecutivo</mat-label>
             <input formControlName="executive" matInput />
@@ -165,8 +166,8 @@
 
           <div class="input-container" *ngIf="saleType=='2'">
             <mat-form-field class="w-100" appearance="fill">
-              <mat-label class="label-form-field">PhinderFi</mat-label>
-              <input matInput formControlName="phinderfi" />
+              <mat-label class="label-form-field">FinderFee</mat-label>
+              <input matInput formControlName="finderFee" />
             </mat-form-field>
           </div>
         </div>
