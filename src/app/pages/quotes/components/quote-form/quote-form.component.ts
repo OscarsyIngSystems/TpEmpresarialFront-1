@@ -18,6 +18,7 @@ export class QuoteFormComponent implements OnInit {
   public isAdmin(): boolean {
     return false;
   }
+  hld!: File;
 
   constructor(
     public dialog: MatDialog,
@@ -52,4 +53,8 @@ export class QuoteFormComponent implements OnInit {
     });
   }
 
+
+  selectFile(file: File) {
+    this.hld = file;
+  }
 }
