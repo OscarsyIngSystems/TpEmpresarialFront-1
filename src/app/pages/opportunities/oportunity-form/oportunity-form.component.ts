@@ -75,6 +75,8 @@ export class OportunityFormComponent implements OnInit {
   }
 
   editForm() {
-    this.oportunityForm.enable();
+    this.oportunityForm.get('oportunityOrigin')?.enable();
+    this.oportunityForm.get('stage')?.enable();
+    this.oportunityForm.get('amount')?.enable();
   }
 }
