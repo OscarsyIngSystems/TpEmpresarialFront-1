@@ -238,7 +238,11 @@
 <div *ngIf="idTableShow == 7">
   <div class="wrapper mt-3">
     <div class="d-flex justify-content-end">
-      <button mat-button class="rounded-button-outline">
+      <button
+        (click)="openDialogNewContact()"
+        mat-button
+        class="rounded-button-outline"
+      >
         <mat-icon>add</mat-icon> Agregar contacto
       </button>
     </div>

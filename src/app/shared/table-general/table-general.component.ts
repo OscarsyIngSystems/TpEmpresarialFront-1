@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Account } from 'src/app/models/account';
 import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEventComponent } from 'src/app/pages/accounts/components/dialog-event/dialog-event.component';
+import { DialogNewContactComponent } from 'src/app/pages/accounts/components/dialog-new-contact/dialog-new-contact.component';
 
 @Component({
   selector: 'app-table-general',
@@ -80,5 +81,8 @@ export class TableGeneralComponent implements OnInit {
       width: '30%',
       disableClose: true,
     });
+  }
+  openDialogNewContact(): void {
+    this.dialog.open(DialogNewContactComponent, {width: '40%'});
   }
 }
