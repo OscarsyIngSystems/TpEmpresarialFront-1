@@ -25,6 +25,7 @@ import { RelatedComponent } from './components/related/related.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { DialogTaskComponent } from './components/dialog-task/dialog-task.component';
 import { DialogEventComponent } from './components/dialog-event/dialog-event.component';
+import { DialogNewContactComponent } from './components/dialog-new-contact/dialog-new-contact.component';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,6 +45,7 @@ export function createTranslateLoader(http: HttpClient): any {
     RelatedComponent,
     DialogTaskComponent,
     DialogEventComponent,
+    DialogNewContactComponent,
   ],
   imports: [
     CommonModule,

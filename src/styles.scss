@@ -354,9 +354,23 @@ div.dataTables_wrapper div.dataTables_length select {
   font-weight: 500;
 }
 
+.pe-10px {
+  padding-right: 10px !important;
+}
+
 .input-container {
   ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: white !important;
+  }
+
+  .mat-select-disabled .mat-select-trigger {
+    background-color: $color-disabled;
+    padding: 5px !important;
+    border-radius: 5px;
+  }
+
+  .mat-select-arrow-wrapper {
+    padding-top: 10px;
   }
 
   .mat-input-element:disabled,
@@ -539,3 +553,9 @@ input::-webkit-inner-spin-button {
   border-radius: 15px;
 }
 //#endregion dialog-container
+
+.action-edit {
+  color: $color-primary;
+  font-weight: 600;
+  text-decoration: underline;
+}

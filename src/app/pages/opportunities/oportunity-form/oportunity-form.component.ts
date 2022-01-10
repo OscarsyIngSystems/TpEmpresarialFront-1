@@ -27,7 +27,7 @@ export class OportunityFormComponent implements OnInit {
       accountName: [''],
       closeDate: [new Date(), Validators.required],
       stage: ['0'],
-      amount: ['1,290,800'],
+      amount: ['$1,290,800'],
       reason: ['0'],
       description: [''],
       oportunityName: ['', Validators.required],
@@ -37,18 +37,18 @@ export class OportunityFormComponent implements OnInit {
       trybuy: [false],
       executive: ['Sergio Aparicio Contreras'],
       whoIntegrated: ['one'],
-      saleType: ['1', Validators.required],
-      phinderfi: [''],
+      saleType: ['0', Validators.required],
+      finderFee: [''],
       collaboratorName: [],
       collaboratorNumber: [],
-      distributor: []
+      distributor: [],
     });
     this.oportunityForm.get('badge')?.disable();
     this.oportunityForm.get('probability')?.disable();
     this.oportunityForm.get('executive')?.disable();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   ngAfterContentInit(): void {
     if (this.oportunityDetailData) {
@@ -66,13 +66,19 @@ export class OportunityFormComponent implements OnInit {
     });
   }
 
-
   get saleType(): string {
     return this.oportunityForm.value.saleType;
   }
 
-
   selectFile(file: File) {
     this.hld = file;
+  }
+
+  editForm() {
+    this.oportunityForm.get('oportunityOrigin')?.enable();
+    this.oportunityForm.get('stage')?.enable();
+    this.oportunityForm.get('amount')?.enable();
+    this.oportunityForm.get('trybuy')?.enable();
+    this.oportunityForm.get('saleType')?.enable();
   }
 }

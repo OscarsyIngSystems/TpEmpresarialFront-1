@@ -1,0 +1,33 @@
+@import "../../../../../styles.scss";
+
+.title {
+  color: $color-primary;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.btn-add {
+  width: 100%;
+  border: 2px solid gray;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.input-container {
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white !important;
+  }
+
+  .mat-input-element:disabled,
+  .mat-form-field-type-mat-native-select.mat-form-field-disabled
+    .mat-form-field-infix::after {
+    color: rgba(0, 0, 0, 0.38);
+    background-color: $color-disabled;
+    border-radius: 5px;
+    padding: 5px !important;
+    font-weight: 500 !important;
+  }
+}
