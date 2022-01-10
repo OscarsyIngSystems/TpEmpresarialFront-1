@@ -26,3 +26,9 @@
   text-align: center;
   border-radius: 5px;
 }
+
+.form-container {
+  max-height: 276px;
+  overflow: auto;
+  overflow-x: hidden;
+}
