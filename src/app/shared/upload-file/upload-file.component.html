@@ -1,26 +1,14 @@
 <div class="matDialogMassiveLoad mt-2">
   <div mat-dialog-content class="contentDrop">
     <div>
-      <ngx-file-drop
-        dropZoneLabel="Drop files here"
-        (onFileDrop)="dropped($event)"
-        (onFileOver)="fileOver($event)"
-        (onFileLeave)="fileLeave($event)"
-      >
-        <ng-template
-          ngx-file-drop-content-tmp
-          let-openFileSelector="openFileSelector"
-        >
+      <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+        (onFileLeave)="fileLeave($event)">
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
           <div>
             <div class="textDrop">Arrastra y suelta aquí</div>
             <p class="lineDrop textDrop">ó</p>
             <div>
-              <button
-                class="btn-ok"
-                (click)="openFileSelector()"
-                mat-button
-                cdkFocusInitial
-              >
+              <button class="btn-ok" (click)="openFileSelector()" mat-button cdkFocusInitial>
                 Adjuntar archivo
               </button>
             </div>

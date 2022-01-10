@@ -14,7 +14,12 @@
       [dataSource]="dataContacts.dataSource" [idTableShow]="7"></app-table-general>
   </mat-tab>
   <mat-tab label="Archivos (3)">
-    <app-upload-file></app-upload-file>
+
+    <app-upload-file *ngIf="files.length==0" (handdleFile)="handdleFile($event)"></app-upload-file>
+
+    <app-table-general *ngIf="files.length>0" (fileEmitter)="handdleTableFile($event)" [idTableShow]="15"
+      [dataFile]="dataFiles.dataSource" [columns]="dataFiles.columnsShow">
+    </app-table-general>
   </mat-tab>
   <mat-tab label="Actividades (8)">
 

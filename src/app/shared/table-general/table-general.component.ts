@@ -1,6 +1,13 @@
 import { DialogTaskComponent } from './../../pages/accounts/components/dialog-task/dialog-task.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { Account } from 'src/app/models/account';
 import { StorageService } from 'src/app/services/shared/storage.service';
@@ -15,8 +22,21 @@ import { DialogNewContactComponent } from 'src/app/pages/accounts/components/dia
 export class TableGeneralComponent implements OnInit {
   @Input() columns: any[] = []; //nombrs de las columnase
   @Input() dataSource: any[] = []; //datos de la tabla
+  data: any[] = [];
+
+  @Input()
+  get dataFile(): any[] {
+    return this.data;
+  }
+  set dataFile(data: any[]) {
+    console.log(data);
+
+    this.data = data;
+  }
+
   @Input() idTableShow: number = 0; //indicador de que tabla se muestra
   @Input() showHeaderTable!: boolean;
+  @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
   @ViewChild('dataTable') dataTable: any;
   dtOptions: DataTables.Settings = {};
 
@@ -71,6 +91,10 @@ export class TableGeneralComponent implements OnInit {
     this.route.navigate(['/quotes', quote.numberList]);
   }
 
+  handdleFile(file: File) {
+    this.fileEmitter.emit(file);
+  }
+
   openDialogTask(): void {
     this.dialog.open(DialogTaskComponent, { data: null, width: '30%' });
   }
@@ -83,6 +107,6 @@ export class TableGeneralComponent implements OnInit {
     });
   }
   openDialogNewContact(): void {
-    this.dialog.open(DialogNewContactComponent, {width: '40%'});
+    this.dialog.open(DialogNewContactComponent, { width: '40%' });
   }
 }

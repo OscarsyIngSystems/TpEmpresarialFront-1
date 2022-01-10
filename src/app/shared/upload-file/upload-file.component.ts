@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   NgxFileDropEntry,
   FileSystemDirectoryEntry,
@@ -11,6 +11,9 @@ import {
   styleUrls: ['./upload-file.component.scss'],
 })
 export class UploadFileComponent implements OnInit {
+  @Output() private handdleFile: EventEmitter<Array<File>> = new EventEmitter<
+    Array<File>
+  >();
   constructor() {}
 
   ngOnInit(): void {}
@@ -19,13 +22,14 @@ export class UploadFileComponent implements OnInit {
 
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
-    console.log(this.files);
-
+    let localfiles: Array<File> = [];
     for (const droppedFile of files) {
       // Is it a file?
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+
         fileEntry.file((file: File) => {
+          localfiles.push(file);
           // Here you can access the real file
           /**
           // You could upload it like this:
@@ -48,6 +52,7 @@ export class UploadFileComponent implements OnInit {
         const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
       }
     }
+    this.handdleFile.emit(localfiles);
   }
 
   public fileOver(event: any) {}

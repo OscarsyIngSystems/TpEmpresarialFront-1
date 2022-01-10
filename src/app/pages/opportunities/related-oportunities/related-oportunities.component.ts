@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { IFile } from 'src/app/models/IFile';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { TeamComponent } from '../dialogs/team/team.component';
 
@@ -10,6 +11,8 @@ import { TeamComponent } from '../dialogs/team/team.component';
 })
 export class RelatedOportunitiesComponent implements OnInit {
   public contentLabels = 'oportunities.';
+  files: Array<File> = [];
+  filesInfo: Array<IFile> = [];
 
   infoDetail: Array<InfoDetail> = [
     {
@@ -325,11 +328,40 @@ export class RelatedOportunitiesComponent implements OnInit {
     ],
   };
 
+  dataFiles: { columnsShow: string[]; dataSource: IFile[] } = {
+    columnsShow: ['no', 'title', 'lastUpdatedDate', 'size', 'action'],
+    dataSource: [],
+  };
+
   constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
   openDialogTeam(titulo: string): void {
     this.dialog.open(TeamComponent, { data: titulo });
+  }
+
+  handdleFile(files: Array<File>) {
+    this.files = [...files];
+    this.addFiles();
+  }
+
+  handdleTableFile(file: File) {
+    this.files.push(file);
+    console.log(this.files);
+    this.addFiles();
+  }
+
+  private addFiles() {
+    this.filesInfo = [];
+    this.files.forEach((file: any) => {
+      this.filesInfo.push({
+        lastUpdatedDate: file.lastModifiedDate,
+        size: file.size,
+        title: file.name,
+      });
+    });
+
+    this.dataFiles.dataSource = this.filesInfo;
   }
 }

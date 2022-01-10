@@ -45,6 +45,7 @@ import { UploadButtonFileComponent } from './upload-button-file/upload-button-fi
 import { InstallationsComponent } from './dashboad-components/installations/installations.component';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ContactsSearchComponent } from './contacts-search/contacts-search.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -143,6 +144,7 @@ import { ContactsSearchComponent } from './contacts-search/contacts-search.compo
     NgxFileDropModule,
     NgApexchartsModule,
     NgxMaterialTimepickerModule,
+    PipesModule,
   ],
 })
 export class ComponentsModule {}

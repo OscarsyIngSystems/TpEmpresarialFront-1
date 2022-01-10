@@ -28,7 +28,7 @@ export function createTranslateLoader(http: HttpClient): any {
     FormsModule,
     NgxSpinnerModule,
     ComponentsModule,
-        TranslateModule.forRoot({
+    TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
