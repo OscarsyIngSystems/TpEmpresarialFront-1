@@ -262,39 +262,65 @@ export class RelatedOportunitiesComponent implements OnInit {
 
   dataActivityHistory = {
     columnsShow: [
-      {
-        key: 'numberList',
-        columnName: this.contentLabels + 'table-activities-history.colum1',
-      },
-      {
-        key: 'subject',
-        columnName: this.contentLabels + 'table-activities-history.colum2',
-      },
-      {
-        key: 'name',
-        columnName: this.contentLabels + 'table-activities-history.colum3',
-      },
-      {
-        key: 'relatedWith',
-        columnName: this.contentLabels + 'table-activities-history.colum4',
-      },
-      {
-        key: 'expirationDate',
-        columnName: this.contentLabels + 'table-activities-history.colum5',
-      },
-      {
-        key: 'assignedTo',
-        columnName: this.contentLabels + 'table-activities-history.colum6',
-      },
+      'number',
+      'subject',
+      'name',
+      'related',
+      'expiration',
+      'assignedTo',
     ],
     dataSource: [
       {
-        numberList: 1,
-        subject: 'Meet - seguimiento de la cuenta',
-        name: 'Jesus Camacho',
-        relatedWith: 'Audi CDMX SA de Cv',
-        expirationDate: '19/12/2021',
-        assignedTo: 'Elizabeth Reynoso',
+        number: 1,
+        subject: 'Meet - Seguimiento a la cuenta',
+        name: 'Jesús Camacho Fernando ',
+        related: 'Audi CDMX S.A. de C.V. ',
+        expiration: '19-Nov-2021',
+        assignedTo: 'Elizabeth Reynoso Cuevas',
+      },
+      {
+        number: 2,
+        subject: 'Llamada de seguimiento',
+        name: 'Jesús Camacho Fernando ',
+        related: 'Audi CDMX S.A. de C.V. ',
+        expiration: '16-Nov-2021',
+        assignedTo: 'Ana Lilia Rodriguez Malfavon',
+      },
+    ],
+  };
+
+  dataBill = {
+    columnsShow: ['name', 'brm', 'saleId', 'address'],
+    dataSource: [
+      {
+        name: 'Audi México, S.A. de C.V.',
+        brm: '0200476666',
+        saleId: 'Lorem Ipsum',
+        address: 'Boulevard Q5 No. 1',
+      },
+      {
+        name: 'Audi México, S.A. de C.V.',
+        brm: '0200395814',
+        saleId: 'Lorem Ipsum',
+        address: 'Boulevard Q5 No. 1',
+      },
+      {
+        name: 'Audi México, S.A. de C.V.',
+        brm: '0200431091',
+        saleId: 'Lorem Ipsum',
+        address: 'Av. Presidente Masaryk Esq, Galileo 66',
+      },
+      {
+        name: 'Audi México, S.A. de C.V.',
+        brm: '0200440400',
+        saleId: 'Lorem Ipsum',
+        address: 'Juan Salvador Agraz 60',
+      },
+      {
+        name: 'Audi México, S.A. de C.V.',
+        brm: '0200228177',
+        saleId: 'Lorem Ipsum',
+        address: 'Boulevard Q5 No. 1',
       },
     ],
   };
