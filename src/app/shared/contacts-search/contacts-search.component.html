@@ -1,0 +1,22 @@
+<mat-form-field class="input-group w-100">
+  <input
+    type="text"
+    matInput
+    placeholder="Buscar contacto"
+    aria-label="Buscar contacto"
+    aria-describedby="basic-addon2"
+    [formControl]="searchData"
+    [matAutocomplete]="auto"
+    (keydown.enter)="search()"
+  />
+  <mat-icon matSuffix class="search-icon">search</mat-icon>
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let option of filteredOptions | async"
+      (click)="setSelectedOption(option.name)"
+      [value]="option.name + ' ' + option.lastName"
+    >
+      {{ option.name }} {{ option.lastName }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

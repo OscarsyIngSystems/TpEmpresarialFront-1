@@ -370,11 +370,6 @@ div.dataTables_wrapper div.dataTables_length select {
   }
 }
 
-// .switch {
-//   color: $color-border !important;
-//   background-color: $color-white !important;
-// }
-
 //#region dataTableSort
 
 table.dataTable > thead .sorting:after,
@@ -531,14 +526,16 @@ input::-webkit-inner-spin-button {
   background-color: #3b4559;
 }
 
-//#endregio radio
+//#endregion radio
 
 //#region timePicker
 .timepicker-overlay {
   z-index: 9999 !important;
 }
 //#endregion timePicker
-// dialog-container - dialog-load-sites.component
+
+//#region dialog-container
 .custom-dd .mat-dialog-container {
   border-radius: 15px;
 }
+//#endregion dialog-container
