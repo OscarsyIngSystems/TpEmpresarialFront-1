@@ -12,23 +12,38 @@ export interface Team {
   styleUrls: ['./team.component.scss'],
 })
 export class TeamComponent implements OnInit {
-  form: FormGroup;
-  team: Array<Team> = [];
+  forms: Array<FormGroup> = [];
 
   constructor(
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public title: string
   ) {
-    this.form = this.fb.group({
-      user: ['', Validators.required],
-      function: ['', Validators.required],
-    });
+    this.forms.push(
+      this.fb.group({
+        user: ['', Validators.required],
+        function: ['', Validators.required],
+      })
+    );
   }
 
   ngOnInit(): void {}
 
   addTeam() {
-    this.team.push(this.form.value);
-    console.log(this.team);
+    if (this.isValidForm)
+      this.forms.push(
+        this.fb.group({
+          user: ['', Validators.required],
+          function: ['', Validators.required],
+        })
+      );
+  }
+
+  private get isValidForm(): boolean {
+    let isValid = true;
+    this.forms.forEach((form) => {
+      if (form.invalid) isValid = false;
+    });
+
+    return isValid;
   }
 }
