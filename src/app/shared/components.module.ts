@@ -109,6 +109,7 @@ import { ContactsSearchComponent } from './contacts-search/contacts-search.compo
     UploadButtonFileComponent,
     InstallationsComponent,
     NgxMaterialTimepickerModule,
+    ContactsSearchComponent,
   ],
   imports: [
     ChartsModule,
