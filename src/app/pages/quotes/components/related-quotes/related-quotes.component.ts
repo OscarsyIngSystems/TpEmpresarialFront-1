@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IFile } from 'src/app/models/IFile';
 import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
@@ -8,6 +9,8 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 })
 export class RelatedQuotesComponent implements OnInit {
   public contentLabels = 'oportunities.';
+  files: Array<File> = [];
+  filesInfo: Array<IFile> = [];
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Número de oportunidad',
@@ -339,6 +342,35 @@ export class RelatedQuotesComponent implements OnInit {
       address: 'Boulevard Q5 No. 1',
     },
   ];
+
+  dataFiles: { columnsShow: string[]; dataSource: IFile[] } = {
+    columnsShow: ['no', 'title', 'lastUpdatedDate', 'size', 'action'],
+    dataSource: [],
+  };
+
+  handdleFile(files: Array<File>) {
+    this.files = [...files];
+    this.addFiles();
+  }
+
+  handdleTableFile(file: File) {
+    this.files.push(file);
+    this.addFiles();
+  }
+
+  private addFiles() {
+    this.filesInfo = [];
+    this.files.forEach((file: any) => {
+      this.filesInfo.push({
+        lastUpdatedDate: file.lastModifiedDate,
+        size: file.size,
+        title: file.name,
+      });
+    });
+
+    this.dataFiles.dataSource = this.filesInfo;
+  }
+
   constructor() {}
 
   ngOnInit(): void {}

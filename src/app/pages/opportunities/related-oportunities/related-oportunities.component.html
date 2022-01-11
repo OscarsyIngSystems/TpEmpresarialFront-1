@@ -13,7 +13,7 @@
     <app-table-general [showHeaderTable]="true" [columns]="dataContacts.displayedColumns"
       [dataSource]="dataContacts.dataSource" [idTableShow]="7"></app-table-general>
   </mat-tab>
-  <mat-tab label="Archivos (3)">
+  <mat-tab label="{{'Archivos ('+files.length+')'}}">
 
     <app-upload-file *ngIf="files.length==0" (handdleFile)="handdleFile($event)"></app-upload-file>
 
