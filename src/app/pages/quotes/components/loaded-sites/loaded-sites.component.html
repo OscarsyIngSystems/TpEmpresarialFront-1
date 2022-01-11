@@ -87,7 +87,7 @@
         name="op"
         autocomplete="off"
         [formControl]="filterParam"
-        (click)="doFilter($event)"
+        (click)="onFilter('fibra')"
       />
       <label
         class="btn btn-sm btn-outline-primary me-2 btn-check-fiber btn-check-no-shadow"
@@ -103,7 +103,6 @@
         autocomplete="off"
         name="op"
         [formControl]="filterParam"
-        (click)="doFilter($event)"
       />
       <label
         class="btn btn-sm btn-outline-primary me-2 btn-check-microwave btn-check-no-shadow"
@@ -154,8 +153,8 @@
   <div class="col-md-7 lg-7 xl-7">
     <app-table-general
       [showHeaderTable]="true"
-      [columns]="dataActivityHistory.columnsShow"
-      [dataSource]="dataActivityHistory.dataSource"
+      [columns]="columns"
+      [dataSource]="dataSource.data"
       [idTableShow]="10"
     ></app-table-general>
   </div>
