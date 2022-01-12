@@ -17,6 +17,7 @@ import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-lo
 export class LoadedSitesComponent implements OnInit {
   public contentLabels = 'quotes.';
   filterParam: FormControl = new FormControl('0');
+  filterValue: string = '';
   lastValue: number;
   dataSource = new MatTableDataSource();
   infoDetail: Array<InfoDetail> = [
@@ -41,41 +42,14 @@ export class LoadedSitesComponent implements OnInit {
       value: 'Sergio Aparicio Contreras',
     },
   ];
-
   columns: string[] = [
+    'action',
     'check',
-    'numberList',
     'site',
     'coverage',
     'accessMedia',
-    'action',
+    // 'numberList',
   ];
-  // data = [
-  //   {
-  //     numberList: 1,
-  //     site: 'Audi Pedregal Anillo Periférico Boulevard 3539, San Jerónimo Aculco, La Magdalena Contreras, 10400 Ciudad de México, CDMX 19.335048, -99.19840699999',
-  //     coverage: 'Con cobertura',
-  //     accessMedia: 'Fibra',
-  //   },
-  //   {
-  //     numberList: 2,
-  //     site: 'Audi Pedregal Anillo Periférico Boulevard 3539, San Jerónimo Aculco, La Magdalena Contreras, 10400 Ciudad de México, CDMX 19.335048, -99.19840699999',
-  //     coverage: 'Con cobertura',
-  //     accessMedia: 'Microonda',
-  //   },
-  //   {
-  //     numberList: 3,
-  //     site: 'Audi Pedregal Anillo Periférico Boulevard 3539, San Jerónimo Aculco, La Magdalena Contreras, 10400 Ciudad de México, CDMX 19.335048, -99.19840699999',
-  //     coverage: 'Con cobertura',
-  //     accessMedia: 'Fibra',
-  //   },
-  //   {
-  //     numberList: 4,
-  //     site: 'Audi Pedregal Anillo Periférico Boulevard 3539, San Jerónimo Aculco, La Magdalena Contreras, 10400 Ciudad de México, CDMX 19.335048, -99.19840699999',
-  //     coverage: 'Con cobertura',
-  //     accessMedia: 'N/D',
-  //   },
-  // ];
 
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
@@ -83,16 +57,16 @@ export class LoadedSitesComponent implements OnInit {
 
   constructor(private dlg: MatDialog, private chRef: ChangeDetectorRef, private service:QuotesService) {
     this.lastValue = this.filterParam.value;
-    // this.dataSource.data = this.data;
   }
 
   ngOnInit(): void {
     this.dataSource.filterPredicate = this.filterPredicate
     this.getData()
+    console.log(this.filterValue)
   }
 
   getData() {
-    this.service.getData().subscribe((data) => {
+    this.service.getData().subscribe((data:Sale[]) => {
       this.dataSource.data = data
 
     })
@@ -112,12 +86,16 @@ export class LoadedSitesComponent implements OnInit {
   }
 
 
-  onFilter(filterValue:string) {
-    this.dataSource.filter = filterValue
+  onFilter(filterValues:string) {
+    this.filterValue = filterValues
+    this.dataSource.filter = filterValues
+    console.log(this.filterParam)
   }
 
+
+
   filterPredicate(data:any, filter: string) {
-    let datas = JSON.stringify(data).includes(filter);
+    let datas = JSON.stringify(data).includes(filter)
     return datas
   }
 

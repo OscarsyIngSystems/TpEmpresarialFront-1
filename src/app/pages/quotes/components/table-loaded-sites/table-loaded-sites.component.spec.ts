@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogLoadSitesComponent } from './dialog-load-sites.component';
+import { TableLoadedSitesComponent } from './table-loaded-sites.component';
 
-describe('DialogLoadSitesComponent', () => {
-  let component: DialogLoadSitesComponent;
-  let fixture: ComponentFixture<DialogLoadSitesComponent>;
+describe('TableLoadedSitesComponent', () => {
+  let component: TableLoadedSitesComponent;
+  let fixture: ComponentFixture<TableLoadedSitesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogLoadSitesComponent ]
+      declarations: [ TableLoadedSitesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DialogLoadSitesComponent);
+    fixture = TestBed.createComponent(TableLoadedSitesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

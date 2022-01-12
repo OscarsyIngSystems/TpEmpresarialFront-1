@@ -1,0 +1,37 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <ng-container matColumnDef="action">
+    <th  mat-header-cell *matHeaderCellDef> <mat-checkbox class="example-margin"></mat-checkbox>  </th>
+    <td [style.background-color]="element.color" mat-cell *matCellDef="let element"> <mat-checkbox class="example-margin"></mat-checkbox> </td>
+  </ng-container>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="check">
+    <th mat-header-cell *matHeaderCellDef> N° </th>
+    <td [style.background-color]="element.color" mat-cell *matCellDef="let element;let i = index;"> {{i+1}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="site">
+    <th mat-header-cell *matHeaderCellDef> Sitio </th>
+    <td [style.background-color]="element.color" class="numberList" mat-cell *matCellDef="let element"> {{element.site}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="coverage">
+    <th mat-header-cell *matHeaderCellDef> Cobertura </th>
+    <td [style.background-color]="element.color" mat-cell *matCellDef="let element"> {{element.coverage}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="accessMedia">
+    <th mat-header-cell *matHeaderCellDef> Medio de Acceso</th>
+    <td [style.background-color]="element.color"  mat-cell *matCellDef="let element"> {{element.accessMedia}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-row *matRowDef="let row; columns: columns;" (click)="row.highlighted = !row.highlighted"  (mouseover)="row.hovered = true" (mouseout)="row.hovered = false" [ngClass]="{hovered: row.hovered, highlighted: row.highlighted}" ></tr>
+</table>
