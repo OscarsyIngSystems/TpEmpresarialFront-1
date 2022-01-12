@@ -162,11 +162,11 @@
         </div>
         <div class="col-md-4 col-lg-4 col-xl-4">
           <div class="input-container" *ngIf="saleType=='1'">
-            <mat-form-field class="w-100 no-padding" appearance="fill">
+            <!--             <mat-form-field class="w-100 no-padding" appearance="fill">
 
               <input matInput placeholder="Número de colaborador" formControlName="collaboratorNumber" />
-            </mat-form-field>
-            <!-- <app-contacts-search textPlaceholder="Número de colaborador"></app-contacts-search> -->
+            </mat-form-field> -->
+            <app-contacts-search textPlaceholder="Número de colaborador"></app-contacts-search>
           </div>
 
           <div class="input-container" *ngIf="saleType=='2'">
@@ -174,7 +174,7 @@
               <mat-label class="label-form-field">FinderFee</mat-label>
               <input matInput formControlName="finderFee" />
             </mat-form-field> -->
-            <app-contacts-search textplaceholder="FinderFee"></app-contacts-search>
+            <app-contacts-search textPlaceholder="finderFee"></app-contacts-search>
           </div>
         </div>
 
