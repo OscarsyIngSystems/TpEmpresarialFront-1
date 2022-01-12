@@ -1,0 +1,324 @@
+@import "../../../../../styles.scss";
+
+.search-bar {
+  border-radius: 25px;
+  border: none;
+  height: 40px;
+}
+.search-bar-btn {
+  &:hover {
+    background-color: $color-primary;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+  background-color: $color-white;
+}
+
+.search-bar-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar-span {
+  background-color: $color-placeholder;
+  width: 3px;
+  height: 50%;
+}
+
+.search-icon {
+  color: $color-placeholder;
+}
+.input-group {
+  border-radius: 25px;
+}
+
+.width {
+  width: 37% !important;
+}
+
+.small-type {
+  color: $color-placeholder;
+}
+
+.mat-option:hover:not(.mat-option-disabled),
+.mat-option:focus:not(.mat-option-disabled) {
+  background: rgba(236, 77, 152, 0.1);
+}
+
+.mat-option.mat-active {
+  background: $color-white;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.btn-add {
+  border-radius: 25px;
+  background-color: $color-secondary;
+  width: 156px;
+  height: 35px;
+  color: $color-white;
+  border: none;
+  margin-left: 25px;
+}
+
+.btn-add[disabled] {
+  background-color: $color-primary;
+  opacity: 0.5;
+}
+
+#itemIcon1 {
+  color: $color-microwave;
+  margin-right: 5px;
+}
+
+#itemIcon2 {
+  color: $color-gpon;
+  margin-right: 5px;
+}
+#itemIcon3 {
+  color: $color-restriction;
+  margin-right: 5px;
+}
+#itemIcon4 {
+  color: $color-high-risk;
+  margin-right: 5px;
+}
+#itemIcon5 {
+  color: $color-construction;
+  margin-right: 5px;
+}
+#itemIcon6 {
+  color: $color-gpon-microwave;
+  margin-right: 5px;
+}
+#itemIcon7 {
+  color: $color-gpon-construction;
+  margin-right: 5px;
+}
+
+img {
+  width: 95%;
+}
+
+#matListSites > mat-list-item {
+  font-weight: 500;
+}
+
+.icon-clear-search {
+  background-color: $color-btn-clear;
+  font-size: 14px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50% !important;
+  line-height: 19px;
+}
+.btn-clear-search {
+  background-color: $color-white;
+}
+.color {
+  background-color: #3b4559 !important;
+  color: $color-white;
+}
+.underline {
+  text-decoration: underline;
+  color: grey;
+  font-weight: 500;
+}
+
+.btn-check-no-shadow,
+.btn-check:checked + .btn-check:focus {
+  box-shadow: none !important;
+}
+
+//need toggle
+.conteiner-btn-accounts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.btn-check-no-shadow,
+.btn-check:checked + .btn-check:focus {
+  box-shadow: none !important;
+}
+
+// fiber
+.btn-check-fiber {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+.btn-check-fiber:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white; //rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
+
+.btn-check:checked + .btn-check-fiber {
+  color: $color-button-fiber-text !important;
+  background-color: $color-gpon;
+  font-weight: 600;
+  border: none;
+}
+
+// microwave
+.btn-check-microwave {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+.btn-check-microwave:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white; //rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
+
+.btn-check:checked + .btn-check-microwave {
+  color: $color-button-microwave-text !important;
+  background-color: $color-button-microwave-bg;
+  font-weight: 600;
+  border: none;
+}
+
+// negociate
+.btn-check-negociate {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+.btn-check-negociate:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white; //rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
+
+.btn-check:checked + .btn-check-negociate {
+  color: $color-button-coverage-text !important;
+  background-color: $color-button-coverage-bg !important;
+  font-weight: 600;
+  border: none;
+}
+
+// coverage
+.btn-check-coverage {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+.btn-check-coverage:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white; //rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
+
+.btn-check:checked + .btn-check-coverage {
+  color: $color-button-coverage-text !important;
+  background-color: $color-button-coverage-bg !important;
+  font-weight: 600;
+  border: none;
+}
+
+// meter
+.btn-check-meter {
+  border: none;
+  color: black;
+  background: white;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
+}
+
+.btn-check-meter:hover {
+  color: black !important;
+  background-color: $color-white;
+  background: white; //rgba(260, 0, 0, 0.1);
+  font-weight: 600;
+  border: none;
+}
+
+.btn-check:checked + .btn-check-meter {
+  color: $color-button-meter-text !important;
+  background-color: $color-button-meter-bg !important;
+  font-weight: 600;
+  border: none;
+}
+
+.position-filters {
+  width: 46.66%;
+}
+
+.space-img {
+  margin-top: 5rem;
+}
+
+.fw-button {
+  font-weight: 600;
+}
+
+// table
+table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  color: black;
+  background: #f7fafc;
+}
+
+.mat-column-check {
+  flex: none;
+  width: 10px;
+}
+
+.mat-column-index {
+  flex: none;
+  width: 15px;
+}
+
+.mat-column-site {
+  flex: none;
+  width: 200px;
+}
+
+.mat-column-coverage {
+  flex: none;
+  text-align: center;
+  width: 70px;
+}
+
+.mat-column-accessMedia {
+  width: 20px;
+  text-align: center;
+  flex: none;
+}
+
+.mat-column-edit {
+  width: 10px;
+  text-align: center;
+  flex: none;
+}
+
+.edit-icon {
+  cursor: pointer;
+}
+
+
