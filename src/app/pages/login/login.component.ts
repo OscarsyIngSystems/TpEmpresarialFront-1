@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
         .subscribe(
           (response) => {
             console.log(response);
+            localStorage.setItem('tsoptok', response.accessToken);
             this.spinner.hide();
             this.router.navigate(['/dashboard']);
           },
