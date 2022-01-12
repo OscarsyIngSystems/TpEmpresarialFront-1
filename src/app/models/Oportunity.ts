@@ -7,7 +7,7 @@ export interface Oportunity {
   badge: string;
   trybuy: boolean;
   stage: string;
-  amount: number;
+  amount: string;
   reason: string;
   oportunityOrigin: string;
   executive: string;

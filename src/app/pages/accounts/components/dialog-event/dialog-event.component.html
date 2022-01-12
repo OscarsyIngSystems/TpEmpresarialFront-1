@@ -127,6 +127,9 @@
         <mat-label>Recordatorio antes del evento</mat-label>
         <mat-select formControlName="reminder">
           <mat-option value="0">Seleccione una opción</mat-option>
+          <mat-option value="1">opción 1</mat-option>
+          <mat-option value="2">opción 2</mat-option>
+          <mat-option value="3">opción 3</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -135,38 +138,7 @@
   <div class="row">
     <div class="col-12 input-container">
       <mat-label>Invitar a</mat-label>
-      <mat-form-field class="input-group w-100 shadow-sm">
-        <input
-          type="text"
-          matInput
-          placeholder="Buscar contacto"
-          aria-label="Buscar contacto"
-          aria-describedby="basic-addon2"
-          [formControl]="searchData"
-          [matAutocomplete]="auto"
-          (keydown.enter)="search()"
-        />
-        <!-- <button
-          class="btn-clear-search"
-          *ngIf="selectedIdOption"
-          matSuffix
-          mat-icon-button
-          aria-label="Clear"
-          (click)="clearSearch()"
-        >
-          <mat-icon class="icon-clear-search">close</mat-icon>
-        </button> -->
-        <mat-icon matSuffix class="search-icon">search</mat-icon>
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option
-            *ngFor="let option of filteredOptions | async"
-            (click)="setSelectedOption(option.name)"
-            [value]="option.name + ' ' + option.lastName"
-          >
-            {{ option.name }} {{ option.lastName }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
+      <app-contacts-search></app-contacts-search>
     </div>
   </div>
 </form>

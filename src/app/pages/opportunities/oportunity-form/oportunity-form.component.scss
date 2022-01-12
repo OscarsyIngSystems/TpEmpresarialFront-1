@@ -76,6 +76,10 @@
   color: $color-primary;
 }
 
-.sale-type-container{
-  height:52.06px;
+.sale-type-container {
+  height: 52.06px;
+}
+
+.no-padding .mat-form-field-wrapper .mat-form-field-flex {
+  padding: 0 !important;
 }

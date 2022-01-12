@@ -354,9 +354,23 @@ div.dataTables_wrapper div.dataTables_length select {
   font-weight: 500;
 }
 
+.pe-10px {
+  padding-right: 10px !important;
+}
+
 .input-container {
   ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: white !important;
+  }
+
+  .mat-select-disabled .mat-select-trigger {
+    background-color: $color-disabled;
+    padding: 5px !important;
+    border-radius: 5px;
+  }
+
+  .mat-select-arrow-wrapper {
+    padding-top: 10px;
   }
 
   .mat-input-element:disabled,
@@ -369,11 +383,6 @@ div.dataTables_wrapper div.dataTables_length select {
     font-weight: 500 !important;
   }
 }
-
-// .switch {
-//   color: $color-border !important;
-//   background-color: $color-white !important;
-// }
 
 //#region dataTableSort
 
@@ -531,14 +540,22 @@ input::-webkit-inner-spin-button {
   background-color: #3b4559;
 }
 
-//#endregio radio
+//#endregion radio
 
 //#region timePicker
 .timepicker-overlay {
   z-index: 9999 !important;
 }
 //#endregion timePicker
-// dialog-container - dialog-load-sites.component
+
+//#region dialog-container
 .custom-dd .mat-dialog-container {
   border-radius: 15px;
+}
+//#endregion dialog-container
+
+.action-edit {
+  color: $color-primary;
+  font-weight: 600;
+  text-decoration: underline;
 }
