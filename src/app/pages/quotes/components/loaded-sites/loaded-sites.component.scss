@@ -57,7 +57,7 @@
 
 .btn-add {
   border-radius: 25px;
-  background-color: $color-primary;
+  background-color: $color-secondary;
   width: 156px;
   height: 35px;
   color: $color-white;
@@ -274,12 +274,24 @@ img {
   font-weight: 600;
 }
 
-//
+// table
 table {
   width: 100%;
 }
-.numberList {
-  word-break: break-all;
+
+.mat-header-cell {
+  color: black;
+  background: #f7fafc;
+}
+
+.mat-column-check {
+  flex: none;
+  width: 10px;
+}
+
+.mat-column-index {
+  flex: none;
+  width: 15px;
 }
 
 .mat-column-site {
@@ -293,30 +305,20 @@ table {
   width: 70px;
 }
 
-.mat-column-check {
-  flex: none;
-  width: 10px;
-}
-.mat-column-action {
-  // background: red;
-  flex: none;
-  width: 15px;
-}
-
 .mat-column-accessMedia {
-  // background: red;
   width: 20px;
   text-align: center;
   flex: none;
 }
-.mat-header-cell {
-  color: black;
-  background: #f7fafc;
-  // transition: none !important;
-  //   box-shadow: none !important;
+
+.mat-column-edit {
+  width: 10px;
+  text-align: center;
+  flex: none;
 }
 
-// mat - cell, .mat - cell {
-//   d
-// }
+.edit-icon {
+  cursor: pointer;
+}
+
 

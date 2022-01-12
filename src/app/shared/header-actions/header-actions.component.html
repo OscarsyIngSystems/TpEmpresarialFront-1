@@ -5,36 +5,24 @@
   </div>
 
   <div class="d-flex flex-row mb-2">
-    <button
-      *ngIf="!hidenCreateOportunity"
-      mat-button
-      (click)="newOportunity()"
-      class="rounded-button-secondary tx-12 text-bold"
-    >
+    <button *ngIf="!hidenCreateOportunity" mat-button (click)="newOportunity()"
+      class="rounded-button-secondary tx-12 text-bold">
       <mat-icon>add</mat-icon>
       {{ buttonText }}
     </button>
-    <button
-      *ngIf="isLoadSites"
-      (click)="openDialogLoadMassive()"
-      mat-button
-      class="rounded-button-outline btn-primary tx-12 text-bold ms-2"
-    >
+
+    <button   type="button" class="btn-add">
+      <span class="fw-button">+ Agregar</span>  sitio
+    </button>
+    <button *ngIf="isLoadSites" (click)="openDialogLoadMassive()" mat-button
+      class="rounded-button-outline btn-primary tx-12 text-bold ms-2">
       {{ loadSitesText }}
     </button>
-    <button
-      *ngIf="!isCreate && showRelatedText"
-      (click)="openRelated()"
-      mat-button
-      class="rounded-button-outline btn-primary tx-12 text-bold ms-2"
-    >
+    <button *ngIf="!isCreate && showRelatedText" (click)="openRelated()" mat-button
+      class="rounded-button-outline btn-primary tx-12 text-bold ms-2">
       {{ relatedText }}
     </button>
-    <button
-      *ngIf="!isCreate"
-      mat-button
-      class="rounded-button-outline ms-2 tx-12 text-bold"
-    >
+    <button *ngIf="!isCreate" mat-button class="rounded-button-outline ms-2 tx-12 text-bold">
       <mat-icon>chat</mat-icon>
       Chatter
     </button>

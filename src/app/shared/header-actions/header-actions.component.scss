@@ -9,3 +9,17 @@
   background-color: $color-primary;
   color: $color-white;
 }
+
+.btn-add {
+  border-radius: 25px;
+  background-color: $color-primary;
+  width: 156px;
+  height: 35px;
+  color: $color-white;
+  border: none;
+  margin-left: 25px;
+}
+
+.fw-button {
+  font-weight: 600;
+}

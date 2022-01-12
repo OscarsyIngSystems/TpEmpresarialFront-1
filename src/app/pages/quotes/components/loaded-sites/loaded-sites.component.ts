@@ -43,12 +43,12 @@ export class LoadedSitesComponent implements OnInit {
     },
   ];
   columns: string[] = [
-    'action',
     'check',
+    'index',
     'site',
     'coverage',
     'accessMedia',
-    // 'numberList',
+    'edit'
   ];
 
   searchData = new FormControl('', Validators.required);
