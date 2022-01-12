@@ -1,6 +1,6 @@
 import { FormControl, Validators } from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ContactsSearchComponent implements OnInit {
   searchData = new FormControl('', Validators.required);
+  @Input() textPlaceholder = 'Buscar contacto';
   selectedOption = '';
   filteredOptions: Observable<any[]> | undefined;
   options = [
