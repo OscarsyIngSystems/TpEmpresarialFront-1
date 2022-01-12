@@ -19,6 +19,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites/dialog-load-sites.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TableLoadedSitesComponent } from './components/table-loaded-sites/table-loaded-sites.component';
+import { DeletedSitesComponent } from './components/deleted-sites/deleted-sites.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { TableLoadedSitesComponent } from './components/table-loaded-sites/table
     LoadedSitesComponent,
     DialogLoadSitesComponent,
     TableLoadedSitesComponent,
+    DeletedSitesComponent,
   ],
   imports: [
     CommonModule,

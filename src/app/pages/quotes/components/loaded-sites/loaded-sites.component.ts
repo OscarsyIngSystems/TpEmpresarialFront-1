@@ -3,6 +3,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
@@ -55,18 +56,21 @@ export class LoadedSitesComponent implements OnInit {
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
 
-  constructor(private dlg: MatDialog, private chRef: ChangeDetectorRef, private service:QuotesService) {
+  constructor(
+    private service: QuotesService,
+    private dlg: MatDialog,
+    private router: Router
+  ) {
     this.lastValue = this.filterParam.value;
   }
 
   ngOnInit(): void {
     this.dataSource.filterPredicate = this.filterPredicate
     this.getData()
-    console.log(this.filterValue)
   }
 
   getData() {
-    this.service.getData().subscribe((data:Sale[]) => {
+    this.service.getData().subscribe((data: Sale[]) => {
       this.dataSource.data = data
 
     })
@@ -80,13 +84,17 @@ export class LoadedSitesComponent implements OnInit {
     alert('Buscando... ' + this.searchData.value);
   }
 
+  onNavigate() {
+    this.router.navigate(['/quotes/deleted-sites'])
+  }
+
   clearSearch() {
     this.selectedIdOption = 0;
     this.searchData.setValue('');
   }
 
 
-  onFilter(filterValues:string) {
+  onFilter(filterValues: string) {
     this.filterValue = filterValues
     this.dataSource.filter = filterValues
     console.log(this.filterParam)
@@ -94,7 +102,7 @@ export class LoadedSitesComponent implements OnInit {
 
 
 
-  filterPredicate(data:any, filter: string) {
+  filterPredicate(data: any, filter: string) {
     let datas = JSON.stringify(data).includes(filter)
     return datas
   }
