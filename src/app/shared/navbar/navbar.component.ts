@@ -144,4 +144,9 @@ export class NavbarComponent {
     var s = n.toString(16);
     return s.length == 1 ? '0' + s : s;
   }
+
+  logout() {
+    localStorage.removeItem('tsoptok');
+    this.router.navigate(['/login']);
+  }
 }
