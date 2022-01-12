@@ -30,7 +30,7 @@ export class QuoteFormComponent implements OnInit {
       quoteName: ['Audi CDMX-COT', Validators.required],
       eps: ['one', Validators.required],
       dataPicker: [new Date(), Validators.required],
-      isMain :[true],
+      isMain: [true],
       isMainQuotation: [true],
       reason: ['Superioridad técnica'],
       quoteType: ['3'],
@@ -42,6 +42,7 @@ export class QuoteFormComponent implements OnInit {
   ngAfterContentInit(): void {
     if (!this.isCreate) {
       this.form.disable();
+      this.form.get('dataPicker')?.enable();
     }
   }
   openDialog(): void {
@@ -52,7 +53,6 @@ export class QuoteFormComponent implements OnInit {
       data: { name: this.name },
     });
   }
-
 
   selectFile(file: File) {
     this.hld = file;

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
           (response) => {
             console.log(response);
             this.spinner.hide();
-            return response;
+            this.router.navigate(['/dashboard']);
           },
           (error) => {
             console.error(error);
@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
               'Ocurrio un problema, intentelo más tarde',
               'Aceptar'
             );
-            return error;
           }
         );
     }
