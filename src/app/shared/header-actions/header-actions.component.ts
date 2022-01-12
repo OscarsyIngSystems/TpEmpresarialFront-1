@@ -23,10 +23,14 @@ export class HeaderActionsComponent implements OnInit {
   @Input() isLoadSites: boolean = false;
 
   constructor(
-    private router: Router,
+    public router: Router,
     public storageService: StorageService,
     private dialog: MatDialog
   ) {}
+
+  ngOnInit(): void {
+    console.log('router',this.router.url)
+  }
 
   newOportunity(): void {
     this.router.navigate([this.route]);
@@ -39,5 +43,5 @@ export class HeaderActionsComponent implements OnInit {
   openDialogLoadMassive() {
     this.dialog.open(DialogMassiveLoadSitesComponent);
   }
-  ngOnInit(): void {}
+
 }

@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
 import { QuotesService } from 'src/app/services/quotes/quotes.service';
+import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
@@ -58,14 +59,17 @@ export class DeletedSitesComponent implements OnInit {
   constructor(
     private service: QuotesService,
     private dlg: MatDialog,
-    private router: Router
+    public router: Router,
+    public storageService: StorageService
   ) {
     this.lastValue = this.filterParam.value;
+
   }
 
   ngOnInit(): void {
     this.dataSource.filterPredicate = this.filterPredicate
     this.getData()
+    this.storageService.setDataName('AUDI 1 COT | 2 SITIOS')
   }
 
   getData() {

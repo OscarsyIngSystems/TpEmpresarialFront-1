@@ -3,7 +3,7 @@
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 <div class="d-flex justify-content-start m-3">
   <div class="search-bar-divider">
-    <button mat-button style="margin-right: 9em;" type="button" class="btn-add ">
+    <button mat-button style="margin-right: 10em;" type="button" class="btn-add">
       Restablecer Sitios
     </button>
   </div>
@@ -31,6 +31,11 @@
       <mat-icon class="search-icon">search</mat-icon>
     </button>
   </div>
+  <div class="search-bar-divider">
+    <span *ngIf="router.url != '/quotes/deleted-sites'" class="underline">Eliminar sitio</span>
+  </div>
+
+  <div></div>
 </div>
 
 <div class="m-3 row">
