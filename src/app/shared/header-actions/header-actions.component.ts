@@ -44,4 +44,9 @@ export class HeaderActionsComponent implements OnInit {
     this.dialog.open(DialogMassiveLoadSitesComponent);
   }
 
+  onNavigate() {
+    console.log(this.router.url)
+    this.router.navigate(['/quotes/sites'])
+  }
+
 }

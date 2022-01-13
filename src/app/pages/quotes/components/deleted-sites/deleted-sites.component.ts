@@ -35,7 +35,7 @@ export class DeletedSitesComponent implements OnInit {
       value: 'COT3781611',
     },
     {
-      name: 'Vigencia cotización',
+      name: 'Vigencia de la cotización',
       value: '19/11/2021',
     },
     {

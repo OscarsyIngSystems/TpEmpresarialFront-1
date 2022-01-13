@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
 import { QuotesService } from 'src/app/services/quotes/quotes.service';
+import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
@@ -34,7 +35,7 @@ export class LoadedSitesComponent implements OnInit {
       value: 'COT3781611',
     },
     {
-      name: 'Vigencia cotización',
+      name: 'Vigencia de la cotización',
       value: '19/11/2021',
     },
     {
@@ -57,6 +58,7 @@ export class LoadedSitesComponent implements OnInit {
 
   constructor(
     private service: QuotesService,
+    public storageService: StorageService,
     private dlg: MatDialog,
     private router: Router
   ) {
@@ -66,12 +68,12 @@ export class LoadedSitesComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource.filterPredicate = this.filterPredicate
     this.getData()
+    this.storageService.setDataName('AUDI 1 COT | 2 SITIOS')
   }
 
   getData() {
     this.service.getData().subscribe((data: Sale[]) => {
       this.dataSource.data = data
-
     })
   }
 
