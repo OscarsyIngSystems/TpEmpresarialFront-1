@@ -1,0 +1,24 @@
+.example-chip-list {
+  width: 100%;
+}
+
+.mat-standard-chip .mat-chip-remove .mat-icon {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+
+.mat-standard-chip .mat-chip-remove,
+.mat-standard-chip .mat-chip-trailing-icon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.mat-standard-chip .mat-chip-remove {
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0;
+  background: none;
+}
