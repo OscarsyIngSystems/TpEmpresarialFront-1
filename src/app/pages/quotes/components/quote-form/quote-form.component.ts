@@ -19,7 +19,7 @@ export class QuoteFormComponent implements OnInit {
     return false;
   }
   hld!: File;
-
+  lastValue!: number;
   constructor(
     public dialog: MatDialog,
     private _url: ActivatedRoute,
@@ -35,6 +35,7 @@ export class QuoteFormComponent implements OnInit {
       reason: ['Superioridad técnica'],
       quoteType: ['3'],
     });
+    this.lastValue = this.form.get('quoteType')?.value;
   }
 
   ngOnInit(): void {}
@@ -56,5 +57,13 @@ export class QuoteFormComponent implements OnInit {
 
   selectFile(file: File) {
     this.hld = file;
+  }
+
+  onChange(event: any) {
+    if (event.target.value != 3) {
+      this.form.get('reason')?.disable();
+    } else {
+      this.form.get('reason')?.enable();
+    }
   }
 }
