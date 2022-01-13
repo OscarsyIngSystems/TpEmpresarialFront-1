@@ -201,7 +201,11 @@
         </div>
 
         <div class="col-4 input-container">
-          <mat-form-field class="w-100" appearance="fill">
+          <app-contacts-search
+            title="Contacto principal"
+            [defaultValue]="this.defaultContact"
+          ></app-contacts-search>
+          <!-- <mat-form-field class="w-100" appearance="fill">
             <mat-label>Contacto principal</mat-label>
             <input
               matInput
@@ -212,7 +216,7 @@
               *ngIf="principalDataForm.controls.principal_contact.invalid"
               >Campo obligatorio</mat-error
             >
-          </mat-form-field>
+          </mat-form-field> -->
         </div>
       </div>
     </form>

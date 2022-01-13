@@ -14,7 +14,7 @@ export class StorageService {
     return this.dataName.value;
   }
 
-  public setDataName(name: string) {
+  public setDataName(name: string): void {
     this.dataName.next(name);
   }
 }

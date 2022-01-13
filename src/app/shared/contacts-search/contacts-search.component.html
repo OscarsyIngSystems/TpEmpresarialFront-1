@@ -1,12 +1,65 @@
-<mat-form-field class="input-group w-100">
-
-  <input type="text" matInput [placeholder]="textPlaceholder" [attr.aria-label]="textPlaceholder"
-    aria-describedby="basic-addon2" [formControl]="searchData" [matAutocomplete]="auto" (keydown.enter)="search()" />
+<mat-form-field *ngIf="defaultValue != ''" class="input-group w-100">
+  <input
+    type="text"
+    matInput
+    placeholder="Buscar contacto"
+    aria-label="Buscar contacto"
+    aria-describedby="basic-addon2"
+    [formControl]="searchData"
+    [matAutocomplete]="auto"
+    (keydown.enter)="search()"
+  />
+  <button
+    class="btn-clear-search"
+    *ngIf="selectedOption != ''"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="clearSearch()"
+  >
+    <mat-icon class="icon-clear-search">close</mat-icon>
+  </button>
   <mat-icon matSuffix class="search-icon">search</mat-icon>
   <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-    <mat-option *ngFor="let option of filteredOptions | async" (click)="setSelectedOption(option.name)"
-      [value]="option.name + ' ' + option.lastName">
+    <mat-option
+      *ngFor="let option of filteredOptions | async"
+      (click)="setSelectedOption(option.name)"
+      [value]="option.name + ' ' + option.lastName"
+    >
       {{ option.name }} {{ option.lastName }}
     </mat-option>
   </mat-autocomplete>
+</mat-form-field>
+
+<mat-form-field
+  *ngIf="defaultValue == ''"
+  class="example-chip-list input-group w-100"
+  appearance="fill"
+>
+  <mat-label>{{ title }}</mat-label>
+
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{ option.name }} {{ option.lastName }}
+    </mat-option>
+  </mat-autocomplete>
+
+  <mat-chip-list #contactsList aria-label="Buscar contacto">
+    <input
+      placeholder="Buscar contacto"
+      #searchInput
+      [formControl]="searchData"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="contactsList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"
+    />
+    <mat-icon matSuffix class="search-icon">search</mat-icon>
+    <mat-chip *ngFor="let option of selectedOptions" (removed)="remove(option)">
+      {{ option.name }} {{ option.lastName }}
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+  </mat-chip-list>
 </mat-form-field>

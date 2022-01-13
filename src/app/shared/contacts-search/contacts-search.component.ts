@@ -1,18 +1,31 @@
 import { FormControl, Validators } from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Observable } from 'rxjs';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-contacts-search',
   templateUrl: './contacts-search.component.html',
   styleUrls: ['./contacts-search.component.scss'],
 })
-export class ContactsSearchComponent implements OnInit {
+export class ContactsSearchComponent implements OnInit, AfterContentInit {
+  @Input() title: string = '';
+  @Input() defaultValue: string = '';
+  @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
   searchData = new FormControl('', Validators.required);
-  @Input() textPlaceholder = 'Buscar contacto';
-  selectedOption = '';
-  filteredOptions: Observable<any[]> | undefined;
+  selectedOptions: any[] = [];
+  selectedOption: string = '';
+  filteredOptions!: Observable<any[]>;
   options = [
     { id: 1, name: 'Jose Juan', lastName: 'Robles' },
     { id: 2, name: 'Oscar', lastName: 'Serrano' },
@@ -20,20 +33,82 @@ export class ContactsSearchComponent implements OnInit {
     { id: 4, name: 'Miguel', lastName: 'Valente' },
     { id: 5, name: 'Eduardo', lastName: 'Osorio' },
   ];
+  separatorKeysCodes: number[] = [ENTER, COMMA];
 
   constructor() {
-    this.loadOptions();
+    if (this.defaultValue !== '') {
+      this.loadOptionsSimple();
+    } else {
+      this.loadOptions();
+    }
   }
 
   ngOnInit(): void {}
 
+  ngAfterContentInit(): void {
+    console.log(this.defaultValue);
+
+    this.searchData.setValue(this.defaultValue);
+    console.log(this.searchData);
+  }
+
   private loadOptions(): void {
     this.filteredOptions = this.searchData.valueChanges.pipe(
-      startWith(''),
-      map((value: string) => this._filter(value))
+      startWith(null),
+      map((item: any) => (item ? this._filter(item) : this.options.slice()))
     );
   }
-  private _filter(value: string): any[] {
+
+  private _filter(value: any): any[] {
+    console.log('value', value);
+    if (typeof value === 'string') {
+      const filterValue = value.toLowerCase();
+      return this.options.filter(
+        (option: any) =>
+          option.name.toLowerCase().includes(filterValue) ||
+          option.lastName.toLocaleLowerCase().includes(filterValue)
+      );
+    } else {
+      return [];
+    }
+  }
+
+  remove(item: any): void {
+    const index = this.selectedOptions.indexOf(item);
+
+    if (index >= 0) {
+      this.selectedOptions.splice(index, 1);
+    }
+  }
+
+  add(event: MatChipInputEvent): void {
+    console.log('event.input.value', event.input.value);
+    if (typeof event.input.value !== 'string') {
+      this.selectedOptions.push(event.input.value);
+      event.input.value = '';
+      this.searchData.setValue(null);
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    if (!this.selectedOptions.includes(event.option.value)) {
+      this.selectedOptions.push(event.option.value);
+      this.searchInput.nativeElement.value = '';
+      this.searchData.setValue(null);
+      this.loadOptions();
+    }
+    console.log(this.selectedOptions);
+  }
+
+  // para el buscador sin lista de chips
+
+  private loadOptionsSimple(): void {
+    this.filteredOptions = this.searchData.valueChanges.pipe(
+      startWith(''),
+      map((value: string) => this._filterSimple(value))
+    );
+  }
+  private _filterSimple(value: string): any[] {
     const filterValue = value.toLowerCase();
     return this.options.filter(
       (option: any) =>
@@ -44,7 +119,7 @@ export class ContactsSearchComponent implements OnInit {
   public search(): void {
     alert('Buscando... ' + this.searchData.value);
   }
-  clearSearch(): void {
+  public clearSearch(): void {
     this.selectedOption = '';
     this.searchData.setValue('');
   }

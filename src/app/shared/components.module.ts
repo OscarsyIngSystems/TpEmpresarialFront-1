@@ -45,6 +45,7 @@ import { UploadButtonFileComponent } from './upload-button-file/upload-button-fi
 import { InstallationsComponent } from './dashboad-components/installations/installations.component';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ContactsSearchComponent } from './contacts-search/contacts-search.component';
+import { MatChipsModule } from '@angular/material/chips';
 import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
@@ -104,6 +105,7 @@ import { PipesModule } from '../pipes/pipes.module';
     MatSidenavModule,
     MatDatepickerModule,
     MatTabsModule,
+    MatChipsModule,
     TabsRelatedComponent,
     UploadFileComponent,
     NgApexchartsModule,
@@ -141,6 +143,7 @@ import { PipesModule } from '../pipes/pipes.module';
     MatTabsModule,
     DataTablesModule,
     MatDatepickerModule,
+    MatChipsModule,
     NgxFileDropModule,
     NgApexchartsModule,
     NgxMaterialTimepickerModule,

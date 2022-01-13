@@ -1,10 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { StorageService } from 'src/app/services/shared/storage.service';
@@ -14,13 +9,14 @@ import { StorageService } from 'src/app/services/shared/storage.service';
   templateUrl: './account-form.component.html',
   styleUrls: ['./account-form.component.scss'],
 })
-export class AccountFormComponent implements OnInit {
+export class AccountFormComponent implements OnInit, AfterContentInit {
   public contentLabels = 'accounts.account-detail-oportunity.';
   public accountId;
   public principalDataForm!: FormGroup;
   public addressInformationForm!: FormGroup;
   public systemInformationForm!: FormGroup;
   public segments!: any[];
+  defaultContact = '';
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -57,6 +53,12 @@ export class AccountFormComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  ngAfterContentInit(): void {
+    this.defaultContact =
+      this.principalDataForm.get('principal_contact')?.value;
+    console.log(this.defaultContact);
+  }
 
   public isAdmin(): boolean {
     return false;

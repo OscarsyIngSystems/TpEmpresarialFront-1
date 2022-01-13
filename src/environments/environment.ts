@@ -4,12 +4,13 @@
 
 export const environment = {
   production: false,
-  urlBackend: "https://dev.totalplay.amarello.cloud/v1/tpe/",
-
-
+  urlBackend: 'https://dev.totalplay.amarello.cloud/v1/tpe/',
+  client_id:
+    '3MVG9eQyYZ1h89Hetz38l0dzDD32F1AcXpvWWkiOzUq0p3hiwlpFhYaaUkOEsYDCLcZRJsUUzCKkZ1.13.v1g',
+  client_secret:
+    '9F8AF7C2FF70FEDAEB781C7464495537E1D79F25284DB89BD80FB756C0D53821',
+  grant_type: 'password',
 };
-
-
 
 /*
  * For easier debugging in development mode, you can import the following file
