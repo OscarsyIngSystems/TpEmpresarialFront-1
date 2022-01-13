@@ -81,4 +81,7 @@ export class OportunityFormComponent implements OnInit {
     this.oportunityForm.get('trybuy')?.enable();
     this.oportunityForm.get('saleType')?.enable();
   }
+  print() {
+    console.log(this.oportunityForm.value);
+  }
 }

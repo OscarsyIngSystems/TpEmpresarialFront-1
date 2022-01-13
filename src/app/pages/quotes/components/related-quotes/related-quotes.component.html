@@ -1,44 +1,28 @@
-<app-header-actions
-  [title]="'Relacionado cotización'"
-  buttonText="Cargar sitios"
-  route="quotes/sites"
-  relatedRoute="quotes/1"
-  relatedText="Detalles"
-  [hidenCreateOportunity]="false"
->
+<app-header-actions [title]="'Relacionado cotización'" buttonText="Cargar sitios" route="quotes/sites"
+  relatedRoute="quotes/1" relatedText="Detalles" [hidenCreateOportunity]="false">
 </app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
-<app-table-general
-  [showHeaderTable]="true"
-  [columns]="columnsShow"
-  [dataSource]="dataSource"
-  [idTableShow]="8"
-></app-table-general>
+<app-table-general [showHeaderTable]="true" [columns]="columnsShow" [dataSource]="dataSource" [idTableShow]="8">
+</app-table-general>
 <mat-tab-group>
   <mat-tab label="Contactos (2)">
-    <app-table-general
-      [showHeaderTable]="true"
-      [columns]="displayedColumns"
-      [dataSource]="dataSourceContacts"
-      [idTableShow]="7"
-    ></app-table-general>
+    <app-table-general [showHeaderTable]="true" [columns]="displayedColumns" [dataSource]="dataSourceContacts"
+      [idTableShow]="7"></app-table-general>
   </mat-tab>
-  <mat-tab label="Archivos (0)"> <app-upload-file></app-upload-file> </mat-tab>
+  <mat-tab label="{{'Archivos ('+files.length+')'}}">
+    <app-upload-file *ngIf="files.length==0" (handdleFile)="handdleFile($event)"></app-upload-file>
+
+    <app-table-general *ngIf="files.length>0" (fileEmitter)="handdleTableFile($event)" [idTableShow]="15"
+      [dataFile]="dataFiles.dataSource" [columns]="dataFiles.columnsShow">
+    </app-table-general>
+  </mat-tab>
   <!-- hay que revisar cual sera la tabla para cambiarla por la de Historial de actividades -->
   <mat-tab label="Actividades (8)">
-    <app-table-general
-      [showHeaderTable]="true"
-      [columns]="displayedColumnsActivities"
-      [dataSource]="dataSourceActivities"
-      [idTableShow]="13"
-    ></app-table-general>
+    <app-table-general [showHeaderTable]="true" [columns]="displayedColumnsActivities"
+      [dataSource]="dataSourceActivities" [idTableShow]="13"></app-table-general>
   </mat-tab>
   <mat-tab label="Cuentas factura (6)">
-    <app-table-general
-      [showHeaderTable]="true"
-      [columns]="displayedColumnsAccounts"
-      [dataSource]="dataSourceAccounts"
-      [idTableShow]="14"
-    ></app-table-general>
+    <app-table-general [showHeaderTable]="true" [columns]="displayedColumnsAccounts" [dataSource]="dataSourceAccounts"
+      [idTableShow]="14"></app-table-general>
   </mat-tab>
 </mat-tab-group>

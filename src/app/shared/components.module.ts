@@ -46,6 +46,7 @@ import { InstallationsComponent } from './dashboad-components/installations/inst
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ContactsSearchComponent } from './contacts-search/contacts-search.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -146,6 +147,7 @@ import { MatChipsModule } from '@angular/material/chips';
     NgxFileDropModule,
     NgApexchartsModule,
     NgxMaterialTimepickerModule,
+    PipesModule,
   ],
 })
 export class ComponentsModule {}

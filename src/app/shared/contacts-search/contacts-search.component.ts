@@ -96,7 +96,7 @@ export class ContactsSearchComponent implements OnInit, AfterContentInit {
     console.log(this.selectedOptions);
   }
 
-  //para el buscador sin lista de chips
+  // para el buscador sin lista de chips
 
   private loadOptionsSimple(): void {
     this.filteredOptions = this.searchData.valueChanges.pipe(

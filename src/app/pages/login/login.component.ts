@@ -21,8 +21,14 @@ export class LoginComponent implements OnInit {
     private alertService: AlertsService
   ) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+      username: [
+        'leonardo.maximo@totalplay.com.mx.developsf',
+        [Validators.required, Validators.email],
+      ],
+      password: [
+        '2401_PenitentTangent',
+        [Validators.required, Validators.minLength(16)],
+      ],
     });
   }
 
@@ -32,22 +38,27 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.spinner.show();
-    if (
-      this.loginForm.value.username === 'totalplay' &&
-      this.loginForm.value.password === '12345'
-    ) {
-      setTimeout(() => {
-        this.router.navigate(['/dashboard']);
-        this.spinner.hide();
-      }, 2000);
-    } else {
-      setTimeout(() => {
-        this.spinner.hide();
-        this.alertService.errorAlert(
-          'Usuario y/o contraseña incorrectos',
-          'Aceptar'
+    if (this.loginForm.valid) {
+      this.loginService
+        .postLogin(this.loginForm.value.username, this.loginForm.value.password)
+        .subscribe(
+          (response) => {
+            console.log(response);
+
+            localStorage.setItem('tsoptok', response.accessToken);
+            localStorage.setItem('user', response.user.name);
+            this.spinner.hide();
+            this.router.navigate(['/dashboard']);
+          },
+          (error) => {
+            console.error(error);
+            this.spinner.hide();
+            this.alertService.errorAlert(
+              'Ocurrio un problema, intentelo más tarde',
+              'Aceptar'
+            );
+          }
         );
-      }, 2000);
     }
   }
 }

@@ -7,25 +7,32 @@
 
 <app-table-general [showHeaderTable]="true" [columns]="columnsShow" [dataSource]="dataSource" [idTableShow]="4">
 </app-table-general>
-<!--
-<app-tabs-related
-  (currentTabEmmiter)="changeTab($event)"
-  [cardNames]="cardNames"
-></app-tabs-related> -->
 
 <mat-tab-group>
-  <mat-tab label="Contactos">
+  <mat-tab label="Contactos (2)">
     <app-table-general [showHeaderTable]="true" [columns]="dataContacts.displayedColumns"
       [dataSource]="dataContacts.dataSource" [idTableShow]="7"></app-table-general>
   </mat-tab>
-  <mat-tab label="Archivos">
-    <app-upload-file></app-upload-file>
+  <mat-tab label="{{'Archivos ('+files.length+')'}}">
+
+    <app-upload-file *ngIf="files.length==0" (handdleFile)="handdleFile($event)"></app-upload-file>
+
+    <app-table-general *ngIf="files.length>0" (fileEmitter)="handdleTableFile($event)" [idTableShow]="15"
+      [dataFile]="dataFiles.dataSource" [columns]="dataFiles.columnsShow">
+    </app-table-general>
   </mat-tab>
-  <mat-tab label="Historial de actividades">
+  <mat-tab label="Actividades (8)">
+
     <app-table-general [showHeaderTable]="true" [columns]="dataActivityHistory.columnsShow"
-      [dataSource]="dataActivityHistory.dataSource" [idTableShow]="9"></app-table-general>
+      [dataSource]="dataActivityHistory.dataSource" [idTableShow]="13"></app-table-general>
+
   </mat-tab>
-  <mat-tab label="Cuentas factura"></mat-tab>
+  <mat-tab label="Cuentas factura (8)">
+
+    <app-table-general [showHeaderTable]="true" [columns]="dataBill.columnsShow" [dataSource]="dataBill.dataSource"
+      [idTableShow]="14"></app-table-general>
+
+  </mat-tab>
   <mat-tab label="Equipo de oportunidad">
     <div class="d-flex flex-row justify-content-end">
       <button (click)="openDialogTeam('equipo')" mat-button class="rounded-button-outline mt-3">

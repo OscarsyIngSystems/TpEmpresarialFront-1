@@ -142,33 +142,39 @@
       <div class="row">
 
         <div class="col-md-4 col-lg-4 col-xl-4">
-          <div class="input-container" *ngIf="saleType=='1'">
-            <mat-form-field class="w-100" appearance="fill">
+          <div class="input-container " *ngIf="saleType=='1'">
+            <!-- <mat-form-field class="w-100" appearance="fill">
               <mat-label class="label-form-field">Nombre del colaborador</mat-label>
-              <input matInput formControlName="collaboratorName" />
-            </mat-form-field>
+               <input matInput formControlName="collaboratorName" /> 
+              
+            </mat-form-field>-->
+
+            <app-contacts-search textPlaceholder="Nombre del colaborador"></app-contacts-search>
           </div>
 
           <div class="input-container" *ngIf="saleType=='2'">
-            <mat-form-field class="w-100" appearance="fill">
+            <app-contacts-search textPlaceholder="Distribuidor"></app-contacts-search>
+            <!--  <mat-form-field class="w-100" appearance="fill">
               <mat-label class="label-form-field">Distribuidor</mat-label>
               <input matInput formControlName="distributor" />
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
         </div>
         <div class="col-md-4 col-lg-4 col-xl-4">
           <div class="input-container" *ngIf="saleType=='1'">
-            <mat-form-field class="w-100" appearance="fill">
-              <mat-label class="label-form-field">Número de colaborador</mat-label>
-              <input matInput formControlName="collaboratorNumber" />
-            </mat-form-field>
+            <!--             <mat-form-field class="w-100 no-padding" appearance="fill">
+
+              <input matInput placeholder="Número de colaborador" formControlName="collaboratorNumber" />
+            </mat-form-field> -->
+            <app-contacts-search textPlaceholder="Número de colaborador"></app-contacts-search>
           </div>
 
           <div class="input-container" *ngIf="saleType=='2'">
-            <mat-form-field class="w-100" appearance="fill">
+            <!--             <mat-form-field class="w-100" appearance="fill">
               <mat-label class="label-form-field">FinderFee</mat-label>
               <input matInput formControlName="finderFee" />
-            </mat-form-field>
+            </mat-form-field> -->
+            <app-contacts-search textPlaceholder="finderFee"></app-contacts-search>
           </div>
         </div>
 
