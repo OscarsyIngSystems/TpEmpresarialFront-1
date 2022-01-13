@@ -63,7 +63,7 @@ export class DeletedSitesComponent implements OnInit {
     public storageService: StorageService
   ) {
     this.lastValue = this.filterParam.value;
-
+    console.log(this.lastValue)
   }
 
   ngOnInit(): void {
@@ -100,7 +100,7 @@ export class DeletedSitesComponent implements OnInit {
   onFilter(filterValues: string) {
     this.filterValue = filterValues
     this.dataSource.filter = filterValues
-    console.log(this.filterParam)
+    console.log(this.filterParam.value)
   }
 
 

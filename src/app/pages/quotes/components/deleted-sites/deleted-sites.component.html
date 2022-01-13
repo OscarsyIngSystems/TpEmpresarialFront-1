@@ -53,22 +53,22 @@
       </select>
     </div>
     <div class="row g-0 row-cols-lg-auto justify-revert">
-      <input value="1" type="radio" class="btn-check" id="btn-check-fiber" name="op" autocomplete="off"
+      <input value="1" type="checkbox" class="btn-check" id="btn-check-fiber" name="op" autocomplete="off"
         [formControl]="filterParam" (click)="onFilter('Fibra')" />
       <label class="btn btn-sm btn-outline-primary me-2 btn-check-fiber btn-check-no-shadow" for="btn-check-fiber">3
         Fibra</label>
 
-      <input value="2" type="radio" class="btn-check" id="btn-check-microwave" autocomplete="off" name="op"
+      <input value="2" type="checkbox" class="btn-check" id="btn-check-microwave" autocomplete="off" name="op"
         [formControl]="filterParam" (click)="onFilter('Microonda')" />
       <label class="btn btn-sm btn-outline-primary me-2 btn-check-microwave btn-check-no-shadow"
         for="btn-check-microwave">3 Microonda</label>
 
-      <input value="3" type="radio" class="btn-check" id="btn-check-meter" autocomplete="off" name="op"
+      <input value="3" type="checkbox" class="btn-check" id="btn-check-meter" autocomplete="off" name="op"
         (click)="onFilter('Metro')" />
       <label class="btn me-2 btn-sm btn-outline-primary btn-check-meter btn-check-no-shadow" for="btn-check-meter">1
         Metro</label>
 
-      <input value="4" type="radio" class="btn-check" id="btn-check-coverage" autocomplete="off" name="op"
+      <input value="4" type="checkbox" class="btn-check" id="btn-check-coverage" autocomplete="off" name="op"
         (click)="onFilter('N/D')" />
 
       <label class="btn me-2 btn-sm btn-outline-primary btn-check-coverage btn-check-no-shadow"

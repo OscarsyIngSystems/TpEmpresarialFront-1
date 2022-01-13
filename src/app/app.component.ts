@@ -21,7 +21,6 @@ export class AppComponent {
 
     lang = JSON.parse(lang);
 
-    // console.log(lang);
     translate.setDefaultLang('es-mx');
     translate.use('es-mx');
 

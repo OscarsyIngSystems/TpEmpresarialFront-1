@@ -148,7 +148,6 @@ export class AccountsListBottomTabsComponent implements OnInit {
 
   handdleTableFile(file: File) {
     this.files.push(file);
-    console.log(this.files);
     this.addFiles();
   }
 
