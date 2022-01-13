@@ -1,10 +1,5 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { StorageService } from 'src/app/services/shared/storage.service';

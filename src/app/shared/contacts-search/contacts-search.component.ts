@@ -36,7 +36,11 @@ export class ContactsSearchComponent implements OnInit, AfterContentInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
   constructor() {
-    this.loadOptions();
+    if (this.defaultValue !== '') {
+      this.loadOptionsSimple();
+    } else {
+      this.loadOptions();
+    }
   }
 
   ngOnInit(): void {}
@@ -115,7 +119,7 @@ export class ContactsSearchComponent implements OnInit, AfterContentInit {
   public search(): void {
     alert('Buscando... ' + this.searchData.value);
   }
-  clearSearch(): void {
+  public clearSearch(): void {
     this.selectedOption = '';
     this.searchData.setValue('');
   }
