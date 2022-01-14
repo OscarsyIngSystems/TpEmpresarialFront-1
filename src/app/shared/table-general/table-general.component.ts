@@ -13,6 +13,9 @@ import { Account } from 'src/app/models/account';
 import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEventComponent } from 'src/app/pages/accounts/components/dialog-event/dialog-event.component';
 import { DialogNewContactComponent } from 'src/app/pages/accounts/components/dialog-new-contact/dialog-new-contact.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { QuotesService } from 'src/app/services/quotes/quotes.service';
+import { Sale } from 'src/app/models/sale';
 
 @Component({
   selector: 'app-table-general',
@@ -23,39 +26,50 @@ export class TableGeneralComponent implements OnInit {
   @Input() columns: any[] = []; //nombrs de las columnase
   @Input() dataSource: any[] = []; //datos de la tabla
   data: any[] = [];
+  @Input() idTableShow: number = 0; //indicador de que tabla se muestra
+  dataSource2 = new MatTableDataSource<Sale>()
+  @Input() showHeaderTable!: boolean;
+  @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
+  @ViewChild('dataTable') dataTable: any;
+  dtOptions: DataTables.Settings = {};
+  columns2: string[] = [
+    'check',
+    'index',
+    'site',
+    'coverage',
+    'accessMedia',
+    'edit'
+  ];
+
+  expandedElement!: Account | null;
+  lengthMenu = [10, 20, 30];
 
   @Input()
   get dataFile(): any[] {
     return this.data;
   }
   set dataFile(data: any[]) {
-    console.log(data);
-
     this.data = data;
   }
 
-  @Input() idTableShow: number = 0; //indicador de que tabla se muestra
-  @Input() showHeaderTable!: boolean;
-  @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
-  @ViewChild('dataTable') dataTable: any;
-  dtOptions: DataTables.Settings = {};
 
-  expandedElement!: Account | null;
-  lengthMenu = [10, 20, 30];
   constructor(
     private route: Router,
     private storageService: StorageService,
+    private quotesService: QuotesService,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getData()
+  }
 
   ngAfterContentInit(): void {
     this.dtOptions = {
       dom: !this.showHeaderTable
         ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
-          "<'row'<'col-12'tr>>" +
-          "<'row'<'col-12 d-flex justify-content-center'p>>"
+        "<'row'<'col-12'tr>>" +
+        "<'row'<'col-12 d-flex justify-content-center'p>>"
         : '<"bottom"t <"d-flex justify-content-center" p>>',
       pagingType: 'full_numbers',
       language: {
@@ -74,6 +88,14 @@ export class TableGeneralComponent implements OnInit {
       },
       lengthMenu: this.lengthMenu,
     };
+  }
+
+  getData() {
+    this.quotesService.getData().subscribe((sales: any[]) => {
+      console.log(sales)
+
+      this.dataSource = sales
+    })
   }
 
   goAccountDetail(account: Account): void {
@@ -106,6 +128,7 @@ export class TableGeneralComponent implements OnInit {
       disableClose: true,
     });
   }
+
   openDialogNewContact(): void {
     this.dialog.open(DialogNewContactComponent, { width: '40%' });
   }

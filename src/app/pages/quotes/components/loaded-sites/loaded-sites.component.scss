@@ -317,8 +317,11 @@ table {
   flex: none;
 }
 
-.edit-icon {
+.btn-round {
   cursor: pointer;
+  border-radius: 50%;
+  background: white;
+  border: none;
 }
 
 

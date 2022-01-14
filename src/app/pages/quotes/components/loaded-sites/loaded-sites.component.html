@@ -2,7 +2,7 @@
   title="Sitios cargados"></app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 <div class="d-flex justify-content-between m-3">
-  <div  class="search-bar-divider">
+  <div class="search-bar-divider">
     <span (click)="onNavigate()" class="underline">Sitios eliminados: </span>
   </div>
   <div class="input-group width shadow-sm">
@@ -84,55 +84,9 @@
 <div style="margin-top: 10px;" class="row">
   <div class="col-md-7  lg-7 xl-7">
     <div style="margin-top: 25px;">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
-
-        <!-- Check Column -->
-        <ng-container matColumnDef="check">
-          <th mat-header-cell *matHeaderCellDef>
-            <mat-checkbox class="example-margin"></mat-checkbox>
-          </th>
-          <td [style.background-color]="element.color" mat-cell *matCellDef="let element">
-            <mat-checkbox class="example-margin"></mat-checkbox>
-          </td>
-        </ng-container>
-
-        <!-- Index Column -->
-        <ng-container matColumnDef="index">
-          <th mat-header-cell *matHeaderCellDef> N° </th>
-          <td [style.background-color]="element.color" mat-cell *matCellDef="let element;let i = index;"> {{i+1}} </td>
-        </ng-container>
-
-        <!-- Site Column -->
-        <ng-container matColumnDef="site">
-          <th mat-header-cell *matHeaderCellDef> Sitio </th>
-          <td [style.background-color]="element.color" class="numberList" mat-cell *matCellDef="let element">
-            {{element.site}} </td>
-        </ng-container>
-
-        <!-- Coverage Column -->
-        <ng-container matColumnDef="coverage">
-          <th mat-header-cell *matHeaderCellDef> Cobertura </th>
-          <td [style.background-color]="element.color" mat-cell *matCellDef="let element"> {{element.coverage}} </td>
-        </ng-container>
-
-        <!-- AccessMedia Column -->
-        <ng-container matColumnDef="accessMedia">
-          <th mat-header-cell *matHeaderCellDef> Medio de Acceso</th>
-          <td [style.background-color]="element.color" mat-cell *matCellDef="let element"> {{element.accessMedia}} </td>
-        </ng-container>
-
-        <!-- Edit Column -->
-        <ng-container matColumnDef="edit">
-          <th mat-header-cell *matHeaderCellDef> </th>
-          <td [style.background-color]="element.color" mat-cell *matCellDef="let element">
-            <mat-icon class="edit-icon">edit</mat-icon>
-          </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="columns"></tr>
-        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
-      </table>
+      <app-table-general [idTableShow]="10"></app-table-general>
     </div>
+
   </div>
 
   <div class="col-md-5 lg-5 xl-5">

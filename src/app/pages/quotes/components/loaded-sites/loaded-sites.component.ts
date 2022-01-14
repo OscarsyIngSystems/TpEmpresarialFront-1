@@ -8,6 +8,7 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
 import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
+import { DialogEditSitesComponent } from '../dialogs/dialog-edit-sites/dialog-edit-sites.component';
 import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
@@ -101,7 +102,13 @@ export class LoadedSitesComponent implements OnInit {
     console.log(this.filterParam)
   }
 
-
+  public onEdit() {
+    this.dlg.open(DialogEditSitesComponent, {
+      height: '300px',
+      width: '400px',
+      panelClass: 'custom-dd'
+    });
+  }
 
   filterPredicate(data: any, filter: string) {
     let datas = JSON.stringify(data).includes(filter)
