@@ -40,10 +40,6 @@ export class RelatedQuotesComponent implements OnInit {
 
   columnsShow = [
     {
-      key: 'numberList',
-      columnName: 'N°',
-    },
-    {
       key: 'siteFolio',
       columnName: 'Folio del sitio',
     },
@@ -74,7 +70,6 @@ export class RelatedQuotesComponent implements OnInit {
   ];
   public dataSource = [
     {
-      numberList: 1,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -84,7 +79,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 2,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -94,7 +88,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 3,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -104,7 +97,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 4,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -114,7 +106,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 5,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -124,7 +115,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 6,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -134,7 +124,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 7,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -144,7 +133,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 8,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -154,7 +142,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 9,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -164,7 +151,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 10,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -174,7 +160,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 11,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -184,7 +169,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 12,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -194,7 +178,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 13,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -204,7 +187,6 @@ export class RelatedQuotesComponent implements OnInit {
       cp: '07089',
     },
     {
-      numberList: 14,
       siteFolio: 'SIT-3661691',
       street: 'Avenida San Jerónimo',
       colony: 'La Otra Banda',
@@ -283,7 +265,6 @@ export class RelatedQuotesComponent implements OnInit {
   ];
 
   displayedColumnsActivities: string[] = [
-    'number',
     'subject',
     'name',
     'related',
@@ -292,7 +273,6 @@ export class RelatedQuotesComponent implements OnInit {
   ];
   dataSourceActivities = [
     {
-      number: 1,
       subject: 'Meet - Seguimiento a la cuenta',
       name: 'Jesús Camacho Fernando ',
       related: 'Audi CDMX S.A. de C.V. ',
@@ -300,7 +280,6 @@ export class RelatedQuotesComponent implements OnInit {
       assignedTo: 'Elizabeth Reynoso Cuevas',
     },
     {
-      number: 2,
       subject: 'Llamada de seguimiento',
       name: 'Jesús Camacho Fernando ',
       related: 'Audi CDMX S.A. de C.V. ',
@@ -344,7 +323,7 @@ export class RelatedQuotesComponent implements OnInit {
   ];
 
   dataFiles: { columnsShow: string[]; dataSource: IFile[] } = {
-    columnsShow: ['no', 'title', 'lastUpdatedDate', 'size', 'action'],
+    columnsShow: ['title', 'lastUpdatedDate', 'size', 'action'],
     dataSource: [],
   };
 

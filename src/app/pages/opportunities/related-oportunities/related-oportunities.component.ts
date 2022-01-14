@@ -43,10 +43,6 @@ export class RelatedOportunitiesComponent implements OnInit {
 
   columnsShow = [
     {
-      key: 'numberList',
-      columnName: this.contentLabels + 'table-related.colum1',
-    },
-    {
       key: 'quoteName',
       columnName: this.contentLabels + 'table-related.colum2',
     },
@@ -73,7 +69,6 @@ export class RelatedOportunitiesComponent implements OnInit {
   ];
   public dataSource = [
     {
-      numberList: 1,
       quoteName: 'Audi-CDMX-Cot',
       invoice: 'COT3754545',
       mounthTotal: '$2225.21 MXN',
@@ -82,7 +77,6 @@ export class RelatedOportunitiesComponent implements OnInit {
       mainCot: true,
     },
     {
-      numberList: 1,
       quoteName: 'Audi-CDMX-Cot',
       invoice: 'COT3754545',
       mounthTotal: '$2225.21 MXN',
@@ -91,7 +85,6 @@ export class RelatedOportunitiesComponent implements OnInit {
       mainCot: false,
     },
     {
-      numberList: 1,
       quoteName: 'Audi-CDMX-Cot',
       invoice: 'COT3754545',
       mounthTotal: '$2225.21 MXN',
@@ -100,7 +93,6 @@ export class RelatedOportunitiesComponent implements OnInit {
       mainCot: false,
     },
     {
-      numberList: 1,
       quoteName: 'Audi-CDMX-Cot',
       invoice: 'COT3754545',
       mounthTotal: '$2225.21 MXN',
@@ -109,7 +101,6 @@ export class RelatedOportunitiesComponent implements OnInit {
       mainCot: false,
     },
     {
-      numberList: 1,
       quoteName: 'Audi-CDMX-Cot',
       invoice: 'COT3754545',
       mounthTotal: '$2225.21 MXN',
@@ -118,7 +109,6 @@ export class RelatedOportunitiesComponent implements OnInit {
       mainCot: false,
     },
     {
-      numberList: 1,
       quoteName: 'Audi-CDMX-Cot',
       invoice: 'COT3754545',
       mounthTotal: '$2225.21 MXN',
@@ -127,7 +117,6 @@ export class RelatedOportunitiesComponent implements OnInit {
       mainCot: false,
     },
     {
-      numberList: 1,
       quoteName: 'Audi-CDMX-Cot',
       invoice: 'COT3754545',
       mounthTotal: '$2225.21 MXN',
@@ -140,10 +129,6 @@ export class RelatedOportunitiesComponent implements OnInit {
   dataContacts = {
     displayedColumns: ['name', 'range', 'email', 'phone', 'type', 'principal'],
     columnsShow: [
-      {
-        key: 'numberList',
-        columnName: this.contentLabels + 'table-contacts.colum1',
-      },
       {
         key: 'quoteName',
         columnName: this.contentLabels + 'table-contacts.colum2',
@@ -264,17 +249,9 @@ export class RelatedOportunitiesComponent implements OnInit {
   };
 
   dataActivityHistory = {
-    columnsShow: [
-      'number',
-      'subject',
-      'name',
-      'related',
-      'expiration',
-      'assignedTo',
-    ],
+    columnsShow: ['subject', 'name', 'related', 'expiration', 'assignedTo'],
     dataSource: [
       {
-        number: 1,
         subject: 'Meet - Seguimiento a la cuenta',
         name: 'Jesús Camacho Fernando ',
         related: 'Audi CDMX S.A. de C.V. ',
@@ -282,7 +259,6 @@ export class RelatedOportunitiesComponent implements OnInit {
         assignedTo: 'Elizabeth Reynoso Cuevas',
       },
       {
-        number: 2,
         subject: 'Llamada de seguimiento',
         name: 'Jesús Camacho Fernando ',
         related: 'Audi CDMX S.A. de C.V. ',
@@ -329,7 +305,7 @@ export class RelatedOportunitiesComponent implements OnInit {
   };
 
   dataFiles: { columnsShow: string[]; dataSource: IFile[] } = {
-    columnsShow: ['no', 'title', 'lastUpdatedDate', 'size', 'action'],
+    columnsShow: ['title', 'lastUpdatedDate', 'size', 'action'],
     dataSource: [],
   };
 
