@@ -37,10 +37,6 @@ export class OportunitiesListComponent implements OnInit {
 
   columnsShow = [
     {
-      key: 'numberList',
-      columnName: this.contentLabels + 'table.colum1',
-    },
-    {
       key: 'oportunityName',
       columnName: this.contentLabels + 'table.colum2',
     },
@@ -63,7 +59,6 @@ export class OportunitiesListComponent implements OnInit {
   ];
   public dataSource = [
     {
-      numberList: 1,
       oportunityName: 'Audi CDMX OP',
       oportunityNumber: '3754545',
       accountName: 'Audi CDMX',
@@ -71,7 +66,6 @@ export class OportunitiesListComponent implements OnInit {
       amount: '$45454.22',
     },
     {
-      numberList: 2,
       oportunityName: 'Zapata OP2',
       oportunityNumber: '3754545',
       accountName: 'Grupo Zapata',
@@ -79,7 +73,6 @@ export class OportunitiesListComponent implements OnInit {
       amount: '$45454.22',
     },
     {
-      numberList: 3,
       oportunityName: 'Automotriz Nissan OP1',
       oportunityNumber: '3754545',
       accountName: 'Imperio Automotriz del Sur',
@@ -87,7 +80,6 @@ export class OportunitiesListComponent implements OnInit {
       amount: '$45454.22',
     },
     {
-      numberList: 4,
       oportunityName: 'VW Lomas OP',
       oportunityNumber: '3754545',
       accountName: 'VW Lomas',
@@ -95,7 +87,6 @@ export class OportunitiesListComponent implements OnInit {
       amount: '$45454.22',
     },
     {
-      numberList: 5,
       oportunityName: 'Toyota OP',
       oportunityNumber: '3754545',
       accountName: 'Toyota Universidad',
@@ -110,13 +101,11 @@ export class OportunitiesListComponent implements OnInit {
   doFilter(event: any) {
     if (this.lastValue !== event.target.value) {
       this.lastValue = event.target.value;
-    }
-
-    else {
+    } else {
       this.filterParam.setValue(0);
       this.lastValue = 0;
     }
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 }

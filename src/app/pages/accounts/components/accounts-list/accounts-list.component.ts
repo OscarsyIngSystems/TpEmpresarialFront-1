@@ -3,7 +3,6 @@ import { Account } from 'src/app/models/account';
 
 const ELEMENT_DATA: Account[] = [
   {
-    numberList: 1,
     id: 873827,
     accountName: 'AUDI CDMX',
     accountId: 'CRM-00022445',
@@ -15,7 +14,6 @@ const ELEMENT_DATA: Account[] = [
   },
 
   {
-    numberList: 8,
     id: 873827,
     accountName: 'AUDI CDMX',
     accountId: 'CRM-00022445',
@@ -27,7 +25,6 @@ const ELEMENT_DATA: Account[] = [
   },
 
   {
-    numberList: 1,
     id: 873827,
     accountName: 'AUDI CDMX',
     accountId: 'CRM-00022445',
@@ -49,10 +46,6 @@ export class AccountsListComponent implements OnInit {
   dataSource = ELEMENT_DATA;
 
   columnsShow = [
-    {
-      key: 'numberList',
-      columnName: this.contentLabels + 'table.colum1',
-    },
     {
       key: 'id',
       columnName: this.contentLabels + 'table.colum2',
