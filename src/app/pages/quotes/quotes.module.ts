@@ -17,10 +17,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoadedSitesComponent } from './components/loaded-sites/loaded-sites.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites/dialog-load-sites.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogActions, MatDialogModule } from '@angular/material/dialog';
 import { TableLoadedSitesComponent } from './components/table-loaded-sites/table-loaded-sites.component';
 import { DeletedSitesComponent } from './components/deleted-sites/deleted-sites.component';
-import { DialogEditSitesComponent } from './components/dialogs/dialog-edit-sites/dialog-edit-sites.component';
+import { DialogEditLoadSitesComponent } from './components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -34,9 +35,9 @@ import { DialogEditSitesComponent } from './components/dialogs/dialog-edit-sites
     LoadSitesComponent,
     LoadedSitesComponent,
     DialogLoadSitesComponent,
+    DialogEditLoadSitesComponent,
     TableLoadedSitesComponent,
     DeletedSitesComponent,
-    DialogEditSitesComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +48,9 @@ import { DialogEditSitesComponent } from './components/dialogs/dialog-edit-sites
     MatListModule,
     MatIconModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule,
+    MatDialogActions,
   ],
 })
 export class QuotesModule {}

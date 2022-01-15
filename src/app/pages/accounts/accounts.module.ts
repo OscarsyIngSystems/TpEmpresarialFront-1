@@ -12,7 +12,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OportunitiesComponent } from '../../shared/dashboad-components/oportunities/oportunities.component';
-import { DialogOportunitiesComponent } from './components/dialog-oportunities/dialog-oportunities.component';
 import { DialogQuotesComponent } from './components/dialog-quotes/dialog-quotes.component';
 import { DialogMassiveLoadSitesComponent } from './components/dialog-massive-load-sites/dialog-massive-load-sites.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
@@ -37,7 +36,6 @@ export function createTranslateLoader(http: HttpClient): any {
     AccountsListComponent,
     DashboardComponent,
     OportunitiesComponent,
-    DialogOportunitiesComponent,
     DialogQuotesComponent,
     DialogMassiveLoadSitesComponent,
     AccountFormComponent,

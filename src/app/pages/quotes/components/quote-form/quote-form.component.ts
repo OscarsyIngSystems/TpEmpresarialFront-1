@@ -19,7 +19,7 @@ export class QuoteFormComponent implements OnInit {
     return false;
   }
   hld!: File;
-
+  lastValue!: number;
   constructor(
     public dialog: MatDialog,
     private _url: ActivatedRoute,
@@ -34,10 +34,20 @@ export class QuoteFormComponent implements OnInit {
       isMainQuotation: [true],
       reason: ['Superioridad técnica'],
       quoteType: ['3'],
+      quoteTypeTry: [false],
     });
+    this.lastValue = this.form.get('quoteType')?.value;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.form.get('quoteTypeTry')?.value) {
+      this.form.get('quoteType')?.disable();
+      this.form.get('reason')?.enable();
+    } else {
+      this.form.get('reason')?.disable();
+      this.form.get('quoteType')?.enable();
+    }
+  }
 
   ngAfterContentInit(): void {
     if (!this.isCreate) {
@@ -56,5 +66,25 @@ export class QuoteFormComponent implements OnInit {
 
   selectFile(file: File) {
     this.hld = file;
+  }
+
+  onChange(event: any) {
+    if (event.target.value != 3) {
+      this.form.get('reason')?.disable();
+    } else {
+      this.form.get('reason')?.enable();
+    }
+  }
+
+  onChangeTry(event: any) {
+    this.form.get('quoteType')?.setValue(3);
+
+    if (this.form.get('quoteTypeTry')?.value) {
+      this.form.get('quoteType')?.disable();
+      this.form.get('reason')?.enable();
+    } else {
+      this.form.get('reason')?.disable();
+      this.form.get('quoteType')?.enable();
+    }
   }
 }

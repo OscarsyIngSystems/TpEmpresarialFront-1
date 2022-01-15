@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Oportunity } from 'src/app/models/Oportunity';
-import { DialogOportunitiesComponent } from '../../accounts/components/dialog-oportunities/dialog-oportunities.component';
+import { DialogOportunitiesComponent } from '../dialogs/dialog-oportunities/dialog-oportunities.component';
 
 @Component({
   selector: 'app-oportunity-form',
@@ -12,14 +12,18 @@ import { DialogOportunitiesComponent } from '../../accounts/components/dialog-op
 })
 export class OportunityFormComponent implements OnInit {
   @Input() oportunityDetailData!: Oportunity;
+  @Output() edit: EventEmitter<boolean> = new EventEmitter<boolean>();
+  isEditing: boolean = false;
   public accountId;
   public oportunityForm: FormGroup;
   name = '“Prueba de sistemas”';
   hld!: File;
+  auxForm: any = {};
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private _url: ActivatedRoute
+    private _url: ActivatedRoute,
+    private router: Router
   ) {
     // console.log(this._url);
     this.accountId = this._url.snapshot.paramMap.get('id');
@@ -75,13 +79,34 @@ export class OportunityFormComponent implements OnInit {
   }
 
   editForm() {
-    this.oportunityForm.get('oportunityOrigin')?.enable();
+    this.oportunityForm.enable();
+    Object.assign(this.auxForm, this.oportunityForm.value);
+    this.oportunityForm.disable();
+    this.oportunityForm.get('closeDate')?.enable();
     this.oportunityForm.get('stage')?.enable();
-    this.oportunityForm.get('amount')?.enable();
     this.oportunityForm.get('trybuy')?.enable();
     this.oportunityForm.get('saleType')?.enable();
+    this.handdleTryBuy();
+    this.edit.emit(true);
+    this.isEditing = true;
   }
-  print() {
-    console.log(this.oportunityForm.value);
+
+  cancel() {
+    if (this.isEditing) {
+      this.isEditing = false;
+      this.edit.emit(false);
+      this.oportunityForm.patchValue(this.auxForm);
+      this.oportunityForm.disable();
+    } else {
+      this.router.navigate(['accounts/detail/454545']);
+    }
+  }
+
+  handdleTryBuy() {
+    if (this.oportunityForm.get('trybuy')?.value) {
+      this.oportunityForm.get('reason')?.enable();
+    } else {
+      this.oportunityForm.get('reason')?.disable();
+    }
   }
 }

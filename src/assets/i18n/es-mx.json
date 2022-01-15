@@ -123,6 +123,7 @@
   "oportunities": {
     "title": "Mis oportunidades",
     "title-detail": "Detalle de la oportunidad",
+    "title-edit":"Editar oportunidad",
     "title-related": "Relacionado oportunidad",
     "table": {
       "colum1": "Nº fila",

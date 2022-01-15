@@ -76,7 +76,6 @@ export class AccountsListBottomTabsComponent implements OnInit {
   ];
 
   displayedColumnsActivities: string[] = [
-    'number',
     'subject',
     'name',
     'related',
@@ -85,7 +84,6 @@ export class AccountsListBottomTabsComponent implements OnInit {
   ];
   dataSourceActivities = [
     {
-      number: 1,
       subject: 'Meet - Seguimiento a la cuenta',
       name: 'Jesús Camacho Fernando ',
       related: 'Audi CDMX S.A. de C.V. ',
@@ -93,7 +91,6 @@ export class AccountsListBottomTabsComponent implements OnInit {
       assignedTo: 'Elizabeth Reynoso Cuevas',
     },
     {
-      number: 2,
       subject: 'Llamada de seguimiento',
       name: 'Jesús Camacho Fernando ',
       related: 'Audi CDMX S.A. de C.V. ',
@@ -137,7 +134,7 @@ export class AccountsListBottomTabsComponent implements OnInit {
   ];
 
   dataFiles: { columnsShow: string[]; dataSource: IFile[] } = {
-    columnsShow: ['no', 'title', 'lastUpdatedDate', 'size', 'action'],
+    columnsShow: ['title', 'lastUpdatedDate', 'size', 'action'],
     dataSource: [],
   };
 

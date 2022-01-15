@@ -41,6 +41,7 @@
               autocomplete="off"
               value="1"
               name="quoteType"
+              (change)="onChange($event)"
             />
             <label
               id="btn-check-quoteType2"
@@ -59,6 +60,7 @@
               autocomplete="off"
               value="2"
               name="quoteType"
+              (change)="onChange($event)"
             />
             <label
               id="btn-check-quoteType3"
@@ -98,13 +100,12 @@
         <div class="row d-flex align-items-center">
           <div class="col-3">
             <input
-              formControlName="quoteType"
+              formControlName="quoteTypeTry"
               id="quoteType4"
-              type="radio"
+              type="checkbox"
               class="btn-check"
               autocomplete="off"
-              value="3"
-              name="quoteType"
+              (change)="onChangeTry($event)"
             />
             <label
               id="btn-check-quoteType4"
