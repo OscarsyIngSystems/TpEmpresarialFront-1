@@ -125,7 +125,7 @@
         <ng-container matColumnDef="edit">
           <th mat-header-cell *matHeaderCellDef> </th>
           <td [style.background-color]="element.color" mat-cell *matCellDef="let element">
-            <mat-icon class="edit-icon">edit</mat-icon>
+            <mat-icon (click)="onEdit()" class="edit-icon">edit</mat-icon>
           </td>
         </ng-container>
 
