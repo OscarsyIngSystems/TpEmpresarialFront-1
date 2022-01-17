@@ -110,7 +110,7 @@ export class AccountFormComponent implements OnInit, AfterContentInit {
       creationDate: ['20/12/2018 09:36 AM', Validators.required],
       accountOwner: ['PABLO LEIJA SANDOVAL', Validators.required],
       lastUpdatedBy: ['ERIKA CECILIA CONTRERAS JIMENEZ', Validators.required],
-      lastUpdatedDate: ['2/12/2021 02:07 PM', Validators.required],
+      lastUpdatedDate: ['2/12/2022 02:07 PM', Validators.required],
       originCRM: ['????', Validators.required],
       account_registration_type: ['????', Validators.required],
     });

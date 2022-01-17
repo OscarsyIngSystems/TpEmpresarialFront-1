@@ -85,15 +85,7 @@ app-chart > .chartjs-render-monitor {
 }
 
 .total-sales {
-  li::marker {
-    color: #8246af;
-  }
-}
-
-.goal-sales {
-  li::marker {
-    color: #dbe442;
-  }
+  color: $color-accumulated-income;
 }
 
 ::ng-deep .apexcharts-legend {

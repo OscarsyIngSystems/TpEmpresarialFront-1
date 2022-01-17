@@ -26,7 +26,7 @@
       "acounts3": "retraso de pago",
       "quotes": "Cotizaciones",
       "opportunities": "Oportunidades",
-      "indicators": "Indicadores célula",
+      "indicators": "Indicadores de célula",
       "payment": "Productividad por ejecutivo",
       "clarity-portal": "Portal de claridad"
     },
@@ -74,7 +74,7 @@
       "notifications": {
         "title": "Notificaciones",
         "card1-title": "Notificación 1",
-        "card1-content": "La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá el 23 noviembre 2021 a las 13:35 hrs.",
+        "card1-content": "La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá el 23 noviembre 2022 a las 13:35 hrs.",
         "card1-footer": "Hace 2 min"
       }
     },
@@ -97,7 +97,7 @@
       "notifications": {
         "title": "Notificaciones",
         "card1-title": "Notificación 1",
-        "card1-content": "La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá el 23 noviembre 2021 a las 13:35 hrs.",
+        "card1-content": "La oportunidad Audi Lomas asociada a la cuenta Audi CDMX vencerá el 23 noviembre 2022 a las 13:35 hrs.",
         "card1-footer": "Hace 2 min"
       }
     },
@@ -123,7 +123,7 @@
   "oportunities": {
     "title": "Mis oportunidades",
     "title-detail": "Detalle de la oportunidad",
-    "title-edit":"Editar oportunidad",
+    "title-edit": "Editar oportunidad",
     "title-related": "Relacionado oportunidad",
     "table": {
       "colum1": "Nº fila",
@@ -158,11 +158,11 @@
       "colum5": "Vencimiento",
       "colum6": "Asignado a"
     },
-    "table-partner":{
+    "table-partner": {
       "colum1": "Usuario",
       "colum2": "Función"
     },
-        "table-team":{
+    "table-team": {
       "colum1": "Usuario",
       "colum2": "Función"
     },

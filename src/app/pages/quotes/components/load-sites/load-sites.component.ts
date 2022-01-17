@@ -28,7 +28,7 @@ export class LoadSitesComponent implements OnInit {
     },
     {
       name: 'Vigencia cotización',
-      value: '19/11/2021',
+      value: '19/11/2022',
     },
     {
       name: 'Propietario de la cuenta',
@@ -83,7 +83,7 @@ export class LoadSitesComponent implements OnInit {
     this.dlg.open(DialogLoadSitesComponent, {
       height: '300px',
       width: '400px',
-      panelClass: 'custom-dd'
+      panelClass: 'custom-dd',
     });
   }
   clearSearch() {

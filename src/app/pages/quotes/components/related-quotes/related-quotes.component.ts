@@ -30,7 +30,7 @@ export class RelatedQuotesComponent implements OnInit {
     },
     {
       name: 'Fecha de cierre',
-      value: '21/12/2021',
+      value: '21/12/2022',
     },
     {
       name: 'Propietario de la cuenta',
@@ -276,14 +276,14 @@ export class RelatedQuotesComponent implements OnInit {
       subject: 'Meet - Seguimiento a la cuenta',
       name: 'Jesús Camacho Fernando ',
       related: 'Audi CDMX S.A. de C.V. ',
-      expiration: '19-Nov-2021',
+      expiration: '19-Nov-2022',
       assignedTo: 'Elizabeth Reynoso Cuevas',
     },
     {
       subject: 'Llamada de seguimiento',
       name: 'Jesús Camacho Fernando ',
       related: 'Audi CDMX S.A. de C.V. ',
-      expiration: '16-Nov-2021',
+      expiration: '16-Nov-2022',
       assignedTo: 'Ana Lilia Rodriguez Malfavon',
     },
   ];

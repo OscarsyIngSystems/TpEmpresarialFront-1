@@ -4,47 +4,38 @@ import { ChartComponent } from 'ng-apexcharts';
 @Component({
   selector: 'app-installations',
   templateUrl: './installations.component.html',
-  styleUrls: ['./installations.component.scss']
+  styleUrls: ['./installations.component.scss'],
 })
-
 export class InstallationsComponent implements OnInit {
   public contentLabels = 'accounts.accounts-dashboard.';
+  public today = new Date();
 
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: any;
   public chartOptionsTotal!: any;
 
-  private colors = ['#3B4559', '#9BD3DD', '#B1B3B3','#839AC7'];
+  private colors = ['#3B4559', '#9BD3DD', '#B1B3B3', '#839AC7'];
   public colorsTotal = ['#846B99', '#FCC565', '#DDDD9B'];
-  public labelsTotal= ['Por instalar', 'En proceso', 'Instaladas', ]
+  public labelsTotal = ['Por instalar', 'En proceso', 'Instaladas'];
   public chartSeries = [
-    [4, 3, 1, 9],
-    [7, 4, 4, 7],
-    [4, 3, 3, 5],
-
+    [4, 3, 1],
+    [7, 4, 4],
+    [4, 3, 3],
   ];
 
-
-
-  public  totalFinal = [0, 0,0];
-  totalSum(){
-
-
+  public totalFinal = [0, 0, 0];
+  totalSum() {
     for (let i = 0; i < this.chartSeries.length; i++) {
       const element = this.chartSeries[i];
 
       element.map((item) => {
-        this.totalFinal[i] += item
-      })
-
-
+        this.totalFinal[i] += item;
+      });
     }
     console.log(this.totalFinal);
-
   }
 
   constructor() {
-
     this.chartOptions = {
       //series: [4, 3, 1], //se comenta porque utilizo chartSeries para dar valores diferentes a cada chart
       colors: this.colors,
@@ -66,7 +57,7 @@ export class InstallationsComponent implements OnInit {
           },
         },
       ],
-      labels: ['Segmento I', 'Segmento II', 'Segmento III', 'Segmento IV'],
+      labels: ['Segmento I', 'Segmento II', 'Segmento III'],
       dataLabels: {
         enabled: false,
       },
@@ -157,11 +148,8 @@ export class InstallationsComponent implements OnInit {
         },
       },
     };
-    this.totalSum()
+    this.totalSum();
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
-

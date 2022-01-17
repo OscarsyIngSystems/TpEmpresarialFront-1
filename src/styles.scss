@@ -43,8 +43,9 @@ $color-button-microwave-text: #12a5c7;
 $color-button-microwave-bg: #ebf1fa;
 $color-button-coverage-text: #b87c05;
 $color-button-coverage-bg: #ffebdc;
-$color-button-meter-text: #8146af;
+$color-button-meter-text: #8146af; //#8246af
 $color-button-meter-bg: #eee6f5;
+$color-accumulated-income: #846b99;
 
 @import "~@angular/material/theming";
 
@@ -56,6 +57,9 @@ $custom-typography: mat-typography-config(
 
 @include angular-material-typography($custom-typography);
 // #region textos
+.tx-10 {
+  font-size: 10px;
+}
 .tx-12 {
   font-size: 12px;
 }

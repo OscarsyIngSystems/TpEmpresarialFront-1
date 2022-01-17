@@ -38,7 +38,7 @@ export class OportunitiesDetailComponent implements OnInit {
     },
     {
       name: 'Fecha de cierre',
-      value: '31/08/2021',
+      value: '31/08/2022',
     },
     {
       name: 'Propietario de la cuenta',

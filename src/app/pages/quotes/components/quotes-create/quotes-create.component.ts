@@ -26,7 +26,7 @@ export class QuotesCreateComponent implements OnInit {
     },
     {
       name: 'Fecha estimada de cierre',
-      value: '10/10/2021',
+      value: '10/10/2022',
     },
 
     {

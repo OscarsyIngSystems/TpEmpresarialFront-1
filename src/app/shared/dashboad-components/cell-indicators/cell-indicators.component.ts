@@ -43,8 +43,7 @@ export class CellIndicatorsComponent implements OnInit {
   title = 'Cuentas';
   public colors = ['#846b99', '#9bd3dd'];
   labels = ['l', 'll', 'lll'];
-
-
+  today = new Date();
 
   constructor() {
     this.chartOptions = {

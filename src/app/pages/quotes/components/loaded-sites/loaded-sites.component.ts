@@ -37,7 +37,7 @@ export class LoadedSitesComponent implements OnInit {
     },
     {
       name: 'Vigencia de la cotización',
-      value: '19/11/2021',
+      value: '19/11/2022',
     },
     {
       name: 'Propietario de la cuenta',
@@ -50,7 +50,7 @@ export class LoadedSitesComponent implements OnInit {
     'site',
     'coverage',
     'accessMedia',
-    'edit'
+    'edit',
   ];
 
   searchData = new FormControl('', Validators.required);
@@ -67,15 +67,15 @@ export class LoadedSitesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource.filterPredicate = this.filterPredicate
-    this.getData()
-    this.storageService.setDataName('AUDI 1 COT | 2 SITIOS')
+    this.dataSource.filterPredicate = this.filterPredicate;
+    this.getData();
+    this.storageService.setDataName('AUDI 1 COT | 2 SITIOS');
   }
 
   getData() {
     this.service.getData().subscribe((data: Sale[]) => {
-      this.dataSource.data = data
-    })
+      this.dataSource.data = data;
+    });
   }
 
   public setSearchId(id: number): void {
@@ -87,7 +87,7 @@ export class LoadedSitesComponent implements OnInit {
   }
 
   onNavigate() {
-    this.router.navigate(['/quotes/deleted-sites'])
+    this.router.navigate(['/quotes/deleted-sites']);
   }
 
   clearSearch() {
@@ -95,18 +95,15 @@ export class LoadedSitesComponent implements OnInit {
     this.searchData.setValue('');
   }
 
-
   onFilter(filterValues: string) {
-    this.filterValue = filterValues
-    this.dataSource.filter = filterValues
-    console.log(this.filterParam)
+    this.filterValue = filterValues;
+    this.dataSource.filter = filterValues;
+    console.log(this.filterParam);
   }
 
-
-
   filterPredicate(data: any, filter: string) {
-    let datas = JSON.stringify(data).includes(filter)
-    return datas
+    let datas = JSON.stringify(data).includes(filter);
+    return datas;
   }
 
   openDialog() {
