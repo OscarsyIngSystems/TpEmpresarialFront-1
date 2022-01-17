@@ -15,7 +15,4 @@ export class QuotesService {
     return this.http.get<Sale[]>('https://my-json-server.typicode.com/emeery/mat-table-filter-button/sales')
   }
 
-  getTotal() {
-
-  }
 }

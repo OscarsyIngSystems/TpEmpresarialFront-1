@@ -99,7 +99,7 @@ export class LoadedSitesComponent implements OnInit {
   onFilter(filterValues: string) {
     this.filterValue = filterValues
     this.dataSource.filter = filterValues
-    console.log(this.filterParam)
+
   }
 
 
