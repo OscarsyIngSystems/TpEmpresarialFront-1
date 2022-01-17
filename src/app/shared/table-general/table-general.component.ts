@@ -29,7 +29,7 @@ export class TableGeneralComponent implements OnInit {
   data: any[] = [];
   @Input() idTableShow: number = 0; //indicador de que tabla se muestra
   @Input() showHeaderTable!: boolean;
-  @Input() dataSource2 = new MatTableDataSource()
+  @Input() dataSourceLoadedSites = new MatTableDataSource();
   @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
   @ViewChild('dataTable') dataTable: any;
   dtOptions: DataTables.Settings = {};
@@ -39,7 +39,7 @@ export class TableGeneralComponent implements OnInit {
     'site',
     'coverage',
     'accessMedia',
-    'edit'
+    'edit',
   ];
 
   expandedElement!: Account | null;
@@ -53,24 +53,23 @@ export class TableGeneralComponent implements OnInit {
     this.data = data;
   }
 
-
   constructor(
     private route: Router,
     private storageService: StorageService,
     private dialog: MatDialog
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     // this.getData()
-    console.log(this.dataSource2.data);
+    console.log(this.dataSourceLoadedSites.data);
   }
 
   ngAfterContentInit(): void {
     this.dtOptions = {
       dom: !this.showHeaderTable
         ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
-        "<'row'<'col-12'tr>>" +
-        "<'row'<'col-12 d-flex justify-content-center'p>>"
+          "<'row'<'col-12'tr>>" +
+          "<'row'<'col-12 d-flex justify-content-center'p>>"
         : '<"bottom"t <"d-flex justify-content-center" p>>',
       pagingType: 'full_numbers',
       language: {
@@ -115,7 +114,11 @@ export class TableGeneralComponent implements OnInit {
   }
 
   openDialogEvent(): void {
-    this.dialog.open(DialogEventComponent, { data: null, width: '30%', disableClose: true });
+    this.dialog.open(DialogEventComponent, {
+      data: null,
+      width: '30%',
+      disableClose: true,
+    });
   }
 
   openDialogNewContact(): void {

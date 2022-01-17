@@ -337,55 +337,92 @@
   </tbody>
 </table>
 
-
 <!--Tabla de sitios cargados-->
-<table *ngIf="idTableShow == 10" mat-table [dataSource]="dataSource2" class="mat-elevation-z0">
-
+<table
+  *ngIf="idTableShow == 10"
+  mat-table
+  [dataSource]="dataSourceLoadedSites"
+  class="mat-elevation-z0"
+>
   <!-- Check Column -->
   <ng-container matColumnDef="check">
     <th mat-header-cell *matHeaderCellDef>
       <mat-checkbox class="example-margin"></mat-checkbox>
     </th>
-    <td [style.background-color]="element.color" mat-cell *matCellDef="let element">
+    <td
+      [style.background-color]="element.color"
+      mat-cell
+      *matCellDef="let element"
+    >
       <mat-checkbox class="example-margin"></mat-checkbox>
     </td>
   </ng-container>
 
   <!-- Index Column -->
   <ng-container matColumnDef="index">
-    <th mat-header-cell *matHeaderCellDef> N° </th>
-    <td [style.background-color]="element.color" mat-cell *matCellDef="let element;let i = index;"> {{i+1}} </td>
+    <th mat-header-cell *matHeaderCellDef>N°</th>
+    <td
+      [style.background-color]="element.color"
+      mat-cell
+      *matCellDef="let element; let i = index"
+    >
+      {{ i + 1 }}
+    </td>
   </ng-container>
 
   <!-- Site Column -->
   <ng-container matColumnDef="site">
-    <th mat-header-cell *matHeaderCellDef> Sitio </th>
-    <td [style.background-color]="element.color" class="numberList" mat-cell *matCellDef="let element">
-      {{element.site}} </td>
+    <th mat-header-cell *matHeaderCellDef>Sitio</th>
+    <td
+      [style.background-color]="element.color"
+      class="numberList"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.site }}
+    </td>
   </ng-container>
 
   <!-- Coverage Column -->
   <ng-container matColumnDef="coverage">
-    <th mat-header-cell *matHeaderCellDef> Cobertura </th>
-    <td [style.background-color]="element.color" mat-cell *matCellDef="let element"> {{element.coverage}} </td>
+    <th mat-header-cell *matHeaderCellDef>Cobertura</th>
+    <td
+      [style.background-color]="element.color"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.coverage }}
+    </td>
   </ng-container>
 
   <!-- AccessMedia Column -->
   <ng-container matColumnDef="accessMedia">
-    <th mat-header-cell *matHeaderCellDef> Medio de Acceso</th>
-    <td [style.background-color]="element.color" mat-cell *matCellDef="let element"> {{element.accessMedia}} </td>
+    <th mat-header-cell *matHeaderCellDef>Medio de Acceso</th>
+    <td
+      [style.background-color]="element.color"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.accessMedia }}
+    </td>
   </ng-container>
 
   <!-- Edit Column -->
   <ng-container matColumnDef="edit">
-    <th mat-header-cell *matHeaderCellDef> </th>
-    <td [style.background-color]="element.color" mat-cell *matCellDef="let element">
-      <button (click)="onEdit()" class="btn-round" ><mat-icon >edit</mat-icon></button>
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td
+      [style.background-color]="element.color"
+      mat-cell
+      *matCellDef="let element"
+    >
+      <button (click)="onEdit()" class="btn-round">
+        <mat-icon>edit</mat-icon>
+      </button>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columns2"></tr>
-  <tr mat-row *matRowDef="let row; columns: columns2;"></tr>
+  <tr mat-row *matRowDef="let row; columns: columns2"></tr>
 </table>
 <!--END Tabla de sitios cargados-->
 

@@ -18,10 +18,11 @@ import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-lo
 })
 export class LoadedSitesComponent implements OnInit {
   public contentLabels = 'quotes.';
-  filterParam: FormControl = new FormControl('0');
-  filterValue: string = '';
-  lastValue: number;
+  filterValue = '';
   dataSource = new MatTableDataSource();
+  filteredData: any[] = [];
+  originalData: any[] = [];
+  filters: string[] = [];
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -50,32 +51,49 @@ export class LoadedSitesComponent implements OnInit {
     'site',
     'coverage',
     'accessMedia',
-    'edit'
+    'edit',
   ];
 
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
+  control: FormControl = new FormControl();
 
   constructor(
     private service: QuotesService,
     public storageService: StorageService,
     private dlg: MatDialog,
     private router: Router
-  ) {
-    this.lastValue = this.filterParam.value;
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.getData()
-    this.dataSource.filterPredicate = this.filterPredicate
-    this.storageService.setDataName('AUDI 1 COT | 2 SITIOS')
+    this.getData();
+    this.dataSource.filterPredicate = this.filterPredicate;
+    this.storageService.setDataName('AUDI 1 COT | 2 SITIOS');
   }
 
-  getData() {
+  onFilter(filterValues: string): void {
+    if (!this.filters.includes(filterValues)) {
+      this.filters.push(filterValues);
+    } else {
+      const index = this.filters.indexOf(filterValues);
+      this.filters.splice(index, 1);
+    }
+    if (this.filters.length === 0) {
+      this.dataSource.data = this.originalData;
+    } else {
+      this.filteredData = this.originalData.filter((site) => {
+        return this.filters.includes(site.accessMedia);
+      });
+      this.dataSource.data = this.filteredData;
+    }
+  }
+
+  getData(): void {
     this.service.getData().subscribe((data) => {
-      this.dataSource.data = data
-    })
+      this.originalData = data;
+      this.dataSource.data = this.originalData;
+    });
   }
 
   public setSearchId(id: number): void {
@@ -86,29 +104,21 @@ export class LoadedSitesComponent implements OnInit {
     alert('Buscando... ' + this.searchData.value);
   }
 
-  onNavigate() {
-    this.router.navigate(['/quotes/deleted-sites'])
+  onNavigate(): void {
+    this.router.navigate(['/quotes/deleted-sites']);
   }
 
-  clearSearch() {
+  clearSearch(): void {
     this.selectedIdOption = 0;
     this.searchData.setValue('');
   }
 
-
-  onFilter(filterValues: string) {
-    this.filterValue = filterValues
-    this.dataSource.filter = filterValues
-    console.log(this.filterParam)
+  filterPredicate(data: any, filter: string): boolean {
+    const datas = JSON.stringify(data).includes(filter);
+    return datas;
   }
 
-
-  filterPredicate(data: any, filter: string) {
-    let datas = JSON.stringify(data).includes(filter)
-    return datas
-  }
-
-  openDialog() {
+  openDialog(): void {
     this.dlg.open(DialogLoadSitesComponent, {
       height: '300px',
       width: '400px',
@@ -116,7 +126,7 @@ export class LoadedSitesComponent implements OnInit {
     });
   }
 
-  onEdit() {
+  onEdit(): void {
     this.dlg.open(DialogEditLoadSitesComponent, {
       height: '600px',
       width: '1000px',
