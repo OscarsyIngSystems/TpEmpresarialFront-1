@@ -1,4 +1,4 @@
-<div class="row py-2 ps-4 align-items-center mh-50">
+<div class="row py-2 align-items-center mh-50">
   <div class="col-3 d-flex flex-column justify-content-center">
     <span class="text-title text-bold">
       {{ contentLabels + "title" | translate }}
@@ -7,32 +7,16 @@
 
   <div class="col-7">
     <div class="row g-0 row-cols-lg-auto justify-content-end">
-      <input
-        type="checkbox"
-        class="btn-check"
-        id="btn-check-draft"
-        autocomplete="off"
-      />
-      <label
-        class="btn btn-sm btn-outline-primary me-2 btn-check-draft btn-check-no-shadow"
-        for="btn-check-draft"
-        >Borrador</label
-      >
-      <input
-        type="checkbox"
-        class="btn-check"
-        id="btn-check-completed"
-        autocomplete="off"
-      />
-      <label
-        class="btn btn-sm btn-outline-primary me-2 btn-check-completed btn-check-no-shadow"
-        for="btn-check-completed"
-        >Completada</label
-      >
+      <input type="checkbox" class="btn-check" id="btn-check-draft" autocomplete="off" />
+      <label class="btn btn-sm btn-outline-primary me-2 btn-check-draft btn-check-no-shadow"
+        for="btn-check-draft">Borrador</label>
+      <input type="checkbox" class="btn-check" id="btn-check-completed" autocomplete="off" />
+      <label class="btn btn-sm btn-outline-primary me-2 btn-check-completed btn-check-no-shadow"
+        for="btn-check-completed">Completada</label>
     </div>
   </div>
 
-  <div class="col-2">
+  <div class="col-2 d-flex justify-content-end">
     <select class="order-by small-shadow" name="" placeholder="Ordenar por">
       <option value="0" selected="true" disabled>Ordenar por</option>
       <option value="1">Recientes</option>
@@ -41,13 +25,6 @@
     </select>
   </div>
 </div>
-<app-empty
-  message="No se encontraron cotizaciones"
-  *ngIf="dataSource.length === 0"
-></app-empty>
-<app-table-general
-  *ngIf="dataSource.length > 0"
-  [dataSource]="dataSource"
-  [idTableShow]="3"
-  [columns]="columnsShow"
-></app-table-general>
+<app-empty message="No se encontraron cotizaciones" *ngIf="dataSource.length === 0"></app-empty>
+<app-table-general *ngIf="dataSource.length > 0" [dataSource]="dataSource" [idTableShow]="3" [columns]="columnsShow">
+</app-table-general>

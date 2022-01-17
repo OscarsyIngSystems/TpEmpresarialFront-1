@@ -21,6 +21,7 @@ export class HeaderActionsComponent implements OnInit {
   @Input() loadSitesText = 'Carga masiva de sitios';
   @Input() isCreate: boolean = false;
   @Input() isLoadSites: boolean = false;
+  @Input() data: any;
 
   constructor(
     public router: Router,
@@ -29,11 +30,18 @@ export class HeaderActionsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('router',this.router.url)
+    console.log('router', this.router.url);
   }
 
   newOportunity(): void {
-    this.router.navigate([this.route]);
+    if (this.data) {
+      this.router.navigateByUrl(this.route, {
+        state: { data: this.data },
+      });
+      this.storageService.setDataName(null);
+    } else {
+      this.router.navigate([this.route]);
+    }
   }
 
   openRelated(): void {
@@ -45,8 +53,7 @@ export class HeaderActionsComponent implements OnInit {
   }
 
   onNavigate() {
-    console.log(this.router.url)
-    this.router.navigate(['/quotes/sites'])
+    console.log(this.router.url);
+    this.router.navigate(['/quotes/sites']);
   }
-
 }

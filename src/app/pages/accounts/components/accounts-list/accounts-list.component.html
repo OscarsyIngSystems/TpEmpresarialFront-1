@@ -1,11 +1,11 @@
-<div class="row py-2 ps-4 align-items-center mh-50">
+<div class="row py-2 align-items-center mh-50">
   <div class="col-3 d-flex flex-column justify-content-center">
     <span class="text-title text-bold">
       {{ contentLabels + "title" | translate }}
     </span>
   </div>
 
-  <div class="col-2 offset-7">
+  <div class="col-2 offset-7 justify-content-end d-flex">
     <select class="order-by small-shadow" name="" placeholder="Ordenar por">
       <option value="0" selected="true" disabled>Ordenar por</option>
       <option value="1">Recientes</option>
@@ -14,12 +14,5 @@
     </select>
   </div>
 </div>
-<app-empty
-  message="No se encontraron cuentas"
-  *ngIf="dataSource.length === 0"
-></app-empty>
-<app-table-general
-  [idTableShow]="1"
-  [columns]="columnsShow"
-  [dataSource]="dataSource"
-></app-table-general>
+<app-empty message="No se encontraron cuentas" *ngIf="dataSource.length === 0"></app-empty>
+<app-table-general [idTableShow]="1" [columns]="columnsShow" [dataSource]="dataSource"></app-table-general>

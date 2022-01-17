@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
@@ -35,7 +37,20 @@ export class QuotesCreateComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  data: any;
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.getData();
+  }
 
+  getData() {
+    let state = this.activatedRoute.paramMap.pipe(
+      map(() => window.history.state)
+    );
+
+    state.subscribe((data: any) => {
+      this.data = data;
+      console.log(data.data);
+    });
+  }
   ngOnInit(): void {}
 }

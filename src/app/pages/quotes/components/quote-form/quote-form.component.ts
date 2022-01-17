@@ -11,7 +11,17 @@ import { DialogQuotesComponent } from 'src/app/pages/accounts/components/dialog-
 })
 export class QuoteFormComponent implements OnInit {
   @Input() isCreate: boolean = false;
+  @Input() get data() {
+    return this.isTryBuy;
+  }
+  set data(data: any) {
+    this.isTryBuy = data;
+    if (data?.data?.trybuy)
+      this.form.get('quoteTypeTry')?.setValue(data.data?.trybuy);
+  }
   public opportunityNumber;
+
+  isTryBuy: any;
 
   name = '“COT7808232”';
   form: FormGroup;

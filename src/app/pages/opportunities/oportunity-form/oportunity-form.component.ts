@@ -13,6 +13,7 @@ import { DialogOportunitiesComponent } from '../dialogs/dialog-oportunities/dial
 export class OportunityFormComponent implements OnInit {
   @Input() oportunityDetailData!: Oportunity;
   @Output() edit: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() saveData: EventEmitter<any> = new EventEmitter<any>();
   isEditing: boolean = false;
   public accountId;
   public oportunityForm: FormGroup;
@@ -63,10 +64,13 @@ export class OportunityFormComponent implements OnInit {
 
   openDialog(): void {
     this.name = this.oportunityForm.controls.oportunityName.value;
+    this.oportunityForm.enable();
+    let data = this.oportunityForm.value;
+    this.oportunityForm.disable();
     const dialogRef = this.dialog.open(DialogOportunitiesComponent, {
       width: '393px',
       height: '291px',
-      data: { name: this.name },
+      data: { name: this.name, data },
     });
   }
 
