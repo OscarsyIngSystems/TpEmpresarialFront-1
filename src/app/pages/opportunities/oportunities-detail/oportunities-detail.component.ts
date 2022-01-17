@@ -11,6 +11,10 @@ import { Oportunity } from 'src/app/models/Oportunity';
 export class OportunitiesDetailComponent implements OnInit {
   public contentLabels = 'oportunities.';
   public opportunityNumber;
+  isEditing: boolean = false;
+
+  title: string = this.contentLabels + 'title-detail';
+
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -54,7 +58,7 @@ export class OportunitiesDetailComponent implements OnInit {
     oportunityOrigin: 'one',
     reason: '0',
     stage: '0',
-    trybuy: true,
+    trybuy: false,
     whoIntegrated: 'one',
   };
   constructor(private _url: ActivatedRoute) {
@@ -62,4 +66,13 @@ export class OportunitiesDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  handdleEdit(event: boolean) {
+    this.isEditing = event;
+    if (event) {
+      this.title = this.contentLabels + 'title-edit';
+    } else {
+      this.title = this.contentLabels + 'title-detail';
+    }
+  }
 }

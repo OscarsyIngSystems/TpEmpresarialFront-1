@@ -7,7 +7,7 @@
   class="general-table row-border"
 >
   <thead>
-    <tr>
+    <tr class="t-row">
       <th *ngFor="let col of columns">{{ col.columnName | translate }}</th>
     </tr>
   </thead>
@@ -17,7 +17,6 @@
       class="table-element-row shadow-sm t-row"
       *ngFor="let account of dataSource"
     >
-      <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.id }}</td>
       <td class="mat-cell">{{ account.accountName }}</td>
       <td class="mat-cell">{{ account.accountId }}</td>
@@ -38,17 +37,16 @@
   class="general-table row-border"
 >
   <thead>
-    <tr>
+    <tr class="t-row">
       <th *ngFor="let col of columns">{{ col.columnName | translate }}</th>
     </tr>
   </thead>
   <tbody>
     <tr
       [routerLink]="['/opportunities', account.oportunityNumber]"
-      class="table-element-row shadow-sm"
+      class="table-element-row shadow-sm t-row"
       *ngFor="let account of dataSource"
     >
-      <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.oportunityName }}</td>
       <td class="mat-cell">{{ account.oportunityNumber }}</td>
       <td class="mat-cell">{{ account.accountName }}</td>
@@ -68,17 +66,16 @@
   class="general-table row-border"
 >
   <thead>
-    <tr>
+    <tr class="t-row">
       <th *ngFor="let col of columns">{{ col.columnName | translate }}</th>
     </tr>
   </thead>
   <tbody>
     <tr
-      class="table-element-row shadow-sm"
+      class="table-element-row shadow-sm t-row"
       [routerLink]="['/quotes', account.numberList]"
       *ngFor="let account of dataSource"
     >
-      <td class="mat-cell ps-3">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.quoteName }}</td>
       <td class="mat-cell">{{ account.quoteInvoice }}</td>
       <td class="mat-cell">{{ account.opportunity }}</td>
@@ -98,15 +95,14 @@
   class="general-table row-border"
 >
   <thead>
-    <tr>
+    <tr class="t-row">
       <th class="text-center" *ngFor="let col of columns">
         {{ col.columnName | translate }}
       </th>
     </tr>
   </thead>
   <tbody>
-    <tr class="c-pointer shadow-sm" *ngFor="let account of dataSource">
-      <td class="mat-cell text-center ps-3">{{ account.numberList }}</td>
+    <tr class="c-pointer shadow-sm t-row" *ngFor="let account of dataSource">
       <td class="mat-cell text-center">{{ account.siteFolio }}</td>
       <td class="mat-cell text-center">{{ account.street }}</td>
       <td class="mat-cell text-center">{{ account.colony }}</td>
@@ -128,7 +124,7 @@
   class="row-border general-table"
 >
   <thead>
-    <tr>
+    <tr class="t-row">
       <th class="text-center" *ngFor="let col of columns">
         {{ col.columnName | translate }}
       </th>
@@ -136,11 +132,10 @@
   </thead>
   <tbody>
     <tr
-      class="shadow-sm c-pointer"
+      class="shadow-sm c-pointer t-row"
       *ngFor="let account of dataSource; let i = index"
       (click)="goQuotesDetail(account)"
     >
-      <td class="mat-cell text-center">{{ account.numberList }}</td>
       <td class="mat-cell text-center">{{ account.quoteName }}</td>
       <td class="mat-cell text-center">{{ account.invoice }}</td>
       <td class="mat-cell text-center">{{ account.mounthTotal }}</td>
@@ -212,7 +207,7 @@
   class="row-border general-table"
 >
   <thead>
-    <tr>
+    <tr class="t-row">
       <th *ngFor="let col of columns">
         {{ col.columnName | translate }}
       </th>
@@ -220,11 +215,10 @@
   </thead>
   <tbody>
     <tr
-      class="shadow-sm c-pointer"
+      class="shadow-sm c-pointer t-row"
       (click)="goOportunitiesDetail(account)"
       *ngFor="let account of dataSource; let i = index"
     >
-      <td class="mat-cell ps-4">{{ account.numberList }}</td>
       <td class="mat-cell ps-4">{{ account.name }}</td>
       <td class="mat-cell ps-4">{{ account.opportunity_number }}</td>
       <td class="mat-cell ps-4">{{ account.status }}</td>
@@ -322,7 +316,7 @@
   class="row-border general-table"
 >
   <thead>
-    <tr>
+    <tr class="t-row">
       <th class="text-center" *ngFor="let col of columns">
         {{ col.columnName | translate }}
       </th>
@@ -330,10 +324,9 @@
   </thead>
   <tbody>
     <tr
-      class="shadow-sm c-pointer"
+      class="shadow-sm c-pointer t-row"
       *ngFor="let account of dataSource; let i = index"
     >
-      <td class="mat-cell text-center">{{ account.numberList }}</td>
       <td class="mat-cell text-center">{{ account.subject }}</td>
       <td class="mat-cell text-center">{{ account.name }}</td>
       <td class="mat-cell text-center">{{ account.relatedWith }}</td>
@@ -374,7 +367,6 @@
       <td class="mat-cell">
         <mat-checkbox class="ms-3"></mat-checkbox>
       </td>
-      <td class="mat-cell">{{ account.numberList }}</td>
       <td class="mat-cell">{{ account.site }}</td>
       <td class="mat-cell">{{ account.coverage }}</td>
       <td class="mat-cell">{{ account.accessMedia }}</td>
@@ -467,12 +459,6 @@
         [dataSource]="dataSource"
         class="mat-elevation-z8"
       >
-        <!-- Number Column -->
-        <ng-container matColumnDef="number">
-          <th mat-header-cell *matHeaderCellDef>N°</th>
-          <td mat-cell *matCellDef="let element">{{ element.number }}</td>
-        </ng-container>
-
         <!-- Subject Column -->
         <ng-container matColumnDef="subject">
           <th mat-header-cell *matHeaderCellDef>Asunto</th>
@@ -526,12 +512,6 @@
         [dataSource]="dataSource"
         class="mat-elevation-z8"
       >
-        <!-- Number Column -->
-        <ng-container matColumnDef="number">
-          <th mat-header-cell *matHeaderCellDef>N°</th>
-          <td mat-cell *matCellDef="let element">{{ element.number }}</td>
-        </ng-container>
-
         <!-- Subject Column -->
         <ng-container matColumnDef="subject">
           <th mat-header-cell *matHeaderCellDef>Asunto</th>

@@ -1,10 +1,6 @@
-<app-header-actions
-  [title]="contentLabels + 'title-detail' | translate"
-  buttonText="Crear cotización"
-  [route]="'quotes/create/' + opportunityNumber"
-  relatedRoute="opportunities/1/related"
-  [hidenCreateOportunity]="false"
->
+<app-header-actions [title]="title | translate" buttonText="Crear cotización"
+  [route]="'quotes/create/' + opportunityNumber" [isCreate]="isEditing" relatedRoute="opportunities/1/related"
+  [hidenCreateOportunity]="isEditing">
 </app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
-<app-oportunity-form [oportunityDetailData]="oportunity"></app-oportunity-form>
+<app-oportunity-form (edit)="handdleEdit($event)" [oportunityDetailData]="oportunity"></app-oportunity-form>

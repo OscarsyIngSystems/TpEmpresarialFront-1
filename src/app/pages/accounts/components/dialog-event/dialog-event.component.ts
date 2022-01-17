@@ -38,6 +38,5 @@ export class DialogEventComponent implements OnInit {
 
   addTeam(): void {
     this.team.push(this.form.value);
-    console.log(this.team);
   }
 }

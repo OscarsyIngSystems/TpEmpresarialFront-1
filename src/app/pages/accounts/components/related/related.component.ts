@@ -48,10 +48,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
 
   columnsShow = [
     {
-      key: 'numberList',
-      columnName: this.contentLabels + 'table-related.colum1',
-    },
-    {
       key: 'name',
       columnName: this.contentLabels + 'table-related.colum2',
     },
@@ -74,7 +70,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
   ];
   public dataSource = [
     {
-      numberList: 1,
       name: 'Sitios Satelitales 7-Eleven',
       opportunity_number: '07307270',
       status: 'Necesidades',
@@ -82,7 +77,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '31/12/2021',
     },
     {
-      numberList: 2,
       name: 'INT SIM 50/50 1 L OFICINA MERCADO 500',
       opportunity_number: '05941234',
       status: 'Firma',
@@ -90,7 +84,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '30/12/2021',
     },
     {
-      numberList: 3,
       name: 'INTERNE SIM 20MB 2 TIENDAS / T2631 / T2632',
       opportunity_number: '07218229',
       status: 'Propuesta',
@@ -98,7 +91,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '30/12/2021',
     },
     {
-      numberList: 4,
       name: 'T2724_Viñas - 50/50 1 Lin Voz',
       opportunity_number: '08395767',
       status: 'Perdida',
@@ -106,7 +98,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '10/12/2021',
     },
     {
-      numberList: 5,
       name: 'Enlace de Internet OAT CDMX',
       opportunity_number: '08014191',
       status: 'Perdida',
@@ -114,7 +105,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '30/10/2021',
     },
     {
-      numberList: 6,
       name: '38 Sitios Nona NL 7-Eleven Int 50/50 Mb 1 L',
       opportunity_number: '05429771',
       status: 'Ganada',
@@ -122,7 +112,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '19/11/2020',
     },
     {
-      numberList: 7,
       name: 'Sitios Satelitales 7-Eleven',
       opportunity_number: '07307270',
       status: 'Necesidades',
@@ -130,7 +119,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '31/12/2021',
     },
     {
-      numberList: 8,
       name: 'INT SIM 50/50 1 L OFICINA MERCADO 500',
       opportunity_number: '05941234',
       status: 'Firma',
@@ -138,7 +126,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '30/12/2021',
     },
     {
-      numberList: 9,
       name: 'INTERNE SIM 20MB 2 TIENDAS / T2631 / T2632',
       opportunity_number: '07218229',
       status: 'Propuesta',
@@ -146,7 +133,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '30/12/2021',
     },
     {
-      numberList: 10,
       name: 'T2724_Viñas - 50/50 1 Lin Voz',
       opportunity_number: '08395767',
       status: 'Perdida',
@@ -154,7 +140,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '10/12/2021',
     },
     {
-      numberList: 11,
       name: 'Enlace de Internet OAT CDMX',
       opportunity_number: '08014191',
       status: 'Perdida',
@@ -162,7 +147,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       closeDate: '30/10/2021',
     },
     {
-      numberList: 12,
       name: '38 Sitios Nona NL 7-Eleven Int 50/50 Mb 1 L',
       opportunity_number: '05429771',
       status: 'Ganada',

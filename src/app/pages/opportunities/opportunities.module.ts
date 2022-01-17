@@ -13,6 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { RelatedOportunitiesComponent } from './related-oportunities/related-oportunities.component';
 import { TeamComponent } from './dialogs/team/team.component';
+import { DialogOportunitiesComponent } from './dialogs/dialog-oportunities/dialog-oportunities.component';
 @NgModule({
   declarations: [
     OpportunitiesComponent,
@@ -22,6 +23,7 @@ import { TeamComponent } from './dialogs/team/team.component';
     OportunitiesDetailComponent,
     RelatedOportunitiesComponent,
     TeamComponent,
+    DialogOportunitiesComponent,
   ],
   imports: [
     CommonModule,

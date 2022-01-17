@@ -35,7 +35,7 @@ export class DeletedSitesComponent implements OnInit {
       value: 'COT3781611',
     },
     {
-      name: 'Vigencia cotización',
+      name: 'Vigencia de la cotización',
       value: '19/11/2021',
     },
     {
@@ -63,7 +63,7 @@ export class DeletedSitesComponent implements OnInit {
     public storageService: StorageService
   ) {
     this.lastValue = this.filterParam.value;
-
+    console.log(this.lastValue)
   }
 
   ngOnInit(): void {
@@ -100,7 +100,7 @@ export class DeletedSitesComponent implements OnInit {
   onFilter(filterValues: string) {
     this.filterValue = filterValues
     this.dataSource.filter = filterValues
-    console.log(this.filterParam)
+    console.log(this.filterParam.value)
   }
 
 

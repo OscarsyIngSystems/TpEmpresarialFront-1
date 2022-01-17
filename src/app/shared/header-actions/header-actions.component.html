@@ -11,7 +11,7 @@
       {{ buttonText }}
     </button>
 
-    <button *ngIf="router.url == '/quotes/loaded-sites'" type="button" class="btn-add">
+    <button (click)="onNavigate()" *ngIf="router.url == '/quotes/loaded-sites'" type="button" class="btn-add">
       <span class="fw-button">+ Agregar</span> sitio
     </button>
 

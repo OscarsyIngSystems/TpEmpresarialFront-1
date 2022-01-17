@@ -81,5 +81,9 @@
 
 //Se utiliza para centrar los textos en las tablas
 .t-row {
-  text-align: center !important;
+  text-align: start !important;
+}
+
+.mat-cell {
+  padding-left: 20px !important;
 }

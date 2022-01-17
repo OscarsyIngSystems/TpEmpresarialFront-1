@@ -20,6 +20,7 @@ import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites
 import { MatDialogModule } from '@angular/material/dialog';
 import { TableLoadedSitesComponent } from './components/table-loaded-sites/table-loaded-sites.component';
 import { DeletedSitesComponent } from './components/deleted-sites/deleted-sites.component';
+import { DialogEditLoadSitesComponent } from './components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { DeletedSitesComponent } from './components/deleted-sites/deleted-sites.
     DialogLoadSitesComponent,
     TableLoadedSitesComponent,
     DeletedSitesComponent,
+    DialogEditLoadSitesComponent,
   ],
   imports: [
     CommonModule,
