@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ComponentsModule } from './shared/components.module';
 import { HeaderInterceptor } from './interceptors/interceptor';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { NgxPageScrollModule } from 'ngx-page-scroll';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -40,6 +42,10 @@ export function createTranslateLoader(http: HttpClient): any {
         deps: [HttpClient],
       },
     }),
+    NgxPageScrollCoreModule.forRoot({
+      duration: 1500,
+    }),
+    NgxPageScrollModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

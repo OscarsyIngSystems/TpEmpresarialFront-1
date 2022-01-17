@@ -1,5 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import {
+  AfterContentInit,
+  Component,
+  ElementRef,
+  Inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PageScrollService } from 'ngx-page-scroll-core';
 import { InfoDetail } from 'src/app/models/infoDetail';
 
 @Component({
@@ -7,9 +16,12 @@ import { InfoDetail } from 'src/app/models/infoDetail';
   templateUrl: './related.component.html',
   styleUrls: ['./related.component.scss'],
 })
-export class RelatedComponent implements OnInit {
+export class RelatedComponent implements OnInit, AfterContentInit {
   public contentLabels = 'accounts.';
   public accountId;
+  public section;
+  @ViewChild('bottom_tabs', { read: ElementRef, static: true })
+  bottomTabs!: ElementRef;
 
   infoDetail: Array<InfoDetail> = [
     {
@@ -142,9 +154,26 @@ export class RelatedComponent implements OnInit {
       closeDate: '19/11/2020',
     },
   ];
-  constructor(private _url: ActivatedRoute) {
+  constructor(
+    private _url: ActivatedRoute,
+    private pageScrollService: PageScrollService,
+    @Inject(DOCUMENT) private document: any
+  ) {
     this.accountId = this._url.snapshot.paramMap.get('id');
+    this.section = this._url.snapshot.paramMap.get('section');
   }
 
   ngOnInit(): void {}
+
+  ngAfterContentInit(): void {
+    console.log(this.section);
+    if (this.section) {
+      this.pageScrollService.scroll({
+        scrollTarget: this.bottomTabs.nativeElement,
+        document: this.document,
+      });
+
+      console.log('eeeey');
+    }
+  }
 }
