@@ -2,12 +2,13 @@
   <input
     type="text"
     matInput
-    placeholder="Buscar contacto"
-    aria-label="Buscar contacto"
+    placeholder="Contacto principal"
+    aria-label="Contacto principal"
     aria-describedby="basic-addon2"
     [formControl]="searchData"
     [matAutocomplete]="auto"
     (keydown.enter)="search()"
+    (click)="(auto)"
   />
   <button
     class="btn-clear-search"
@@ -27,6 +28,13 @@
       [value]="option.name + ' ' + option.lastName"
     >
       {{ option.name }} {{ option.lastName }}
+    </mat-option>
+    <mat-option
+      mat-button
+      class="viewContactsOption text-bold"
+      pageScroll
+      (click)="watchContactsList()"
+      >Ver lista de contactos
     </mat-option>
   </mat-autocomplete>
 </mat-form-field>

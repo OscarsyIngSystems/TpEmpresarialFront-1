@@ -28,6 +28,10 @@ const routes: Routes = [
         path: 'related/:id',
         component: RelatedComponent,
       },
+      {
+        path: 'related/:id/:section',
+        component: RelatedComponent,
+      },
     ],
   },
 ];

@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
 import {
@@ -19,6 +20,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
   styleUrls: ['./contacts-search.component.scss'],
 })
 export class ContactsSearchComponent implements OnInit, AfterContentInit {
+  public accountId;
   @Input() title: string = '';
   @Input() defaultValue: string = '';
   @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
@@ -35,7 +37,10 @@ export class ContactsSearchComponent implements OnInit, AfterContentInit {
   ];
   separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor() {
+  constructor(private router: Router, private _url: ActivatedRoute) {
+    this.accountId = this._url.snapshot.paramMap.get('id');
+    console.log(this.accountId);
+
     if (this.defaultValue !== '') {
       this.loadOptionsSimple();
     } else {
@@ -46,10 +51,7 @@ export class ContactsSearchComponent implements OnInit, AfterContentInit {
   ngOnInit(): void {}
 
   ngAfterContentInit(): void {
-    console.log(this.defaultValue);
-
     this.searchData.setValue(this.defaultValue);
-    console.log(this.searchData);
   }
 
   private loadOptions(): void {
@@ -125,5 +127,10 @@ export class ContactsSearchComponent implements OnInit, AfterContentInit {
   }
   public setSelectedOption(value: any): void {
     this.selectedOption = value;
+  }
+  public watchContactsList(): void {
+    this.router.navigate([
+      'accounts/related/' + this.accountId + '/bottom-tabs',
+    ]);
   }
 }
