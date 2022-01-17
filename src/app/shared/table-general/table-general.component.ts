@@ -27,8 +27,8 @@ export class TableGeneralComponent implements OnInit {
   @Input() dataSource: any[] = []; //datos de la tabla
   data: any[] = [];
   @Input() idTableShow: number = 0; //indicador de que tabla se muestra
-  dataSource2 = new MatTableDataSource<Sale>()
   @Input() showHeaderTable!: boolean;
+  @Input() dataSource2 = new MatTableDataSource()
   @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
   @ViewChild('dataTable') dataTable: any;
   dtOptions: DataTables.Settings = {};
@@ -56,12 +56,12 @@ export class TableGeneralComponent implements OnInit {
   constructor(
     private route: Router,
     private storageService: StorageService,
-    private quotesService: QuotesService,
     private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.getData()
+    // this.getData()
+    console.log(this.dataSource2.data);
   }
 
   ngAfterContentInit(): void {
@@ -91,11 +91,7 @@ export class TableGeneralComponent implements OnInit {
   }
 
   getData() {
-    this.quotesService.getData().subscribe((sales: any[]) => {
-      console.log(sales)
 
-      this.dataSource = sales
-    })
   }
 
   goAccountDetail(account: Account): void {

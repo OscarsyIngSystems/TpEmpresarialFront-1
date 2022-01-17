@@ -21,7 +21,7 @@ import { MatDialogActions, MatDialogModule } from '@angular/material/dialog';
 import { TableLoadedSitesComponent } from './components/table-loaded-sites/table-loaded-sites.component';
 import { DeletedSitesComponent } from './components/deleted-sites/deleted-sites.component';
 import { DialogEditLoadSitesComponent } from './components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
-import { MatInputModule } from '@angular/material/input';
+// import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -49,8 +49,8 @@ import { MatInputModule } from '@angular/material/input';
     MatIconModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatInputModule,
-    MatDialogActions,
+    // MatInputModule,
+    // MatDialogActions,
   ],
 })
 export class QuotesModule {}

@@ -67,13 +67,13 @@ export class LoadedSitesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource.filterPredicate = this.filterPredicate
     this.getData()
+    this.dataSource.filterPredicate = this.filterPredicate
     this.storageService.setDataName('AUDI 1 COT | 2 SITIOS')
   }
 
   getData() {
-    this.service.getData().subscribe((data: Sale[]) => {
+    this.service.getData().subscribe((data) => {
       this.dataSource.data = data
     })
   }
