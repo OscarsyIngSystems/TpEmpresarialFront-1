@@ -380,7 +380,7 @@
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef> </th>
     <td [style.background-color]="element.color" mat-cell *matCellDef="let element">
-      <button id class="btn-round" ><mat-icon >edit</mat-icon></button>
+      <button (click)="onEdit()" class="btn-round" ><mat-icon >edit</mat-icon></button>
     </td>
   </ng-container>
 

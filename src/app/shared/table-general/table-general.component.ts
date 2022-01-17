@@ -16,6 +16,7 @@ import { DialogNewContactComponent } from 'src/app/pages/accounts/components/dia
 import { MatTableDataSource } from '@angular/material/table';
 import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { Sale } from 'src/app/models/sale';
+import { DialogEditLoadSitesComponent } from 'src/app/pages/quotes/components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 
 @Component({
   selector: 'app-table-general',
@@ -90,10 +91,6 @@ export class TableGeneralComponent implements OnInit {
     };
   }
 
-  getData() {
-
-  }
-
   goAccountDetail(account: Account): void {
     this.storageService.setDataName(account.accountName);
     this.route.navigate(['/accounts/detail', account.id]);
@@ -118,14 +115,18 @@ export class TableGeneralComponent implements OnInit {
   }
 
   openDialogEvent(): void {
-    this.dialog.open(DialogEventComponent, {
-      data: null,
-      width: '30%',
-      disableClose: true,
-    });
+    this.dialog.open(DialogEventComponent, { data: null, width: '30%', disableClose: true });
   }
 
   openDialogNewContact(): void {
     this.dialog.open(DialogNewContactComponent, { width: '40%' });
+  }
+
+  onEdit() {
+    this.dialog.open(DialogEditLoadSitesComponent, {
+      height: '600px',
+      width: '1000px',
+      panelClass: 'custom-dd',
+    });
   }
 }
