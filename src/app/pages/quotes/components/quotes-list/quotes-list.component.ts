@@ -29,8 +29,12 @@ export class QuotesListDeatilComponent implements OnInit {
       columnName: this.contentLabels + 'table.colum5',
     },
     {
-      key: 'validity',
+      key: 'created',
       columnName: this.contentLabels + 'table.colum6',
+    },
+    {
+      key: 'validity',
+      columnName: this.contentLabels + 'table.colum7',
     },
   ];
 
@@ -40,6 +44,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Audi CDMX OP',
       status: 'Completada',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -47,6 +52,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Zapata 2',
       status: 'Borrador',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -54,6 +60,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Automotriz Nissan 1',
       status: 'Borrador',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -61,6 +68,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'VW Lomas OP',
       status: 'Borrador',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -68,6 +76,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Toyota OP-2',
       status: 'Completada',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -75,6 +84,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Toyota OP-2',
       status: 'Completada',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -82,6 +92,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Toyota OP-2',
       status: 'Completada',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -89,6 +100,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Toyota OP-2',
       status: 'Completada',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -96,6 +108,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Toyota OP-2',
       status: 'Completada',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -103,6 +116,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Toyota OP-2',
       status: 'Completada',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -110,6 +124,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Toyota OP-2',
       status: 'Completada',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -117,6 +132,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Toyota OP-2',
       status: 'Completada',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
     {
@@ -124,6 +140,7 @@ export class QuotesListDeatilComponent implements OnInit {
       quoteInvoice: 'COT7808232',
       opportunity: 'Toyota OP-2',
       status: 'Completada',
+      created: '20/12/2018',
       validity: '20/12/2022',
     },
   ];

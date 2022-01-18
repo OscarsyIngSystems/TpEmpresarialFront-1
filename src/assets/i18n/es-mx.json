@@ -108,7 +108,8 @@
       "colum3": "Folio de la cotización",
       "colum4": "Oportunidad",
       "colum5": "Estatus",
-      "colum6": "Vigencia"
+      "colum6": "Creado",
+      "colum7": "Vigencia"
     },
     "table-loaded-sites": {
       "colum1": "",
