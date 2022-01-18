@@ -99,7 +99,6 @@ export class LoadedSitesComponent implements OnInit {
   onFilter(filterValues: string) {
     this.filterValue = filterValues
     this.dataSource.filter = filterValues
-
   }
 
 
@@ -110,17 +109,14 @@ export class LoadedSitesComponent implements OnInit {
 
   openDialog() {
     this.dlg.open(DialogLoadSitesComponent, {
-      height: '300px',
-      width: '400px',
-      panelClass: 'custom-dd',
+
+      panelClass: 'custom-cc',
     });
   }
 
   onEdit() {
     this.dlg.open(DialogEditLoadSitesComponent, {
-      height: '600px',
-      width: '1000px',
-      panelClass: 'custom-dd',
+      panelClass: 'full-screen-modal'
     });
   }
 }
