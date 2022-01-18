@@ -13,6 +13,10 @@ import { Account } from 'src/app/models/account';
 import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEventComponent } from 'src/app/pages/accounts/components/dialog-event/dialog-event.component';
 import { DialogNewContactComponent } from 'src/app/pages/accounts/components/dialog-new-contact/dialog-new-contact.component';
+import { MatTableDataSource } from '@angular/material/table';
+import { QuotesService } from 'src/app/services/quotes/quotes.service';
+import { Sale } from 'src/app/models/sale';
+import { DialogEditLoadSitesComponent } from 'src/app/pages/quotes/components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 
 @Component({
   selector: 'app-table-general',
@@ -23,32 +27,42 @@ export class TableGeneralComponent implements OnInit {
   @Input() columns: any[] = []; //nombrs de las columnase
   @Input() dataSource: any[] = []; //datos de la tabla
   data: any[] = [];
+  @Input() idTableShow: number = 0; //indicador de que tabla se muestra
+  @Input() showHeaderTable!: boolean;
+  @Input() dataSourceLoadedSites = new MatTableDataSource();
+  @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
+  @ViewChild('dataTable') dataTable: any;
+  dtOptions: DataTables.Settings = {};
+  columns2: string[] = [
+    'check',
+    'index',
+    'site',
+    'coverage',
+    'accessMedia',
+    'edit',
+  ];
+
+  expandedElement!: Account | null;
+  lengthMenu = [10, 20, 30];
 
   @Input()
   get dataFile(): any[] {
     return this.data;
   }
   set dataFile(data: any[]) {
-    console.log(data);
-
     this.data = data;
   }
 
-  @Input() idTableShow: number = 0; //indicador de que tabla se muestra
-  @Input() showHeaderTable!: boolean;
-  @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
-  @ViewChild('dataTable') dataTable: any;
-  dtOptions: DataTables.Settings = {};
-
-  expandedElement!: Account | null;
-  lengthMenu = [10, 20, 30];
   constructor(
     private route: Router,
     private storageService: StorageService,
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.getData()
+    console.log(this.dataSourceLoadedSites.data);
+  }
 
   ngAfterContentInit(): void {
     this.dtOptions = {
@@ -106,7 +120,16 @@ export class TableGeneralComponent implements OnInit {
       disableClose: true,
     });
   }
+
   openDialogNewContact(): void {
     this.dialog.open(DialogNewContactComponent, { width: '40%' });
+  }
+
+  onEdit() {
+    this.dialog.open(DialogEditLoadSitesComponent, {
+      height: '600px',
+      width: '1000px',
+      panelClass: 'custom-dd',
+    });
   }
 }
