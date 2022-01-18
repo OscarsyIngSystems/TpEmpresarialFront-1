@@ -553,15 +553,21 @@ input::-webkit-inner-spin-button {
 //#endregion timePicker
 
 //#region dialog-container
- .full-screen-modal .mat-dialog-container {
+.custom-dd .mat-dialog-container {
   border-radius: 15px;
-  width: 100vw !important;
-  background: yellow;
 }
 //#endregion dialog-container
+
+//# deleted-sites dialog-container
+.container-cc .mat-dialog-container {
+  border-radius: 10px;
+}
+//#end -deleted-sites dialog-container
 
 .action-edit {
   color: $color-primary;
   font-weight: 600;
   text-decoration: underline;
 }
+
+
