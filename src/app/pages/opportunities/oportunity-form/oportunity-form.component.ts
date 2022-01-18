@@ -41,16 +41,18 @@ export class OportunityFormComponent implements OnInit {
       oportunityOrigin: ['one', Validators.required],
       trybuy: [false],
       executive: ['Sergio Aparicio Contreras'],
-      whoIntegrated: ['one'],
+      whoIntegrated: ['one', [Validators.required]],
       saleType: ['0', Validators.required],
       finderFee: [''],
       collaboratorName: [],
       collaboratorNumber: [],
       distributor: [],
+      hld: [],
     });
     this.oportunityForm.get('badge')?.disable();
     this.oportunityForm.get('probability')?.disable();
     this.oportunityForm.get('executive')?.disable();
+    this.oportunityForm.get('reason')?.disable();
   }
 
   ngOnInit(): void {}

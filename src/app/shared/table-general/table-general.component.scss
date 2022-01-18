@@ -91,11 +91,12 @@
 // #region tabla loaded sites
 table {
   width: 100%;
+  background-color: transparent !important;
 }
 
 .mat-header-cell {
   color: black;
-  background: #f7fafc;
+  background: rgba(255, 255, 255, 0);
 }
 
 .mat-column-check {

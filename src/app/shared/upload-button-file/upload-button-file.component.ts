@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class UploadButtonFileComponent implements OnInit {
   @Input() public text: string = 'Cargar';
+  @Input() public disabled: boolean = false;
   @Output() private handdleFile: EventEmitter<File> = new EventEmitter<File>();
   constructor() {}
 

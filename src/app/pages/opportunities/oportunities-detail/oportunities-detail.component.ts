@@ -34,7 +34,7 @@ export class OportunitiesDetailComponent implements OnInit {
     },
     {
       name: 'Importe',
-      value: 'Estrategicas',
+      value: '$200',
     },
     {
       name: 'Fecha de cierre',

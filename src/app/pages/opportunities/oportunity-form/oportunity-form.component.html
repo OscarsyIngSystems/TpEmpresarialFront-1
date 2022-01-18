@@ -6,7 +6,7 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Origen de la oportunidad</mat-label>
+            <mat-label class="label-form-field">Origen de la oportunidad <small class="color-red">*</small></mat-label>
             <mat-select formControlName="oportunityOrigin">
               <mat-option value="one">Primera opción</mat-option>
             </mat-select>
@@ -56,7 +56,7 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Nombre de la oportunidad</mat-label>
+            <mat-label class="label-form-field">Nombre de la oportunidad <small class="color-red">*</small></mat-label>
             <input matInput formControlName="oportunityName" />
           </mat-form-field>
         </div>
@@ -69,7 +69,7 @@
         </div>
         <div class="input-container" [class]="!oportunityDetailData ? 'mtn-10' : ''">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Divisa de la oportunidad</mat-label>
+            <mat-label class="label-form-field">Divisa de la oportunidad<small class="color-red">*</small></mat-label>
             <input formControlName="badge" matInput />
           </mat-form-field>
         </div>
@@ -84,7 +84,8 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Quién integra la propuesta</mat-label>
+            <mat-label class="label-form-field">Quién integra la propuesta <small class="color-red">*</small>
+            </mat-label>
             <mat-select formControlName="whoIntegrated">
               <mat-option value="one">Juanito Pérez</mat-option>
             </mat-select>
@@ -93,7 +94,7 @@
 
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label>Fecha estimada de cierre</mat-label>
+            <mat-label>Fecha estimada de cierre<small class="color-red">*</small></mat-label>
             <input matInput (click)="picker.open()" [matDatepicker]="picker" formControlName="closeDate" readonly />
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -112,7 +113,8 @@
           </div>
           <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div> -->
 
-          <app-upload-button-file class="me-2" text="Cargar HLD" (handdleFile)="selectFile($event)">
+          <app-upload-button-file [disabled]="oportunityForm.disabled" class="me-2" text="Cargar HLD"
+            (handdleFile)="selectFile($event)">
           </app-upload-button-file>
           <button *ngIf="hld" class="rounded-button-outline-auto"><strong>Ver</strong> HLD</button>
         </div>
@@ -155,7 +157,7 @@
           </div>
 
           <div class="input-container" *ngIf="saleType=='2'">
-            <app-contacts-search textPlaceholder="Distribuidor"></app-contacts-search>
+            <app-contacts-search title="Distribuidor"></app-contacts-search>
             <!--  <mat-form-field class="w-100" appearance="fill">
               <mat-label class="label-form-field">Distribuidor</mat-label>
               <input matInput formControlName="distributor" />
@@ -168,7 +170,7 @@
 
               <input matInput placeholder="Número de colaborador" formControlName="collaboratorNumber" />
             </mat-form-field> -->
-            <app-contacts-search textPlaceholder="Número de colaborador"></app-contacts-search>
+            <app-contacts-search title="Número de colaborador"></app-contacts-search>
           </div>
 
           <div class="input-container" *ngIf="saleType=='2'">
@@ -176,7 +178,7 @@
               <mat-label class="label-form-field">FinderFee</mat-label>
               <input matInput formControlName="finderFee" />
             </mat-form-field> -->
-            <app-contacts-search textPlaceholder="finderFee"></app-contacts-search>
+            <app-contacts-search title="FinderFee"></app-contacts-search>
           </div>
         </div>
 

@@ -553,7 +553,7 @@ input::-webkit-inner-spin-button {
 //#endregion timePicker
 
 //#region dialog-container
- .full-screen-modal .mat-dialog-container {
+.full-screen-modal .mat-dialog-container {
   border-radius: 15px;
   width: 100vw !important;
   background: yellow;
@@ -564,4 +564,8 @@ input::-webkit-inner-spin-button {
   color: $color-primary;
   font-weight: 600;
   text-decoration: underline;
+}
+
+.color-red {
+  color: $color-secondary;
 }
