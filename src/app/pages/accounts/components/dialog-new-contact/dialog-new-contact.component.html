@@ -2,11 +2,11 @@
   <h2 class="text-bold title">Nuevo contacto</h2>
 </div>
 
-<div class="row" [formGroup]="formNewContact">
+<div class="" [formGroup]="formNewContact">
   <div class="row">
     <div class="col-4 input-container">
       <mat-form-field class="w-100" appearance="fill">
-        <mat-label>Nombre(s)</mat-label>
+        <mat-label>Nombre(s) <small class="color-red">*</small></mat-label>
         <input matInput formControlName="name" />
         <mat-error *ngIf="formNewContact.controls.name.invalid"
           >Campo obligatorio</mat-error
@@ -15,7 +15,9 @@
     </div>
     <div class="col-4 input-container">
       <mat-form-field class="w-100" appearance="fill">
-        <mat-label>Apellido paterno</mat-label>
+        <mat-label
+          >Apellido paterno <small class="color-red">*</small></mat-label
+        >
         <input matInput formControlName="paternal" />
         <mat-error *ngIf="formNewContact.controls.paternal.invalid"
           >Campo obligatorio</mat-error
@@ -24,7 +26,9 @@
     </div>
     <div class="col-4 input-container">
       <mat-form-field class="w-100" appearance="fill">
-        <mat-label>Apellido materno</mat-label>
+        <mat-label
+          >Apellido materno <small class="color-red">*</small></mat-label
+        >
         <input matInput formControlName="mother" />
         <mat-error *ngIf="formNewContact.controls.mother.invalid"
           >Campo obligatorio</mat-error
@@ -36,7 +40,7 @@
   <div class="row">
     <div class="col-4 input-container">
       <mat-form-field class="w-100" appearance="fill">
-        <mat-label>Teléfono</mat-label>
+        <mat-label>Teléfono <small class="color-red">*</small></mat-label>
         <input matInput formControlName="phone" />
         <mat-error *ngIf="formNewContact.controls.phone.invalid"
           >Campo obligatorio</mat-error
@@ -54,7 +58,7 @@
     </div>
     <div class="col-4 input-container">
       <mat-form-field class="w-100" appearance="fill">
-        <mat-label>Móvil</mat-label>
+        <mat-label>Celular <small class="color-red">*</small></mat-label>
         <input matInput formControlName="mobile" />
         <mat-error *ngIf="formNewContact.controls.mobile.invalid"
           >Campo obligatorio</mat-error
@@ -66,7 +70,7 @@
   <div class="row">
     <div class="col-6 input-container">
       <mat-form-field class="w-100" appearance="fill">
-        <mat-label>Correo</mat-label>
+        <mat-label>Correo <small class="color-red">*</small></mat-label>
         <input matInput formControlName="mail" />
         <mat-error *ngIf="formNewContact.controls.mail.invalid"
           >Campo obligatorio</mat-error
@@ -75,7 +79,9 @@
     </div>
     <div class="col-6 input-container">
       <mat-form-field class="w-100" appearance="fill">
-        <mat-label>Tipo de contacto</mat-label>
+        <mat-label
+          >Tipo de contacto <small class="color-red">*</small></mat-label
+        >
         <mat-select formControlName="typeContact">
           <mat-option value="0">Seleccione una opción</mat-option>
           <mat-option value="1">opción 1</mat-option>
@@ -91,5 +97,11 @@
   <button mat-button class="rounded-button-outline" mat-dialog-close>
     Cancelar
   </button>
-  <button mat-button class="rounded-button-outline btn-primary">Guardar</button>
+  <button
+    [disabled]="formNewContact.invalid"
+    mat-button
+    class="rounded-button-outline btn-primary"
+  >
+    Guardar
+  </button>
 </mat-dialog-actions>

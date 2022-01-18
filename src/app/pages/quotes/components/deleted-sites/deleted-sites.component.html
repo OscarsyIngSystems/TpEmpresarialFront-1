@@ -1,24 +1,41 @@
-<app-header-actions [hidenCreateOportunity]="true" [showRelatedText]="false" [isLoadSites]="true"
-  title="Sitios Eliminados"></app-header-actions>
+<app-header-actions
+  [hidenCreateOportunity]="true"
+  [showRelatedText]="false"
+  [isLoadSites]="true"
+  title="Sitios Eliminados"
+></app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 <div class="d-flex justify-content-start m-3">
   <div class="search-bar-divider">
-    <button mat-button style="margin-right: 10em;" type="button" class="btn-add">
-      Restablecer Sitios
-    </button>
+    <button mat-button type="button" class="btn-add">Agregar nuevamente</button>
   </div>
   <div class="input-group width shadow-sm">
-    <input type="text" class="form-control search-bar mt-0"
+    <input
+      type="text"
+      class="form-control search-bar mt-0"
       placeholder="Añade tu sitio(s) buscando la dirección o coordenada"
-      aria-label="Añade tu sitio(s) buscando la dirección o coordenada" aria-describedby="basic-addon2"
-      [formControl]="searchData" [matAutocomplete]="auto" (keydown.enter)="search()" />
-    <button class="btn-clear-search" *ngIf="selectedIdOption" matSuffix mat-icon-button aria-label="Clear"
-      (click)="clearSearch()">
+      aria-label="Añade tu sitio(s) buscando la dirección o coordenada"
+      aria-describedby="basic-addon2"
+      [formControl]="searchData"
+      [matAutocomplete]="auto"
+      (keydown.enter)="search()"
+    />
+    <button
+      class="btn-clear-search"
+      *ngIf="selectedIdOption"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="clearSearch()"
+    >
       <mat-icon class="icon-clear-search">close</mat-icon>
     </button>
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option (click)="setSearchId(option.id)" *ngFor="let option of filteredOptions | async"
-        [value]="option.name + ' ' + option.location + ' ' + option.type">
+      <mat-option
+        (click)="setSearchId(option.id)"
+        *ngFor="let option of filteredOptions | async"
+        [value]="option.name + ' ' + option.location + ' ' + option.type"
+      >
         {{ option.name }} {{ option.location }}
         <small class="small-type">{{ option.type }}</small>
       </mat-option>
@@ -27,12 +44,18 @@
     <div class="search-bar-divider">
       <span class="search-bar-span">&nbsp;</span>
     </div>
-    <button class="btn btn-outline-secondary pt-2 search-bar search-bar-btn" id="basic-addon2" (click)="search()">
+    <button
+      class="btn btn-outline-secondary pt-2 search-bar search-bar-btn"
+      id="basic-addon2"
+      (click)="search()"
+    >
       <mat-icon class="search-icon">search</mat-icon>
     </button>
   </div>
   <div class="search-bar-divider">
-    <span *ngIf="router.url != '/quotes/deleted-sites'" class="underline">Eliminar sitio</span>
+    <span *ngIf="router.url != '/quotes/deleted-sites'" class="underline"
+      >Eliminar sitio</span
+    >
   </div>
 
   <div></div>
@@ -43,93 +66,160 @@
     <span>Con cobertura: 9</span>
   </div>
 
-  <div class="d-flex flex-row col-5 g-0 justify-content-end">
+  <div class="d-flex flex-row col-10 g-0 justify-content-start">
     <div class="d-flex flex-row me-4 align-items-center">
       <div class="me-2">Mostrar</div>
-      <select class="form-select form-select-sm" aria-label="form-select-sm example">
+      <select
+        class="form-select form-select-sm"
+        aria-label="form-select-sm example"
+      >
         <option value="1">20</option>
         <option value="2">40</option>
         <option value="3">60</option>
       </select>
     </div>
-    <div class="row g-0 row-cols-lg-auto justify-revert">
-      <input value="1" type="checkbox" class="btn-check" id="btn-check-fiber" name="op" autocomplete="off"
-        [formControl]="filterParam" (click)="onFilter('Fibra')" />
-      <label class="btn btn-sm btn-outline-primary me-2 btn-check-fiber btn-check-no-shadow" for="btn-check-fiber">3
-        Fibra</label>
+    <div class="row g-1 row-cols-lg-auto">
+      <div class="col-3">
+        <input
+          value="1"
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-fiber"
+          (click)="onFilter('Fibra')"
+          name="control"
+          [formControl]="control"
+        />
+        <label
+          class="btn btn-sm btn-outline-primary btn-check-fiber btn-check-no-shadow"
+          for="btn-check-fiber"
+          >3 Fibra</label
+        >
+      </div>
 
-      <input value="2" type="checkbox" class="btn-check" id="btn-check-microwave" autocomplete="off" name="op"
-        [formControl]="filterParam" (click)="onFilter('Microonda')" />
-      <label class="btn btn-sm btn-outline-primary me-2 btn-check-microwave btn-check-no-shadow"
-        for="btn-check-microwave">3 Microonda</label>
+      <div class="col-3">
+        <input
+          value="2"
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-microwave"
+          (click)="onFilter('Microonda')"
+          name="control"
+          [formControl]="control"
+        />
+        <label
+          class="btn btn-sm btn-outline-primary btn-check-microwave btn-check-no-shadow"
+          for="btn-check-microwave"
+          >3 Microonda</label
+        >
+      </div>
 
-      <input value="3" type="checkbox" class="btn-check" id="btn-check-meter" autocomplete="off" name="op"
-        (click)="onFilter('Metro')" />
-      <label class="btn me-2 btn-sm btn-outline-primary btn-check-meter btn-check-no-shadow" for="btn-check-meter">1
-        Metro</label>
+      <div class="col-3">
+        <input
+          value="3"
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-meter"
+          (click)="onFilter('Metro')"
+          name="control"
+          [formControl]="control"
+        />
+        <label
+          class="btn btn-sm btn-outline-primary btn-check-meter btn-check-no-shadow"
+          for="btn-check-meter"
+          >1 Metro</label
+        >
+      </div>
 
-      <input value="4" type="checkbox" class="btn-check" id="btn-check-coverage" autocomplete="off" name="op"
-        (click)="onFilter('N/D')" />
-
-      <label class="btn me-2 btn-sm btn-outline-primary btn-check-coverage btn-check-no-shadow"
-        for="btn-check-coverage">3 Sin Cobertura</label>
+      <div class="col-3">
+        <input
+          value="4"
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-coverage"
+          (click)="onFilter('N/D')"
+          name="control"
+          [formControl]="control"
+        />
+        <label
+          class="btn me-2 btn-sm btn-outline-primary btn-check-coverage btn-check-no-shadow"
+          for="btn-check-coverage"
+          >3 Sin Cobertura</label
+        >
+      </div>
     </div>
   </div>
-
-  <div class="col-5 d-flex justify-content-end g-0"></div>
 </div>
 
 <!-- table -->
-<div style="margin-top: 10px;" class="row">
-  <div class="col-md-7  lg-7 xl-7">
-    <div style="margin-top: 25px;">
+<div style="margin-top: 10px" class="row">
+  <div class="col-md-7 lg-7 xl-7">
+    <div style="margin-top: 25px">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
-
         <!-- Check Column -->
         <ng-container matColumnDef="check">
           <th mat-header-cell *matHeaderCellDef>
             <mat-checkbox class="example-margin"></mat-checkbox>
           </th>
-          <td [style.background-color]="element.color" mat-cell *matCellDef="let element">
+          <td
+            [style.background-color]="element.color"
+            mat-cell
+            *matCellDef="let element"
+          >
             <mat-checkbox class="example-margin"></mat-checkbox>
           </td>
         </ng-container>
 
         <!-- Index Column -->
         <ng-container matColumnDef="index">
-          <th mat-header-cell *matHeaderCellDef> N° </th>
-          <td [style.background-color]="element.color" mat-cell *matCellDef="let element;let i = index;"> {{i+1}} </td>
+          <th mat-header-cell *matHeaderCellDef>N°</th>
+          <td
+            [style.background-color]="element.color"
+            mat-cell
+            *matCellDef="let element; let i = index"
+          >
+            {{ i + 1 }}
+          </td>
         </ng-container>
 
         <!-- Site Column -->
         <ng-container matColumnDef="site">
-          <th mat-header-cell *matHeaderCellDef> Sitio </th>
-          <td [style.background-color]="element.color" class="numberList" mat-cell *matCellDef="let element">
-            {{element.site}} </td>
+          <th mat-header-cell *matHeaderCellDef>Sitio</th>
+          <td
+            [style.background-color]="element.color"
+            class="numberList"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.site }}
+          </td>
         </ng-container>
 
         <!-- Coverage Column -->
         <ng-container matColumnDef="coverage">
-          <th mat-header-cell *matHeaderCellDef> Cobertura </th>
-          <td [style.background-color]="element.color" mat-cell *matCellDef="let element"> {{element.coverage}} </td>
+          <th mat-header-cell *matHeaderCellDef>Cobertura</th>
+          <td
+            [style.background-color]="element.color"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.coverage }}
+          </td>
         </ng-container>
 
         <!-- AccessMedia Column -->
         <ng-container matColumnDef="accessMedia">
-          <th mat-header-cell *matHeaderCellDef> Medio de Acceso</th>
-          <td [style.background-color]="element.color" mat-cell *matCellDef="let element"> {{element.accessMedia}} </td>
-        </ng-container>
-
-        <!-- Edit Column -->
-        <ng-container matColumnDef="edit">
-          <th mat-header-cell *matHeaderCellDef> </th>
-          <td [style.background-color]="element.color" mat-cell *matCellDef="let element">
-            <mat-icon class="edit-icon">edit</mat-icon>
+          <th mat-header-cell *matHeaderCellDef>Medio de Acceso</th>
+          <td
+            [style.background-color]="element.color"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.accessMedia }}
           </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="columns"></tr>
-        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns"></tr>
       </table>
     </div>
   </div>

@@ -58,7 +58,8 @@
 .btn-add {
   border-radius: 25px;
   background-color: $color-secondary;
-  width: 156px;
+  margin-right: 10em;
+  width: auto;
   height: 35px;
   color: $color-white;
   border: none;
@@ -321,7 +322,3 @@ table {
 .edit-icon {
   cursor: pointer;
 }
-
-
-
-

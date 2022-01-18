@@ -122,7 +122,7 @@ export class TableGeneralComponent implements OnInit {
   }
 
   openDialogNewContact(): void {
-    this.dialog.open(DialogNewContactComponent, { width: '40%' });
+    this.dialog.open(DialogNewContactComponent, { width: '42%' });
   }
 
   onEdit() {

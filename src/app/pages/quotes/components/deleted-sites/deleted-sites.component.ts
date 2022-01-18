@@ -18,7 +18,7 @@ import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-lo
 export class DeletedSitesComponent implements OnInit {
   public contentLabels = 'quotes.';
   filterParam: FormControl = new FormControl('0');
-  filterValue: string = '';
+  filterValue = '';
   lastValue: number;
   dataSource = new MatTableDataSource();
   infoDetail: Array<InfoDetail> = [
@@ -43,18 +43,15 @@ export class DeletedSitesComponent implements OnInit {
       value: 'Sergio Aparicio Contreras',
     },
   ];
-  columns: string[] = [
-    'check',
-    'index',
-    'site',
-    'coverage',
-    'accessMedia',
-    'edit',
-  ];
+  columns: string[] = ['check', 'index', 'site', 'coverage', 'accessMedia'];
 
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
+  control: FormControl = new FormControl();
+  filteredData: any[] = [];
+  originalData: any[] = [];
+  filters: string[] = [];
 
   constructor(
     private service: QuotesService,
@@ -72,9 +69,27 @@ export class DeletedSitesComponent implements OnInit {
     this.storageService.setDataName('AUDI 1 COT | 2 SITIOS');
   }
 
-  getData() {
+  onFilter(filterValues: string): void {
+    if (!this.filters.includes(filterValues)) {
+      this.filters.push(filterValues);
+    } else {
+      const index = this.filters.indexOf(filterValues);
+      this.filters.splice(index, 1);
+    }
+    if (this.filters.length === 0) {
+      this.dataSource.data = this.originalData;
+    } else {
+      this.filteredData = this.originalData.filter((site) => {
+        return this.filters.includes(site.accessMedia);
+      });
+      this.dataSource.data = this.filteredData;
+    }
+  }
+
+  getData(): void {
     this.service.getData().subscribe((data: Sale[]) => {
-      this.dataSource.data = data;
+      this.originalData = data;
+      this.dataSource.data = this.originalData;
     });
   }
 
@@ -86,27 +101,27 @@ export class DeletedSitesComponent implements OnInit {
     alert('Buscando... ' + this.searchData.value);
   }
 
-  onNavigate() {
+  onNavigate(): void {
     this.router.navigate(['/quotes/deleted-sites']);
   }
 
-  clearSearch() {
+  clearSearch(): void {
     this.selectedIdOption = 0;
     this.searchData.setValue('');
   }
 
-  onFilter(filterValues: string) {
-    this.filterValue = filterValues;
-    this.dataSource.filter = filterValues;
-    console.log(this.filterParam.value);
-  }
+  // onFilter(filterValues: string) : void {
+  //   this.filterValue = filterValues;
+  //   this.dataSource.filter = filterValues;
+  //   console.log(this.filterParam.value);
+  // }
 
-  filterPredicate(data: any, filter: string) {
-    let datas = JSON.stringify(data).includes(filter);
+  filterPredicate(data: any, filter: string): boolean {
+    const datas = JSON.stringify(data).includes(filter);
     return datas;
   }
 
-  openDialog() {
+  openDialog(): void {
     this.dlg.open(DialogLoadSitesComponent, {
       height: '300px',
       width: '400px',
