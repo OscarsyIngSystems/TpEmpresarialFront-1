@@ -15,14 +15,22 @@ export class QuoteFormComponent implements OnInit {
     return this.isTryBuy;
   }
   set data(data: any) {
+    console.log(data?.data?.reason);
+    this.reasonVlue = data?.data?.reason;
+
     this.isTryBuy = data;
     if (data?.data?.trybuy)
       this.form.get('quoteTypeTry')?.setValue(data.data?.trybuy);
+
+    if (data?.data?.reason) {
+      this.form.get('reason')?.setValue(data.data?.reason);
+    }
   }
+
   public opportunityNumber;
 
   isTryBuy: any;
-
+  reasonVlue: any;
   name = '“COT7808232”';
   form: FormGroup;
   public isAdmin(): boolean {
@@ -42,7 +50,7 @@ export class QuoteFormComponent implements OnInit {
       dataPicker: [new Date(), Validators.required],
       isMain: [true],
       isMainQuotation: [true],
-      reason: ['Superioridad técnica'],
+      reason: [],
       quoteType: ['3'],
       quoteTypeTry: [false],
     });
