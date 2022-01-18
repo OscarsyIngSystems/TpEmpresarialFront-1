@@ -100,6 +100,7 @@ export class QuoteFormComponent implements OnInit {
       this.form.get('quoteType')?.disable();
       this.form.get('reason')?.enable();
     } else {
+      this.form.get('reason')?.setValue('');
       this.form.get('reason')?.disable();
       this.form.get('quoteType')?.enable();
     }
