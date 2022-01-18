@@ -553,8 +553,10 @@ input::-webkit-inner-spin-button {
 //#endregion timePicker
 
 //#region dialog-container
-.custom-dd .mat-dialog-container {
+ .full-screen-modal .mat-dialog-container {
   border-radius: 15px;
+  width: 100vw !important;
+  background: yellow;
 }
 //#endregion dialog-container
 

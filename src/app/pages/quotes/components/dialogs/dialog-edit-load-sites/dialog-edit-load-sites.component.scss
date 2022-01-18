@@ -1,19 +1,4 @@
 @import "../../../../../../styles.scss";
-.input-container {
-  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
-    background-color: white !important;
-  }
-
-  .mat-input-element:disabled,
-  .mat-form-field-type-mat-native-select.mat-form-field-disabled
-    .mat-form-field-infix::after {
-    color: rgba(0, 0, 0, 0.38);
-    background-color: $color-disabled;
-    border-radius: 5px;
-    padding: 5px !important;
-    font-weight: 500 !important;
-  }
-}
 
 .btn-primary {
   background-color: $color-primary;
@@ -25,4 +10,72 @@
   border: 2px solid gray;
   text-align: center;
   border-radius: 5px;
+}
+
+//#region search bar
+
+.search-bar {
+  border-radius: 25px;
+  border: none;
+  height: 40px;
+}
+.search-bar-btn {
+  &:hover {
+    background-color: $color-primary;
+  }
+  &:focus {
+    box-shadow: none;
+  }
+  background-color: $color-white;
+}
+
+.search-bar-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar-span {
+  background-color: $color-placeholder;
+  width: 3px;
+  height: 50%;
+}
+
+.search-icon {
+  color: $color-placeholder;
+}
+
+.small-type {
+  color: $color-placeholder;
+}
+
+.mat-option:hover:not(.mat-option-disabled),
+.mat-option:focus:not(.mat-option-disabled) {
+  background: rgba(236, 77, 152, 0.1);
+}
+
+.mat-option.mat-active {
+  background: $color-white;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.icon-clear-search {
+  background-color: $color-btn-clear;
+  font-size: 14px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50% !important;
+  line-height: 19px !important;
+}
+.btn-clear-search {
+  background-color: $color-white;
+}
+
+//#endregion search bar
+
+.full-screen-modal .mat-dialog-container  {
+  background: yellow !important;
 }

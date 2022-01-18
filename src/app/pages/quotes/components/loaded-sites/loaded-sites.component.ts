@@ -120,17 +120,14 @@ export class LoadedSitesComponent implements OnInit {
 
   openDialog(): void {
     this.dlg.open(DialogLoadSitesComponent, {
-      height: '300px',
-      width: '400px',
-      panelClass: 'custom-dd',
+
+      panelClass: 'custom-cc',
     });
   }
 
   onEdit(): void {
     this.dlg.open(DialogEditLoadSitesComponent, {
-      height: '600px',
-      width: '1000px',
-      panelClass: 'custom-dd',
+      panelClass: 'full-screen-modal'
     });
   }
 }
