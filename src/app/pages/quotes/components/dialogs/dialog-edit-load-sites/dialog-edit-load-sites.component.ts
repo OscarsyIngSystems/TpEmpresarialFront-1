@@ -27,7 +27,13 @@ export class DialogEditLoadSitesComponent implements OnInit {
       street: ['Joaquín',Validators.required],
       outsideNumber: ['MZ80',Validators.required],
       insideNumber: ['7735',Validators.required],
-      zipCode: ['10400',Validators.required]
+      zipCode: ['10400',Validators.required],
+      suburb: ['San Jerónimo Aculco',Validators.required],
+      townHall: ['Benito Juarez',Validators.required],
+      state: ['Distrito Federal',Validators.required],
+      city: ['Ciudad de México',Validators.required],
+      latitude: ['19.335048',Validators.required],
+      longitude: ['-19.198406',Validators.required]
     })
   }
 

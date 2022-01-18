@@ -14,8 +14,6 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEventComponent } from 'src/app/pages/accounts/components/dialog-event/dialog-event.component';
 import { DialogNewContactComponent } from 'src/app/pages/accounts/components/dialog-new-contact/dialog-new-contact.component';
 import { MatTableDataSource } from '@angular/material/table';
-import { QuotesService } from 'src/app/services/quotes/quotes.service';
-import { Sale } from 'src/app/models/sale';
 import { DialogEditLoadSitesComponent } from 'src/app/pages/quotes/components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 
 @Component({
@@ -35,7 +33,6 @@ export class TableGeneralComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   columns2: string[] = [
     'check',
-    'index',
     'site',
     'coverage',
     'accessMedia',

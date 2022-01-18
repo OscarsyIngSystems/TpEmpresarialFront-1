@@ -1,12 +1,12 @@
-<div class="custom-cc">
+ <div class="custom-cc">
   <div>
     <h1 class="text-bold text-center">Editar Sitio</h1>
   </div>
   <div class=" d-flex justify-content-center row">
     <div class="input-group w-75 m-3 shadow-sm">
       <input type="text" class="form-control search-bar mt-0"
-        placeholder="Maremoto MZ28 LT17, San Jerónimo Aculco, La Magdalena Contreras,10400 Ciudad de México"
-        aria-label="Maremoto MZ28 LT17, San Jerónimo Aculco, La Magdalena Contreras,10400 Ciudad de México"
+        placeholder="Añade tu sitio(s) buscando la dirección o coordenada"
+        aria-label="Añade tu sitio(s) buscando la dirección o coordenada"
         aria-describedby="basic-addon2" [formControl]="searchData" [matAutocomplete]="auto"
         (keydown.enter)="search()" />
       <button class="btn-clear-search" *ngIf="selectedIdOption" matSuffix mat-icon-button aria-label="Clear"
@@ -37,7 +37,7 @@
           <div class="row">
             <div class="col-12 input-container">
               <mat-form-field class="w-100" appearance="fill">
-                <mat-label>Nombre del Sitio</mat-label>
+                <mat-label>Nombre del Sitios <span>*</span></mat-label>
                 <input formControlName="siteName" matInput>
               </mat-form-field>
             </div>
@@ -47,13 +47,13 @@
           <div class="row">
             <div class="col-6 input-container">
               <mat-form-field class="w-100" appearance="fill">
-                <mat-label>Calle</mat-label>
+                <mat-label>Calle <span>*</span></mat-label>
                 <input formControlName="street" matInput>
               </mat-form-field>
             </div>
             <div class="col-6 input-container">
               <mat-form-field class="w-100" appearance="fill">
-                <mat-label>Numero Exterior</mat-label>
+                <mat-label>Numero Exterior <span>*</span></mat-label>
                 <input formControlName="outsideNumber" matInput>
               </mat-form-field>
             </div>
@@ -68,7 +68,7 @@
             </div>
             <div class="col-6 input-container">
               <mat-form-field class="w-100" appearance="fill">
-                <mat-label>Código Postal</mat-label>
+                <mat-label>Código Postal<span>*</span></mat-label>
                 <input formControlName="zipCode" matInput>
               </mat-form-field>
             </div>
@@ -77,14 +77,14 @@
           <div class="row">
             <div class="col-6 input-container">
               <mat-form-field class="w-100" appearance="fill">
-                <mat-label>Colonia</mat-label>
-                <input matInput>
+                <mat-label>Colonia <span>*</span></mat-label>
+                <input formControlName="suburb" matInput>
               </mat-form-field>
             </div>
             <div class="col-6 input-container">
               <mat-form-field class="w-100" appearance="fill">
-                <mat-label>Alcaldía/Municipio</mat-label>
-                <input matInput>
+                <mat-label>Alcaldía/Municipio <span>*</span></mat-label>
+                <input formControlName="townHall" matInput>
               </mat-form-field>
             </div>
           </div>
@@ -92,14 +92,14 @@
           <div class="row">
             <div class="col-6 input-container">
               <mat-form-field class="w-100" appearance="fill">
-                <mat-label>Estado</mat-label>
-                <input matInput>
+                <mat-label>Estado <span>*</span></mat-label>
+                <input formControlName="state" matInput>
               </mat-form-field>
             </div>
             <div class="col-6 input-container">
               <mat-form-field class="w-100" appearance="fill">
-                <mat-label>Ciudad</mat-label>
-                <input matInput>
+                <mat-label>Ciudad <span>*</span></mat-label>
+                <input formControlName="city" matInput>
               </mat-form-field>
             </div>
           </div>
@@ -108,13 +108,13 @@
             <div class="col-6 input-container">
               <mat-form-field class="w-100" appearance="fill">
                 <mat-label>Latitud</mat-label>
-                <input matInput>
+                <input formControlName="latitude" matInput>
               </mat-form-field>
             </div>
             <div class="col-6 input-container">
               <mat-form-field class="w-100" appearance="fill">
                 <mat-label>Longitud</mat-label>
-                <input matInput>
+                <input formControlName="longitude" matInput>
               </mat-form-field>
             </div>
           </div>
