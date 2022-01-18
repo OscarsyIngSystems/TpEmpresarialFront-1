@@ -115,11 +115,12 @@
           <div class="col-8 offset-1 input-container">
             <mat-form-field class="w-100" appearance="fill">
               <mat-label>Motivo</mat-label>
-              <input
-                matInput
-                placeholder="Ingrese el motivo"
-                formControlName="reason"
-              />
+              <mat-select formControlName="reason">
+                <mat-option value="0">Superioridad técnica</mat-option>
+                <mat-option value="1">Opcion 2</mat-option>
+                <mat-option value="2">Opcion 3</mat-option>
+              </mat-select>
+
               <mat-error *ngIf="form.controls.reason.invalid"
                 >Campo obligatorio</mat-error
               >

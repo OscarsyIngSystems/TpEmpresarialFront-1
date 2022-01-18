@@ -56,7 +56,7 @@ export class OportunitiesDetailComponent implements OnInit {
     oportunityName: 'Audi CDMX Op',
     probability: '10%',
     oportunityOrigin: 'one',
-    reason: '0',
+    reason: '',
     stage: '0',
     trybuy: false,
     whoIntegrated: 'one',

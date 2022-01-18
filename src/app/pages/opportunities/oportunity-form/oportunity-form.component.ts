@@ -33,7 +33,7 @@ export class OportunityFormComponent implements OnInit {
       closeDate: [new Date(), Validators.required],
       stage: ['0'],
       amount: ['$1,290,800'],
-      reason: ['0'],
+      reason: [],
       description: [''],
       oportunityName: ['', Validators.required],
       probability: ['10%'],

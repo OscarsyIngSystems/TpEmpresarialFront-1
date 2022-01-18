@@ -1,7 +1,8 @@
 <div class="mat-elevation-z1 card-form px-3 py-0">
   <form [formGroup]="oportunityForm">
-    <div *ngIf="oportunityDetailData && oportunityForm.disabled" class=" w-100 d-flex justify-content-end py-1"><a
-        (click)="editForm()" class="action-edit" role="button">Editar</a></div>
+    <div *ngIf="oportunityDetailData && oportunityForm.disabled" class="w-100 d-flex justify-content-end py-1">
+      <a (click)="editForm()" class="action-edit" role="button">Editar</a>
+    </div>
     <div class="row">
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
@@ -27,7 +28,7 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div class="input-container pe-10px ">
+        <div class="input-container pe-10px">
           <mat-form-field appearance="fill" class="w-100">
             <mat-label class="label-form-field">Importe</mat-label>
             <input matInput formControlName="amount" />
@@ -47,6 +48,8 @@
                 <mat-label class="label-form-field">Motivo</mat-label>
                 <mat-select formControlName="reason">
                   <mat-option value="0">Superioridad técnica</mat-option>
+                  <mat-option value="1">Opcion 2</mat-option>
+                  <mat-option value="2">Opcion 3</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
@@ -84,8 +87,7 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Quién integra la propuesta <small class="color-red">*</small>
-            </mat-label>
+            <mat-label class="label-form-field">Quién integra la propuesta</mat-label>
             <mat-select formControlName="whoIntegrated">
               <mat-option value="one">Juanito Pérez</mat-option>
             </mat-select>
@@ -100,7 +102,7 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
-        <div class="input-container pe-10px ">
+        <div class="input-container pe-10px">
           <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field">Nombre del ejecutivo</mat-label>
             <input formControlName="executive" matInput />
@@ -116,40 +118,37 @@
           <app-upload-button-file [disabled]="oportunityForm.disabled" class="me-2" text="Cargar HLD"
             (handdleFile)="selectFile($event)">
           </app-upload-button-file>
-          <button *ngIf="hld" class="rounded-button-outline-auto"><strong>Ver</strong> HLD</button>
+          <button *ngIf="hld" class="rounded-button-outline-auto">
+            <strong>Ver</strong> HLD
+          </button>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4">
           <div class="d-flex flex-row justify-content-between sale-type-container align-items-center">
-
             <div>
               <input id="mixed" value="1" class="radio-custom" name="saleType" type="radio"
                 formControlName="saleType" />
               <label for="mixed" class="radio-custom-label d-flex flex-row text-bold">Venta mixta</label>
-
             </div>
 
             <div>
-              <input id="partner" class="radio-custom" name="saleType" type="radio" value='2'
+              <input id="partner" class="radio-custom" name="saleType" type="radio" value="2"
                 formControlName="saleType" />
               <label for="partner" class="radio-custom-label d-flex flex-row text-bold">Socio</label>
             </div>
-
           </div>
         </div>
-
       </div>
 
       <div class="row">
-
         <div class="col-md-4 col-lg-4 col-xl-4">
-          <div class="input-container " *ngIf="saleType=='1'">
+          <div class="input-container" *ngIf="saleType == '1'">
             <!-- <mat-form-field class="w-100" appearance="fill">
               <mat-label class="label-form-field">Nombre del colaborador</mat-label>
-               <input matInput formControlName="collaboratorName" /> 
-              
+               <input matInput formControlName="collaboratorName" />
+
             </mat-form-field>-->
 
             <app-contacts-search title="Nombre del colaborador" textPlaceholder="Nombre del colaborador">
@@ -165,7 +164,7 @@
           </div>
         </div>
         <div class="col-md-4 col-lg-4 col-xl-4">
-          <div class="input-container" *ngIf="saleType=='1'">
+          <div class="input-container" *ngIf="saleType == '1'">
             <!--             <mat-form-field class="w-100 no-padding" appearance="fill">
 
               <input matInput placeholder="Número de colaborador" formControlName="collaboratorNumber" />
@@ -173,7 +172,7 @@
             <app-contacts-search title="Número de colaborador"></app-contacts-search>
           </div>
 
-          <div class="input-container" *ngIf="saleType=='2'">
+          <div class="input-container" *ngIf="saleType == '2'">
             <!--             <mat-form-field class="w-100" appearance="fill">
               <mat-label class="label-form-field">FinderFee</mat-label>
               <input matInput formControlName="finderFee" />
@@ -181,12 +180,11 @@
             <app-contacts-search title="FinderFee"></app-contacts-search>
           </div>
         </div>
-
       </div>
     </div>
   </form>
 </div>
-<div *ngIf="!oportunityDetailData || isEditing " class="d-flex justify-content-center mt-4">
+<div *ngIf="!oportunityDetailData || isEditing" class="d-flex justify-content-center mt-4">
   <button (click)="cancel()" mat-button class="rounded-button-outline form-actions me-2">
     Cancelar
   </button>
