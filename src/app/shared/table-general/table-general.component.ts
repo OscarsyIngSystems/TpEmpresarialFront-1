@@ -1,5 +1,4 @@
-import { DialogTaskComponent } from './../../pages/accounts/components/dialog-task/dialog-task.component';
-import { MatDialog } from '@angular/material/dialog';
+
 import {
   Component,
   EventEmitter,
@@ -15,7 +14,9 @@ import { DialogEventComponent } from 'src/app/pages/accounts/components/dialog-e
 import { DialogNewContactComponent } from 'src/app/pages/accounts/components/dialog-new-contact/dialog-new-contact.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { DialogEditLoadSitesComponent } from 'src/app/pages/quotes/components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
-
+import { DialogDeletedSitesComponent } from './../../pages/quotes/components/dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
+import { DialogTaskComponent } from './../../pages/accounts/components/dialog-task/dialog-task.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-table-general',
   templateUrl: './table-general.component.html',
@@ -56,10 +57,7 @@ export class TableGeneralComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-    // this.getData()
-    console.log(this.dataSourceLoadedSites.data);
-  }
+  ngOnInit(): void {}
 
   ngAfterContentInit(): void {
     this.dtOptions = {
@@ -122,11 +120,18 @@ export class TableGeneralComponent implements OnInit {
     this.dialog.open(DialogNewContactComponent, { width: '40%' });
   }
 
-  onEdit() {
+  onEdit(): void {
     this.dialog.open(DialogEditLoadSitesComponent, {
       height: '90%',
       width: '60%',
-      panelClass: 'custom-cc',
     });
+  }
+
+  onDeleteSites() {
+    this.dialog.open(DialogDeletedSitesComponent, {
+      height: '35%',
+      width: '30%',
+      panelClass: 'container-cc'
+    },);
   }
 }

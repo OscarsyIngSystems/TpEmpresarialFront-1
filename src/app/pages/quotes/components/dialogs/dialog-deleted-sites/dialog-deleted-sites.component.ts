@@ -1,3 +1,4 @@
+import { MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogDeletedSitesComponent implements OnInit {
 
-  constructor() { }
+  constructor( private dialogRef: MatDialogRef<DialogDeletedSitesComponent>) { }
 
   ngOnInit(): void {
   }
 
+  onClose() {
+    this.dialogRef.close()
+  }
 }

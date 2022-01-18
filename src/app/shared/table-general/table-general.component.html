@@ -250,18 +250,6 @@
     </td>
   </ng-container>
 
-  <!-- Index Column -->
-  <!-- <ng-container matColumnDef="index">
-    <th mat-header-cell *matHeaderCellDef>N°</th>
-    <td
-      [style.background-color]="element.color"
-      mat-cell
-      *matCellDef="let element; let i = index"
-    >
-      {{ i + 1 }}
-    </td>
-  </ng-container> -->
-
   <!-- Site Column -->
   <ng-container matColumnDef="site">
     <th mat-header-cell *matHeaderCellDef>Sitio</th>
@@ -289,7 +277,7 @@
   <!-- Edit Column -->
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef>
-      <button mat-mini-fab class="btn-trash" aria-label="Example icon button with a delete icon">
+      <button (click)="onDeleteSites()" mat-mini-fab class="btn-trash" aria-label="Example icon button with a delete icon">
         <mat-icon>delete</mat-icon>
       </button></th>
     <td [style.background-color]="element.color" mat-cell *matCellDef="let element">

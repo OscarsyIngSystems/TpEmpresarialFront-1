@@ -10,7 +10,7 @@ import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEditLoadSitesComponent } from '../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
-import { DialogSendSitesComponent } from '../dialogs/dialog-send-sites/dialog-send-sites.component';
+// import { DialogSendSitesComponent } from '../dialogs/dialog-send-sites/dialog-send-sites.component';
 
 @Component({
   selector: 'app-loaded-sites',
@@ -130,7 +130,11 @@ export class LoadedSitesComponent implements OnInit {
     });
   }
 
-  onSendSites() {
-    this.dlg.open(DialogSendSitesComponent)
+  public onSendSites() {
+    this.dlg.open(DialogLoadSitesComponent, {
+      height: '300px',
+      width: '400px',
+      panelClass: 'custom-dd'
+    });
   }
 }
