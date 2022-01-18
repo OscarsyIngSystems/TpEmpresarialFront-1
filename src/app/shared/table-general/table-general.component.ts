@@ -127,9 +127,9 @@ export class TableGeneralComponent implements OnInit {
 
   onEdit() {
     this.dialog.open(DialogEditLoadSitesComponent, {
-      height: '600px',
-      width: '1000px',
-      panelClass: 'custom-dd',
+      height: '90%',
+      width: '60%',
+      panelClass: 'custom-cc',
     });
   }
 }

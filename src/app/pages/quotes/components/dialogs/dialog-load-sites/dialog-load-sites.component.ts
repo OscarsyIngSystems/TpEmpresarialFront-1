@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dialog-load-sites',
@@ -9,7 +10,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class DialogLoadSitesComponent implements OnInit {
   public contentLabels = 'accounts.dialogs-massive-load.';
   constructor(
-    private dialogRef: MatDialogRef<DialogLoadSitesComponent>
+    private dialogRef: MatDialogRef<DialogLoadSitesComponent>,
+    private router: Router
     ) { }
 
 
@@ -17,6 +19,11 @@ export class DialogLoadSitesComponent implements OnInit {
 
   onClose() {
     this.dialogRef.close()
+  }
+
+  onSubmit() {
+    this.router.navigate(['/quotes/loaded-sites'])
+    this.onClose()
   }
 
 }

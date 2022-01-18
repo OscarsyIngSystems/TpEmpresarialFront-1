@@ -15,7 +15,7 @@
       <span class="fw-button">+ Agregar</span> sitio
     </button>
 
-    <div *ngIf="router.url != '/quotes/deleted-sites'"><button *ngIf="isLoadSites" (click)="openDialogLoadMassive()"
+    <div ><button *ngIf="isLoadSites" (click)="openDialogLoadMassive()"
         mat-button class="rounded-button-outline btn-primary tx-12 text-bold ms-2">
         {{ loadSitesText }}
       </button></div>

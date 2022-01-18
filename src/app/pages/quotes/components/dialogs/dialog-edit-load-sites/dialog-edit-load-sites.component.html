@@ -1,151 +1,137 @@
-<div>
-  <h1 class="text-bold text-center">Editar Sitio</h1>
-</div>
-<div class="row">
-  <div class="input-group w-100 m-4 shadow-sm">
-  <input
-    type="text"
-    class="form-control search-bar mt-0"
-    placeholder="Buscar cuenta u oportunidad"
-    aria-label="Buscar cuenta u oportunidad"
-    aria-describedby="basic-addon2"
-    [formControl]="searchData"
-    [matAutocomplete]="auto"
-    (keydown.enter)="search()"
-  />
-  <button
-    class="btn-clear-search"
-    *ngIf="selectedIdOption"
-    matSuffix
-    mat-icon-button
-    aria-label="Clear"
-    (click)="clearSearch()"
-  >
-    <mat-icon class="icon-clear-search">close</mat-icon>
-  </button>
-  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-    <mat-option
-      (click)="setSearchId(option.id)"
-      *ngFor="let option of filteredOptions | async"
-      [value]="option.name + ' ' + option.location + ' ' + option.type"
-    >
-      {{ option.name }} {{ option.location }}
-      <small class="small-type">{{ option.type }}</small>
-    </mat-option>
-  </mat-autocomplete>
-
-  <div class="search-bar-divider">
-    <span class="search-bar-span">&nbsp;</span>
+<div class="custom-cc">
+  <div>
+    <h1 class="text-bold text-center">Editar Sitio</h1>
   </div>
-  <button
-    class="btn btn-outline-secondary pt-2 search-bar search-bar-btn"
-    id="basic-addon2"
-    (click)="search()"
-  >
-    <mat-icon class="search-icon">search</mat-icon>
-  </button>
-</div>
-</div>
-<div class="row">
+  <div class=" d-flex justify-content-center row">
+    <div class="input-group w-75 m-3 shadow-sm">
+      <input type="text" class="form-control search-bar mt-0"
+        placeholder="Maremoto MZ28 LT17, San Jerónimo Aculco, La Magdalena Contreras,10400 Ciudad de México"
+        aria-label="Maremoto MZ28 LT17, San Jerónimo Aculco, La Magdalena Contreras,10400 Ciudad de México"
+        aria-describedby="basic-addon2" [formControl]="searchData" [matAutocomplete]="auto"
+        (keydown.enter)="search()" />
+      <button class="btn-clear-search" *ngIf="selectedIdOption" matSuffix mat-icon-button aria-label="Clear"
+        (click)="clearSearch()">
+        <mat-icon class="icon-clear-search">close</mat-icon>
+      </button>
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option (click)="setSearchId(option.id)" *ngFor="let option of filteredOptions | async"
+          [value]="option.name + ' ' + option.location + ' ' + option.type">
+          {{ option.name }} {{ option.location }}
+          <small class="small-type">{{ option.type }}</small>
+        </mat-option>
+      </mat-autocomplete>
 
-  <div class="col-6">
-    <form class="row" role="form" novalidate>
-      <div class="row">
-        <div class="col-12 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Nombre del Sitio</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
+      <div class="search-bar-divider">
+        <span class="search-bar-span">&nbsp;</span>
       </div>
-
-
-      <div class="row">
-        <div class="col-6 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Calle</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-        <div class="col-6 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Numero Exterior</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <input matInput>
-            <mat-label>Número Interior</mat-label>
-          </mat-form-field>
-        </div>
-        <div class="col-6 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Código Postal</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Colonia</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-        <div class="col-6 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Alcaldía/Municipio</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Estado</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-        <div class="col-6 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Ciudad</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Latitud</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-        <div class="col-6 input-container">
-          <mat-form-field class="w-100" appearance="fill">
-            <mat-label>Longitud</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="col-4">
-    <div class="space-img">
-      <img src="../../../../../../assets/img/map_2.png" alt="" />
+      <button class="btn btn-outline-secondary pt-2 search-bar search-bar-btn" id="basic-addon2" (click)="search()">
+        <mat-icon class="search-icon">search</mat-icon>
+      </button>
     </div>
   </div>
-</div>
 
-<mat-dialog-actions align="center">
-  <button mat-button class="rounded-button-outline" mat-dialog-close>
-    Cancelar
-  </button>
-  <button mat-button class="rounded-button-outline btn-primary">Guardar</button>
-</mat-dialog-actions>
+  <form class="login-form" [formGroup]="editDataForm" novalidate autocomplete="off">
+    <div class="row">
+      <div class="col-6">
+        <form class="row" role="form" novalidate>
+          <div class="row">
+            <div class="col-12 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Nombre del Sitio</mat-label>
+                <input formControlName="siteName" matInput>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-6 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Calle</mat-label>
+                <input formControlName="street" matInput>
+              </mat-form-field>
+            </div>
+            <div class="col-6 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Numero Exterior</mat-label>
+                <input formControlName="outsideNumber" matInput>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <input  formControlName="insideNumber" matInput>
+                <mat-label>Número Interior</mat-label>
+              </mat-form-field>
+            </div>
+            <div class="col-6 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Código Postal</mat-label>
+                <input formControlName="zipCode" matInput>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Colonia</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </div>
+            <div class="col-6 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Alcaldía/Municipio</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Estado</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </div>
+            <div class="col-6 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Ciudad</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Latitud</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </div>
+            <div class="col-6 input-container">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Longitud</mat-label>
+                <input matInput>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-6 ">
+        <div>
+          <img class="img-fluid" src="../../../../../../assets/img/map_2.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <mat-dialog-actions align="center">
+      <button mat-button class="rounded-button-outline" mat-dialog-close>
+        Cancelar
+      </button>
+      <button mat-button class="rounded-button-outline btn-primary">Guardar</button>
+    </mat-dialog-actions>
+  </form>
+</div>

@@ -57,7 +57,6 @@ export class AccountFormComponent implements OnInit, AfterContentInit {
   ngAfterContentInit(): void {
     this.defaultContact =
       this.principalDataForm.get('principal_contact')?.value;
-    console.log(this.defaultContact);
   }
 
   public isAdmin(): boolean {
