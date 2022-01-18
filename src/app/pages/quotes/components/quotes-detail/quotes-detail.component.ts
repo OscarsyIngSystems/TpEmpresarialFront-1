@@ -31,7 +31,7 @@ export class QuotesDetailComponent implements OnInit {
       value: '10/10/2021',
     },
     {
-      name: 'Vigencia oportunidad',
+      name: 'Vigencia cotización',
       value: '10/10/2022',
     },
     {

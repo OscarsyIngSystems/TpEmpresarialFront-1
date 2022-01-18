@@ -12,10 +12,7 @@ export class QuotesCreateComponent implements OnInit {
       name: 'Número de oportunidad',
       value: '678676',
     },
-    {
-      name: 'Tipo',
-      value: 'Nueva',
-    },
+
     {
       name: 'Etapa',
       value: 'Necesidades',
