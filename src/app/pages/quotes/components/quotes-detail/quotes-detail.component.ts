@@ -10,27 +10,28 @@ import { StorageService } from '../../../../services/shared/storage.service';
 export class QuotesDetailComponent implements OnInit {
   infoDetail: Array<InfoDetail> = [
     {
+      name: 'Nombre de la cuenta',
+      value: 'Audi CDMX-COT',
+    },
+    {
       name: 'Número de oportunidad',
       value: '678676',
     },
+
     {
-      name: 'Tipo',
-      value: 'Nueva',
-    },
-    {
-      name: 'Etapa',
+      name: 'Etapa oportunidad',
       value: 'Necesidades',
     },
     {
       name: 'Importe',
-      value: 'Estratégica',
+      value: '$120,000',
     },
     {
       name: 'Fecha de cierre',
       value: '10/10/2022',
     },
     {
-      name: 'Fecha estimada entrega',
+      name: 'Vigencia cotización',
       value: '10/10/2022',
     },
     {
