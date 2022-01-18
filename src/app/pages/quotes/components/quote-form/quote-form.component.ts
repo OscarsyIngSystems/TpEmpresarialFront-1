@@ -15,7 +15,6 @@ export class QuoteFormComponent implements OnInit {
     return this.isTryBuy;
   }
   set data(data: any) {
-    console.log(data?.data?.reason);
     this.reasonVlue = data?.data?.reason;
 
     this.isTryBuy = data;
