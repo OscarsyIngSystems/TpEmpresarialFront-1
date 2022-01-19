@@ -52,8 +52,8 @@
       <td class="mat-cell">{{ account.accountName }}</td>
       <td class="mat-cell">{{ account.stage }}</td>
       <td class="mat-cell">{{ account.amount }}</td>
-      <td class="mat-cell">{{ account.createdAt}}</td>
-      <td class="mat-cell">{{ account.validity}}</td>
+      <td class="mat-cell">{{ account.createdAt }}</td>
+      <td class="mat-cell">{{ account.validity }}</td>
     </tr>
   </tbody>
 </table>
@@ -75,12 +75,12 @@
   <tbody>
     <tr
       class="table-element-row shadow-sm t-row"
-      [routerLink]="['/quotes', account.quoteInvoice]"
+      [routerLink]="['/quotes', account.id]"
       *ngFor="let account of dataSource"
     >
-      <td class="mat-cell">{{ account.quoteName }}</td>
-      <td class="mat-cell">{{ account.quoteInvoice }}</td>
-      <td class="mat-cell">{{ account.opportunity }}</td>
+      <td class="mat-cell">{{ account.name }}</td>
+      <td class="mat-cell">{{ account.invoice }}</td>
+      <td class="mat-cell">{{ account.opportunityName }}</td>
       <td class="mat-cell">{{ account.status }}</td>
       <td class="mat-cell">{{ account.created }}</td>
       <td class="mat-cell">{{ account.validity }}</td>
@@ -350,14 +350,24 @@
   <!-- Check Column -->
   <ng-container matColumnDef="check">
     <th mat-header-cell *matHeaderCellDef>
-      <mat-checkbox></mat-checkbox>
+      <mat-checkbox
+        (change)="$event ? masterToggle() : null"
+        [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()"
+        [aria-label]="checkboxLabel()"
+      ></mat-checkbox>
     </th>
     <td
       [style.background-color]="element.color"
       mat-cell
       *matCellDef="let element"
     >
-      <mat-checkbox></mat-checkbox>
+      <mat-checkbox
+        (click)="$event.stopPropagation()"
+        (change)="$event ? selection.toggle(element) : null"
+        [checked]="selection.isSelected(element)"
+        [aria-label]="checkboxLabel(element)"
+      ></mat-checkbox>
     </td>
   </ng-container>
 
@@ -402,6 +412,7 @@
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef>
       <button
+        [disabled]="disabled"
         (click)="onDeleteSites()"
         mat-mini-fab
         class="btn-trash"

@@ -1,3 +1,4 @@
+import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { Component, OnInit } from '@angular/core';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { TableOptions } from 'src/app/models/tableOptions';
@@ -38,114 +39,23 @@ export class QuotesListDeatilComponent implements OnInit {
     },
   ];
 
-  dataSource = [
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Audi CDMX OP',
-      status: 'Completada',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Zapata 2',
-      status: 'Borrador',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Automotriz Nissan 1',
-      status: 'Borrador',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'VW Lomas OP',
-      status: 'Borrador',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Toyota OP-2',
-      status: 'Completada',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Toyota OP-2',
-      status: 'Completada',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Toyota OP-2',
-      status: 'Completada',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Toyota OP-2',
-      status: 'Completada',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Toyota OP-2',
-      status: 'Completada',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Toyota OP-2',
-      status: 'Completada',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Toyota OP-2',
-      status: 'Completada',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Toyota OP-2',
-      status: 'Completada',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-    {
-      quoteName: 'Cotización Audi',
-      quoteInvoice: 'COT7808232',
-      opportunity: 'Toyota OP-2',
-      status: 'Completada',
-      created: '20/12/2018',
-      validity: '20/12/2022',
-    },
-  ];
+  dataSource: any[] = [];
 
-  constructor() {}
+  constructor(private _service: QuotesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  private loadData(): void {
+    this._service.getQuotes().subscribe(
+      (response) => {
+        console.log(response);
+        this.dataSource = response;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 }

@@ -13,12 +13,24 @@ export class HeaderInterceptor implements HttpInterceptor {
     httpRequest: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    httpRequest = httpRequest.clone({
-      setHeaders: {
-        'Content-type': 'application/x-www-form-urlencoded',
-      },
-    });
-
+    if (
+      httpRequest.url !=
+      'https://dev.totalplay.amarello.cloud/v1/tpe/oauth/token'
+    ) {
+      const tkn = JSON.parse(JSON.stringify(localStorage.getItem('tsoptok')));
+      httpRequest = httpRequest.clone({
+        setHeaders: {
+          'Content-type': 'application/x-www-form-urlencoded',
+          Authorization: `Bearer ${tkn}`,
+        },
+      });
+    } else {
+      httpRequest = httpRequest.clone({
+        setHeaders: {
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
+      });
+    }
     return next.handle(httpRequest);
   }
 }

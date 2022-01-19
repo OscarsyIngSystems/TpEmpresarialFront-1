@@ -1,11 +1,12 @@
-
 import {
+  AfterContentInit,
   Component,
   EventEmitter,
   Input,
   OnInit,
   Output,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Account } from 'src/app/models/account';
@@ -17,32 +18,30 @@ import { DialogEditLoadSitesComponent } from 'src/app/pages/quotes/components/di
 import { DialogDeletedSitesComponent } from './../../pages/quotes/components/dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
 import { DialogTaskComponent } from './../../pages/accounts/components/dialog-task/dialog-task.component';
 import { MatDialog } from '@angular/material/dialog';
+import { SelectionModel } from '@angular/cdk/collections';
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-table-general',
   templateUrl: './table-general.component.html',
   styleUrls: ['./table-general.component.scss'],
 })
 export class TableGeneralComponent implements OnInit {
-  @Input() columns: any[] = []; //nombrs de las columnase
-  @Input() dataSource: any[] = []; //datos de la tabla
-  data: any[] = [];
+  @Input() columns: any[] = [];
+  @Input() dataSource: any[] = [];
   @Input() idTableShow: number = 0; //indicador de que tabla se muestra
   @Input() showHeaderTable!: boolean;
   @Input() dataSourceLoadedSites = new MatTableDataSource();
   @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
   @ViewChild('dataTable') dataTable: any;
+
+  selection = new SelectionModel(true, [...this.dataSourceLoadedSites.data]);
   dtOptions: DataTables.Settings = {};
-  columns2: string[] = [
-    'check',
-    'site',
-    'coverage',
-    'accessMedia',
-    'edit',
-  ];
-
+  columns2: string[] = ['check', 'site', 'coverage', 'accessMedia', 'edit'];
   expandedElement!: Account | null;
+  data: any[] = [];
   lengthMenu = [10, 20, 30];
-
+  disabled: boolean = true;
+  disabledDeletedSites: boolean = true;
   @Input()
   get dataFile(): any[] {
     return this.data;
@@ -59,32 +58,6 @@ export class TableGeneralComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  ngAfterContentInit(): void {
-    this.dtOptions = {
-      dom: !this.showHeaderTable
-        ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
-          "<'row'<'col-12'tr>>" +
-          "<'row'<'col-12 d-flex justify-content-center'p>>"
-        : '<"bottom"t <"d-flex justify-content-center" p>>',
-      pagingType: 'full_numbers',
-      language: {
-        lengthMenu: 'Mostrar _MENU_',
-        search: 'Buscar',
-        paginate: {
-          first: '',
-          last: '',
-          next: '',
-          previous: '',
-        },
-        info: '_TOTAL_ elementos',
-        infoFiltered: '',
-        zeroRecords: 'No se encontraron elementos',
-        infoEmpty: '',
-      },
-      lengthMenu: this.lengthMenu,
-    };
-  }
-
   goAccountDetail(account: Account): void {
     this.storageService.setDataName(account.accountName);
     this.route.navigate(['/accounts/detail', account.id]);
@@ -95,13 +68,38 @@ export class TableGeneralComponent implements OnInit {
     this.route.navigate(['/opportunities', account.numberList]);
   }
 
-  goQuotesDetail(quote: any) {
+  goQuotesDetail(quote: any): void {
     this.storageService.setDataName(quote.quoteName);
     this.route.navigate(['/quotes', quote.numberList]);
   }
 
   handdleFile(file: File) {
     this.fileEmitter.emit(file);
+  }
+
+  isAllSelected() {
+    if (this.selection.selected.length > 0) this.disabled = false;
+    if (this.selection.selected.length == 0) this.disabled = true;
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSourceLoadedSites.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle() {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.dataSourceLoadedSites.data.forEach((row) => {
+          this.selection.select(row);
+        });
+  }
+
+  checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
+      row.position + 1
+    }`;
   }
 
   openDialogTask(): void {
@@ -127,11 +125,40 @@ export class TableGeneralComponent implements OnInit {
     });
   }
 
-  onDeleteSites() {
-    this.dialog.open(DialogDeletedSitesComponent, {
+  onDeleteSites(): void {
+    let dlgRef = this.dialog.open(DialogDeletedSitesComponent, {
       height: '35%',
       width: '30%',
-      panelClass: 'container-cc'
-    },);
+      panelClass: 'container-cc',
+    });
+    dlgRef.afterClosed().subscribe((res) => {
+      console.log(res);
+    });
+  }
+
+  ngAfterContentInit(): void {
+    this.dtOptions = {
+      dom: !this.showHeaderTable
+        ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
+          "<'row'<'col-12'tr>>" +
+          "<'row'<'col-12 d-flex justify-content-center'p>>"
+        : '<"bottom"t <"d-flex justify-content-center" p>>',
+      pagingType: 'full_numbers',
+      language: {
+        lengthMenu: 'Mostrar _MENU_',
+        search: 'Buscar',
+        paginate: {
+          first: '',
+          last: '',
+          next: '',
+          previous: '',
+        },
+        info: '_TOTAL_ elementos',
+        infoFiltered: '',
+        zeroRecords: 'No se encontraron elementos',
+        infoEmpty: '',
+      },
+      lengthMenu: this.lengthMenu,
+    };
   }
 }
