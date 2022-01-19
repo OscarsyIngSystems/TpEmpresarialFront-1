@@ -6,6 +6,7 @@ import {
   OnInit,
   Output,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Account } from 'src/app/models/account';
@@ -19,6 +20,7 @@ import { DialogTaskComponent } from './../../pages/accounts/components/dialog-ta
 import { MatDialog } from '@angular/material/dialog';
 import { SelectionModel } from '@angular/cdk/collections';
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-table-general',
   templateUrl: './table-general.component.html',
   styleUrls: ['./table-general.component.scss'],
@@ -38,7 +40,8 @@ export class TableGeneralComponent implements OnInit {
   expandedElement!: Account | null;
   data: any[] = [];
   lengthMenu = [10, 20, 30];
-
+  disabled: boolean = true;
+  disabledDeletedSites: boolean = true;
   @Input()
   get dataFile(): any[] {
     return this.data;
@@ -50,7 +53,7 @@ export class TableGeneralComponent implements OnInit {
   constructor(
     private route: Router,
     private storageService: StorageService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void { }
@@ -74,7 +77,10 @@ export class TableGeneralComponent implements OnInit {
     this.fileEmitter.emit(file);
   }
 
+
   isAllSelected() {
+    if(this.selection.selected.length > 0) this.disabled = false;
+    if(this.selection.selected.length == 0) this.disabled = true;
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSourceLoadedSites.data.length;
     return numSelected === numRows;
@@ -119,11 +125,13 @@ export class TableGeneralComponent implements OnInit {
   }
 
   onDeleteSites(): void {
-    this.dialog.open(DialogDeletedSitesComponent, {
+    let dlgRef = this.dialog.open(DialogDeletedSitesComponent, {
       height: '35%',
       width: '30%',
       panelClass: 'container-cc'
     });
+    dlgRef.afterClosed().subscribe(res => {console.log(res);});
+
   }
 
   ngAfterContentInit(): void {
@@ -151,4 +159,6 @@ export class TableGeneralComponent implements OnInit {
       lengthMenu: this.lengthMenu,
     };
   }
+
+
 }

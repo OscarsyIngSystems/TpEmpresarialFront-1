@@ -244,16 +244,12 @@
   <!-- Check Column -->
   <ng-container matColumnDef="check">
     <th mat-header-cell *matHeaderCellDef>
-      <mat-checkbox (change)="$event ? masterToggle() : null"
-      [checked]="selection.hasValue() && isAllSelected()"
-      [indeterminate]="selection.hasValue() && !isAllSelected()"
-      [aria-label]="checkboxLabel()"></mat-checkbox>
+      <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()"></mat-checkbox>
     </th>
     <td [style.background-color]="element.color" mat-cell *matCellDef="let element">
-      <mat-checkbox (click)="$event.stopPropagation()"
-      (change)="$event ? selection.toggle(element) : null"
-      [checked]="selection.isSelected(element)"
-      [aria-label]="checkboxLabel(element)" ></mat-checkbox>
+      <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(element) : null"
+        [checked]="selection.isSelected(element)" [aria-label]="checkboxLabel(element)"></mat-checkbox>
     </td>
   </ng-container>
 
@@ -284,9 +280,11 @@
   <!-- Edit Column -->
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef>
-      <button (click)="onDeleteSites()" mat-mini-fab class="btn-trash" aria-label="Example icon button with a delete icon">
+      <button [disabled]="disabled" (click)="onDeleteSites()" mat-mini-fab class="btn-trash"
+        aria-label="Example icon button with a delete icon">
         <mat-icon>delete</mat-icon>
-      </button></th>
+      </button>
+    </th>
     <td [style.background-color]="element.color" mat-cell *matCellDef="let element">
       <button  (click)="onEdit()" class="btn-round">
         <mat-icon>edit</mat-icon>
