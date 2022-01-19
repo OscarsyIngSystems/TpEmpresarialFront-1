@@ -75,7 +75,7 @@
   <tbody>
     <tr
       class="table-element-row shadow-sm t-row"
-      [routerLink]="['/quotes', account.numberList]"
+      [routerLink]="['/quotes', account.quoteInvoice]"
       *ngFor="let account of dataSource"
     >
       <td class="mat-cell">{{ account.quoteName }}</td>
@@ -236,7 +236,6 @@
   <div class="wrapper mt-3">
     <div class="d-flex justify-content-end">
       <button
-        #addContactButton
         (click)="openDialogNewContact()"
         mat-button
         class="rounded-button-outline"
@@ -351,26 +350,14 @@
   <!-- Check Column -->
   <ng-container matColumnDef="check">
     <th mat-header-cell *matHeaderCellDef>
-      <mat-checkbox class="example-margin"></mat-checkbox>
+      <mat-checkbox></mat-checkbox>
     </th>
     <td
       [style.background-color]="element.color"
       mat-cell
       *matCellDef="let element"
     >
-      <mat-checkbox class="example-margin"></mat-checkbox>
-    </td>
-  </ng-container>
-
-  <!-- Index Column -->
-  <ng-container matColumnDef="index">
-    <th mat-header-cell *matHeaderCellDef>N°</th>
-    <td
-      [style.background-color]="element.color"
-      mat-cell
-      *matCellDef="let element; let i = index"
-    >
-      {{ i + 1 }}
+      <mat-checkbox></mat-checkbox>
     </td>
   </ng-container>
 
@@ -413,7 +400,16 @@
 
   <!-- Edit Column -->
   <ng-container matColumnDef="edit">
-    <th mat-header-cell *matHeaderCellDef></th>
+    <th mat-header-cell *matHeaderCellDef>
+      <button
+        (click)="onDeleteSites()"
+        mat-mini-fab
+        class="btn-trash"
+        aria-label="Example icon button with a delete icon"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </th>
     <td
       [style.background-color]="element.color"
       mat-cell

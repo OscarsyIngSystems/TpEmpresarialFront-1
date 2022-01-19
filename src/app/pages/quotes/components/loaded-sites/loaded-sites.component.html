@@ -52,11 +52,14 @@
       <mat-icon class="search-icon">search</mat-icon>
     </button>
   </div>
-  <div class="search-bar-divider">
-    <span class="underline">Eliminar sitio</span>
+  <div >
+    <button (click)="onNavigate()" mat-button type="button" class="rounded-button-outline ">
+      Ver sitios eliminados
+
+    </button>
   </div>
 
-  <button mat-button type="button" class="btn-add">
+  <button (click)="onSendSites()" mat-button type="button" class="btn-add">
     Enviar Sitios
     <mat-icon>send</mat-icon>
   </button>

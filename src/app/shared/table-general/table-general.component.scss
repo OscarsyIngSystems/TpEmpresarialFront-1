@@ -85,7 +85,7 @@
 }
 
 .mat-cell {
-  padding-left: 20px !important;
+  // padding-left: 20px !important;
 }
 
 // #region tabla loaded sites
@@ -101,28 +101,24 @@ table {
 
 .mat-column-check {
   flex: none;
+  // text-align: left;
   width: 10px;
-}
-
-.mat-column-index {
-  flex: none;
-  width: 15px;
 }
 
 .mat-column-site {
   flex: none;
-  width: 200px;
+  width: 205px;
 }
 
 .mat-column-coverage {
   flex: none;
-  text-align: center;
+  text-align: left;
   width: 70px;
 }
 
 .mat-column-accessMedia {
   width: 20px;
-  text-align: center;
+  text-align: left;
   flex: none;
 }
 
@@ -138,4 +134,10 @@ table {
   background: white;
   border: none;
 }
+
+.btn-trash {
+  background-color: $color-primary;
+  font-size: 0px !important;
+}
+
 // endregion tabla loaded sites

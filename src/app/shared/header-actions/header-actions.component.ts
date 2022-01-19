@@ -53,7 +53,11 @@ export class HeaderActionsComponent implements OnInit {
   }
 
   onNavigate() {
-    console.log(this.router.url);
-    this.router.navigate(['/quotes/sites']);
+    this.router.navigate(['/quotes/sites'])
   }
+
+  onLoadedSites() {
+    this.router.navigate(['/quotes/loaded-sites'])
+  }
+
 }
