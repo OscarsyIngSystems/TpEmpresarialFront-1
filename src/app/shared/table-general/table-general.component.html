@@ -350,14 +350,24 @@
   <!-- Check Column -->
   <ng-container matColumnDef="check">
     <th mat-header-cell *matHeaderCellDef>
-      <mat-checkbox></mat-checkbox>
+      <mat-checkbox
+        (change)="$event ? masterToggle() : null"
+        [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()"
+        [aria-label]="checkboxLabel()"
+      ></mat-checkbox>
     </th>
     <td
       [style.background-color]="element.color"
       mat-cell
       *matCellDef="let element"
     >
-      <mat-checkbox></mat-checkbox>
+      <mat-checkbox
+        (click)="$event.stopPropagation()"
+        (change)="$event ? selection.toggle(element) : null"
+        [checked]="selection.isSelected(element)"
+        [aria-label]="checkboxLabel(element)"
+      ></mat-checkbox>
     </td>
   </ng-container>
 
@@ -402,6 +412,7 @@
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef>
       <button
+        [disabled]="disabled"
         (click)="onDeleteSites()"
         mat-mini-fab
         class="btn-trash"
