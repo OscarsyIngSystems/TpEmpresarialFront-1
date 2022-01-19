@@ -130,9 +130,11 @@
       "colum1": "Nº fila",
       "colum2": "Nombre de la oportunidad",
       "colum3": "Número de oportunidad",
-      "colum6": "Nombre de la cuenta",
-      "colum4": "Etapa",
-      "colum5": "Importe"
+      "colum4": "Nombre de la cuenta",
+      "colum5": "Etapa",
+      "colum6": "Importe",
+      "colum7":"Creado",
+      "colum8": "Vigencia"
     },
     "table-related": {
       "colum1": "Nº fila",

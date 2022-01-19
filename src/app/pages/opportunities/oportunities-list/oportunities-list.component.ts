@@ -46,15 +46,23 @@ export class OportunitiesListComponent implements OnInit {
     },
     {
       key: 'accountName',
-      columnName: this.contentLabels + 'table.colum6',
-    },
-    {
-      key: 'stage',
       columnName: this.contentLabels + 'table.colum4',
     },
     {
-      key: 'amount',
+      key: 'stage',
       columnName: this.contentLabels + 'table.colum5',
+    },
+    {
+      key: 'amount',
+      columnName: this.contentLabels + 'table.colum6',
+    },
+    {
+      key: 'createdAt',
+      columnName: this.contentLabels + 'table.colum7',
+    },
+    {
+      key: 'validity',
+      columnName: this.contentLabels + 'table.colum8',
     },
   ];
   public dataSource = [
@@ -64,6 +72,8 @@ export class OportunitiesListComponent implements OnInit {
       accountName: 'Audi CDMX',
       stage: 'Necesidades',
       amount: '$45454.22',
+      createdAt: '13/12/2021',
+      validity: '15/05/2022',
     },
     {
       oportunityName: 'Zapata OP2',
@@ -71,6 +81,8 @@ export class OportunitiesListComponent implements OnInit {
       accountName: 'Grupo Zapata',
       stage: 'Necesidades',
       amount: '$45454.22',
+      createdAt: '13/12/2021',
+      validity: '15/05/2022',
     },
     {
       oportunityName: 'Automotriz Nissan OP1',
@@ -78,6 +90,8 @@ export class OportunitiesListComponent implements OnInit {
       accountName: 'Imperio Automotriz del Sur',
       stage: 'Necesidades',
       amount: '$45454.22',
+      createdAt: '13/12/2021',
+      validity: '15/05/2022',
     },
     {
       oportunityName: 'VW Lomas OP',
@@ -85,6 +99,8 @@ export class OportunitiesListComponent implements OnInit {
       accountName: 'VW Lomas',
       stage: 'Necesidades',
       amount: '$45454.22',
+      createdAt: '13/12/2021',
+      validity: '15/05/2022',
     },
     {
       oportunityName: 'Toyota OP',
@@ -92,6 +108,8 @@ export class OportunitiesListComponent implements OnInit {
       accountName: 'Toyota Universidad',
       stage: 'Necesidades',
       amount: '$45454.22',
+      createdAt: '13/12/2021',
+      validity: '15/05/2022',
     },
   ];
   constructor() {
