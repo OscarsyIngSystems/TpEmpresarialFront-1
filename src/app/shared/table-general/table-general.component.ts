@@ -1,5 +1,5 @@
-
 import {
+  AfterContentInit,
   Component,
   EventEmitter,
   Input,
@@ -22,7 +22,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './table-general.component.html',
   styleUrls: ['./table-general.component.scss'],
 })
-export class TableGeneralComponent implements OnInit {
+export class TableGeneralComponent implements OnInit, AfterContentInit {
   @Input() columns: any[] = []; //nombrs de las columnase
   @Input() dataSource: any[] = []; //datos de la tabla
   data: any[] = [];
@@ -32,13 +32,7 @@ export class TableGeneralComponent implements OnInit {
   @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
   @ViewChild('dataTable') dataTable: any;
   dtOptions: DataTables.Settings = {};
-  columns2: string[] = [
-    'check',
-    'site',
-    'coverage',
-    'accessMedia',
-    'edit',
-  ];
+  columns2: string[] = ['check', 'site', 'coverage', 'accessMedia', 'edit'];
 
   expandedElement!: Account | null;
   lengthMenu = [10, 20, 30];
@@ -131,7 +125,7 @@ export class TableGeneralComponent implements OnInit {
     this.dialog.open(DialogDeletedSitesComponent, {
       height: '35%',
       width: '30%',
-      panelClass: 'container-cc'
-    },);
+      panelClass: 'container-cc',
+    });
   }
 }

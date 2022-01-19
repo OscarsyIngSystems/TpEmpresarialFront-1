@@ -1,3 +1,5 @@
+import { ActivatedRoute } from '@angular/router';
+import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { Component, OnInit } from '@angular/core';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { StorageService } from '../../../../services/shared/storage.service';
@@ -17,7 +19,6 @@ export class QuotesDetailComponent implements OnInit {
       name: 'Número de oportunidad',
       value: '678676',
     },
-
     {
       name: 'Etapa oportunidad',
       value: 'Necesidades',
@@ -39,9 +40,33 @@ export class QuotesDetailComponent implements OnInit {
       value: 'Sergio Aparicio Contreras',
     },
   ];
-  constructor(public stServices: StorageService) {
+  public accountId;
+
+  constructor(
+    private _url: ActivatedRoute,
+    private _service: QuotesService,
+    public stServices: StorageService
+  ) {
     stServices.setDataName('Audi CDMX-COT');
+    this.accountId = Number(
+      this._url.snapshot.paramMap.get('id') !== null
+        ? this._url.snapshot.paramMap.get('id')
+        : '0'
+    );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  private loadData(): void {
+    this._service.getQuoteDetail(this.accountId).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 }
