@@ -17,30 +17,26 @@ import { DialogEditLoadSitesComponent } from 'src/app/pages/quotes/components/di
 import { DialogDeletedSitesComponent } from './../../pages/quotes/components/dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
 import { DialogTaskComponent } from './../../pages/accounts/components/dialog-task/dialog-task.component';
 import { MatDialog } from '@angular/material/dialog';
+import { SelectionModel } from '@angular/cdk/collections';
 @Component({
   selector: 'app-table-general',
   templateUrl: './table-general.component.html',
   styleUrls: ['./table-general.component.scss'],
 })
 export class TableGeneralComponent implements OnInit {
-  @Input() columns: any[] = []; //nombrs de las columnase
-  @Input() dataSource: any[] = []; //datos de la tabla
-  data: any[] = [];
+  @Input() columns: any[] = [];
+  @Input() dataSource: any[] = [];
   @Input() idTableShow: number = 0; //indicador de que tabla se muestra
   @Input() showHeaderTable!: boolean;
   @Input() dataSourceLoadedSites = new MatTableDataSource();
   @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
   @ViewChild('dataTable') dataTable: any;
-  dtOptions: DataTables.Settings = {};
-  columns2: string[] = [
-    'check',
-    'site',
-    'coverage',
-    'accessMedia',
-    'edit',
-  ];
 
+  selection = new SelectionModel(true, [...this.dataSourceLoadedSites.data]);
+  dtOptions: DataTables.Settings = {};
+  columns2: string[] = ['check', 'site', 'coverage', 'accessMedia', 'edit'];
   expandedElement!: Account | null;
+  data: any[] = [];
   lengthMenu = [10, 20, 30];
 
   @Input()
@@ -55,35 +51,9 @@ export class TableGeneralComponent implements OnInit {
     private route: Router,
     private storageService: StorageService,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
-
-  ngAfterContentInit(): void {
-    this.dtOptions = {
-      dom: !this.showHeaderTable
-        ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
-          "<'row'<'col-12'tr>>" +
-          "<'row'<'col-12 d-flex justify-content-center'p>>"
-        : '<"bottom"t <"d-flex justify-content-center" p>>',
-      pagingType: 'full_numbers',
-      language: {
-        lengthMenu: 'Mostrar _MENU_',
-        search: 'Buscar',
-        paginate: {
-          first: '',
-          last: '',
-          next: '',
-          previous: '',
-        },
-        info: '_TOTAL_ elementos',
-        infoFiltered: '',
-        zeroRecords: 'No se encontraron elementos',
-        infoEmpty: '',
-      },
-      lengthMenu: this.lengthMenu,
-    };
-  }
+  ngOnInit(): void { }
 
   goAccountDetail(account: Account): void {
     this.storageService.setDataName(account.accountName);
@@ -95,13 +65,34 @@ export class TableGeneralComponent implements OnInit {
     this.route.navigate(['/opportunities', account.numberList]);
   }
 
-  goQuotesDetail(quote: any) {
+  goQuotesDetail(quote: any): void {
     this.storageService.setDataName(quote.quoteName);
     this.route.navigate(['/quotes', quote.numberList]);
   }
 
   handdleFile(file: File) {
     this.fileEmitter.emit(file);
+  }
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSourceLoadedSites.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle() {
+    this.isAllSelected() ?
+      this.selection.clear() :
+      this.dataSourceLoadedSites.data.forEach((row) => {
+        this.selection.select(row)
+      });
+  }
+
+  checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
   }
 
   openDialogTask(): void {
@@ -127,11 +118,37 @@ export class TableGeneralComponent implements OnInit {
     });
   }
 
-  onDeleteSites() {
+  onDeleteSites(): void {
     this.dialog.open(DialogDeletedSitesComponent, {
       height: '35%',
       width: '30%',
       panelClass: 'container-cc'
-    },);
+    });
+  }
+
+  ngAfterContentInit(): void {
+    this.dtOptions = {
+      dom: !this.showHeaderTable
+        ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
+        "<'row'<'col-12'tr>>" +
+        "<'row'<'col-12 d-flex justify-content-center'p>>"
+        : '<"bottom"t <"d-flex justify-content-center" p>>',
+      pagingType: 'full_numbers',
+      language: {
+        lengthMenu: 'Mostrar _MENU_',
+        search: 'Buscar',
+        paginate: {
+          first: '',
+          last: '',
+          next: '',
+          previous: '',
+        },
+        info: '_TOTAL_ elementos',
+        infoFiltered: '',
+        zeroRecords: 'No se encontraron elementos',
+        infoEmpty: '',
+      },
+      lengthMenu: this.lengthMenu,
+    };
   }
 }
