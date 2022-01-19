@@ -10,6 +10,7 @@ import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEditLoadSitesComponent } from '../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
+// import { DialogSendSitesComponent } from '../dialogs/dialog-send-sites/dialog-send-sites.component';
 
 @Component({
   selector: 'app-loaded-sites',
@@ -47,7 +48,6 @@ export class LoadedSitesComponent implements OnInit {
   ];
   columns: string[] = [
     'check',
-    'index',
     'site',
     'coverage',
     'accessMedia',
@@ -120,7 +120,6 @@ export class LoadedSitesComponent implements OnInit {
 
   openDialog(): void {
     this.dlg.open(DialogLoadSitesComponent, {
-
       panelClass: 'custom-cc',
     });
   }
@@ -128,6 +127,14 @@ export class LoadedSitesComponent implements OnInit {
   onEdit(): void {
     this.dlg.open(DialogEditLoadSitesComponent, {
       panelClass: 'full-screen-modal'
+    });
+  }
+
+  public onSendSites() {
+    this.dlg.open(DialogLoadSitesComponent, {
+      height: '300px',
+      width: '400px',
+      panelClass: 'custom-dd'
     });
   }
 }

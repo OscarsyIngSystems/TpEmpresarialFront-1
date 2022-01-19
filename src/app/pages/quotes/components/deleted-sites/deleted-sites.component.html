@@ -7,7 +7,15 @@
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 <div class="d-flex justify-content-start m-3">
   <div class="search-bar-divider">
-    <button mat-button type="button" class="btn-add">Agregar nuevamente</button>
+    <button
+      (click)="onReset()"
+      mat-button
+      style="margin-right: 10em"
+      type="button"
+      class="btn-add"
+    >
+      Agregar nuevamente
+    </button>
   </div>
   <div class="input-group width shadow-sm">
     <input

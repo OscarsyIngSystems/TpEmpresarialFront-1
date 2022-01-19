@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Sale } from './../../../../../models/sale';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,12 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogEditLoadSitesComponent implements OnInit {
   searchData = new FormControl();
+  editDataForm!: FormGroup;
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
-  constructor() { }
+  constructor(public form: FormBuilder) {
+    this.buildForm();
+  }
 
   ngOnInit(): void {
+
   }
+
+  public buildForm() {
+    this.editDataForm = this.form.group({
+      siteName: ['Audi Pedregal',Validators.required],
+      street: ['Joaquín',Validators.required],
+      outsideNumber: ['MZ80',Validators.required],
+      insideNumber: ['7735',Validators.required],
+      zipCode: ['10400',Validators.required],
+      suburb: ['San Jerónimo Aculco',Validators.required],
+      townHall: ['Benito Juarez',Validators.required],
+      state: ['Distrito Federal',Validators.required],
+      city: ['Ciudad de México',Validators.required],
+      latitude: ['19.335048',Validators.required],
+      longitude: ['-19.198406',Validators.required]
+    })
+  }
+
 
   public search(): void {
     alert('Buscando... ' + this.searchData.value);

@@ -1,5 +1,4 @@
-import { DialogTaskComponent } from './../../pages/accounts/components/dialog-task/dialog-task.component';
-import { MatDialog } from '@angular/material/dialog';
+
 import {
   Component,
   EventEmitter,
@@ -14,10 +13,10 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEventComponent } from 'src/app/pages/accounts/components/dialog-event/dialog-event.component';
 import { DialogNewContactComponent } from 'src/app/pages/accounts/components/dialog-new-contact/dialog-new-contact.component';
 import { MatTableDataSource } from '@angular/material/table';
-import { QuotesService } from 'src/app/services/quotes/quotes.service';
-import { Sale } from 'src/app/models/sale';
 import { DialogEditLoadSitesComponent } from 'src/app/pages/quotes/components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
-
+import { DialogDeletedSitesComponent } from './../../pages/quotes/components/dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
+import { DialogTaskComponent } from './../../pages/accounts/components/dialog-task/dialog-task.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-table-general',
   templateUrl: './table-general.component.html',
@@ -35,7 +34,6 @@ export class TableGeneralComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   columns2: string[] = [
     'check',
-    'index',
     'site',
     'coverage',
     'accessMedia',
@@ -59,10 +57,7 @@ export class TableGeneralComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-    // this.getData()
-    console.log(this.dataSourceLoadedSites.data);
-  }
+  ngOnInit(): void {}
 
   ngAfterContentInit(): void {
     this.dtOptions = {
@@ -125,11 +120,18 @@ export class TableGeneralComponent implements OnInit {
     this.dialog.open(DialogNewContactComponent, { width: '42%' });
   }
 
-  onEdit() {
+  onEdit(): void {
     this.dialog.open(DialogEditLoadSitesComponent, {
-      height: '600px',
-      width: '1000px',
-      panelClass: 'custom-dd',
+      height: '90%',
+      width: '60%',
     });
+  }
+
+  onDeleteSites() {
+    this.dialog.open(DialogDeletedSitesComponent, {
+      height: '35%',
+      width: '30%',
+      panelClass: 'container-cc'
+    },);
   }
 }

@@ -101,8 +101,8 @@ export class DeletedSitesComponent implements OnInit {
     alert('Buscando... ' + this.searchData.value);
   }
 
-  onNavigate(): void {
-    this.router.navigate(['/quotes/deleted-sites']);
+  onReset(): void {
+    this.router.navigate(['/quotes/loaded-sites']);
   }
 
   clearSearch(): void {
