@@ -55,7 +55,7 @@ export class TableGeneralComponent implements OnInit {
     private route: Router,
     private storageService: StorageService,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     // let disable = localStorage.getItem('disabled')
@@ -94,17 +94,16 @@ export class TableGeneralComponent implements OnInit {
     this.isAllSelected()
       ? this.selection.clear()
       : this.dataSourceLoadedSites.data.forEach((row) => {
-          this.selection.select(row);
-        });
+        this.selection.select(row);
+      });
   }
 
   checkboxLabel(row?: any): string {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
-      row.position + 1
-    }`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1
+      }`;
   }
 
   openDialogTask(): void {
@@ -135,17 +134,18 @@ export class TableGeneralComponent implements OnInit {
       height: '35%',
       width: '30%',
       panelClass: 'container-cc',
+      data: this.selectedItemsTable
     });
     dlgRef.afterClosed().subscribe((res) => {
-      console.log(res);
-    });
-    dlgRef.afterClosed().subscribe((res) => {
+      const u = localStorage.getItem('array_selected');
+      const arraySelected = u ? JSON.parse(u) : [];
+      this.selectedItemsTable.forEach(element => {
+        arraySelected.push(element)
+      });
       localStorage.setItem(
         'array_selected',
-        JSON.stringify(this.selectedItemsTable)
+        JSON.stringify(arraySelected)
       );
-      localStorage.setItem('disabled', 'true');
-
       this.redirectTo('/quotes/loaded-sites');
     });
   }
@@ -160,8 +160,8 @@ export class TableGeneralComponent implements OnInit {
     this.dtOptions = {
       dom: !this.showHeaderTable
         ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
-          "<'row'<'col-12'tr>>" +
-          "<'row'<'col-12 d-flex justify-content-center'p>>"
+        "<'row'<'col-12'tr>>" +
+        "<'row'<'col-12 d-flex justify-content-center'p>>"
         : '<"bottom"t <"d-flex justify-content-center" p>>',
       pagingType: 'full_numbers',
       language: {

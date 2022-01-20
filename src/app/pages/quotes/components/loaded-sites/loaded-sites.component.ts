@@ -63,6 +63,7 @@ export class LoadedSitesComponent implements OnInit {
     this.getData();
     this.dataSource.filterPredicate = this.filterPredicate;
     this.storageService.setDataName('AUDI 1 COT | 2 SITIOS');
+
   }
 
   onFilter(filterValues: string): void {
@@ -86,18 +87,14 @@ export class LoadedSitesComponent implements OnInit {
     this.service.getData().subscribe((data) => {
       this.originalData = data;
       this.dataSource.data = this.originalData;
-      this.getDataStorage()
-      this.clearStorage()
+
     });
   }
 
-  public clearStorage() {
-    localStorage.removeItem('disabled')
-  }
-
-  public getDataStorage() {
-    let disable = localStorage.getItem('disabled')
-    if(disable === 'true') this.disabled = true
+  checkDisabled() {
+    const u = localStorage.getItem('array_selected');
+    const arraySelected = u ? JSON.parse(u) : [];
+    return arraySelected.length > 0
   }
 
   public setSearchId(id: number): void {
