@@ -44,16 +44,16 @@
   </thead>
   <tbody>
     <tr
-      [routerLink]="['/opportunities', account.oportunityNumber]"
+      [routerLink]="['/opportunities', account.number]"
       class="table-element-row shadow-sm t-row"
       *ngFor="let account of dataSource"
     >
-      <td class="mat-cell">{{ account.oportunityName }}</td>
-      <td class="mat-cell">{{ account.oportunityNumber }}</td>
+      <td class="mat-cell">{{ account.name }}</td>
+      <td class="mat-cell">{{ account.number }}</td>
       <td class="mat-cell">{{ account.accountName }}</td>
       <td class="mat-cell">{{ account.stage }}</td>
       <td class="mat-cell">{{ account.amount }}</td>
-      <td class="mat-cell">{{ account.createdAt }}</td>
+      <td class="mat-cell">{{ account.created }}</td>
       <td class="mat-cell">{{ account.validity }}</td>
     </tr>
   </tbody>
