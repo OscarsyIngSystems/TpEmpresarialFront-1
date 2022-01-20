@@ -7,4 +7,5 @@ export interface Account {
   phone: string;
   typeAccount: string;
   contact: string;
+  created: string;
 }

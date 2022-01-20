@@ -3,7 +3,7 @@ import { Account } from 'src/app/models/account';
 
 const ELEMENT_DATA: Account[] = [
   {
-    id: 873827,
+    id: 873828,
     accountName: 'AUDI CDMX',
     accountId: 'CRM-00022445',
     identification: 'HSP030709EA2',
@@ -11,6 +11,7 @@ const ELEMENT_DATA: Account[] = [
     phone: ' 55 27632571',
     typeAccount: 'Enlace',
     contact: 'Pedrito lopez',
+    created: '18/01/2021',
   },
 
   {
@@ -22,10 +23,11 @@ const ELEMENT_DATA: Account[] = [
     phone: ' 55 27632571',
     typeAccount: 'Enlace',
     contact: 'Pedrito lopez',
+    created: '19/01/2021',
   },
 
   {
-    id: 873827,
+    id: 873826,
     accountName: 'AUDI CDMX',
     accountId: 'CRM-00022445',
     identification: 'HSP030709EA2',
@@ -33,6 +35,7 @@ const ELEMENT_DATA: Account[] = [
     phone: ' 55 27632571',
     typeAccount: 'Enlace',
     contact: 'Pedrito lopez',
+    created: '20/01/2020',
   },
 ];
 @Component({
@@ -73,6 +76,10 @@ export class AccountsListComponent implements OnInit {
     {
       key: 'contact',
       columnName: this.contentLabels + 'table.colum8',
+    },
+    {
+      key: 'created',
+      columnName: this.contentLabels + 'table.colum9',
     },
   ];
 
