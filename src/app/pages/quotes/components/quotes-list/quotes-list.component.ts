@@ -2,6 +2,7 @@ import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { Component, OnInit } from '@angular/core';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { TableOptions } from 'src/app/models/tableOptions';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-quotes-list',
@@ -41,9 +42,13 @@ export class QuotesListDeatilComponent implements OnInit {
 
   dataSource: any[] = [];
 
-  constructor(private _service: QuotesService) {}
+  constructor(
+    private _service: QuotesService,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
+    this.spinner.show();
     this.loadData();
   }
 
@@ -52,9 +57,11 @@ export class QuotesListDeatilComponent implements OnInit {
       (response) => {
         console.log(response);
         this.dataSource = response;
+        this.spinner.hide();
       },
       (error) => {
         console.error(error);
+        this.spinner.hide();
       }
     );
   }

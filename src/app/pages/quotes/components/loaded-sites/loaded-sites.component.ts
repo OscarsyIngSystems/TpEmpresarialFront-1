@@ -10,7 +10,6 @@ import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEditLoadSitesComponent } from '../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
-// import { DialogSendSitesComponent } from '../dialogs/dialog-send-sites/dialog-send-sites.component';
 
 @Component({
   selector: 'app-loaded-sites',
@@ -46,18 +45,12 @@ export class LoadedSitesComponent implements OnInit {
       value: 'Sergio Aparicio Contreras',
     },
   ];
-  columns: string[] = [
-    'check',
-    'site',
-    'coverage',
-    'accessMedia',
-    'edit',
-  ];
-
+  columns: string[] = ['check','site','coverage','accessMedia','edit'];
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
   control: FormControl = new FormControl();
+  disabled: boolean = false;
 
   constructor(
     private service: QuotesService,
@@ -93,7 +86,18 @@ export class LoadedSitesComponent implements OnInit {
     this.service.getData().subscribe((data) => {
       this.originalData = data;
       this.dataSource.data = this.originalData;
+      this.getDataStorage()
+      this.clearStorage()
     });
+  }
+
+  public clearStorage() {
+    localStorage.removeItem('disabled')
+  }
+
+  public getDataStorage() {
+    let disable = localStorage.getItem('disabled')
+    if(disable === 'true') this.disabled = true
   }
 
   public setSearchId(id: number): void {
@@ -136,5 +140,6 @@ export class LoadedSitesComponent implements OnInit {
       width: '400px',
       panelClass: 'custom-dd'
     });
+
   }
 }

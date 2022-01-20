@@ -29,9 +29,7 @@ export class HeaderActionsComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-    console.log('router', this.router.url);
-  }
+  ngOnInit(): void {}
 
   newOportunity(): void {
     if (this.data) {

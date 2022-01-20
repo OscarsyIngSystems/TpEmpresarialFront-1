@@ -39,9 +39,10 @@ export class TableGeneralComponent implements OnInit {
   columns2: string[] = ['check', 'site', 'coverage', 'accessMedia', 'edit'];
   expandedElement!: Account | null;
   data: any[] = [];
+  selectedItemsTable: any[] = [];
   lengthMenu = [10, 20, 30];
   disabled: boolean = true;
-  disabledDeletedSites: boolean = true;
+  // disabledDeletedSites: boolean = true;
   @Input()
   get dataFile(): any[] {
     return this.data;
@@ -56,7 +57,10 @@ export class TableGeneralComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // let disable = localStorage.getItem('disabled')
+    // if(disable === 'true') this.disabledDeletedSites = true;
+  }
 
   goAccountDetail(account: Account): void {
     this.storageService.setDataName(account.accountName);
@@ -80,6 +84,7 @@ export class TableGeneralComponent implements OnInit {
   isAllSelected() {
     if (this.selection.selected.length > 0) this.disabled = false;
     if (this.selection.selected.length == 0) this.disabled = true;
+    this.selectedItemsTable = this.selection.selected;
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSourceLoadedSites.data.length;
     return numSelected === numRows;
@@ -134,6 +139,21 @@ export class TableGeneralComponent implements OnInit {
     dlgRef.afterClosed().subscribe((res) => {
       console.log(res);
     });
+    dlgRef.afterClosed().subscribe((res) => {
+      localStorage.setItem(
+        'array_selected',
+        JSON.stringify(this.selectedItemsTable)
+      );
+      localStorage.setItem('disabled', 'true');
+
+      this.redirectTo('/quotes/loaded-sites');
+    });
+  }
+
+  redirectTo(uri: string) {
+    this.route
+      .navigateByUrl('/', { skipLocationChange: true })
+      .then(() => this.route.navigate([uri]));
   }
 
   ngAfterContentInit(): void {

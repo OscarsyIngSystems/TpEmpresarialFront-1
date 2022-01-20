@@ -44,7 +44,6 @@ export class DeletedSitesComponent implements OnInit {
     },
   ];
   columns: string[] = ['check', 'index', 'site', 'coverage', 'accessMedia'];
-
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
@@ -60,13 +59,12 @@ export class DeletedSitesComponent implements OnInit {
     public storageService: StorageService
   ) {
     this.lastValue = this.filterParam.value;
-    console.log(this.lastValue);
   }
 
   ngOnInit(): void {
     this.dataSource.filterPredicate = this.filterPredicate;
-    this.getData();
     this.storageService.setDataName('AUDI 1 COT | 2 SITIOS');
+    this.getData();
   }
 
   onFilter(filterValues: string): void {
@@ -87,9 +85,12 @@ export class DeletedSitesComponent implements OnInit {
   }
 
   getData(): void {
-    this.service.getData().subscribe((data: Sale[]) => {
-      this.originalData = data;
+    this.service.getData().subscribe(() => {
+      const u = localStorage.getItem('array_selected');
+      const arraySelected = u ? JSON.parse(u) : [];
+      this.originalData = arraySelected;
       this.dataSource.data = this.originalData;
+      // localStorage.removeItem('array_selected')
     });
   }
 
@@ -109,12 +110,6 @@ export class DeletedSitesComponent implements OnInit {
     this.selectedIdOption = 0;
     this.searchData.setValue('');
   }
-
-  // onFilter(filterValues: string) : void {
-  //   this.filterValue = filterValues;
-  //   this.dataSource.filter = filterValues;
-  //   console.log(this.filterParam.value);
-  // }
 
   filterPredicate(data: any, filter: string): boolean {
     const datas = JSON.stringify(data).includes(filter);
