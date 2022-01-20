@@ -15,6 +15,6 @@ export class DialogDeletedSitesComponent implements OnInit {
   }
 
   onClose() {
-    this.dialogRef.close({ data: 'accept' })
+    this.dialogRef.close()
   }
 }

@@ -43,15 +43,7 @@ export class DeletedSitesComponent implements OnInit {
       value: 'Sergio Aparicio Contreras',
     },
   ];
-  columns: string[] = [
-    'check',
-    'index',
-    'site',
-    'coverage',
-    'accessMedia',
-    'edit',
-  ];
-
+  columns: string[] = ['check','index','site','coverage','accessMedia','edit'];
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
@@ -63,18 +55,20 @@ export class DeletedSitesComponent implements OnInit {
     public storageService: StorageService
   ) {
     this.lastValue = this.filterParam.value;
-    console.log(this.lastValue);
   }
 
   ngOnInit(): void {
     this.dataSource.filterPredicate = this.filterPredicate;
-    this.getData();
     this.storageService.setDataName('AUDI 1 COT | 2 SITIOS');
+    this.getData();
   }
 
   getData() {
-    this.service.getData().subscribe((data: Sale[]) => {
-      this.dataSource.data = data;
+    this.service.getData().subscribe(() => {
+      let u = localStorage.getItem('array_selected')
+      const array_selected = u ? JSON.parse(u) : []
+      this.dataSource.data = array_selected;
+      // localStorage.removeItem('array_selected')
     });
   }
 

@@ -53,7 +53,7 @@
     </button>
   </div>
   <div >
-    <button  (click)="onNavigate()" mat-button type="button" class="rounded-button-outline ">
+    <button *ngIf="disabled"  (click)="onNavigate()" mat-button type="button" class="rounded-button-outline ">
       Ver sitios eliminados
     </button>
   </div>
