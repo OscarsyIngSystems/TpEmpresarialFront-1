@@ -91,9 +91,20 @@ export class LoadedSitesComponent implements OnInit {
     });
   }
 
+  checkStorage() {
+    const u = localStorage.getItem('array_selected');
+    const arraySelected = u ? JSON.parse(u) : [];
+    // if(arraySelected > 0) {
+    //   arraySelected.forEach((element:any) => {
+    //     console.log(element)
+    //   });
+    // }
+  }
+
   checkDisabled() {
     const u = localStorage.getItem('array_selected');
     const arraySelected = u ? JSON.parse(u) : [];
+
     return arraySelected.length > 0
   }
 
