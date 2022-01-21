@@ -7,11 +7,11 @@ import { Component, OnInit, Inject } from '@angular/core';
   styleUrls: ['./dialog-deleted-sites.component.scss']
 })
 export class DialogDeletedSitesComponent implements OnInit {
-
   constructor(@Inject(MAT_DIALOG_DATA) public data: string,
     private dialogRef: MatDialogRef<DialogDeletedSitesComponent>) { }
 
   ngOnInit(): void {
+    console.log(this.data);
   }
 
   onClose() {
