@@ -15,4 +15,4 @@
   </div>
 </div>
 <app-empty message="No se encontraron cuentas" *ngIf="dataSource.length === 0"></app-empty>
-<app-table-general [idTableShow]="1" [columns]="columnsShow" [dataSource]="dataSource"></app-table-general>
+<app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="1" [columns]="columnsShow" [dataSource]="dataSource"></app-table-general>
