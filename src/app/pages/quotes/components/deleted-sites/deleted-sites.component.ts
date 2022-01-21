@@ -86,11 +86,11 @@ export class DeletedSitesComponent implements OnInit {
 
   getData(): void {
     this.service.getData().subscribe(() => {
-      const u = localStorage.getItem('array_selected');
+      const u = localStorage.getItem('arraySelected');
       const arraySelected = u ? JSON.parse(u) : [];
       this.originalData = arraySelected;
       this.dataSource.data = this.originalData;
-      // localStorage.removeItem('array_selected')
+      // localStorage.removeItem('arraySelected')
     });
   }
 

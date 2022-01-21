@@ -33,6 +33,7 @@ export class TableGeneralComponent implements OnInit {
   @Input() dataSourceLoadedSites = new MatTableDataSource();
   @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
   @ViewChild('dataTable') dataTable: any;
+  @Output() emitter = new EventEmitter<any>();
 
   selection = new SelectionModel(true, [...this.dataSourceLoadedSites.data]);
   dtOptions: DataTables.Settings = {};
@@ -135,18 +136,16 @@ export class TableGeneralComponent implements OnInit {
       height: '35%',
       width: '30%',
       panelClass: 'container-cc',
+      data: this.selectedItemsTable,
     });
     dlgRef.afterClosed().subscribe((res) => {
-      console.log(res);
-    });
-    dlgRef.afterClosed().subscribe((res) => {
-      localStorage.setItem(
-        'array_selected',
-        JSON.stringify(this.selectedItemsTable)
-      );
-      localStorage.setItem('disabled', 'true');
-
-      this.redirectTo('/quotes/loaded-sites');
+      const u = localStorage.getItem('arraySelected');
+      const arraySelected = u ? JSON.parse(u) : [];
+      this.selectedItemsTable.forEach((element) => {
+        arraySelected.push(element);
+      });
+      localStorage.setItem('arraySelected', JSON.stringify(arraySelected));
+      this.emitter.emit(arraySelected);
     });
   }
 

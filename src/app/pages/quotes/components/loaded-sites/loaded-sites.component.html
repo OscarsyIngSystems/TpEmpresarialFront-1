@@ -52,8 +52,14 @@
       <mat-icon class="search-icon">search</mat-icon>
     </button>
   </div>
-  <div >
-    <button *ngIf="disabled"  (click)="onNavigate()" mat-button type="button" class="rounded-button-outline ">
+  <div>
+    <button
+      *ngIf="checkDisabled()"
+      (click)="onNavigate()"
+      mat-button
+      type="button"
+      class="rounded-button-outline"
+    >
       Ver sitios eliminados
     </button>
   </div>
@@ -66,7 +72,7 @@
 
 <div class="m-3 row align-content-center">
   <div class="g-0 col-2 d-flex align-items-center">
-    <span>Con cobertura: 9</span>
+    <span>Con cobertura: 4</span>
   </div>
 
   <div class="d-flex flex-row col-10 g-0 justify-content-start">
@@ -162,6 +168,7 @@
       <app-table-general
         [dataSourceLoadedSites]="dataSource"
         [idTableShow]="10"
+        (emitter)="deleteSelectedItems()"
       ></app-table-general>
     </div>
   </div>
