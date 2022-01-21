@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       ],
       password: [
         '2401_PenitentTangent',
-        [Validators.required, Validators.minLength(16)],
+        [Validators.required, Validators.minLength(4)],
       ],
     });
   }
