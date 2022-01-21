@@ -1,34 +1,13 @@
 @import "../../../../../../styles.scss";
 
-
-.mat-dialog-title {
-  text-align: center;
-}
-
-.mat-form-field {
-  width: 100%;
-  margin-top: 3em;
-  margin-bottom: 3em;
-}
-.dialog-actions {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.button-dlg#cancel-btn {
-  border-radius: 25px;
-  background: white;
-  width: 156px;
-  height: 35px;
+.modal-title {
   color: $color-primary;
-  border: 2px solid $color-primary;
-  font-weight: 500;
-  &:hover {
-        background-color: $color-disabled;
-      }
+  font-weight: 400 !important;
+  text-align: center;
+  margin-top: 50px;
 }
 
-.button-dlg#add-btn {
+.button-dlg {
   border-radius: 25px;
   background: $color-primary;
   width: 156px;
@@ -40,4 +19,7 @@
   }
 }
 
-
+.center {
+  display: flex;
+  justify-content: center;
+}

@@ -62,7 +62,7 @@
       Ver sitios eliminados
     </button>
   </div>
-  <button [disabled]="disabled" mat-button type="button" class="btn-add">
+  <button (click)="openDialog()" [disabled]="disabled" mat-button type="button" class="btn-add">
     Agregar nuevamente
   </button>
 </div>

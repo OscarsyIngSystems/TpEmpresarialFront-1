@@ -19,6 +19,7 @@ import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-lo
 export class LoadedSitesComponent implements OnInit {
   public contentLabels = 'quotes.';
   filterValue = '';
+
   dataSource = new MatTableDataSource();
   filteredData: any[] = [];
   originalData: any[] = [];
@@ -50,6 +51,7 @@ export class LoadedSitesComponent implements OnInit {
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
   control: FormControl = new FormControl();
+  arraySelected: any[] = [];
   disabled: boolean = false;
 
   constructor(
@@ -111,8 +113,8 @@ export class LoadedSitesComponent implements OnInit {
 
   checkDisabled() {
     const u = localStorage.getItem('arraySelected');
-    const arraySelected = u ? JSON.parse(u) : [];
-    return arraySelected.length > 0;
+    this.arraySelected = u ? JSON.parse(u) : [];
+    return this.arraySelected.length > 0;
   }
 
   public setSearchId(id: number): void {
@@ -154,6 +156,7 @@ export class LoadedSitesComponent implements OnInit {
       height: '300px',
       width: '400px',
       panelClass: 'custom-dd',
+      data: {'text': 'Sitios enviados para modelacion de propuesta.', 'length':this.arraySelected.length}
     });
   }
 }

@@ -1,3 +1,4 @@
+import { DialogDeletedSitesComponent } from './../dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
 import { Component, OnInit, ChangeDetectionStrategy, } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { FormControl, Validators } from '@angular/forms';
@@ -147,10 +148,11 @@ export class DeletedSitesComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.dlg.open(DialogLoadSitesComponent, {
+    this.dlg.open(DialogDeletedSitesComponent, {
       height: '300px',
       width: '400px',
       panelClass: 'custom-dd',
+      data: {'text': ' sitios agregados', 'length': this.selection.selected.length}
     });
   }
 }
