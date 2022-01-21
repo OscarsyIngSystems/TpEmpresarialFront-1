@@ -112,7 +112,6 @@ export class LoadedSitesComponent implements OnInit {
   checkDisabled() {
     const u = localStorage.getItem('arraySelected');
     const arraySelected = u ? JSON.parse(u) : [];
-
     return arraySelected.length > 0;
   }
 

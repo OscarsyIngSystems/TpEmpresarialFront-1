@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, } from '@angular/core';
+import { SelectionModel } from '@angular/cdk/collections';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,16 +12,20 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-deleted-sites',
   templateUrl: './deleted-sites.component.html',
   styleUrls: ['./deleted-sites.component.scss'],
 })
 export class DeletedSitesComponent implements OnInit {
   public contentLabels = 'quotes.';
-  filterParam: FormControl = new FormControl('0');
   filterValue = '';
-  lastValue: number;
   dataSource = new MatTableDataSource();
+  filteredData: any[] = [];
+  originalData: any[] = [];
+  filters: string[] = [];
+  filterParam: FormControl = new FormControl('0');
+  lastValue: number;
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -46,11 +51,12 @@ export class DeletedSitesComponent implements OnInit {
   columns: string[] = ['check', 'index', 'site', 'coverage', 'accessMedia'];
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
-  selectedIdOption = 0;
   control: FormControl = new FormControl();
-  filteredData: any[] = [];
-  originalData: any[] = [];
-  filters: string[] = [];
+  selectedIdOption = 0;
+
+  selection = new SelectionModel(true, [...this.dataSource.data]);
+  selectedItemsTable: any[] = [];
+  disabled: boolean = true;
 
   constructor(
     private service: QuotesService,
@@ -90,7 +96,6 @@ export class DeletedSitesComponent implements OnInit {
       const arraySelected = u ? JSON.parse(u) : [];
       this.originalData = arraySelected;
       this.dataSource.data = this.originalData;
-      // localStorage.removeItem('arraySelected')
     });
   }
 
@@ -114,6 +119,31 @@ export class DeletedSitesComponent implements OnInit {
   filterPredicate(data: any, filter: string): boolean {
     const datas = JSON.stringify(data).includes(filter);
     return datas;
+  }
+
+  masterToggle() {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.dataSource.data.forEach((row) => {
+        this.selection.select(row);
+      });
+  }
+
+  isAllSelected() {
+    if (this.selection.selected.length > 0) this.disabled = false;
+    if (this.selection.selected.length == 0) this.disabled = true;
+    this.selectedItemsTable = this.selection.selected;
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1
+      }`;
   }
 
   openDialog(): void {
