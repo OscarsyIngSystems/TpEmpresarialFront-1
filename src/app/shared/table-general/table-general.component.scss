@@ -89,40 +89,40 @@
 }
 
 // #region tabla loaded sites
-table {
+.sites-table {
   width: 100%;
   background-color: transparent !important;
 }
 
-.mat-header-cell {
+.sites-table .mat-header-cell {
   color: black;
   background: rgba(255, 255, 255, 0);
 }
 
-.mat-column-check {
+.sites-table .mat-column-check {
   flex: none;
   // text-align: left;
   width: 10px;
 }
 
-.mat-column-site {
+.sites-table .mat-column-site {
   flex: none;
   width: 205px;
 }
 
-.mat-column-coverage {
+.sites-table .mat-column-coverage {
   flex: none;
   text-align: left;
   width: 70px;
 }
 
-.mat-column-accessMedia {
+.sites-table .mat-column-accessMedia {
   width: 20px;
   text-align: left;
   flex: none;
 }
 
-.mat-column-edit {
+.sites-table .mat-column-edit {
   width: 10px;
   text-align: center;
   flex: none;
