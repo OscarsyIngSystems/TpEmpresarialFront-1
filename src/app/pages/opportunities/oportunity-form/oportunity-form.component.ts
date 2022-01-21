@@ -92,6 +92,7 @@ export class OportunityFormComponent implements OnInit {
     this.oportunityForm.get('stage')?.enable();
     this.oportunityForm.get('trybuy')?.enable();
     this.oportunityForm.get('saleType')?.enable();
+    this.oportunityForm.get('description')?.enable();
     this.handdleTryBuy();
     this.edit.emit(true);
     this.isEditing = true;

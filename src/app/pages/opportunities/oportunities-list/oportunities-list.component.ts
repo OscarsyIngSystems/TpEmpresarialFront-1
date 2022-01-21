@@ -11,7 +11,7 @@ import { OpportunitiesService } from 'src/app/services/opportunities/opportuniti
 })
 export class OportunitiesListComponent implements OnInit {
   public contentLabels = 'oportunities.';
-  filterParam: FormControl = new FormControl('1');
+  filterParam: FormControl = new FormControl('0');
   lastValue!: number;
 
   infoDetail: Array<InfoDetail> = [
