@@ -11,12 +11,16 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 export class QuotesCreateComponent implements OnInit {
   infoDetail: Array<InfoDetail> = [
     {
+      name: 'Nombre de la cuenta',
+      value: 'Audi CDMX-COT',
+    },
+    {
       name: 'Número de oportunidad',
       value: '678676',
     },
 
     {
-      name: 'Etapa',
+      name: 'Etapa oportunidad',
       value: 'Necesidades',
     },
     {
