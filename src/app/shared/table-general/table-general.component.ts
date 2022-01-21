@@ -135,7 +135,7 @@ export class TableGeneralComponent implements OnInit {
       height: '35%',
       width: '30%',
       panelClass: 'container-cc',
-      data: this.selectedItemsTable,
+      data: {'length': this.selectedItemsTable.length, 'text': 'Sitios eliminados correctamente'},
     });
     dlgRef.afterClosed().subscribe((res) => {
       const u = localStorage.getItem('arraySelected');
