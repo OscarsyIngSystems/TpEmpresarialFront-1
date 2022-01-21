@@ -2,6 +2,7 @@ import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { AccountsService } from 'src/app/services/accounts/accounts.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
@@ -11,52 +12,64 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 })
 export class AccountFormComponent implements OnInit, AfterContentInit {
   public contentLabels = 'accounts.account-detail-oportunity.';
-  public accountId;
+  public accountId:any='';
   public principalDataForm!: FormGroup;
   public addressInformationForm!: FormGroup;
   public systemInformationForm!: FormGroup;
   public segments!: any[];
   defaultContact = '';
-  infoDetail: Array<InfoDetail> = [
-    {
-      name: 'Nombre de la cuenta',
-      value: '7-ELEVEN MEXICO',
-    },
-    {
-      name: 'ID cliente único',
-      value: '873827',
-    },
-    {
-      name: 'Folio cuenta',
-      value: 'CRM-02010634',
-    },
-    {
-      name: 'RFC',
-      value: 'SEM980701STA',
-    },
-    {
-      name: 'Segmento',
-      value: 'I',
-    },
-  ];
+  infoDetail: Array<InfoDetail> = [];
 
   // tslint:disable-next-line: variable-name
   constructor(
     private _url: ActivatedRoute,
     private fb: FormBuilder,
-    public storageService: StorageService
+    public storageService: StorageService,
+    private accountsService:AccountsService
   ) {
-    this.accountId = this._url.snapshot.paramMap.get('id');
+    this.accountId = this._url.snapshot.paramMap.get('id') ? this._url.snapshot.paramMap.get('id') :'';
     this.initPrincipalDataForm();
     this.initAddressInformationForm();
     this.initSystemInformationForm();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getDetailAccountId();
+  }
 
   ngAfterContentInit(): void {
     this.defaultContact =
       this.principalDataForm.get('principal_contact')?.value;
+  }
+
+  private getDetailAccountId(): void {
+    this.accountsService
+    .getAccountDetail(this.accountId)
+    .subscribe(response=>{
+      const detail:any = response[0];
+      this.infoDetail = [
+        {
+          name: 'Nombre de la cuenta',
+          value: detail.accountName,
+        },
+        {
+          name: 'ID cliente único',
+          value: detail.clientId,
+        },
+        {
+          name: 'Folio cuenta',
+          value: detail.accountId,
+        },
+        {
+          name: 'RFC',
+          value: detail.taxIdentification,
+        },
+        {
+          name: 'Segmento',
+          value: detail.segment,
+        },
+      ];
+    });
   }
 
   public isAdmin(): boolean {

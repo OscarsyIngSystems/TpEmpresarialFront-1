@@ -15,7 +15,7 @@
         </div>
         <div class="input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Etapa</mat-label>
+            <mat-label class="label-form-field">Etapa<small class="color-red">*</small></mat-label>
             <!-- <input formControlName="stage" matInput /> -->
             <mat-select formControlName="stage">
               <mat-option value="0">Necesidades</mat-option>
@@ -30,7 +30,7 @@
         </div>
         <div class="input-container pe-10px">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Importe</mat-label>
+            <mat-label class="label-form-field">Importe<small class="color-red">*</small></mat-label>
             <input matInput formControlName="amount" />
           </mat-form-field>
         </div>
@@ -66,7 +66,7 @@
 
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Probabilidad (%)</mat-label>
+            <mat-label class="label-form-field">Probabilidad (%)<small class="color-red">*</small></mat-label>
             <input matInput formControlName="probability" />
           </mat-form-field>
         </div>
@@ -87,7 +87,7 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Quién integra la propuesta</mat-label>
+            <mat-label class="label-form-field">Quién integra la propuesta<small class="color-red">*</small></mat-label>
             <mat-select formControlName="whoIntegrated">
               <mat-option value="one">Juanito Pérez</mat-option>
             </mat-select>
@@ -104,7 +104,7 @@
         </div>
         <div class="input-container pe-10px">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Nombre del ejecutivo</mat-label>
+            <mat-label class="label-form-field">Nombre del ejecutivo <small class="color-red">*</small></mat-label>
             <input formControlName="executive" matInput />
           </mat-form-field>
         </div>
