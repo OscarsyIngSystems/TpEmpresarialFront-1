@@ -15,10 +15,11 @@
       <span class="fw-button">+ Agregar</span> sitio
     </button>
 
-    <div><button *ngIf="router.url == '/quotes/loaded-sites'" (click)="openDialogLoadMassive()" mat-button
+    <div >
+      <span *ngIf="!disabled"><button *ngIf="router.url == '/quotes/loaded-sites' || '/quotes/sites'"  (click)="openDialogLoadMassive()" mat-button
         class="rounded-button-outline btn-primary tx-12 text-bold ms-2">
         {{ loadSitesText }}
-      </button>
+      </button></span>
       <button *ngIf="router.url == '/quotes/deleted-sites'" (click)="onLoadedSites()" mat-button
         class="rounded-button-outline btn-primary tx-12 text-bold ms-2">
         Ver sitios cargados

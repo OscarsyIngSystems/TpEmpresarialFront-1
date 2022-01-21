@@ -23,13 +23,34 @@ export class HeaderActionsComponent implements OnInit {
   @Input() isLoadSites: boolean = false;
   @Input() data: any;
 
+  disabled: boolean = false;
+
   constructor(
     public router: Router,
     public storageService: StorageService,
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.checkRouteDeletedSites()
+  }
+
+  checkRouteDeletedSites() {
+    if(this.router.url == '/quotes/deleted-sites') this.disabled = true;
+    if(this.router.url == '/opportunities/0641878') this.disabled = true;
+    if(this.router.url == '/opportunities/1417596') this.disabled = true;
+    if(this.router.url == '/opportunities/6541580') this.disabled = true;
+    if(this.router.url == '/opportunities/8203539') this.disabled = true;
+    if(this.router.url == '/opportunities/7903573') this.disabled = true;
+    if(this.router.url == '/opportunities/1904294') this.disabled = true;
+    if(this.router.url == '/opportunities/9343807') this.disabled = true;
+    if(this.router.url == '/opportunities/1208286') this.disabled = true;
+    if(this.router.url == '/opportunities/3401680') this.disabled = true;
+    if(this.router.url == '/opportunities/9417417') this.disabled = true;
+    if(this.router.url == '/quotes/related') this.disabled = true;
+
+    return this.disabled
+  }
 
   newOportunity(): void {
     if (this.data) {

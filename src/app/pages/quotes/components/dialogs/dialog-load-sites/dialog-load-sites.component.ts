@@ -15,15 +15,15 @@ export class DialogLoadSitesComponent implements OnInit {
     ) { }
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   onClose() {
     this.dialogRef.close()
+    this.router.navigate(['/quotes/related'])
   }
 
-  onSubmit() {
-    this.router.navigate(['/quotes/loaded-sites'])
-    this.onClose()
-  }
+
 
 }

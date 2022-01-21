@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   Component,
   EventEmitter,
   Input,
@@ -19,6 +18,7 @@ import { DialogDeletedSitesComponent } from './../../pages/quotes/components/dia
 import { DialogTaskComponent } from './../../pages/accounts/components/dialog-task/dialog-task.component';
 import { MatDialog } from '@angular/material/dialog';
 import { SelectionModel } from '@angular/cdk/collections';
+
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-table-general',
@@ -43,7 +43,7 @@ export class TableGeneralComponent implements OnInit {
   selectedItemsTable: any[] = [];
   lengthMenu = [10, 20, 30];
   disabled: boolean = true;
-  // disabledDeletedSites: boolean = true;
+
   @Input()
   get dataFile(): any[] {
     return this.data;
@@ -59,8 +59,7 @@ export class TableGeneralComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // let disable = localStorage.getItem('disabled')
-    // if(disable === 'true') this.disabledDeletedSites = true;
+
   }
 
   goAccountDetail(account: Account): void {
@@ -136,7 +135,7 @@ export class TableGeneralComponent implements OnInit {
       height: '35%',
       width: '30%',
       panelClass: 'container-cc',
-      data: this.selectedItemsTable,
+      data: {'length': this.selectedItemsTable.length, 'text': 'Sitios eliminados correctamente'},
     });
     dlgRef.afterClosed().subscribe((res) => {
       const u = localStorage.getItem('arraySelected');
