@@ -351,6 +351,7 @@
   <ng-container matColumnDef="check">
     <th mat-header-cell *matHeaderCellDef>
       <mat-checkbox
+        color="primary"
         (change)="$event ? masterToggle() : null"
         [checked]="selection.hasValue() && isAllSelected()"
         [indeterminate]="selection.hasValue() && !isAllSelected()"
@@ -363,6 +364,7 @@
       *matCellDef="let element"
     >
       <mat-checkbox
+        color="primary"
         (click)="$event.stopPropagation()"
         (change)="$event ? selection.toggle(element) : null"
         [checked]="selection.isSelected(element)"

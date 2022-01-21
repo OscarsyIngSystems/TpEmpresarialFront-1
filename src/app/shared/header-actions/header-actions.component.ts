@@ -23,13 +23,25 @@ export class HeaderActionsComponent implements OnInit {
   @Input() isLoadSites: boolean = false;
   @Input() data: any;
 
+  disabled: boolean = false;
+
   constructor(
     public router: Router,
     public storageService: StorageService,
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.checkRouteDeletedSites()
+
+  }
+
+  checkRouteDeletedSites() {
+    if(this.router.url == '/quotes/deleted-sites') this.disabled = true;
+    console.log(this.router.url);
+    console.log(this.disabled);
+    return this.disabled
+  }
 
   newOportunity(): void {
     if (this.data) {
