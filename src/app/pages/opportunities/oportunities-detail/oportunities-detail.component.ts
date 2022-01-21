@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { Oportunity } from 'src/app/models/Oportunity';
+import { OpportunitiesService } from 'src/app/services/opportunities/opportunities.service';
 
 @Component({
   selector: 'app-oportunities-detail',
@@ -16,34 +18,7 @@ export class OportunitiesDetailComponent implements OnInit {
   title: string = this.contentLabels + 'title-detail';
 
   infoDetail: Array<InfoDetail> = [
-    {
-      name: 'Nombre de la cuenta',
-      value: 'Audi CDMX',
-    },
-    {
-      name: 'ID cliente único',
-      value: '5545455',
-    },
-    {
-      name: 'Número de oportunidad',
-      value: '00022445',
-    },
-    {
-      name: 'Etapa',
-      value: 'Necesidades',
-    },
-    {
-      name: 'Importe',
-      value: '$200',
-    },
-    {
-      name: 'Fecha de cierre',
-      value: '31/08/2022',
-    },
-    {
-      name: 'Propietario de la cuenta',
-      value: 'Sergio Aparicio Contreras',
-    },
+   
   ];
 
   oportunity: Oportunity = {
@@ -61,11 +36,14 @@ export class OportunitiesDetailComponent implements OnInit {
     trybuy: false,
     whoIntegrated: 'one',
   };
-  constructor(private _url: ActivatedRoute) {
+  constructor(private _url: ActivatedRoute,private opService:OpportunitiesService,private spinner:NgxSpinnerService) {
     this.opportunityNumber = this._url.snapshot.paramMap.get('id');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.spinner.show();
+    this.getDetail();
+  }
 
   handdleEdit(event: boolean) {
     this.isEditing = event;
@@ -74,5 +52,47 @@ export class OportunitiesDetailComponent implements OnInit {
     } else {
       this.title = this.contentLabels + 'title-detail';
     }
+  }
+
+  getDetail():void{
+    const id:string = this.opportunityNumber ? this.opportunityNumber : '0';
+    this.opService.getOpportunitiesDetail(id)
+    .subscribe(response=>{
+      const detail = response[0];
+      this.infoDetail = [
+        {
+          name: 'Nombre de la cuenta',
+          value: detail.accountName,
+        },
+        {
+          name: 'ID cliente único',
+          value: detail.clientId,
+        },
+        {
+          name: 'Número de oportunidad',
+          value: detail.number,
+        },
+        {
+          name: 'Etapa',
+          value: detail.stage,
+        },
+        {
+          name: 'Importe',
+          value: `$${detail.amount}`,
+        },
+        {
+          name: 'Fecha de cierre',
+          value: detail.closeDate,
+        },
+        {
+          name: 'Propietario de la cuenta',
+          value: detail.owner,
+        },
+      ];
+      this.spinner.hide();
+    },
+    err=>{
+      this.spinner.hide();
+    })
   }
 }

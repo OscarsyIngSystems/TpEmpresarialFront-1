@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { OpportunitiesService } from 'src/app/services/opportunities/opportunities.service';
 
 @Component({
   selector: 'app-oportunities-list',
@@ -65,54 +67,11 @@ export class OportunitiesListComponent implements OnInit {
       columnName: this.contentLabels + 'table.colum8',
     },
   ];
-  public dataSource = [
-    {
-      oportunityName: 'Audi CDMX OP',
-      oportunityNumber: '3754545',
-      accountName: 'Audi CDMX',
-      stage: 'Necesidades',
-      amount: '$45454.22',
-      createdAt: '13/12/2021',
-      validity: '15/05/2022',
-    },
-    {
-      oportunityName: 'Zapata OP2',
-      oportunityNumber: '3754545',
-      accountName: 'Grupo Zapata',
-      stage: 'Necesidades',
-      amount: '$45454.22',
-      createdAt: '13/12/2021',
-      validity: '15/05/2022',
-    },
-    {
-      oportunityName: 'Automotriz Nissan OP1',
-      oportunityNumber: '3754545',
-      accountName: 'Imperio Automotriz del Sur',
-      stage: 'Necesidades',
-      amount: '$45454.22',
-      createdAt: '13/12/2021',
-      validity: '15/05/2022',
-    },
-    {
-      oportunityName: 'VW Lomas OP',
-      oportunityNumber: '3754545',
-      accountName: 'VW Lomas',
-      stage: 'Necesidades',
-      amount: '$45454.22',
-      createdAt: '13/12/2021',
-      validity: '15/05/2022',
-    },
-    {
-      oportunityName: 'Toyota OP',
-      oportunityNumber: '3754545',
-      accountName: 'Toyota Universidad',
-      stage: 'Necesidades',
-      amount: '$45454.22',
-      createdAt: '13/12/2021',
-      validity: '15/05/2022',
-    },
-  ];
-  constructor() {
+  public dataSource: any[] = [];
+  constructor(
+    private opService: OpportunitiesService,
+    private spinner: NgxSpinnerService
+  ) {
     this.lastValue = this.filterParam.value;
   }
 
@@ -125,5 +84,20 @@ export class OportunitiesListComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.spinner.show();
+    this.getOpportunities();
+  }
+
+  getOpportunities(): void {
+    this.opService.getOpportunities().subscribe(
+      (res) => {
+        this.dataSource = res;
+        this.spinner.hide();
+      },
+      (err) => {
+        this.spinner.hide();
+      }
+    );
+  }
 }

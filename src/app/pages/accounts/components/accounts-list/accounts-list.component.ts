@@ -1,40 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Account } from 'src/app/models/account';
+import { AccountsService } from 'src/app/services/accounts/accounts.service';
 
-const ELEMENT_DATA: Account[] = [
-  {
-    id: 873827,
-    accountName: 'AUDI CDMX',
-    accountId: 'CRM-00022445',
-    identification: 'HSP030709EA2',
-    segment: 'I',
-    phone: ' 55 27632571',
-    typeAccount: 'Enlace',
-    contact: 'Pedrito lopez',
-  },
 
-  {
-    id: 873827,
-    accountName: 'AUDI CDMX',
-    accountId: 'CRM-00022445',
-    identification: 'HSP030709EA2',
-    segment: 'I',
-    phone: ' 55 27632571',
-    typeAccount: 'Enlace',
-    contact: 'Pedrito lopez',
-  },
-
-  {
-    id: 873827,
-    accountName: 'AUDI CDMX',
-    accountId: 'CRM-00022445',
-    identification: 'HSP030709EA2',
-    segment: 'I',
-    phone: ' 55 27632571',
-    typeAccount: 'Enlace',
-    contact: 'Pedrito lopez',
-  },
-];
 @Component({
   selector: 'app-accounts-list',
   templateUrl: './accounts-list.component.html',
@@ -43,7 +12,7 @@ const ELEMENT_DATA: Account[] = [
 export class AccountsListComponent implements OnInit {
   public contentLabels = 'accounts.acounts-list.';
 
-  dataSource = ELEMENT_DATA;
+  dataSource:Array<Account> = [];
 
   columnsShow = [
     {
@@ -74,9 +43,28 @@ export class AccountsListComponent implements OnInit {
       key: 'contact',
       columnName: this.contentLabels + 'table.colum8',
     },
+    {
+      key: 'created',
+      columnName: this.contentLabels + 'table.colum9',
+    },
   ];
 
-  constructor() {}
+  constructor(private accountService:AccountsService, private spinner:NgxSpinnerService) {
 
-  ngOnInit(): void {}
+  }
+
+  ngOnInit(): void {
+    this.spinner.show();
+    this.getAccounts()
+  }
+
+  private getAccounts(){
+    this.accountService.getAccounts()
+    .subscribe(response=>{
+      this.dataSource=response;
+      this.spinner.hide();
+    },err=>{
+      this.spinner.hide();
+    })
+  }
 }

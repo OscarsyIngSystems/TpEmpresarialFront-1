@@ -40,7 +40,8 @@
         "colum5": "RFC",
         "colum6": "Segmento",
         "colum7": "Teléfono",
-        "colum8": "Contacto"
+        "colum8": "Contacto",
+        "colum9": "Creado"
       }
     },
     "accounts-opportunities": {},
@@ -133,7 +134,7 @@
       "colum4": "Nombre de la cuenta",
       "colum5": "Etapa",
       "colum6": "Importe",
-      "colum7":"Creado",
+      "colum7": "Creado",
       "colum8": "Vigencia"
     },
     "table-related": {
