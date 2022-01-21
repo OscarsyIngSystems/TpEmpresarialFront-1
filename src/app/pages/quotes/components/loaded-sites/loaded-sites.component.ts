@@ -45,7 +45,7 @@ export class LoadedSitesComponent implements OnInit {
       value: 'Sergio Aparicio Contreras',
     },
   ];
-  columns: string[] = ['check','site','coverage','accessMedia','edit'];
+  columns: string[] = ['check', 'site', 'coverage', 'accessMedia', 'edit'];
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
@@ -59,11 +59,30 @@ export class LoadedSitesComponent implements OnInit {
     private router: Router
   ) {}
 
+  deleteSelectedItems(): void {
+    const u = localStorage.getItem('arraySelected');
+    const arraySelected = u ? JSON.parse(u) : [];
+    arraySelected.forEach((element: any) => {
+      const index = this.originalData.findIndex((site) => {
+        return site.numberList === element.numberList;
+      });
+      if (index > -1) {
+        this.originalData.splice(index, 1);
+        this.reset();
+      }
+    });
+    this.dataSource.data = this.originalData;
+  }
+
+  reset(): void {
+    this.control.reset();
+    this.filters = [];
+  }
+
   ngOnInit(): void {
     this.getData();
     this.dataSource.filterPredicate = this.filterPredicate;
     this.storageService.setDataName('AUDI 1 COT | 2 SITIOS');
-
   }
 
   onFilter(filterValues: string): void {
@@ -87,25 +106,14 @@ export class LoadedSitesComponent implements OnInit {
     this.service.getData().subscribe((data) => {
       this.originalData = data;
       this.dataSource.data = this.originalData;
-
     });
   }
 
-  checkStorage() {
-    const u = localStorage.getItem('array_selected');
-    const arraySelected = u ? JSON.parse(u) : [];
-    // if(arraySelected > 0) {
-    //   arraySelected.forEach((element:any) => {
-    //     console.log(element)
-    //   });
-    // }
-  }
-
   checkDisabled() {
-    const u = localStorage.getItem('array_selected');
+    const u = localStorage.getItem('arraySelected');
     const arraySelected = u ? JSON.parse(u) : [];
 
-    return arraySelected.length > 0
+    return arraySelected.length > 0;
   }
 
   public setSearchId(id: number): void {
@@ -138,7 +146,7 @@ export class LoadedSitesComponent implements OnInit {
 
   onEdit(): void {
     this.dlg.open(DialogEditLoadSitesComponent, {
-      panelClass: 'full-screen-modal'
+      panelClass: 'full-screen-modal',
     });
   }
 
@@ -146,8 +154,7 @@ export class LoadedSitesComponent implements OnInit {
     this.dlg.open(DialogLoadSitesComponent, {
       height: '300px',
       width: '400px',
-      panelClass: 'custom-dd'
+      panelClass: 'custom-dd',
     });
-
   }
 }

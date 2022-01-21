@@ -33,6 +33,7 @@ export class TableGeneralComponent implements OnInit {
   @Input() dataSourceLoadedSites = new MatTableDataSource();
   @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
   @ViewChild('dataTable') dataTable: any;
+  @Output() emitter = new EventEmitter<any>();
 
   selection = new SelectionModel(true, [...this.dataSourceLoadedSites.data]);
   dtOptions: DataTables.Settings = {};
@@ -55,7 +56,7 @@ export class TableGeneralComponent implements OnInit {
     private route: Router,
     private storageService: StorageService,
     private dialog: MatDialog
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     // let disable = localStorage.getItem('disabled')
@@ -94,16 +95,17 @@ export class TableGeneralComponent implements OnInit {
     this.isAllSelected()
       ? this.selection.clear()
       : this.dataSourceLoadedSites.data.forEach((row) => {
-        this.selection.select(row);
-      });
+          this.selection.select(row);
+        });
   }
 
   checkboxLabel(row?: any): string {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1
-      }`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
+      row.position + 1
+    }`;
   }
 
   openDialogTask(): void {
@@ -134,19 +136,16 @@ export class TableGeneralComponent implements OnInit {
       height: '35%',
       width: '30%',
       panelClass: 'container-cc',
-      data: this.selectedItemsTable
+      data: this.selectedItemsTable,
     });
     dlgRef.afterClosed().subscribe((res) => {
-      const u = localStorage.getItem('array_selected');
+      const u = localStorage.getItem('arraySelected');
       const arraySelected = u ? JSON.parse(u) : [];
-      this.selectedItemsTable.forEach(element => {
-        arraySelected.push(element)
+      this.selectedItemsTable.forEach((element) => {
+        arraySelected.push(element);
       });
-      localStorage.setItem(
-        'array_selected',
-        JSON.stringify(arraySelected)
-      );
-      this.redirectTo('/quotes/loaded-sites');
+      localStorage.setItem('arraySelected', JSON.stringify(arraySelected));
+      this.emitter.emit(arraySelected);
     });
   }
 
@@ -160,8 +159,8 @@ export class TableGeneralComponent implements OnInit {
     this.dtOptions = {
       dom: !this.showHeaderTable
         ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
-        "<'row'<'col-12'tr>>" +
-        "<'row'<'col-12 d-flex justify-content-center'p>>"
+          "<'row'<'col-12'tr>>" +
+          "<'row'<'col-12 d-flex justify-content-center'p>>"
         : '<"bottom"t <"d-flex justify-content-center" p>>',
       pagingType: 'full_numbers',
       language: {
