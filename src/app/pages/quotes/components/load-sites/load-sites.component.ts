@@ -6,6 +6,7 @@ import { map, startWith } from 'rxjs/operators';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
+import { DialogSendSitesComponent } from '../dialogs/dialog-send-sites/dialog-send-sites.component';
 
 @Component({
   selector: 'app-load-sites',
@@ -80,7 +81,7 @@ export class LoadSitesComponent implements OnInit {
   }
 
   public openDialog() {
-    this.dlg.open(DialogLoadSitesComponent, {
+    this.dlg.open(DialogSendSitesComponent, {
       height: '300px',
       width: '400px',
       panelClass: 'custom-dd',

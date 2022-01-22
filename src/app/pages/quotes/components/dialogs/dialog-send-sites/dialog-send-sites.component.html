@@ -1,5 +1,24 @@
-<div>
-  <div>
-    <h3 class="text-bold text-center">Sitios Enviados para modelación <br> de propuesta</h3>
+<div class="custom-dd">
+  <div mat-dialog-content>
+    <h1 class="text-title text-bold" mat-dialog-title>Agregar Sitio</h1>
+    <p>
+      <mat-form-field appearance="legacy">
+        <mat-label>Nombe del Sitio </mat-label>
+        <input matInput placeholder="Audi Pedregal" autocomplete="off" />
+      </mat-form-field>
+    </p>
+
+    <div class="dialog-actions">
+      <div>
+        <button (click)="onClose()" id="cancel-btn" type="button" class="button-dlg">
+          <span class="fw-button">Cancelar</span>
+        </button>
+      </div>
+      <div>
+        <button (click)="onSubmit()" id="add-btn" type="button" class="button-dlg">
+          <span class="fw-button">Agregar</span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>

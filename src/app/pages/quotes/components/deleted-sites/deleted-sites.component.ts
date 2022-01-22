@@ -154,5 +154,6 @@ export class DeletedSitesComponent implements OnInit {
       panelClass: 'custom-dd',
       data: {'text': ' sitios agregados', 'length': this.selection.selected.length}
     });
+    this.router.navigate(['/quotes/loaded-sites'])
   }
 }
