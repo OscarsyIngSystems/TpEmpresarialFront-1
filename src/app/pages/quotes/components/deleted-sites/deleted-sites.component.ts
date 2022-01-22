@@ -33,7 +33,7 @@ export class DeletedSitesComponent implements OnInit {
       value: 'Audi CDMX',
     },
     {
-      name: 'Numero de la oportunidad',
+      name: 'Número de la oportunidad',
       value: '0755222',
     },
     {
