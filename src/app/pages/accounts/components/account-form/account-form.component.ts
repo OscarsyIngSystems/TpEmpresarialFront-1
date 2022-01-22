@@ -1,6 +1,7 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { AccountsService } from 'src/app/services/accounts/accounts.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
@@ -25,7 +26,8 @@ export class AccountFormComponent implements OnInit, AfterContentInit {
     private _url: ActivatedRoute,
     private fb: FormBuilder,
     public storageService: StorageService,
-    private accountsService:AccountsService
+    private accountsService:AccountsService,
+    private spinner:NgxSpinnerService
   ) {
     this.accountId = this._url.snapshot.paramMap.get('id') ? this._url.snapshot.paramMap.get('id') :'';
     this.initPrincipalDataForm();
@@ -34,6 +36,7 @@ export class AccountFormComponent implements OnInit, AfterContentInit {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.getDetailAccountId();
   }
 
@@ -69,6 +72,9 @@ export class AccountFormComponent implements OnInit, AfterContentInit {
           value: detail.segment,
         },
       ];
+      this.spinner.hide();
+    },err=>{
+      this.spinner.hide();
     });
   }
 
