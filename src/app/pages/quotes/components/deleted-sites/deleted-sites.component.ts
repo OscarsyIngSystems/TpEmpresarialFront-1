@@ -33,7 +33,7 @@ export class DeletedSitesComponent implements OnInit {
       value: 'Audi CDMX',
     },
     {
-      name: 'Numero de la oportunidad',
+      name: 'Número de la oportunidad',
       value: '0755222',
     },
     {
@@ -154,5 +154,6 @@ export class DeletedSitesComponent implements OnInit {
       panelClass: 'custom-dd',
       data: {'text': ' sitios agregados', 'length': this.selection.selected.length}
     });
+    this.router.navigate(['/quotes/loaded-sites'])
   }
 }

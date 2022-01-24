@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -22,7 +24,8 @@ import { TableLoadedSitesComponent } from './components/table-loaded-sites/table
 import { DeletedSitesComponent } from './components/deleted-sites/deleted-sites.component';
 import { DialogEditLoadSitesComponent } from './components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogDeletedSitesComponent } from './components/dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
-// import { MatInputModule } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { DialogSendSitesComponent } from './components/dialogs/dialog-send-sites/dialog-send-sites.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { DialogDeletedSitesComponent } from './components/dialogs/dialog-deleted
     TableLoadedSitesComponent,
     DeletedSitesComponent,
     DialogDeletedSitesComponent,
+    DialogSendSitesComponent
   ],
   imports: [
     CommonModule,
@@ -51,8 +55,9 @@ import { DialogDeletedSitesComponent } from './components/dialogs/dialog-deleted
     MatIconModule,
     MatCheckboxModule,
     MatDialogModule,
-    // MatInputModule,
-    // MatDialogActions,
+    MatInputModule,
+    // MatFormFieldModule,
+    FormsModule
   ],
 })
 export class QuotesModule {}

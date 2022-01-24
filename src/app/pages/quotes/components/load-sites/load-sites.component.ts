@@ -6,6 +6,7 @@ import { map, startWith } from 'rxjs/operators';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
+import { DialogSendSitesComponent } from '../dialogs/dialog-send-sites/dialog-send-sites.component';
 
 @Component({
   selector: 'app-load-sites',
@@ -19,7 +20,7 @@ export class LoadSitesComponent implements OnInit {
       value: 'Audi CDMX',
     },
     {
-      name: 'Numero de la oportunidad',
+      name: 'Número de la oportunidad',
       value: '0755222',
     },
     {
@@ -27,7 +28,7 @@ export class LoadSitesComponent implements OnInit {
       value: 'COT3781611',
     },
     {
-      name: 'Vigencia cotización',
+      name: 'Vigencia de la cotización',
       value: '19/11/2022',
     },
     {
@@ -80,7 +81,7 @@ export class LoadSitesComponent implements OnInit {
   }
 
   public openDialog() {
-    this.dlg.open(DialogLoadSitesComponent, {
+    this.dlg.open(DialogSendSitesComponent, {
       height: '300px',
       width: '400px',
       panelClass: 'custom-dd',
