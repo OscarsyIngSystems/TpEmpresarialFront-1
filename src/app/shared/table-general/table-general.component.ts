@@ -81,6 +81,11 @@ export class TableGeneralComponent implements OnInit {
     this.fileEmitter.emit(file);
   }
 
+  goOpportunities(opportunity:any){
+    this.storageService.setDataName(opportunity.name);
+    this.route.navigate(['/opportunities', opportunity.number]);
+  }
+
   isAllSelected() {
     if (this.selection.selected.length > 0) this.disabled = false;
     if (this.selection.selected.length == 0) this.disabled = true;
