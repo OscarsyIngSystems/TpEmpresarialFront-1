@@ -18,7 +18,7 @@ export class HeaderActionsComponent implements OnInit {
   @Input() relatedRoute!: string;
   @Input() relatedText = 'Relacionado';
   @Input() showRelatedText = true;
-  @Input() loadSitesText = 'Carga masiva de sitios';
+  // @Input() loadSitesText = 'Carga masiva de sitios';
   @Input() isCreate: boolean = false;
   @Input() isLoadSites: boolean = false;
   @Input() data: any;
@@ -32,24 +32,24 @@ export class HeaderActionsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.checkRouteDeletedSites()
+    this.checkRouteDeletedSites();
   }
 
   checkRouteDeletedSites() {
-    if(this.router.url == '/quotes/deleted-sites') this.disabled = true;
-    if(this.router.url == '/opportunities/0641878') this.disabled = true;
-    if(this.router.url == '/opportunities/1417596') this.disabled = true;
-    if(this.router.url == '/opportunities/6541580') this.disabled = true;
-    if(this.router.url == '/opportunities/8203539') this.disabled = true;
-    if(this.router.url == '/opportunities/7903573') this.disabled = true;
-    if(this.router.url == '/opportunities/1904294') this.disabled = true;
-    if(this.router.url == '/opportunities/9343807') this.disabled = true;
-    if(this.router.url == '/opportunities/1208286') this.disabled = true;
-    if(this.router.url == '/opportunities/3401680') this.disabled = true;
-    if(this.router.url == '/opportunities/9417417') this.disabled = true;
-    if(this.router.url == '/quotes/related') this.disabled = true;
+    if (this.router.url == '/quotes/deleted-sites') this.disabled = true;
+    if (this.router.url == '/opportunities/0641878') this.disabled = true;
+    if (this.router.url == '/opportunities/1417596') this.disabled = true;
+    if (this.router.url == '/opportunities/6541580') this.disabled = true;
+    if (this.router.url == '/opportunities/8203539') this.disabled = true;
+    if (this.router.url == '/opportunities/7903573') this.disabled = true;
+    if (this.router.url == '/opportunities/1904294') this.disabled = true;
+    if (this.router.url == '/opportunities/9343807') this.disabled = true;
+    if (this.router.url == '/opportunities/1208286') this.disabled = true;
+    if (this.router.url == '/opportunities/3401680') this.disabled = true;
+    if (this.router.url == '/opportunities/9417417') this.disabled = true;
+    if (this.router.url == '/quotes/related') this.disabled = true;
 
-    return this.disabled
+    return this.disabled;
   }
 
   newOportunity(): void {
@@ -72,11 +72,10 @@ export class HeaderActionsComponent implements OnInit {
   }
 
   onNavigate() {
-    this.router.navigate(['/quotes/sites'])
+    this.router.navigate(['/quotes/sites']);
   }
 
   onLoadedSites() {
-    this.router.navigate(['/quotes/loaded-sites'])
+    this.router.navigate(['/quotes/loaded-sites']);
   }
-
 }
