@@ -14,11 +14,11 @@ export class DialogEditLoadSitesComponent implements OnInit {
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
   constructor(public form: FormBuilder) {
-    this.buildForm();
+
   }
 
   ngOnInit(): void {
-
+    // this.buildForm();
   }
 
   public buildForm() {
