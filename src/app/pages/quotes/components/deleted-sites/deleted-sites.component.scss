@@ -134,19 +134,6 @@ img {
   box-shadow: none !important;
 }
 
-//need toggle
-.conteiner-btn-accounts {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.btn-check-no-shadow,
-.btn-check:checked + .btn-check:focus {
-  box-shadow: none !important;
-}
-
 // fiber
 .btn-check-fiber {
   border: none;
