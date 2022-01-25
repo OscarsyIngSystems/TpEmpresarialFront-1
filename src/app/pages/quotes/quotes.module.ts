@@ -1,5 +1,5 @@
 import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -19,8 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { LoadedSitesComponent } from './components/loaded-sites/loaded-sites.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites/dialog-load-sites.component';
-import { MatDialogActions, MatDialogModule } from '@angular/material/dialog';
-import { TableLoadedSitesComponent } from './components/table-loaded-sites/table-loaded-sites.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { DeletedSitesComponent } from './components/deleted-sites/deleted-sites.component';
 import { DialogEditLoadSitesComponent } from './components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogDeletedSitesComponent } from './components/dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
@@ -40,7 +39,6 @@ import { DialogSendSitesComponent } from './components/dialogs/dialog-send-sites
     LoadedSitesComponent,
     DialogLoadSitesComponent,
     DialogEditLoadSitesComponent,
-    TableLoadedSitesComponent,
     DeletedSitesComponent,
     DialogDeletedSitesComponent,
     DialogSendSitesComponent
@@ -56,7 +54,6 @@ import { DialogSendSitesComponent } from './components/dialogs/dialog-send-sites
     MatCheckboxModule,
     MatDialogModule,
     MatInputModule,
-    // MatFormFieldModule,
     FormsModule
   ],
 })
