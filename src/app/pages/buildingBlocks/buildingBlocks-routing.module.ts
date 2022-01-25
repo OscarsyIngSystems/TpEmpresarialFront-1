@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ConnectivityComponent } from './components/connectivity/connectivity.component';
 import { LayautBuildingBlocksComponent } from './layaut-building-blocks.component';
 
 const routes: Routes = [
@@ -8,8 +9,8 @@ const routes: Routes = [
     component: LayautBuildingBlocksComponent,
     children: [
       {
-        path: 'buldingBlocks',
-        component: LayautBuildingBlocksComponent,
+        path: 'connectivity',
+        component: ConnectivityComponent,
       },
     ],
   },

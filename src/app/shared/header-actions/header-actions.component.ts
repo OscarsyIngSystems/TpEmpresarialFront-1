@@ -18,6 +18,7 @@ export class HeaderActionsComponent implements OnInit {
   @Input() relatedRoute!: string;
   @Input() relatedText = 'Relacionado';
   @Input() showRelatedText = true;
+  @Input() showIcon = true;
   @Input() loadSitesText = 'Carga masiva de sitios';
   @Input() isCreate: boolean = false;
   @Input() isLoadSites: boolean = false;
@@ -36,10 +37,10 @@ export class HeaderActionsComponent implements OnInit {
   }
 
   checkRouteDeletedSites() {
-    if(this.router.url == '/quotes/loaded-sites' ) this.disabled = true;
-    if(this.router.url == '/quotes/deleted-sites' ) this.disabled = false;
-    if(this.router.url == '/quotes/sites' ) this.disabled = true;
-    return this.disabled
+    if (this.router.url == '/quotes/loaded-sites') this.disabled = true;
+    if (this.router.url == '/quotes/deleted-sites') this.disabled = false;
+    if (this.router.url == '/quotes/sites') this.disabled = true;
+    return this.disabled;
   }
 
   newOportunity(): void {
