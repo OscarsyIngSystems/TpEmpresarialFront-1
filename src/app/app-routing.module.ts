@@ -37,7 +37,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'buldingBlocks',
+    path: 'buildingBlocks',
     canActivateChild: [AuthGuard],
     loadChildren: () =>
       import('./pages/buildingBlocks/building-blocks.module').then(

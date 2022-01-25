@@ -6,10 +6,22 @@
 
   <div class="d-flex flex-row mb-2">
     <button
-      *ngIf="!hidenCreateOportunity"
+      *ngIf="
+        !hidenCreateOportunity && router.url !== '/buildingBlocks/connectivity'
+      "
       mat-button
       (click)="newOportunity()"
       class="rounded-button-secondary tx-12 text-bold"
+    >
+      <mat-icon *ngIf="showIcon">add</mat-icon>
+      {{ buttonText }}
+    </button>
+    <button
+      *ngIf="router.url == '/buildingBlocks/connectivity'"
+      mat-button
+      (click)="saveModeling()"
+      class="rounded-button-secondary tx-12 text-bold"
+      [disabled]="isDisabled"
     >
       <mat-icon *ngIf="showIcon">add</mat-icon>
       {{ buttonText }}

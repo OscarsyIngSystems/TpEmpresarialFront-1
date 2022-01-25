@@ -75,6 +75,7 @@
   </thead>
   <tbody>
     <tr
+      (click)="goQuotesDetail(account)"
       class="table-element-row shadow-sm t-row"
       [routerLink]="['/quotes', account.id]"
       *ngFor="let account of dataSource"

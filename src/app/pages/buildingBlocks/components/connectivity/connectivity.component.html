@@ -1,9 +1,11 @@
 <app-header-actions
-  [title]="'COT7808232' + '/ Cotización Audi 1'"
+  [title]="'COT7808232'"
   [showRelatedText]="false"
   [showIcon]="false"
   [hasBackButton]="false"
   buttonText="Guardar modelado"
   route="buldingBlocks/connectivity"
+  [isDisabled]="buton.invalid"
 >
 </app-header-actions>
+<input type="text" [formControl]="buton" />

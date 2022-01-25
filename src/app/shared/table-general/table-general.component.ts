@@ -58,9 +58,7 @@ export class TableGeneralComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   goAccountDetail(account: Account): void {
     this.storageService.setDataName(account.accountName);
@@ -73,15 +71,17 @@ export class TableGeneralComponent implements OnInit {
   }
 
   goQuotesDetail(quote: any): void {
-    this.storageService.setDataName(quote.quoteName);
-    this.route.navigate(['/quotes', quote.numberList]);
+    console.log(quote);
+
+    this.storageService.setDataName(quote.name);
+    this.route.navigate(['/quotes', quote.id]);
   }
 
   handdleFile(file: File) {
     this.fileEmitter.emit(file);
   }
 
-  goOpportunities(opportunity:any){
+  goOpportunities(opportunity: any) {
     this.storageService.setDataName(opportunity.name);
     this.route.navigate(['/opportunities', opportunity.number]);
   }
@@ -140,7 +140,10 @@ export class TableGeneralComponent implements OnInit {
       height: '35%',
       width: '30%',
       panelClass: 'container-cc',
-      data: {'length': this.selectedItemsTable.length, 'text': 'Sitios eliminados correctamente'},
+      data: {
+        length: this.selectedItemsTable.length,
+        text: 'Sitios eliminados correctamente',
+      },
     });
     dlgRef.afterClosed().subscribe((res) => {
       const u = localStorage.getItem('arraySelected');

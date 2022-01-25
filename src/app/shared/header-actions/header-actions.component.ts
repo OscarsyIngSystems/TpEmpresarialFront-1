@@ -23,6 +23,7 @@ export class HeaderActionsComponent implements OnInit {
   @Input() isCreate: boolean = false;
   @Input() isLoadSites: boolean = false;
   @Input() data: any;
+  @Input() isDisabled = true;
 
   disabled: boolean = false;
 
@@ -68,5 +69,9 @@ export class HeaderActionsComponent implements OnInit {
 
   onLoadedSites() {
     this.router.navigate(['/quotes/loaded-sites']);
+  }
+
+  saveModeling() {
+    alert('Guardando Modelado');
   }
 }
