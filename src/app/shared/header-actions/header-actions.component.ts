@@ -39,7 +39,6 @@ export class HeaderActionsComponent implements OnInit {
     if(this.router.url == '/quotes/loaded-sites' ) this.disabled = true;
     if(this.router.url == '/quotes/deleted-sites' ) this.disabled = false;
     if(this.router.url == '/quotes/sites' ) this.disabled = true;
-    console.log(this.disabled);
     return this.disabled
   }
 

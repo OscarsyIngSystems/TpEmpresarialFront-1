@@ -10,7 +10,6 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
 import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
-import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,7 +19,7 @@ import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-lo
 })
 export class DeletedSitesComponent implements OnInit {
   public contentLabels = 'quotes.';
-  filterValue = '';
+  // filterValue = '';
   dataSource = new MatTableDataSource();
   filteredData: any[] = [];
   originalData: any[] = [];
@@ -58,7 +57,7 @@ export class DeletedSitesComponent implements OnInit {
   selection = new SelectionModel(true, [...this.dataSource.data]);
   selectedItemsTable: any[] = [];
   disabled: boolean = true;
-
+  selectedLength: number = 0
   constructor(
     private service: QuotesService,
     private dlg: MatDialog,
@@ -131,9 +130,8 @@ export class DeletedSitesComponent implements OnInit {
   }
 
   isAllSelected() {
-    if (this.selection.selected.length > 0) this.disabled = false;
-    if (this.selection.selected.length == 0) this.disabled = true;
     this.selectedItemsTable = this.selection.selected;
+
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
@@ -147,13 +145,24 @@ export class DeletedSitesComponent implements OnInit {
       }`;
   }
 
+  checkDisabled(array:any[]) {
+    if (array.length > 0) this.disabled = false;
+    if (array.length == 0) this.disabled = true;
+    this.selectedLength = array.length
+    return array.length
+  }
+
   openDialog(): void {
     this.dlg.open(DialogDeletedSitesComponent, {
       height: '300px',
       width: '400px',
       panelClass: 'custom-dd',
-      data: {'text': ' sitios agregados', 'length': this.selection.selected.length}
+      data: {'text': ' sitios agregados', 'length': this.selectedLength}
     });
-    this.router.navigate(['/quotes/loaded-sites'])
+    // setTimeout(() => {
+      // this.router.navigate(['/quotes/loaded-sites'])
+    // }, 500);
+
+    // localStorage.removeItem('arraySelected')
   }
 }

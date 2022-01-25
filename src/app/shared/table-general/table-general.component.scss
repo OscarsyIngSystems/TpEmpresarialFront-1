@@ -139,4 +139,56 @@
   background-color: $color-primary;
   font-size: 0px !important;
 }
-// endregion tabla loaded sites
+// endregion loaded sites
+
+// #region deleted sites
+
+.mat-header-cell {
+  color: black;
+  background: #f7fafc;
+}
+
+.mat-column-check {
+  flex: none;
+  width: 10px;
+}
+
+.mat-column-index {
+  flex: none;
+  width: 15px;
+}
+
+.mat-column-site {
+  flex: none;
+  width: 200px;
+}
+
+.mat-column-coverage {
+  flex: none;
+  text-align: center;
+  width: 70px;
+}
+
+.mat-column-accessMedia {
+  width: 20px;
+  text-align: center;
+  flex: none;
+}
+
+.mat-column-edit {
+  width: 10px;
+  text-align: center;
+  flex: none;
+}
+
+.btn-round {
+  cursor: pointer;
+  border-radius: 50%;
+  background: white;
+  border: none;
+}
+
+.bolder {
+  font-weight: 500 !important;
+}
+// endregion deleted sites
