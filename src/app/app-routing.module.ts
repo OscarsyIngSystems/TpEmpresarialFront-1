@@ -36,6 +36,14 @@ const routes: Routes = [
         (m) => m.OpportunitiesModule
       ),
   },
+  {
+    path: 'buldingBlocks',
+    canActivateChild: [AuthGuard],
+    loadChildren: () =>
+      import('./pages/buildingBlocks/building-blocks.module').then(
+        (m) => m.BuildingBlocksModule
+      ),
+  },
 
   {
     path: 'dashboard',
