@@ -84,15 +84,15 @@
   text-align: start !important;
 }
 
-.mat-cell {
-  // padding-left: 20px !important;
-}
 
 // #region tabla loaded sites
 .sites-table {
   width: 100%;
   background-color: transparent !important;
+  border-collapse: separate!important;
+  border-spacing:0 4px!important;
 }
+
 
 .sites-table .mat-header-cell {
   color: black;
@@ -101,7 +101,6 @@
 
 .sites-table .mat-column-check {
   flex: none;
-  // text-align: left;
   width: 10px;
 }
 
@@ -142,7 +141,6 @@
 // endregion loaded sites
 
 // #region deleted sites
-
 .mat-header-cell {
   color: black;
   background: #f7fafc;

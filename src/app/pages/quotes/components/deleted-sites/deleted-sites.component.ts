@@ -131,7 +131,6 @@ export class DeletedSitesComponent implements OnInit {
 
   isAllSelected() {
     this.selectedItemsTable = this.selection.selected;
-
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
@@ -141,8 +140,7 @@ export class DeletedSitesComponent implements OnInit {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1
-      }`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1 }`;
   }
 
   checkDisabled(array:any[]) {

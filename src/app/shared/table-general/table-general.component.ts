@@ -81,7 +81,6 @@ export class TableGeneralComponent implements OnInit {
   }
 
   isAllSelected() {
-    console.log('je',this.selection.selected)
     if (this.selection.selected.length > 0) this.disabled = false;
     if (this.selection.selected.length == 0) this.disabled = true;
     this.emitter.emit(this.selection.selected)
