@@ -5,9 +5,15 @@ import { BuildingBlocksRoutingModule } from './buildingBlocks-routing.module';
 import { ConnectivityComponent } from './components/connectivity/connectivity.component';
 import { ComponentsModule } from 'src/app/shared/components.module';
 import { HeaderActionsBuildingBlocksComponent } from './components/header-actions-building-blocks/header-actions-building-blocks.component';
+import { StepperBuildingBlocksComponent } from './components/stepper-building-blocks/stepper-building-blocks.component';
 
 @NgModule({
-  declarations: [LayautBuildingBlocksComponent, ConnectivityComponent, HeaderActionsBuildingBlocksComponent],
+  declarations: [
+    LayautBuildingBlocksComponent,
+    ConnectivityComponent,
+    HeaderActionsBuildingBlocksComponent,
+    StepperBuildingBlocksComponent,
+  ],
   imports: [CommonModule, BuildingBlocksRoutingModule, ComponentsModule],
 })
 export class BuildingBlocksModule {}

@@ -1,5 +1,10 @@
-import { FormControl, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
@@ -8,7 +13,8 @@ import { StorageService } from 'src/app/services/shared/storage.service';
   styleUrls: ['./connectivity.component.scss'],
 })
 export class ConnectivityComponent implements OnInit {
-  button: FormControl = new FormControl('', Validators.required);
+  isValid: boolean = false;
+  isValidSelected: boolean = false;
   control: FormControl = new FormControl();
   columns: string[] = ['check', 'site'];
   filters: string[] = [];
@@ -75,5 +81,10 @@ export class ConnectivityComponent implements OnInit {
       });
       this.dataSource = this.filteredData;
     }
+  }
+
+  isValidStepper(event: boolean): void {
+    console.log(event);
+    this.isValid = event;
   }
 }

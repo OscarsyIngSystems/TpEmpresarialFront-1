@@ -8,6 +8,7 @@
     <div class="lineSmall mb-4 col-9"></div>
   </div>
 </div>
+
 <app-header-actions
   [title]="'COT7808232'"
   [showRelatedText]="false"
@@ -15,7 +16,7 @@
   [hasBackButton]="false"
   buttonText="Guardar modelado"
   route="buldingBlocks/connectivity"
-  [isDisabled]="button.invalid"
+  [isDisabled]="!isValid"
 >
 </app-header-actions>
 <app-header-actions-building-blocks></app-header-actions-building-blocks>
@@ -99,5 +100,29 @@
       </app-table-general>
     </div>
   </div>
-  <div class="col-8"><input type="text" [formControl]="button" /></div>
+  <div class="col-8">
+    <div class="row">
+      <div class="col-10">
+        <mat-tab-group>
+          <mat-tab label="Principal">
+            <div class="d-flex mt-3">
+              <label for="" class="text-bold">Fibra: </label>
+              <mat-checkbox color="primary" class="ms-4">GPON</mat-checkbox>
+              <mat-checkbox color="primary" class="ms-4">Metro</mat-checkbox>
+            </div>
+
+            <app-stepper-building-blocks
+              (isValid)="isValidStepper($event)"
+            ></app-stepper-building-blocks>
+          </mat-tab>
+          <mat-tab label="Redundancia"> Content 2 </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="col-2 d-flex justify-content-center mt-4">
+        <a class="view text-bold" href="/buildingBlocks/connectivity"
+          >Ver resumen</a
+        >
+      </div>
+    </div>
+  </div>
 </div>
