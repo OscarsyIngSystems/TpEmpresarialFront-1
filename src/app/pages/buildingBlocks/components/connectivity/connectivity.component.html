@@ -19,4 +19,85 @@
 >
 </app-header-actions>
 <app-header-actions-building-blocks></app-header-actions-building-blocks>
-<input type="text" [formControl]="button" />
+<div class="row mt-3">
+  <div class="col-4 container-cards">
+    <div class="row g-1 row-cols-lg-auto mt-3 justify-content-around">
+      <div class="col-3">
+        <input
+          value="1"
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-fiber"
+          (click)="onFilter('Fibra')"
+          name="control"
+          [formControl]="control"
+        />
+        <label
+          class="btn btn-sm btn-outline-primary btn-check-general btn-check-no-shadow"
+          for="btn-check-fiber"
+          >Fibra (68)</label
+        >
+      </div>
+
+      <div class="col-3">
+        <input
+          value="2"
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-microwave"
+          (click)="onFilter('Microonda')"
+          name="control"
+          [formControl]="control"
+        />
+        <label
+          class="btn btn-sm btn-outline-primary btn-check-general btn-check-no-shadow"
+          for="btn-check-microwave"
+          >Microonda (13)</label
+        >
+      </div>
+
+      <div class="col-3">
+        <input
+          value="3"
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-meter"
+          (click)="onFilter('Metro')"
+          name="control"
+          [formControl]="control"
+        />
+        <label
+          class="btn btn-sm btn-outline-primary btn-check-general btn-check-no-shadow"
+          for="btn-check-meter"
+          >FO/MW (39)</label
+        >
+      </div>
+
+      <div class="col-3">
+        <input
+          value="4"
+          type="checkbox"
+          class="btn-check"
+          id="btn-check-coverage"
+          (click)="onFilter('N/D')"
+          name="control"
+          [formControl]="control"
+        />
+        <label
+          class="btn me-2 btn-sm btn-outline-primary btn-check-general btn-check-no-shadow"
+          for="btn-check-coverage"
+          >Todos (120)</label
+        >
+      </div>
+    </div>
+    <div class="card-table">
+      <app-table-general
+        [dataSource]="dataSource"
+        [columns]="columns"
+        [idTableShow]="16"
+      >
+      </app-table-general>
+    </div>
+  </div>
+  <div class="col-8"><input type="text" [formControl]="button" /></div>
+</div>

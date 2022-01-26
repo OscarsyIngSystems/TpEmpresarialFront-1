@@ -9,10 +9,71 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 })
 export class ConnectivityComponent implements OnInit {
   button: FormControl = new FormControl('', Validators.required);
+  control: FormControl = new FormControl();
+  columns: string[] = ['check', 'site'];
+  filters: string[] = [];
+  filteredData: any[] = [];
+  originalData: any[] = [];
+
+  dataSource = [
+    {
+      site: 'Audi Polanco',
+    },
+    {
+      site: 'Audi Santa Fe',
+    },
+    {
+      site: 'Audi Interlomas',
+    },
+    {
+      site: 'Audi Lomas',
+    },
+    {
+      site: 'Audi Polanco',
+    },
+    {
+      site: 'Audi Santa Fe',
+    },
+    {
+      site: 'Audi Interlomas',
+    },
+    {
+      site: 'Audi Lomas',
+    },
+    {
+      site: 'Audi Polanco',
+    },
+    {
+      site: 'Audi Santa Fe',
+    },
+    {
+      site: 'Audi Interlomas',
+    },
+    {
+      site: 'Audi Lomas',
+    },
+  ];
 
   constructor(public stServices: StorageService) {
     stServices.setDataName(' / Cotización Audi 1');
   }
 
   ngOnInit(): void {}
+
+  onFilter(filterValues: string): void {
+    if (!this.filters.includes(filterValues)) {
+      this.filters.push(filterValues);
+    } else {
+      const index = this.filters.indexOf(filterValues);
+      this.filters.splice(index, 1);
+    }
+    if (this.filters.length === 0) {
+      this.dataSource = this.originalData;
+    } else {
+      this.filteredData = this.originalData.filter((site) => {
+        return this.filters.includes(site.accessMedia);
+      });
+      this.dataSource = this.filteredData;
+    }
+  }
 }

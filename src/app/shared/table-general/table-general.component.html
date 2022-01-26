@@ -716,3 +716,54 @@
     </div>
   </div>
 </div>
+
+<!-- -----------------SECCION DE BUILDING BLOCKS----------------- -->
+
+<table
+  *ngIf="idTableShow == 16"
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z0 sites-table"
+>
+  <!-- Check Column -->
+  <ng-container matColumnDef="check">
+    <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox
+        color="primary"
+        (change)="$event ? masterToggle() : null"
+        [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()"
+        [aria-label]="checkboxLabel()"
+      ></mat-checkbox>
+    </th>
+    <td
+      [style.background-color]="element.color"
+      mat-cell
+      *matCellDef="let element"
+    >
+      <mat-checkbox
+        color="primary"
+        (click)="$event.stopPropagation()"
+        (change)="$event ? selection.toggle(element) : null"
+        [checked]="selection.isSelected(element)"
+        [aria-label]="checkboxLabel(element)"
+      ></mat-checkbox>
+    </td>
+  </ng-container>
+
+  <!-- Site Column -->
+  <ng-container matColumnDef="site">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td
+      [style.background-color]="element.color"
+      class="numberList"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.site }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-row *matRowDef="let row; columns: columns"></tr>
+</table>
