@@ -4,9 +4,10 @@ import { LayautBuildingBlocksComponent } from './layaut-building-blocks.componen
 import { BuildingBlocksRoutingModule } from './buildingBlocks-routing.module';
 import { ConnectivityComponent } from './components/connectivity/connectivity.component';
 import { ComponentsModule } from 'src/app/shared/components.module';
+import { HeaderActionsBuildingBlocksComponent } from './components/header-actions-building-blocks/header-actions-building-blocks.component';
 
 @NgModule({
-  declarations: [LayautBuildingBlocksComponent, ConnectivityComponent],
+  declarations: [LayautBuildingBlocksComponent, ConnectivityComponent, HeaderActionsBuildingBlocksComponent],
   imports: [CommonModule, BuildingBlocksRoutingModule, ComponentsModule],
 })
 export class BuildingBlocksModule {}
