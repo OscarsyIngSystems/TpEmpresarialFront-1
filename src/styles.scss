@@ -99,6 +99,10 @@ $custom-typography: mat-typography-config(
 .text-bold {
   font-weight: bold !important;
 }
+
+.text-normal {
+  font-weight: normal;
+}
 // #endregion textos @@
 // #region heights
 .h-10 {

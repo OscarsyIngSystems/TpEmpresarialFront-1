@@ -8,7 +8,7 @@ import { StorageService } from 'src/app/services/shared/storage.service';
   styleUrls: ['./connectivity.component.scss'],
 })
 export class ConnectivityComponent implements OnInit {
-  buton: FormControl = new FormControl('', Validators.required);
+  button: FormControl = new FormControl('', Validators.required);
 
   constructor(public stServices: StorageService) {
     stServices.setDataName(' / Cotización Audi 1');

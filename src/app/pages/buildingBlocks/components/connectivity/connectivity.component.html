@@ -1,3 +1,13 @@
+<div>
+  <h1 class="text-bold mb-3">
+    Modelado <span class="text-normal">Building Blocks</span>
+  </h1>
+
+  <div class="row d-flex">
+    <div class="lineRed mb-4 col-3"></div>
+    <div class="lineSmall mb-4 col-9"></div>
+  </div>
+</div>
 <app-header-actions
   [title]="'COT7808232'"
   [showRelatedText]="false"
@@ -5,8 +15,8 @@
   [hasBackButton]="false"
   buttonText="Guardar modelado"
   route="buldingBlocks/connectivity"
-  [isDisabled]="buton.invalid"
+  [isDisabled]="button.invalid"
 >
 </app-header-actions>
 <app-header-actions-building-blocks></app-header-actions-building-blocks>
-<input type="text" [formControl]="buton" />
+<input type="text" [formControl]="button" />
