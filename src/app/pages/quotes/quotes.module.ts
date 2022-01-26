@@ -25,6 +25,7 @@ import { DialogEditLoadSitesComponent } from './components/dialogs/dialog-edit-l
 import { DialogDeletedSitesComponent } from './components/dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
 import { MatInputModule } from '@angular/material/input';
 import { DialogSendSitesComponent } from './components/dialogs/dialog-send-sites/dialog-send-sites.component';
+import { QuotesReceivedComponent } from './components/quotes-received/quotes-received.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DialogSendSitesComponent } from './components/dialogs/dialog-send-sites
     DialogEditLoadSitesComponent,
     DeletedSitesComponent,
     DialogDeletedSitesComponent,
-    DialogSendSitesComponent
+    DialogSendSitesComponent,
+    QuotesReceivedComponent
   ],
   imports: [
     CommonModule,

@@ -52,7 +52,7 @@ export class LoadedSitesComponent implements OnInit {
   selectedIdOption = 0;
   control: FormControl = new FormControl();
   arraySelected: any[] = [];
-  disabled: boolean = false;
+  // disabled: boolean = false;
 
   constructor(
     private service: QuotesService,

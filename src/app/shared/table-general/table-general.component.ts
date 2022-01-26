@@ -32,6 +32,7 @@ export class TableGeneralComponent implements OnInit {
   @Input() showHeaderTable!: boolean;
   @Input() dataSourceLoadedSites = new MatTableDataSource();
   @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
+
   @ViewChild('dataTable') dataTable: any;
   @Output() emitter = new EventEmitter<any>();
 
@@ -58,9 +59,7 @@ export class TableGeneralComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   goAccountDetail(account: Account): void {
     this.storageService.setDataName(account.accountName);
@@ -89,6 +88,7 @@ export class TableGeneralComponent implements OnInit {
   isAllSelected() {
     if (this.selection.selected.length > 0) this.disabled = false;
     if (this.selection.selected.length == 0) this.disabled = true;
+    this.emitter.emit(this.selection.selected)
     this.selectedItemsTable = this.selection.selected;
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSourceLoadedSites.data.length;

@@ -18,13 +18,13 @@ const routes: Routes = [
   },
   {
     path: 'accounts',
-    canActivateChild: [AuthGuard],
+    // canActivateChild: [AuthGuard],
     loadChildren: () =>
       import('./pages/accounts/accounts.module').then((m) => m.AccountsModule),
   },
   {
     path: 'quotes',
-    canActivateChild: [AuthGuard],
+    // canActivateChild: [AuthGuard],
     loadChildren: () =>
       import('./pages/quotes/quotes.module').then((m) => m.QuotesModule),
   },
