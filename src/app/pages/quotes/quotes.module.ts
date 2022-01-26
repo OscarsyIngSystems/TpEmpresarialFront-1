@@ -16,7 +16,7 @@ import { LoadSitesComponent } from './components/load-sites/load-sites.component
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { LoadedSitesComponent } from './components/loaded-sites/loaded-sites.component';
+import { LoadedSitesComponent } from './components/sites/loaded-sites/loaded-sites.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites/dialog-load-sites.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -26,6 +26,7 @@ import { DialogDeletedSitesComponent } from './components/dialogs/dialog-deleted
 import { MatInputModule } from '@angular/material/input';
 import { DialogSendSitesComponent } from './components/dialogs/dialog-send-sites/dialog-send-sites.component';
 import { QuotesReceivedComponent } from './components/quotes-received/quotes-received.component';
+import { ModelingSitesComponent } from './components/sites/modeling-sites/modeling-sites.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { QuotesReceivedComponent } from './components/quotes-received/quotes-rec
     DeletedSitesComponent,
     DialogDeletedSitesComponent,
     DialogSendSitesComponent,
-    QuotesReceivedComponent
+    QuotesReceivedComponent,
+    ModelingSitesComponent
   ],
   imports: [
     CommonModule,

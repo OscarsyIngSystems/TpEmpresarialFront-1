@@ -8,8 +8,8 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
 import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
-import { DialogEditLoadSitesComponent } from '../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
-import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
+import { DialogEditLoadSitesComponent } from '../../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
+import { DialogLoadSitesComponent } from '../../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
   selector: 'app-loaded-sites',
