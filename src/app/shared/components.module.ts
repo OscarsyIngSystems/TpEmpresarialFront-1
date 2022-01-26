@@ -48,6 +48,7 @@ import { ContactsSearchComponent } from './contacts-search/contacts-search.compo
 import { MatChipsModule } from '@angular/material/chips';
 import { PipesModule } from '../pipes/pipes.module';
 import { MatStepperModule } from '@angular/material/stepper';
+import { TitleBuildingBlocksComponent } from './title-building-blocks/title-building-blocks/title-building-blocks.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     UploadButtonFileComponent,
     InstallationsComponent,
     ContactsSearchComponent,
+    TitleBuildingBlocksComponent,
   ],
   exports: [
     ChartsModule,
@@ -115,6 +117,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     NgxMaterialTimepickerModule,
     ContactsSearchComponent,
     MatStepperModule,
+    TitleBuildingBlocksComponent,
   ],
   imports: [
     ChartsModule,

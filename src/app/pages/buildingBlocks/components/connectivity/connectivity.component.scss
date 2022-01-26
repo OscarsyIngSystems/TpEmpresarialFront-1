@@ -1,17 +1,5 @@
 @import "../../../../../styles.scss";
 
-.lineRed {
-  background: solid 1px $color-secondary;
-  background-color: $color-secondary;
-  height: 5px;
-}
-
-.lineSmall {
-  background: solid 1px $color-primary;
-  background-color: $color-primary;
-  height: 1px;
-}
-
 .container-cards {
   background-color: white;
   border-radius: 15px;
