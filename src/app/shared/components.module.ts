@@ -47,6 +47,8 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ContactsSearchComponent } from './contacts-search/contacts-search.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { PipesModule } from '../pipes/pipes.module';
+import { MatStepperModule } from '@angular/material/stepper';
+import { TitleBuildingBlocksComponent } from './title-building-blocks/title-building-blocks/title-building-blocks.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,7 @@ import { PipesModule } from '../pipes/pipes.module';
     UploadButtonFileComponent,
     InstallationsComponent,
     ContactsSearchComponent,
+    TitleBuildingBlocksComponent,
   ],
   exports: [
     ChartsModule,
@@ -113,6 +116,8 @@ import { PipesModule } from '../pipes/pipes.module';
     InstallationsComponent,
     NgxMaterialTimepickerModule,
     ContactsSearchComponent,
+    MatStepperModule,
+    TitleBuildingBlocksComponent,
   ],
   imports: [
     ChartsModule,
@@ -148,6 +153,7 @@ import { PipesModule } from '../pipes/pipes.module';
     NgApexchartsModule,
     NgxMaterialTimepickerModule,
     PipesModule,
+    MatStepperModule,
   ],
 })
 export class ComponentsModule {}

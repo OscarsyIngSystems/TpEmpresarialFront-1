@@ -20,7 +20,6 @@ export class QuotesDetailComponent implements OnInit {
     public stServices: StorageService,
     private spinner: NgxSpinnerService
   ) {
-    stServices.setDataName('Audi CDMX-COT');
     this.accountId = Number(
       this._url.snapshot.paramMap.get('id') !== null
         ? this._url.snapshot.paramMap.get('id')
@@ -36,7 +35,6 @@ export class QuotesDetailComponent implements OnInit {
   private loadData(): void {
     this._service.getQuoteDetail(this.accountId).subscribe(
       (response) => {
-        console.log(response);
         this.fillInfoDetail(response[0]);
         this.spinner.hide();
       },
@@ -48,7 +46,6 @@ export class QuotesDetailComponent implements OnInit {
   }
 
   private fillInfoDetail(quote: any): void {
-    console.log(quote);
     const opportunity = quote.opportunity;
     this.infoDetail = [
       {

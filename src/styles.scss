@@ -99,6 +99,10 @@ $custom-typography: mat-typography-config(
 .text-bold {
   font-weight: bold !important;
 }
+
+.text-normal {
+  font-weight: normal;
+}
 // #endregion textos @@
 // #region heights
 .h-10 {
@@ -289,6 +293,9 @@ div.dataTables_wrapper div.dataTables_length select {
   display: flex !important;
   align-items: center !important;
   justify-content: center;
+}
+.rounded-button-secondary:disabled {
+  color: $color-white !important;
 }
 
 .rounded-button-outline {
