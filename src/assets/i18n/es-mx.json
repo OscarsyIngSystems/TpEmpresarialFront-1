@@ -120,6 +120,19 @@
       "colum5": "Medio de acceso",
       "colum6": ""
     },
+     "table-modeling":{
+      "colum1": "Sitio",
+      "colum2": "Medio Acceso",
+      "colum3": "Servicios",
+      "colum4": "Cantidad",
+      "colum5": "Addons",
+      "colum6": "$ Servicios",
+      "colum7": "Sobreprecio",
+      "colum8": "Descuento",
+      "colum9": "Enviado a costeo",
+      "colum10": "Subtotal",
+      "colum11": "Total"
+    },
     "message-empty": "No hay oportunidades guardadas para esta cuenta."
   },
   "oportunities": {

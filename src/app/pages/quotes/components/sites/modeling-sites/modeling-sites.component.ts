@@ -10,6 +10,7 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class ModelingSitesComponent implements OnInit {
   searchData = new FormControl();
+  public contentLabels = 'quotes.';
   selectedIdOption = 0;
   filteredOptions: Observable<any[]> | undefined;
   options: any[] = [
@@ -22,6 +23,70 @@ export class ModelingSitesComponent implements OnInit {
     { id: 7, name: 'Penafiel', type: 'Oportunidad', location: 'Puebla' },
     { id: 8, name: 'Culiacan Inn', type: 'Cotización', location: 'Sinaloa' },
   ];
+
+  dataPartner = {
+    columnsShow: [
+      {
+        key: 'site',
+        columName: this.contentLabels + 'table-modeling.colum1',
+      },
+      {
+        key: 'accesMedia',
+        columName: this.contentLabels + 'table-modeling.colum2',
+      },
+      {
+        key: 'services',
+        columName: this.contentLabels + 'table-modeling.colum3',
+      },
+      {
+        key: 'quantity',
+        columName: this.contentLabels + 'table-modeling.colum4',
+      },
+      {
+        key: 'addons',
+        columName: this.contentLabels + 'table-modeling.colum5',
+      },
+      {
+        key: 'servicesCost',
+        columName: this.contentLabels + 'table-modeling.colum6',
+      },
+      {
+        key: 'overCost',
+        columName: this.contentLabels + 'table-modeling.colum7',
+      },
+      {
+        key: 'discont',
+        columName: this.contentLabels + 'table-modeling.colum8',
+      },
+      {
+        key: 'costSent',
+        columName: this.contentLabels + 'table-modeling.colum9',
+      },
+      {
+        key: 'subtotal',
+        columName: this.contentLabels + 'table-modeling.colum10',
+      },
+      {
+        key: 'total',
+        columName: this.contentLabels + 'table-modeling.colum11',
+      },
+    ],
+    dataSource: [
+      {
+        site: 'Audi Polanco',
+        accessMedia: 'Fibra',
+        services: '',
+        quantity: '',
+        addons: '',
+        servicesCost: '$100000',
+        overCost: '',
+        discont: '',
+        costSent: 'Producto fuera de catalogo',
+        subtotal: '$1200000',
+        total: '$1213131322',
+      },
+    ],
+  };
 
   constructor() {}
 

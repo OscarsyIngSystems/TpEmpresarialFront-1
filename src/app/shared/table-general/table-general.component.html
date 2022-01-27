@@ -27,7 +27,6 @@
     </tr>
   </thead>
   <tbody>
-<<<<<<< HEAD
     <tr
       (click)="goOpportunities(opportunity)"
       class="table-element-row shadow-sm t-row"
@@ -40,17 +39,6 @@
       <td class="mat-cell">{{ opportunity.amount }}</td>
       <td class="mat-cell">{{ opportunity.created }}</td>
       <td class="mat-cell">{{ opportunity.validity }}</td>
-=======
-    <tr [routerLink]="['/opportunities', account.number]" class="table-element-row shadow-sm t-row"
-      *ngFor="let account of dataSource">
-      <td class="mat-cell">{{ account.name }}</td>
-      <td class="mat-cell">{{ account.number }}</td>
-      <td class="mat-cell">{{ account.accountName }}</td>
-      <td class="mat-cell">{{ account.stage }}</td>
-      <td class="mat-cell">{{ account.amount }}</td>
-      <td class="mat-cell">{{ account.created }}</td>
-      <td class="mat-cell">{{ account.validity }}</td>
->>>>>>> pacman
     </tr>
   </tbody>
 </table>
@@ -594,3 +582,39 @@
     <tr mat-header-row *matHeaderRowDef="columns"></tr>
     <tr mat-row *matRowDef="let row; columns: columns"></tr>
   </table>
+
+
+<table *ngIf="idTableShow == 17" datatable [dtOptions]="dtOptions" class="row-border general-table">
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns; let i = index">
+        {{ col.columName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="shadow-sm c-pointer" *ngFor="let account of dataSource; let i = index">
+      <td class="mat-cell">{{ account.site }}</td>
+      <td class="mat-cell">{{ account.accessMedia }}</td>
+      <td class="mat-cell">{{ account.services }}</td>
+      <td class="mat-cell">
+        <app-input-spinner>
+        </app-input-spinner>
+      </td>
+      <td class="mat-cell">{{ account.addons }}
+
+        <button mat-raised-button><mat-icon>add</mat-icon></button>
+      </td>
+      <td class="mat-cell">{{ account.servicesCost }}</td>
+      <td class="mat-cell">$
+      <input type="text " class="over-cost left">
+      <input type="text" class="over-cost right"> %</td>
+      <td class="mat-cell">
+       $ <input type="text" class="discont">
+      </td>
+      <td class="mat-cell">{{ account.costSent }}</td>
+      <td class="mat-cell">{{ account.subtotal }}</td>
+      <td class="mat-cell">{{ account.total }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -47,6 +47,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ContactsSearchComponent } from './contacts-search/contacts-search.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { PipesModule } from '../pipes/pipes.module';
+import { InputSpinnerComponent } from './input-spinner/input-spinner.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { PipesModule } from '../pipes/pipes.module';
     UploadButtonFileComponent,
     InstallationsComponent,
     ContactsSearchComponent,
+    InputSpinnerComponent,
   ],
   exports: [
     ChartsModule,

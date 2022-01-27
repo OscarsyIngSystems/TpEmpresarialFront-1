@@ -190,3 +190,33 @@
   font-weight: 500 !important;
 }
 // endregion deleted sites
+
+
+.mat-raised-button{
+  padding: 0 !important;
+  min-width: 30px !important;
+}
+
+.over-cost{
+  width:30px;
+  height:24px;
+}
+
+.left{
+  border: 1px solid $color-placeholder;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.right{
+  border: 1px solid $color-placeholder;
+  border-left: none;
+  border-top-right-radius:5px;
+  border-bottom-right-radius: 5px;
+}
+
+.discont{
+  border: 1px solid $color-placeholder;
+  border-radius: 5px;
+  width:60px;
+}
