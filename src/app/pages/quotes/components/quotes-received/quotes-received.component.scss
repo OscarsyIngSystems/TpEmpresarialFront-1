@@ -1,24 +1,2 @@
 @import "../../../../../styles.scss";
-// ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
-//   color: $color-secondary;
-//   background: $color-body;
-//   box-shadow: none !important;
-// }
 
-// ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-//   background-color: white !important; // add styles properties here
-// }
-
-table {
-  width: 100%;
-}
-
-.mat-row:nth-child(odd){
-  background-color: #f8f9f9 !important;
-}
-
-.mat-header-cell {
-  color: black;
-  border: transparent !important;
-  background: #f7fafc !important;
-}
