@@ -55,7 +55,6 @@
       <td class="mat-cell">{{ opportunity.amount }}</td>
       <td class="mat-cell">{{ opportunity.created }}</td>
       <td class="mat-cell">{{ opportunity.validity }}</td>
-      =======
     </tr>
 
     <tr
@@ -90,14 +89,11 @@
     </tr>
   </thead>
   <tbody>
-    <<<<<<< HEAD
     <tr
       class="table-element-row shadow-sm t-row"
       [routerLink]="['/quotes', account.id]"
       *ngFor="let account of dataSource"
-    >
-      =======
-    </tr>
+    ></tr>
 
     <tr
       (click)="goQuotesDetail(account)"
@@ -105,7 +101,6 @@
       [routerLink]="['/quotes', account.id]"
       *ngFor="let account of dataSource"
     >
-      >>>>>>> devOscar
       <td class="mat-cell">{{ account.name }}</td>
       <td class="mat-cell">{{ account.invoice }}</td>
       <td class="mat-cell">{{ account.opportunityName }}</td>
