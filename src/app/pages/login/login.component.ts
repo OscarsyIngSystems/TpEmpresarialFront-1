@@ -22,11 +22,13 @@ export class LoginComponent implements OnInit {
   ) {
     this.loginForm = this.fb.group({
       username: [
-        'leonardo.maximo@totalplay.com.mx.developsf',
+        // 'leonardo.maximo@totalplay.com.mx.developsf',
+        'dual.q.ez@gmail.com', // perfil ventas
         [Validators.required, Validators.email],
       ],
       password: [
-        '2401_PenitentTangent',
+        // '2401_PenitentTangent',
+        'totalplay1705',
         [Validators.required, Validators.minLength(4)],
       ],
     });
