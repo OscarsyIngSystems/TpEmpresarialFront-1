@@ -210,6 +210,10 @@ body {
   background-color: $color-white;
 }
 
+.general-table.dataTable thead th{
+padding-left: 5px !important;
+}
+
 .general-table tr.table-element-row {
   background-color: $color-active-secondary;
   border-radius: 5px !important;

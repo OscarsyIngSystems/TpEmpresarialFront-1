@@ -15,11 +15,23 @@
 <!-- FIN Barra de detalles -->
 
 <!-- Tabla de contenido -->
-<h2 class="mt-1 text-bold">
-  Oportunidades de la cuenta ({{ dataSource.length }})
-</h2>
+
+<div class="d-flex justify-content-between align-items-center">
+  <h2 class="mt-1 text-bold">
+    Oportunidades de la cuenta ({{ dataSource.length }})
+  </h2>
+  <div>
+    <select class="order-by small-shadow" name="" placeholder="Ordenar por">
+      <option value="0" selected="true" disabled>Ordenar por</option>
+      <option value="1">Recientes</option>
+      <option value="2">Ultimos 7 dias</option>
+      <option value="3">Ultimo mes</option>
+    </select>
+  </div>
+</div>
+
 <app-table-general
-  [showHeaderTable]="true"
+  [showHeaderTable]="false"
   [columns]="columnsShow"
   [dataSource]="dataSource"
   [idTableShow]="6"

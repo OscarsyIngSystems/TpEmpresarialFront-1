@@ -83,9 +83,10 @@
       "colum1": "Nº fila",
       "colum2": "Nombre de la oportunidad",
       "colum3": "Etapa",
-      "colum7": "Número de la oportunidad",
+      "colum5": "Número de la oportunidad",
       "colum4": "Importe",
-      "colum6": "Fecha de cierre"
+      "colum6": "Fecha de cierre",
+      "colum7":"Creado"
     }
   },
   "quotes": {

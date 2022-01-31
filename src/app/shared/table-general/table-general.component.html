@@ -101,20 +101,20 @@
 >
   <thead>
     <tr class="t-row">
-      <th class="text-center" *ngFor="let col of columns">
+      <th *ngFor="let col of columns">
         {{ col.columnName | translate }}
       </th>
     </tr>
   </thead>
   <tbody>
     <tr class="c-pointer shadow-sm t-row" *ngFor="let account of dataSource">
-      <td class="mat-cell text-center">{{ account.siteFolio }}</td>
-      <td class="mat-cell text-center">{{ account.street }}</td>
-      <td class="mat-cell text-center">{{ account.colony }}</td>
-      <td class="mat-cell text-center">{{ account.delegation }}</td>
-      <td class="mat-cell text-center">{{ account.city }}</td>
-      <td class="mat-cell text-center">{{ account.state }}</td>
-      <td class="mat-cell text-center">{{ account.cp }}</td>
+      <td class="mat-cell">{{ account.siteFolio }}</td>
+      <td class="mat-cell">{{ account.street }}</td>
+      <td class="mat-cell">{{ account.colony }}</td>
+      <td class="mat-cell">{{ account.delegation }}</td>
+      <td class="mat-cell">{{ account.city }}</td>
+      <td class="mat-cell">{{ account.state }}</td>
+      <td class="mat-cell">{{ account.cp }}</td>
     </tr>
   </tbody>
 </table>
@@ -130,7 +130,7 @@
 >
   <thead>
     <tr class="t-row">
-      <th class="text-center" *ngFor="let col of columns">
+      <th *ngFor="let col of columns">
         {{ col.columnName | translate }}
       </th>
     </tr>
@@ -141,11 +141,11 @@
       *ngFor="let account of dataSource; let i = index"
       (click)="goQuotesDetail(account)"
     >
-      <td class="mat-cell text-center">{{ account.quoteName }}</td>
-      <td class="mat-cell text-center">{{ account.invoice }}</td>
-      <td class="mat-cell text-center">{{ account.mounthTotal }}</td>
-      <td class="mat-cell text-center">{{ account.status }}</td>
-      <td class="mat-cell text-center">{{ account.validity }}</td>
+      <td class="mat-cell ">{{ account.quoteName }}</td>
+      <td class="mat-cell ">{{ account.invoice }}</td>
+      <td class="mat-cell ">{{ account.mounthTotal }}</td>
+      <td class="mat-cell ">{{ account.status }}</td>
+      <td class="mat-cell ">{{ account.validity }}</td>
       <td class="mat-cell d-flex justify-content-center">
         <div>
           <input
@@ -229,6 +229,7 @@
       <td class="mat-cell ps-4">{{ account.status }}</td>
       <td class="mat-cell ps-4">{{ account.mounthTotal }}</td>
       <td class="mat-cell ps-4">{{ account.closeDate }}</td>
+      <td class="mat-cell ps-4">{{ account.created }}</td>
     </tr>
   </tbody>
 </table>
