@@ -588,15 +588,36 @@
     </thead>
     <tbody>
       <tr  class="table-element-row shadow-sm t-row" *ngFor="let account of dataSource">
-        <td class="mat-cell-quote">{{ account.quoteName }}</td>
-        <td class="mat-cell-quote">{{ account.quoteSheet }}</td>
-        <td class="mat-cell-quote">{{ account.oportunity }}</td>
-        <td class="mat-cell-quote">{{ account.monthlyTotal | currency }}</td>
-        <td class="mat-cell-quote">{{ account.validity }}</td>
-        <td class="mat-cell-quote">{{ account.loadHld }}</td>
+        <td class="mat-cell">{{ account.quoteName }}</td>
+        <td class="mat-cell">{{ account.quoteSheet }}</td>
+        <td class="mat-cell">{{ account.oportunity }}</td>
+        <td class="mat-cell">{{ account.monthlyTotal | currency }}</td>
+        <td class="mat-cell">{{ account.validity }}</td>
+        <td class="mat-cell">{{ account.loadHld }}</td>
         <td class="mat-cell">{{ account.overdue }}</td>
       </tr>
     </tbody>
   </table>
-=
+
+  <table *ngIf="idTableShow == 18" id="dataTable" datatable [dtOptions]="dtOptions" class="general-table row-border">
+    <thead>
+      <tr class="t-row">
+        <th *ngFor="let col of columns">{{ col.columnName | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-element-row shadow-sm t-row"
+        *ngFor="let account of dataSource">
+        <td class="mat-cell">{{ account.quoteName }}</td>
+        <td class="mat-cell">{{ account.quoteSheet }}</td>
+        <td class="mat-cell">{{ account.oportunity }}</td>
+        <td class="mat-cell">{{ account.monthlyTotal | currency }}</td>
+        <td class="mat-cell">{{ account.validity }}</td>
+        <td class="mat-cell">{{ account.loadHld }}</td>
+        <!-- <td class="mat-cell">{{ account.overdue }}</td> -->
+      </tr>
+    </tbody>
+  </table>
+
+
 

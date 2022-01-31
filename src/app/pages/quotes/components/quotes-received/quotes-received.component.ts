@@ -9,6 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class QuotesReceivedComponent implements OnInit {
   public contentLabels = 'quotes.quotes-received.';
+  public contentLabels2 = 'quotes.quotes-received2.';
   dataSource:any[] = [];
   displayedColumns = [
 
@@ -41,6 +42,37 @@ export class QuotesReceivedComponent implements OnInit {
       columnName: this.contentLabels + 'colum7',
     },
   ];
+  displayedColumns2 = [
+
+    {
+      key: 'quoteName',
+      columnName: this.contentLabels2 + 'colum1',
+    },
+    {
+      key: 'quoteSheet',
+      columnName: this.contentLabels2 + 'colum2'
+    },
+    {
+      key: 'oportunity',
+      columnName: this.contentLabels2 + 'colum3',
+    },
+    {
+      key: 'monthlyTotal',
+      columnName: this.contentLabels2 + 'colum4',
+    },
+    {
+      key: 'validity',
+      columnName: this.contentLabels2 + 'colum5',
+    },
+    {
+      key: 'loadHld',
+      columnName: this.contentLabels2 + 'colum6',
+    },
+    {
+      key: 'overdue',
+      columnName: this.contentLabels2 + 'colum7',
+    },
+  ];
   constructor(private service: QuotesService) { }
 
   ngOnInit(): void {
@@ -50,7 +82,7 @@ export class QuotesReceivedComponent implements OnInit {
   getQuotes(): void {
     this.service.getQuotesReceived().subscribe((data) => {
       this.dataSource = data;
-      console.log(this.dataSource);
+      // console.log(this.dataSource);
     });
   }
 

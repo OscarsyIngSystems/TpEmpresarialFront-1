@@ -55,7 +55,6 @@ export class QuotesListDeatilComponent implements OnInit {
   private loadData(): void {
     this._service.getQuotes().subscribe(
       (response) => {
-        console.log(response);
         this.dataSource = response;
         this.spinner.hide();
       },
