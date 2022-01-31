@@ -6,12 +6,24 @@
 
   <div class="d-flex flex-row mb-2">
     <button
-      *ngIf="!hidenCreateOportunity"
+      *ngIf="
+        !hidenCreateOportunity && router.url !== '/buildingBlocks/connectivity'
+      "
       mat-button
       (click)="newOportunity()"
       class="rounded-button-secondary tx-12 text-bold"
     >
-      <mat-icon>add</mat-icon>
+      <mat-icon *ngIf="showIcon">add</mat-icon>
+      {{ buttonText }}
+    </button>
+    <button
+      *ngIf="router.url == '/buildingBlocks/connectivity'"
+      mat-button
+      (click)="saveModeling()"
+      class="rounded-button-secondary tx-12 text-bold"
+      [disabled]="isDisabled"
+    >
+      <mat-icon *ngIf="showIcon">add</mat-icon>
       {{ buttonText }}
     </button>
 
@@ -24,11 +36,16 @@
       <span class="fw-button">+ Agregar</span> sitio
     </button>
 
-    <div >
-      <span *ngIf="checkRouteDeletedSites()"><button  (click)="openDialogLoadMassive()" mat-button
-        class="rounded-button-outline btn-primary tx-12 text-bold ms-2">
-        {{ loadSitesText }}
-      </button></span>
+    <div>
+      <span *ngIf="checkRouteDeletedSites()"
+        ><button
+          (click)="openDialogLoadMassive()"
+          mat-button
+          class="rounded-button-outline btn-primary tx-12 text-bold ms-2"
+        >
+          {{ loadSitesText }}
+        </button></span
+      >
       <button
         *ngIf="router.url == '/quotes/deleted-sites'"
         (click)="onLoadedSites()"

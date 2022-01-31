@@ -1,0 +1,21 @@
+@import "../../../../../styles.scss";
+
+.viewStepper {
+  background-color: #fafafa;
+}
+
+.labelStepper {
+  color: red;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  color: $color-white;
+  width: auto;
+}
+
+.btn-primary:disabled {
+  background-color: $color-disabled-button !important;
+  color: $color-white !important;
+  border: none !important;
+}

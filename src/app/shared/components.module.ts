@@ -48,6 +48,8 @@ import { ContactsSearchComponent } from './contacts-search/contacts-search.compo
 import { MatChipsModule } from '@angular/material/chips';
 import { PipesModule } from '../pipes/pipes.module';
 import { InputSpinnerComponent } from './input-spinner/input-spinner.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { TitleBuildingBlocksComponent } from './title-building-blocks/title-building-blocks/title-building-blocks.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,7 @@ import { InputSpinnerComponent } from './input-spinner/input-spinner.component';
     InstallationsComponent,
     ContactsSearchComponent,
     InputSpinnerComponent,
+    TitleBuildingBlocksComponent,
   ],
   exports: [
     ChartsModule,
@@ -115,6 +118,8 @@ import { InputSpinnerComponent } from './input-spinner/input-spinner.component';
     InstallationsComponent,
     NgxMaterialTimepickerModule,
     ContactsSearchComponent,
+    MatStepperModule,
+    TitleBuildingBlocksComponent,
   ],
   imports: [
     ChartsModule,
@@ -150,6 +155,7 @@ import { InputSpinnerComponent } from './input-spinner/input-spinner.component';
     NgApexchartsModule,
     NgxMaterialTimepickerModule,
     PipesModule,
+    MatStepperModule,
   ],
 })
 export class ComponentsModule {}
