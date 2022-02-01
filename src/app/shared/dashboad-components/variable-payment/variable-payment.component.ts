@@ -234,9 +234,6 @@ export class VariablePaymentComponent implements OnInit {
              color: '#98D3DD',
            },
          ];  
-         
-         console.log(newSeries);
-         
         break;
     }
     this.chart.updateSeries(newSeries);

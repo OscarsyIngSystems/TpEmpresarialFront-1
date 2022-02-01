@@ -48,7 +48,7 @@
                 <mat-label class="label-form-field">Motivo</mat-label>
                 <mat-select formControlName="reason">
                   <mat-option value="0">Superioridad técnica</mat-option>
-                  <mat-option value="1">Opcion 2</mat-option>
+                  <mat-option value="Motivo 2">Motivo 2</mat-option>
                   <mat-option value="2">Opcion 3</mat-option>
                 </mat-select>
               </mat-form-field>
@@ -115,12 +115,12 @@
           </div>
           <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div> -->
 
-          <app-upload-button-file [disabled]="oportunityForm.disabled"  class="me-2 pt-3" text="Cargar HLD"
+<!--           <app-upload-button-file [disabled]="oportunityForm.disabled"  class="me-2 pt-3" text="Cargar HLD"
             (handdleFile)="selectFile($event)">
           </app-upload-button-file>
           <button *ngIf="hld" class="rounded-button-outline-auto mt-3">
             <strong>Ver</strong> HLD
-          </button>
+          </button> -->
         </div>
       </div>
 

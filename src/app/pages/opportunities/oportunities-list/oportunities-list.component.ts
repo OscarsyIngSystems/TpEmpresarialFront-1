@@ -93,6 +93,8 @@ export class OportunitiesListComponent implements OnInit {
     this.opService.getOpportunities().subscribe(
       (res) => {
         this.dataSource = res;
+        console.log(this.dataSource);
+        
         this.spinner.hide();
       },
       (err) => {

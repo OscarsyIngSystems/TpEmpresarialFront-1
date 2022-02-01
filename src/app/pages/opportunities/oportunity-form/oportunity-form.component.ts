@@ -39,7 +39,7 @@ export class OportunityFormComponent implements OnInit {
       probability: ['10%'],
       badge: ['MXN - Peso Mexicano', [Validators.required]],
       oportunityOrigin: ['one', Validators.required],
-      trybuy: [false],
+      trybuy: [],
       executive: ['Sergio Aparicio Contreras'],
       whoIntegrated: ['one', [Validators.required]],
       saleType: ['0', Validators.required],
@@ -60,12 +60,29 @@ export class OportunityFormComponent implements OnInit {
   ngAfterContentInit(): void {
     if (this.oportunityDetailData) {
       this.oportunityForm.patchValue(this.oportunityDetailData);
+      console.log(this.oportunityDetailData);
+      
+      if (
+        this.oportunityDetailData.isMixedSale == 'false' &&
+        (this.oportunityDetailData.isParter == 'false' ||
+          this.oportunityDetailData.isParter === undefined)
+      ) {
+        this.oportunityForm.patchValue({ saleType: '0' });
+      } else {
+        if (this.oportunityDetailData.isMixedSale == 'true') {
+          this.oportunityForm.patchValue({ saleType: '1' });
+        } else {
+          this.oportunityForm.patchValue({ saleType: '2' });
+        }
+      }
       this.oportunityForm.disable();
+
     }
   }
 
   openDialog(): void {
     this.name = this.oportunityForm.controls.oportunityName.value;
+    console.log(this.oportunityDetailData)
     this.oportunityForm.enable();
     let data = this.oportunityForm.value;
     this.oportunityForm.disable();

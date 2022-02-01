@@ -12,4 +12,6 @@ export interface Oportunity {
   oportunityOrigin: string;
   executive: string;
   whoIntegrated: string;
+  isMixedSale:string;
+  isParter:string;
 }
