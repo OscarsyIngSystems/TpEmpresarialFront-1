@@ -1,20 +1,6 @@
+import { QuotesService } from './../../../../services/quotes/quotes.service';
 import { Component, OnInit } from '@angular/core';
-
-export interface PeriodicElement {
-  quoteName: string;
-  quoteSheet: string;
-  monthlyTotal: number;
-  solutionType: string;
-  loadHld: string;
-  overdue: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {quoteName: 'Cotizacion Audi 1', quoteSheet: 'COT7808232', monthlyTotal: 33408.00, solutionType: '', loadHld: '', overdue:''},
-  {quoteName: 'Cotizacion Audi 1', quoteSheet: 'COT7808232', monthlyTotal: 33408.00, solutionType: '', loadHld: '', overdue:''},
-  {quoteName: 'Cotizacion Audi 1', quoteSheet: 'COT7808232', monthlyTotal: 33408.00, solutionType: '', loadHld: '', overdue:''},
-  {quoteName: 'Cotizacion Audi 1', quoteSheet: 'COT7808232', monthlyTotal: 33408.00, solutionType: '', loadHld: '', overdue:''},
-];
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-quotes-received',
@@ -22,11 +8,50 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./quotes-received.component.scss']
 })
 export class QuotesReceivedComponent implements OnInit {
-  displayedColumns: string[] = ['quoteName', 'quoteSheet', 'monthlyTotal', 'solutionType', 'loadHld','overdue'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  public contentLabels = 'quotes.quotes-received.';
+  dataSource:any[] = [];
+  displayedColumns = [
+
+    {
+      key: 'quoteName',
+      columnName: this.contentLabels + 'colum1',
+    },
+    {
+      key: 'quoteSheet',
+      columnName: this.contentLabels + 'colum2'
+    },
+    {
+      key: 'oportunity',
+      columnName: this.contentLabels + 'colum3',
+    },
+    {
+      key: 'monthlyTotal',
+      columnName: this.contentLabels + 'colum4',
+    },
+    {
+      key: 'validity',
+      columnName: this.contentLabels + 'colum5',
+    },
+    {
+      key: 'loadHld',
+      columnName: this.contentLabels + 'colum6',
+    },
+    {
+      key: 'overdue',
+      columnName: this.contentLabels + 'colum7',
+    },
+  ];
+  constructor(private service: QuotesService) { }
 
   ngOnInit(): void {
+    this.getQuotes()
+  }
+
+  getQuotes(): void {
+    this.service.getQuotesReceived().subscribe((data) => {
+      this.dataSource = data;
+      // console.log(this.dataSource);
+    });
   }
 
 }
