@@ -26,20 +26,20 @@
   <mat-tab id="tabs" label="Nuevas">
     <ng-template matTabContent>
       <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="19" [columns]="displayedColumns"
-      [dataSource]="dataSource"></app-table-general>
+        [dataSource]="dataSource"></app-table-general>
     </ng-template>
   </mat-tab>
   <!-- Esta tabla debe cambiar con el diseño que solicite el diseñador -->
-  <mat-tab id="tabs" label="En revisión">
+  <mat-tab (click)="onShow()" id="tabs" label="En revisión">
     <ng-template matTabContent>
       <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="19" [columns]="displayedColumns"
-      [dataSource]="dataSource"></app-table-general>
+        [dataSource]="dataSource"></app-table-general>
     </ng-template>
   </mat-tab>
   <mat-tab id="tabs" label="Terminadas">
     <ng-template matTabContent>
       <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="19" [columns]="displayedColumns"
-      [dataSource]="dataSource"></app-table-general>
+        [dataSource]="dataSource"></app-table-general>
     </ng-template>
   </mat-tab>
 </mat-tab-group>
