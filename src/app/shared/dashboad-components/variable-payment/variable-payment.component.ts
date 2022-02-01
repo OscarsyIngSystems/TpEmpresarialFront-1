@@ -14,6 +14,10 @@ export class VariablePaymentComponent implements OnInit {
     end: new FormControl(),
   });
 
+  today = new Date();
+  optionsDate=['Mes actual', 'Ultimos dos meses','Ultimos 3 meses'];
+  currentOption = this.optionsDate[0];
+
   public payments = [
     [
       {
@@ -50,14 +54,61 @@ export class VariablePaymentComponent implements OnInit {
       },
     ],
   ];
-  public donutChartOptions: any;
+  //public donutChartOptions: any;
+  public chartOptions!: any;
   chartSeries = [160990, 56990];
 
   public colors = ['#9bd3dd', '#846b99'];
   labels = ['l', 'll', 'lll'];
 
   constructor() {
-    this.donutChartOptions = {
+    
+    this.chartOptions = {
+      legend: {
+        show: true,
+      },
+      series: [
+        {
+          name: 'Venta total',
+          data: [1000, 160000, 100000],
+          color: '#846b99',
+        },
+         {
+           name: 'Meta de venta',
+          data: [0,100000, 200000, 300000, 400000],
+          color: '#98D3DD',
+         },
+      ],
+      chart: {
+        toolbar: {
+          show: false,
+        },
+        height: 170,
+        type: 'line',
+        zoom: {
+          enabled: false,
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        curve: 'smooth',
+      },
+      grid: {
+        row: {
+          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+          opacity: 0.5,
+        },
+      },
+      xaxis: {
+        categories: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+      },
+      // yaxis: {
+      //   categories: ['1000', '100000', '0', '0'],
+      // },
+    };
+/*     this.donutChartOptions = {
       colors: this.colors,
       chart: {
         type: 'donut',
@@ -116,7 +167,7 @@ export class VariablePaymentComponent implements OnInit {
           },
         },
       },
-    };
+    }; */
   }
 
   ngOnInit(): void {}
