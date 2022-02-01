@@ -53,7 +53,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
     },
     {
       key: 'opportunity_number',
-      columnName: this.contentLabels + 'table-related.colum7',
+      columnName: this.contentLabels + 'table-related.colum5',
     },
     {
       key: 'status',
@@ -67,6 +67,10 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       key: 'closeDate',
       columnName: this.contentLabels + 'table-related.colum6',
     },
+    {
+      key:'created',
+      columnName: this.contentLabels + 'table-related.colum7'
+    }
   ];
   public dataSource = [
     {
@@ -75,6 +79,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Necesidades',
       mounthTotal: '$1.00',
       closeDate: '31/12/2022',
+      created:'25/01/2022'
     },
     {
       name: 'INT SIM 50/50 1 L OFICINA MERCADO 500',
@@ -82,6 +87,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Firma',
       mounthTotal: '$417.64',
       closeDate: '30/12/2022',
+      created:'25/01/2022'
     },
     {
       name: 'INTERNE SIM 20MB 2 TIENDAS / T2631 / T2632',
@@ -89,6 +95,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Propuesta',
       mounthTotal: '$5,149.30',
       closeDate: '30/12/2022',
+      created:'25/01/2022'
     },
     {
       name: 'T2724_Viñas - 50/50 1 Lin Voz',
@@ -96,6 +103,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Perdida',
       mounthTotal: '$1.00',
       closeDate: '10/12/2022',
+      created:'25/01/2022'
     },
     {
       name: 'Enlace de Internet OAT CDMX',
@@ -103,6 +111,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Perdida',
       mounthTotal: '$20,350.00',
       closeDate: '30/10/2022',
+      created:'25/01/2022'
     },
     {
       name: '38 Sitios Nona NL 7-Eleven Int 50/50 Mb 1 L',
@@ -110,6 +119,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Ganada',
       mounthTotal: '$15,870.44',
       closeDate: '19/11/2020',
+      created:'25/01/2022'
     },
     {
       name: 'Sitios Satelitales 7-Eleven',
@@ -117,6 +127,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Necesidades',
       mounthTotal: '$1.00',
       closeDate: '31/12/2022',
+      created:'25/01/2022'
     },
     {
       name: 'INT SIM 50/50 1 L OFICINA MERCADO 500',
@@ -124,6 +135,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Firma',
       mounthTotal: '$417.64',
       closeDate: '30/12/2022',
+      created:'25/01/2022'
     },
     {
       name: 'INTERNE SIM 20MB 2 TIENDAS / T2631 / T2632',
@@ -131,6 +143,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Propuesta',
       mounthTotal: '$5,149.30',
       closeDate: '30/12/2022',
+      created:'25/01/2022'
     },
     {
       name: 'T2724_Viñas - 50/50 1 Lin Voz',
@@ -138,6 +151,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Perdida',
       mounthTotal: '$1.00',
       closeDate: '10/12/2022',
+      created:'25/01/2022'
     },
     {
       name: 'Enlace de Internet OAT CDMX',
@@ -145,6 +159,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Perdida',
       mounthTotal: '$20,350.00',
       closeDate: '30/10/2022',
+      created:'25/01/2022'
     },
     {
       name: '38 Sitios Nona NL 7-Eleven Int 50/50 Mb 1 L',
@@ -152,6 +167,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       status: 'Ganada',
       mounthTotal: '$15,870.44',
       closeDate: '19/11/2020',
+      created:'25/01/2022'
     },
   ];
   constructor(

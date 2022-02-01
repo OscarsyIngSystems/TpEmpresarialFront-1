@@ -192,10 +192,31 @@
 // endregion deleted sites
 
 
-#region quotes received
-.mat-cell-quote {
-  text-align: start !important;
-  padding-left: 17px;
+.mat-raised-button{
+  padding: 0 !important;
+  min-width: 30px !important;
 }
 
-// endregion quotes received
+.over-cost{
+  width:30px;
+  height:24px;
+}
+
+.left{
+  border: 1px solid $color-placeholder;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.right{
+  border: 1px solid $color-placeholder;
+  border-left: none;
+  border-top-right-radius:5px;
+  border-bottom-right-radius: 5px;
+}
+
+.discont{
+  border: 1px solid $color-placeholder;
+  border-radius: 5px;
+  width:60px;
+}

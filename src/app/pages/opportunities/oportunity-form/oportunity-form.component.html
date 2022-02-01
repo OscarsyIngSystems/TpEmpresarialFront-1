@@ -87,7 +87,7 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Quién integra la propuesta<small class="color-red">*</small></mat-label>
+            <mat-label class="label-form-field">Quien integra la propuesta<small class="color-red">*</small></mat-label>
             <mat-select formControlName="whoIntegrated">
               <mat-option value="one">Juanito Pérez</mat-option>
             </mat-select>
@@ -115,10 +115,10 @@
           </div>
           <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div> -->
 
-          <app-upload-button-file [disabled]="oportunityForm.disabled" class="me-2" text="Cargar HLD"
+          <app-upload-button-file [disabled]="oportunityForm.disabled"  class="me-2 pt-3" text="Cargar HLD"
             (handdleFile)="selectFile($event)">
           </app-upload-button-file>
-          <button *ngIf="hld" class="rounded-button-outline-auto">
+          <button *ngIf="hld" class="rounded-button-outline-auto mt-3">
             <strong>Ver</strong> HLD
           </button>
         </div>

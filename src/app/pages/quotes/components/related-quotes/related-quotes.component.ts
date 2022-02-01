@@ -13,28 +13,32 @@ export class RelatedQuotesComponent implements OnInit {
   filesInfo: Array<IFile> = [];
   infoDetail: Array<InfoDetail> = [
     {
+      name: 'Nombre de la cuenta',
+      value: 'Audi CDMX-COT',
+    },
+    {
       name: 'Número de oportunidad',
-      value: '07552222',
+      value: '678676',
     },
     {
-      name: 'Tipo',
-      value: 'Nueva',
-    },
-    {
-      name: 'Etapa',
+      name: 'Etapa oportunidad',
       value: 'Necesidades',
     },
     {
       name: 'Importe',
-      value: 'Estratégicas',
+      value: '$120,000',
     },
     {
       name: 'Fecha de cierre',
-      value: '21/12/2022',
+      value: '10/10/2022',
+    },
+    {
+      name: 'Vigencia cotización',
+      value: '10/10/2022',
     },
     {
       name: 'Propietario de la cuenta',
-      value: 'Sergio aparicio contreras',
+      value: 'Sergio Aparicio Contreras',
     },
   ];
 

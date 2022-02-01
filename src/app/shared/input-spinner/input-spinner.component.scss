@@ -1,0 +1,30 @@
+@import "../../../styles.scss";
+.less, .add{
+    width:17px;
+    height:23px;
+}
+
+.number{
+    width:21px;
+    height:23px;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid $color-placeholder;
+    border-bottom: 1px solid $color-placeholder;;
+}
+
+.less, .add{
+    border: 1px solid $color-placeholder;
+    display: flex;
+    justify-content: center;
+}
+
+.less{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.add{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}

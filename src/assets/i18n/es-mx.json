@@ -26,7 +26,7 @@
       "acounts3": "retraso de pago",
       "quotes": "Cotizaciones",
       "opportunities": "Oportunidades",
-      "indicators": "Ingresos de célula",
+      "indicators": "Ingreso de célula",
       "payment": "Productividad por ejecutivo",
       "clarity-portal": "Portal de claridad"
     },
@@ -83,9 +83,10 @@
       "colum1": "Nº fila",
       "colum2": "Nombre de la oportunidad",
       "colum3": "Etapa",
-      "colum7": "Número de la oportunidad",
+      "colum5": "Número de la oportunidad",
       "colum4": "Importe",
-      "colum6": "Fecha de cierre"
+      "colum6": "Fecha de cierre",
+      "colum7":"Creado"
     }
   },
   "quotes": {
@@ -128,6 +129,19 @@
       "colum5": "Cargar HLD",
       "colum6": "Vigencia",
       "colum7": "Vencidas"
+    },
+     "table-modeling":{
+      "colum1": "Sitio",
+      "colum2": "Medio Acceso",
+      "colum3": "Servicios",
+      "colum4": "Cantidad",
+      "colum5": "Addons",
+      "colum6": "$ Servicios",
+      "colum7": "Sobreprecio",
+      "colum8": "Descuento",
+      "colum9": "Enviado a costeo",
+      "colum10": "Subtotal",
+      "colum11": "Total"
     },
     "message-empty": "No hay oportunidades guardadas para esta cuenta."
   },
