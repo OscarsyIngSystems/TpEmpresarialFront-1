@@ -33,9 +33,11 @@ export class QuotesDetailComponent implements OnInit {
   }
 
   private loadData(): void {
-    this._service.getQuoteDetail(this.accountId).subscribe(
+    this._service.getQuotes().subscribe(
       (response) => {
-        this.fillInfoDetail(response[0]);
+        console.log(response);
+        const quoteSelected = this.stServices.getObjetSelected;
+        this.fillInfoDetail(quoteSelected);
         this.spinner.hide();
       },
       (error) => {

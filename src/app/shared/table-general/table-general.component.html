@@ -82,7 +82,7 @@
     >
       <td class="mat-cell">{{ account.name }}</td>
       <td class="mat-cell">{{ account.invoice }}</td>
-      <td class="mat-cell">{{ account.opportunityName }}</td>
+      <td class="mat-cell">{{ account.opportunity.name }}</td>
       <td class="mat-cell">{{ account.status }}</td>
       <td class="mat-cell">{{ account.created }}</td>
       <td class="mat-cell">{{ account.validity }}</td>
@@ -141,11 +141,11 @@
       *ngFor="let account of dataSource; let i = index"
       (click)="goQuotesDetail(account)"
     >
-      <td class="mat-cell ">{{ account.quoteName }}</td>
-      <td class="mat-cell ">{{ account.invoice }}</td>
-      <td class="mat-cell ">{{ account.mounthTotal }}</td>
-      <td class="mat-cell ">{{ account.status }}</td>
-      <td class="mat-cell ">{{ account.validity }}</td>
+      <td class="mat-cell">{{ account.quoteName }}</td>
+      <td class="mat-cell">{{ account.invoice }}</td>
+      <td class="mat-cell">{{ account.mounthTotal }}</td>
+      <td class="mat-cell">{{ account.status }}</td>
+      <td class="mat-cell">{{ account.validity }}</td>
       <td class="mat-cell d-flex justify-content-center">
         <div>
           <input
@@ -849,12 +849,16 @@
     </td>
   </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="columns"></tr>
-    <tr mat-row *matRowDef="let row; columns: columns"></tr>
-  </table>
+  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-row *matRowDef="let row; columns: columns"></tr>
+</table>
 
-
-<table *ngIf="idTableShow == 18" datatable [dtOptions]="dtOptions" class="row-border general-table">
+<table
+  *ngIf="idTableShow == 18"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
   <thead>
     <tr>
       <th *ngFor="let col of columns; let i = index">
@@ -863,25 +867,28 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="shadow-sm c-pointer" *ngFor="let account of dataSource; let i = index">
+    <tr
+      class="shadow-sm c-pointer"
+      *ngFor="let account of dataSource; let i = index"
+    >
       <td class="mat-cell">{{ account.site }}</td>
       <td class="mat-cell">{{ account.accessMedia }}</td>
       <td class="mat-cell">{{ account.services }}</td>
       <td class="mat-cell">
-        <app-input-spinner>
-        </app-input-spinner>
+        <app-input-spinner> </app-input-spinner>
       </td>
-      <td class="mat-cell">{{ account.addons }}
+      <td class="mat-cell">
+        {{ account.addons }}
 
         <button mat-raised-button><mat-icon>add</mat-icon></button>
       </td>
       <td class="mat-cell">{{ account.servicesCost }}</td>
-      <td class="mat-cell">$
-      <input type="text " class="over-cost left">
-      <input type="text" class="over-cost right"> %</td>
       <td class="mat-cell">
-       $ <input type="text" class="discont">
+        $
+        <input type="text " class="over-cost left" />
+        <input type="text" class="over-cost right" /> %
       </td>
+      <td class="mat-cell">$ <input type="text" class="discont" /></td>
       <td class="mat-cell">{{ account.costSent }}</td>
       <td class="mat-cell">{{ account.subtotal }}</td>
       <td class="mat-cell">{{ account.total }}</td>
