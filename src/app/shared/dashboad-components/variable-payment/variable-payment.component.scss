@@ -54,3 +54,8 @@
     width:auto;
   }
 }
+
+.mat-menu-item:hover:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item-highlighted:not([disabled]) {
+    background: #3b4559;
+    color: white;
+}

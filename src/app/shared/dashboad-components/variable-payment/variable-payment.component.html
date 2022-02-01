@@ -11,7 +11,7 @@
         <mat-icon class="ms-1">calendar_today</mat-icon>
       </div>
       <mat-menu #options="matMenu">
-        <button mat-menu-item *ngFor="let option of optionsDate">{{option}}</button>
+        <button mat-menu-item (click)="changeOption(i)" *ngFor="let option of optionsDate let i= index">{{option}}</button>
 
       </mat-menu>
     </div>
@@ -19,7 +19,7 @@
 
   <div class="row h-100">
     <div class="col-8 g-0">
-      <apx-chart
+      <apx-chart #chart
       [series]="chartOptions.series"
       [chart]="chartOptions.chart"
       [xaxis]="chartOptions.xaxis"
