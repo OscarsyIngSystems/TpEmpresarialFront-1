@@ -53,14 +53,14 @@ export class CellIndicatorsComponent implements OnInit {
       series: [
         {
           name: 'Venta total',
-          data: [100000, 150000, 350000, 400000],
+          data: [1000, 160000, 100000],
           color: '#846b99',
         },
-        // {
-        //   name: 'Meta de venta',
-        //   data: [1000, 100000, 360000],
-        //   color: '#846b99',
-        // },
+         {
+           name: 'Meta de venta',
+          data: [0,100000, 200000, 300000, 400000],
+          color: '#98D3DD',
+         },
       ],
       chart: {
         toolbar: {

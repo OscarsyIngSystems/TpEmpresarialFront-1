@@ -84,6 +84,7 @@ export class TableGeneralComponent implements OnInit {
   }
 
   goOpportunities(opportunity: any) {
+    this.storageService.setObjetSelected(opportunity);
     this.storageService.setDataName(opportunity.name);
     this.route.navigate(['/opportunities', opportunity.number]);
   }
