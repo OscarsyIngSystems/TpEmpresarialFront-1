@@ -3,12 +3,18 @@
   <mat-tab-group mat-align-tabs="center" >
     <mat-tab label="Nuevas">
       <!-- <div>jeje</div> -->
-      <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="17" [columns]="displayedColumns"
+      <ng-template matTabContent>
+        <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="17" [columns]="displayedColumns"
         [dataSource]="dataSource"></app-table-general>
+      </ng-template>
+
     </mat-tab>
     <mat-tab  label="En revisión" >
-      <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="18" [columns]="displayedColumns"
+      <ng-template matTabContent>
+        <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="18" [columns]="displayedColumns"
         [dataSource]="dataSource"></app-table-general>
+      </ng-template>
+
     </mat-tab>
     <!-- <mat-tab label="Terminadas">
       <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="17" [columns]="displayedColumns"
