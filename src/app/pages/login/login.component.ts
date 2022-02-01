@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ) {
     this.loginForm = this.fb.group({
       username: [
-        'leonardo.maximo@totalplay.com.mx.developsf',
+        'leonardo.maximo@totalplay.com.mx',
         [Validators.required, Validators.email],
       ],
       password: [
@@ -47,6 +47,8 @@ export class LoginComponent implements OnInit {
 
             localStorage.setItem('tsoptok', response.accessToken);
             localStorage.setItem('user', response.user.name);
+            localStorage.setItem('role',response.user.roleId)
+
             this.spinner.hide();
             this.router.navigate(['/dashboard']);
           },
