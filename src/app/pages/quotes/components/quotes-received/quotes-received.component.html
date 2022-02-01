@@ -1,8 +1,7 @@
 <app-empty message="No se encontraron cotizaciones" *ngIf="dataSource.length == 0"></app-empty>
-<div>
-  <mat-tab-group mat-align-tabs="center" >
+<!-- <div>
+  <mat-tab-group  >
     <mat-tab label="Nuevas">
-      <!-- <div>jeje</div> -->
       <ng-template matTabContent>
         <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="19" [columns]="displayedColumns"
         [dataSource]="dataSource"></app-table-general>
@@ -21,4 +20,26 @@
       </ng-template>
     </mat-tab>
   </mat-tab-group>
-</div>
+</div> -->
+
+<mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+  <mat-tab id="tabs" label="Nuevas">
+    <ng-template matTabContent>
+      <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="19" [columns]="displayedColumns"
+      [dataSource]="dataSource"></app-table-general>
+    </ng-template>
+  </mat-tab>
+  <!-- Esta tabla debe cambiar con el diseño que solicite el diseñador -->
+  <mat-tab id="tabs" label="En revisión">
+    <ng-template matTabContent>
+      <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="19" [columns]="displayedColumns"
+      [dataSource]="dataSource"></app-table-general>
+    </ng-template>
+  </mat-tab>
+  <mat-tab id="tabs" label="Terminadas">
+    <ng-template matTabContent>
+      <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="19" [columns]="displayedColumns"
+      [dataSource]="dataSource"></app-table-general>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

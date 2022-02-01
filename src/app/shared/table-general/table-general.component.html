@@ -897,7 +897,7 @@
 >
   <thead>
     <tr class="t-row">
-      <th class="text-center" *ngFor="let col of columns">
+      <th *ngFor="let col of columns">
         {{ col.columnName | translate }}
       </th>
     </tr>
@@ -907,13 +907,13 @@
       class="shadow-sm c-pointer t-row"
       *ngFor="let account of dataSource; let i = index"
     >
-      <td class="mat-cell text-center">{{ account.quoteName }}</td>
-      <td class="mat-cell text-center">{{ account.quoteSheet }}</td>
-      <td class="mat-cell text-center">{{ account.oportunity }}</td>
-      <td class="mat-cell text-center">{{ account.monthlyTotal }}</td>
-      <td class="mat-cell text-center">{{ account.validity }}</td>
-      <td class="mat-cell text-center">{{ account.loadHld }}</td>
-      <td class="mat-cell text-center">{{ account.overdue }}</td>
+      <td class="mat-cell ps-1">{{ account.quoteName }}</td>
+      <td class="mat-cell ">{{ account.quoteSheet }}</td>
+      <td class="mat-cell ">{{ account.oportunity }}</td>
+      <td class="mat-cell ">{{ account.monthlyTotal }}</td>
+      <td class="mat-cell ">{{ account.validity }}</td>
+      <td class="mat-cell ">{{ account.loadHld }}</td>
+      <td class="mat-cell ">{{ account.overdue }}</td>
     </tr>
   </tbody>
 </table>
