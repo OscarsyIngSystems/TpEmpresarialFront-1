@@ -7,18 +7,18 @@
         <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="17" [columns]="displayedColumns"
         [dataSource]="dataSource"></app-table-general>
       </ng-template>
-
     </mat-tab>
     <mat-tab  label="En revisión" >
       <ng-template matTabContent>
-        <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="18" [columns]="displayedColumns"
+        <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="17" [columns]="displayedColumns"
         [dataSource]="dataSource"></app-table-general>
       </ng-template>
-
     </mat-tab>
-    <!-- <mat-tab label="Terminadas">
-      <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="17" [columns]="displayedColumns"
+    <mat-tab label="Terminadas">
+      <ng-template matTabContent>
+        <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="17" [columns]="displayedColumns"
         [dataSource]="dataSource"></app-table-general>
-    </mat-tab> -->
+      </ng-template>
+    </mat-tab>
   </mat-tab-group>
 </div>
