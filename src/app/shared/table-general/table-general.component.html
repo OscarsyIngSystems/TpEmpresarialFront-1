@@ -853,12 +853,7 @@
   <tr mat-row *matRowDef="let row; columns: columns"></tr>
 </table>
 
-<table
-  *ngIf="idTableShow == 18"
-  datatable
-  [dtOptions]="dtOptions"
-  class="row-border general-table"
->
+<table *ngIf="idTableShow == 18" datatable [dtOptions]="dtOptions" class="row-border general-table">
   <thead>
     <tr>
       <th *ngFor="let col of columns; let i = index">
@@ -867,31 +862,65 @@
     </tr>
   </thead>
   <tbody>
-    <tr
-      class="shadow-sm c-pointer"
-      *ngFor="let account of dataSource; let i = index"
-    >
+    <tr class="shadow-sm c-pointer" *ngFor="let account of dataSource; let i = index">
       <td class="mat-cell">{{ account.site }}</td>
       <td class="mat-cell">{{ account.accessMedia }}</td>
       <td class="mat-cell">{{ account.services }}</td>
       <td class="mat-cell">
-        <app-input-spinner> </app-input-spinner>
+        <app-input-spinner>
+        </app-input-spinner>
       </td>
-      <td class="mat-cell">
-        {{ account.addons }}
+      <td class="mat-cell">{{ account.addons }}
 
         <button mat-raised-button><mat-icon>add</mat-icon></button>
       </td>
       <td class="mat-cell">{{ account.servicesCost }}</td>
+      <td class="mat-cell">$
+      <input type="text " class="over-cost left">
+      <input type="text" class="over-cost right"> %</td>
       <td class="mat-cell">
-        $
-        <input type="text " class="over-cost left" />
-        <input type="text" class="over-cost right" /> %
+       $ <input type="text" class="discont">
       </td>
-      <td class="mat-cell">$ <input type="text" class="discont" /></td>
       <td class="mat-cell">{{ account.costSent }}</td>
       <td class="mat-cell">{{ account.subtotal }}</td>
       <td class="mat-cell">{{ account.total }}</td>
     </tr>
   </tbody>
 </table>
+
+<table
+  *ngIf="idTableShow == 19"
+  id="history"
+  datatable
+  [dtOptions]="dtOptions"
+  class="row-border general-table"
+>
+  <thead>
+    <tr class="t-row">
+      <th class="text-center" *ngFor="let col of columns">
+        {{ col.columnName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="shadow-sm c-pointer t-row"
+      *ngFor="let account of dataSource; let i = index"
+    >
+      <td class="mat-cell text-center">{{ account.quoteName }}</td>
+      <td class="mat-cell text-center">{{ account.quoteSheet }}</td>
+      <td class="mat-cell text-center">{{ account.oportunity }}</td>
+      <td class="mat-cell text-center">{{ account.monthlyTotal }}</td>
+      <td class="mat-cell text-center">{{ account.validity }}</td>
+      <td class="mat-cell text-center">{{ account.loadHld }}</td>
+      <td class="mat-cell text-center">{{ account.overdue }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+

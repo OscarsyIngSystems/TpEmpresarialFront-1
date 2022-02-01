@@ -1,5 +1,4 @@
 import { FormsModule } from '@angular/forms';
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -16,10 +15,10 @@ import { LoadSitesComponent } from './components/load-sites/load-sites.component
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { LoadedSitesComponent } from './components/sites/loaded-sites/loaded-sites.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites/dialog-load-sites.component';
 import { MatDialogModule } from '@angular/material/dialog';
+// import { TableLoadedSitesComponent } from './components/table-loaded-sites/table-loaded-sites.component';
 import { DeletedSitesComponent } from './components/deleted-sites/deleted-sites.component';
 import { DialogEditLoadSitesComponent } from './components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogDeletedSitesComponent } from './components/dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
@@ -27,6 +26,7 @@ import { MatInputModule } from '@angular/material/input';
 import { DialogSendSitesComponent } from './components/dialogs/dialog-send-sites/dialog-send-sites.component';
 import { QuotesReceivedComponent } from './components/quotes-received/quotes-received.component';
 import { ModelingSitesComponent } from './components/sites/modeling-sites/modeling-sites.component';
+import { LoadedSitesComponent } from './components/sites/loaded-sites/loaded-sites.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,7 @@ import { ModelingSitesComponent } from './components/sites/modeling-sites/modeli
     MatCheckboxModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
   ],
 })
 export class QuotesModule {}

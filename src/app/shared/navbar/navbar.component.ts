@@ -148,6 +148,7 @@ export class NavbarComponent {
   logout() {
     localStorage.removeItem('tsoptok');
     localStorage.removeItem('user');
+    localStorage.removeItem('role');
     this.router.navigate(['/login']);
   }
 }
