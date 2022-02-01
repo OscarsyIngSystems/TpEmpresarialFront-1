@@ -75,6 +75,7 @@ export class TableGeneralComponent implements OnInit {
     console.log(quote);
 
     this.storageService.setDataName(quote.name);
+    this.storageService.setObjetSelected(quote);
     this.route.navigate(['/quotes', quote.id]);
   }
 
@@ -90,7 +91,7 @@ export class TableGeneralComponent implements OnInit {
   isAllSelected() {
     if (this.selection.selected.length > 0) this.disabled = false;
     if (this.selection.selected.length == 0) this.disabled = true;
-    this.emitter.emit(this.selection.selected)
+    this.emitter.emit(this.selection.selected);
     this.selectedItemsTable = this.selection.selected;
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSourceLoadedSites.data.length;
@@ -175,7 +176,7 @@ export class TableGeneralComponent implements OnInit {
       language: {
         lengthMenu: 'Mostrar _MENU_',
         search: '',
-        searchPlaceholder:'Buscar',
+        searchPlaceholder: 'Buscar',
         paginate: {
           first: '',
           last: '',
