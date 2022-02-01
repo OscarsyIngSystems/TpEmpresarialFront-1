@@ -129,15 +129,6 @@
       "colum6": "Vigencia",
       "colum7": "Vencidas"
     },
-    "quotes-received2": {
-      "colum1": "Nombre de la cotizacion",
-      "colum2": "Folio de la cotizacion",
-      "colum3": "Oportunidad",
-      "colum4": "Total - Recurrente mensual",
-      "colum5": "Cargar HLD",
-      "colum6": "Vigencia",
-      "colum7": "Vencidas"
-    },
     "message-empty": "No hay oportunidades guardadas para esta cuenta."
   },
   "oportunities": {

@@ -594,7 +594,7 @@
         <td class="mat-cell">{{ account.monthlyTotal | currency }}</td>
         <td class="mat-cell">{{ account.validity }}</td>
         <td class="mat-cell">{{ account.loadHld }}</td>
-        <td class="mat-cell">{{ account.overdue }}</td>
+        <td class="mat-cell"></td>
       </tr>
     </tbody>
   </table>
@@ -606,15 +606,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="table-element-row shadow-sm t-row"
-        *ngFor="let account of dataSource">
+      <tr class="table-element-row shadow-sm t-row" *ngFor="let account of dataSource">
         <td class="mat-cell">{{ account.quoteName }}</td>
         <td class="mat-cell">{{ account.quoteSheet }}</td>
         <td class="mat-cell">{{ account.oportunity }}</td>
         <td class="mat-cell">{{ account.monthlyTotal | currency }}</td>
         <td class="mat-cell">{{ account.validity }}</td>
         <td class="mat-cell">{{ account.loadHld }}</td>
-        <!-- <td class="mat-cell">{{ account.overdue }}</td> -->
+        <td class="mat-cell"></td>
       </tr>
     </tbody>
   </table>
