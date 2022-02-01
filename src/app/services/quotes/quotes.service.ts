@@ -25,4 +25,10 @@ export class QuotesService {
       'https://my-json-server.typicode.com/emeery/mat-table-filter-button/sales'
     );
   }
+
+  getQuotesReceived(): Observable<any[]> {
+    return this.http.get<any[]>(
+      'https://my-json-server.typicode.com/emeery/mat-table-filter-button/quotes-received'
+    );
+  }
 }

@@ -121,6 +121,15 @@
       "colum5": "Medio de acceso",
       "colum6": ""
     },
+    "quotes-received": {
+      "colum1": "Nombre de la cotizacion",
+      "colum2": "Folio de la cotizacion",
+      "colum3": "Oportunidad",
+      "colum4": "Total - Recurrente mensual",
+      "colum5": "Cargar HLD",
+      "colum6": "Vigencia",
+      "colum7": "Vencidas"
+    },
      "table-modeling":{
       "colum1": "Sitio",
       "colum2": "Medio Acceso",

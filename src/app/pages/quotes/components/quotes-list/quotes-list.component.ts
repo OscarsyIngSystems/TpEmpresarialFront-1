@@ -12,7 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class QuotesListDeatilComponent implements OnInit {
   public tableProps!: TableOptions;
   public contentLabels = 'quotes.';
-
+  public role: number = 0;
   columnsShow = [
     {
       key: 'quoteName',
@@ -48,16 +48,21 @@ export class QuotesListDeatilComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.spinner.show();
     this.loadData();
+    this.setRole();
+  }
+
+  public setRole() {
+    this.role = Number(localStorage.getItem('role'))
+    console.log('tole',this.role)
   }
 
   private loadData(): void {
+    this.spinner.show();
     this._service.getQuotes().subscribe(
       (response) => {
-        console.log(response);
-        this.dataSource = response;
         this.spinner.hide();
+        this.dataSource = response;
       },
       (error) => {
         console.error(error);
