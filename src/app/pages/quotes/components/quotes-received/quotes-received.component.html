@@ -1,6 +1,6 @@
 <app-empty message="No se encontraron cotizaciones" *ngIf="dataSource.length == 0"></app-empty>
 
-<mat-tab-group (selectedTabChange)="onShow()" mat-align-tabs="center" animationDuration="0ms">
+<mat-tab-group id="tabs" (selectedTabChange)="onShow()" mat-align-tabs="center" animationDuration="0ms">
   <mat-tab id="tabs" label="Nuevas">
     <ng-template matTabContent>
       <app-table-general *ngIf="dataSource.length !== 0" [idTableShow]="19" [columns]="displayedColumns"
