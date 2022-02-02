@@ -1,5 +1,4 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { Component, OnInit } from '@angular/core';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { StorageService } from '../../../../services/shared/storage.service';
@@ -16,7 +15,6 @@ export class QuotesDetailComponent implements OnInit {
 
   constructor(
     private _url: ActivatedRoute,
-    private _service: QuotesService,
     public stServices: StorageService,
     private spinner: NgxSpinnerService,
     private _router: Router

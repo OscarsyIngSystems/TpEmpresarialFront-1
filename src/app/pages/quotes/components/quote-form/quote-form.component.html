@@ -5,10 +5,11 @@
         <div class="row">
           <div class="col-6">
             <span class="me-1">Estatus:</span>
-            <strong class="me-3">Borrador</strong>
+            <strong class="me-3">{{ statusQuote }}</strong>
           </div>
           <div class="col-6">
-            <span class="me-1">Oportunidad:</span> <strong> Audi</strong>
+            <span class="me-1">Oportunidad:</span>
+            <strong>{{ opportunityName }} </strong>
           </div>
         </div>
         <div class="row">
@@ -116,7 +117,7 @@
             <mat-form-field class="w-100" appearance="fill">
               <mat-label>Motivo</mat-label>
               <mat-select formControlName="reason">
-                <mat-option value="0">Superioridad técnica</mat-option>
+                <mat-option value="Motivo 2">Motivo 2</mat-option>
                 <mat-option value="1">Opcion 2</mat-option>
                 <mat-option value="2">Opcion 3</mat-option>
               </mat-select>

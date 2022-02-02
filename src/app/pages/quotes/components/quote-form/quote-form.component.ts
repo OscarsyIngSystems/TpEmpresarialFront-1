@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { DialogQuotesComponent } from 'src/app/pages/accounts/components/dialog-quotes/dialog-quotes.component';
+import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
   selector: 'app-quote-form',
@@ -30,23 +32,30 @@ export class QuoteFormComponent implements OnInit {
 
   isTryBuy: any;
   reasonVlue: any;
-  name = '“COT7808232”';
+  name!: string;
+  opportunityName!: string;
+  quoteTypeValue!: string;
+  dataPickerValue!: any;
   form: FormGroup;
   public isAdmin(): boolean {
     return false;
   }
   hld!: File;
   lastValue!: number;
+  statusQuote!: string;
   constructor(
+    public stServices: StorageService,
     public dialog: MatDialog,
     private _url: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private _router: Router,
+    private spinner: NgxSpinnerService
   ) {
     this.opportunityNumber = this._url.snapshot.paramMap.get('id');
     this.form = this.fb.group({
-      quoteName: ['Audi CDMX-COT', Validators.required],
-      eps: ['one', Validators.required],
-      dataPicker: [new Date(), Validators.required],
+      quoteName: ['', Validators.required],
+      eps: ['', Validators.required],
+      dataPicker: ['', Validators.required],
       isMain: [true],
       isMainQuotation: [true],
       reason: [],
@@ -57,6 +66,9 @@ export class QuoteFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadData();
+    console.log(this.isCreate);
+
     if (this.form.get('quoteTypeTry')?.value) {
       this.form.get('quoteType')?.disable();
       this.form.get('reason')?.enable();
@@ -104,5 +116,48 @@ export class QuoteFormComponent implements OnInit {
       this.form.get('reason')?.disable();
       this.form.get('quoteType')?.enable();
     }
+  }
+
+  private loadData(): void {
+    const quoteSelected = this.stServices.getObjetSelected;
+    if (this.isCreate == false) {
+      if (quoteSelected) {
+        this.fillInfoDetail(quoteSelected);
+      } else {
+        this._router.navigate(['/quotes']);
+      }
+      this.spinner.hide();
+    }
+  }
+
+  private fillInfoDetail(quote: any): void {
+    const opportunity = quote.opportunity;
+    this.opportunityName = opportunity.name;
+    this.statusQuote = quote.status;
+    this.name = quote.name;
+    if (quote.isRFP == true) {
+      this.quoteTypeValue = '1';
+    }
+    if (quote.isBidding == true) {
+      this.quoteTypeValue = '2';
+    }
+    if (opportunity.isTryAndBuy == true) {
+      this.quoteTypeValue = '3';
+    }
+
+    this.form.setValue({
+      quoteName: [quote.name],
+      eps: 'one',
+      dataPicker: quote.validity,
+      isMain: [quote.isMain],
+      isMainQuotation: [true],
+      reason: [opportunity.tryAndBuyReason],
+      quoteType: [this.quoteTypeValue],
+      quoteTypeTry: [opportunity.isTryAndBuy],
+    });
+
+    this.dataPickerValue = this.form.get('dataPicker')?.value;
+
+    console.log(this.form.get('dataPicker')?.value);
   }
 }
