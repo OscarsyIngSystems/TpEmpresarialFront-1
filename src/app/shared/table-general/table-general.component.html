@@ -910,9 +910,9 @@
       <td class="mat-cell ps-1">{{ account.quoteName }}</td>
       <td class="mat-cell ">{{ account.quoteSheet }}</td>
       <td class="mat-cell ">{{ account.oportunity }}</td>
-      <td class="mat-cell ">{{ account.monthlyTotal }}</td>
+      <td class="mat-cell ">{{ account.monthlyTotal |currency }}</td>
       <td class="mat-cell ">{{ account.validity }}</td>
-      <td class="mat-cell ">{{ account.loadHld }}</td>
+      <td class="mat-cell pr"> <mat-icon  >file_upload</mat-icon></td>
       <td class="mat-cell ">{{ account.overdue }}</td>
     </tr>
   </tbody>
