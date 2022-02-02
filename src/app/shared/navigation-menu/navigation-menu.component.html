@@ -1,46 +1,39 @@
-<div class="list-group mb-2" *ngIf="!show()">
-  <a
-    routerLink="/accounts"
-    routerLinkActive="active"
-    class="list-group-item"
-    [routerLinkActiveOptions]="{ exact: false }"
-    ><i class="far fa-calendar-times"></i> Cuentas</a
-  >
-
-  <a
-    [routerLink]="['/opportunities']"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: false }"
-    class="list-group-item"
-    ><i class="fas fa-tachometer-alt"></i> Oportunidades</a
-  >
-
-  <a
-    routerLink="/quotes"
-    routerLinkActive="active"
-    class="list-group-item"
-    [routerLinkActiveOptions]="{ exact: false }"
-    ><i class="fas fa-shopping-bag"></i> Cotizaciones</a
-  >
-  <!-- <a
-    routerLink="/sites-upload"
-    routerLinkActive="active"
-    class="list-group-item"
-    [routerLinkActiveOptions]="{ exact: false }"
-    ><i class="fas fa-stream"></i> Carga de sitios</a
-  > -->
-  <a
-    routerLink="#"
-    routerLinkActive="active"
-    class="list-group-item"
-    [routerLinkActiveOptions]="{ exact: false }"
-    ><i class="fas fa-chart-pie"></i> Propuesta</a
-  >
-  <a
-    routerLink="#"
-    routerLinkActive="active"
-    class="list-group-item"
-    [routerLinkActiveOptions]="{ exact: false }"
-    ><i class="fas fa-receipt"></i> Descuentos</a
-  >
+<div *ngIf="role === 1">
+  <div class="list-group mb-2" *ngIf="!show() ">
+    <a
+      routerLink="/accounts"
+      routerLinkActive="active"
+      class="list-group-item"
+      [routerLinkActiveOptions]="{ exact: false }"
+      ><i class="far fa-calendar-times"></i> Cuentas</a
+    >
+    <a
+      [routerLink]="['/opportunities']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: false }"
+      class="list-group-item"
+      ><i class="fas fa-tachometer-alt"></i> Oportunidades</a
+    >
+    <a
+      routerLink="/quotes"
+      routerLinkActive="active"
+      class="list-group-item"
+      [routerLinkActiveOptions]="{ exact: false }"
+      ><i class="fas fa-shopping-bag"></i> Cotizaciones</a
+    >
+    <a
+      routerLink="#"
+      routerLinkActive="active"
+      class="list-group-item"
+      [routerLinkActiveOptions]="{ exact: false }"
+      ><i class="fas fa-chart-pie"></i> Propuesta</a
+    >
+    <a
+      routerLink="#"
+      routerLinkActive="active"
+      class="list-group-item"
+      [routerLinkActiveOptions]="{ exact: false }"
+      ><i class="fas fa-receipt"></i> Descuentos</a
+    >
+  </div>
 </div>
