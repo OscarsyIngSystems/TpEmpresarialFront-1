@@ -918,11 +918,27 @@
   </tbody>
 </table>
 
-
-
-
-
-
-
-
-
+<table *ngIf="idTableShow == 20" id="history" datatable [dtOptions]="dtOptions" class="table-without-separator">
+  <thead>
+    <tr class="t-row">
+      <th *ngFor="let col of columns">
+        {{ col.columnName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="c-pointer t-row" *ngFor="let account of dataSource; let i = index">
+      <td class="mat-cell ps-1">{{ account.accountName }}</td>
+      <td class="mat-cell ">{{ account.opportunity }}</td>
+      <td class="mat-cell ">{{ account.quote }}</td>
+      <td class="mat-cell ">{{ account.invoice }}</td>
+      <td class="mat-cell ">{{ account.service }}</td>
+      <td class="mat-cell ">{{ account.accountBill }}</td>
+      <td class="mat-cell ">{{ account.installationAddress }}</td>
+      <td class="mat-cell ">{{ account.orderType }}</td>
+      <td class="mat-cell ">{{ account.status }}</td>
+      <td class="mat-cell ">{{ account.serviceOrder }}</td>
+      <td class="mat-cell ">{{ account.statusOS }}</td>
+    </tr>
+  </tbody>
+</table>

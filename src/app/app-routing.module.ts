@@ -52,6 +52,14 @@ const routes: Routes = [
         (m) => m.DashboardModule
       ),
   },
+  {
+    path:'instalations',
+    canActivateChild:[AuthGuard],
+    loadChildren:() =>
+    import('./pages/instalations/instalations.module').then(
+      (m)=> m.InstalationsModule
+    )
+  }
 ];
 
 @NgModule({

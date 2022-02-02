@@ -1,0 +1,13 @@
+@import "./../../../styles.scss";
+
+.back-button{
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%)!important;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

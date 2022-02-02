@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-between mt-4">
+    <div class="back-button ms-3"><mat-icon>chevron_left</mat-icon></div>
+    <span class="text-title text-bold">Instalaciones</span>
+    <div></div>
+</div>
+
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Por instalar">
+        <ng-template matTabContent>
+            <div class="table-wrapper p-3">
+            
+                <app-table-general [showHeaderTable]="true" [showHeaderTable]="false" [columns]="dataContacts.columnsShow"
+                    [dataSource]="dataContacts.dataSource" [idTableShow]="20"></app-table-general>
+            </div>
+        </ng-template>
+        
+           
+    </mat-tab>
+    <mat-tab label="En proceso">
+                    <ng-template matTabContent>
+                        <div class="table-wrapper p-3">
+                    
+                            <app-table-general [showHeaderTable]="true" [showHeaderTable]="false" [columns]="dataContacts.columnsShow"
+                                [dataSource]="dataContacts.dataSource" [idTableShow]="20"></app-table-general>
+                        </div>
+                    </ng-template>
+    </mat-tab>
+    <mat-tab label="Instaladas">
+                    <ng-template matTabContent>
+                        <div class="table-wrapper p-3">
+                    
+                            <app-table-general [showHeaderTable]="true" [showHeaderTable]="false" [columns]="dataContacts.columnsShow"
+                                [dataSource]="dataContacts.dataSource" [idTableShow]="20"></app-table-general>
+                        </div>
+                    </ng-template>
+    </mat-tab>
+</mat-tab-group>
