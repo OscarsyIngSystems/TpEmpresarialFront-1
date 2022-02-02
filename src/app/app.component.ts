@@ -58,6 +58,11 @@ export class AppComponent {
   }
 
   get hideNavigation():boolean{
-    return !['/dashboard','/instalations'].includes(this.router.url);
+    return ![
+      '/dashboard',
+      '/instalations/1',
+      '/instalations/2',
+      '/instalations/3',
+    ].includes(this.router.url);
   }
 }

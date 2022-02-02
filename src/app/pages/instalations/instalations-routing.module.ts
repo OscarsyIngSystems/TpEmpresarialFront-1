@@ -4,9 +4,9 @@ import { InstalationComponent} from './instalations.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: InstalationComponent,
-  },
+    path:':id',
+    component:InstalationComponent
+  }
 ];
 
 @NgModule({
