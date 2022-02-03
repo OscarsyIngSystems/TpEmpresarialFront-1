@@ -890,7 +890,7 @@
 
 <table
   *ngIf="idTableShow == 19"
-  id="history"
+  id="dataTable"
   datatable
   [dtOptions]="dtOptions"
   class="row-border general-table"
@@ -904,10 +904,10 @@
   </thead>
   <tbody>
     <tr
-      class="shadow-sm c-pointer t-row"
+    class="table-element-row shadow-sm t-row"
       *ngFor="let account of dataSource; let i = index"
     >
-      <td class="mat-cell ps-1">{{ account.quoteName }}</td>
+      <td class="mat-cell ps-1 ">{{ account.quoteName }}</td>
       <td class="mat-cell ">{{ account.quoteSheet }}</td>
       <td class="mat-cell ">{{ account.oportunity }}</td>
       <td class="mat-cell ">{{ account.monthlyTotal |currency }}</td>

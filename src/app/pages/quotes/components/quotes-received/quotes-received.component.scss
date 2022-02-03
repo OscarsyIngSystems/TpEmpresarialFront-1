@@ -1,4 +1,9 @@
 @import "../../../../../styles.scss";
 
+::ng-deep mat-tab-header {
+  border-bottom-color: transparent !important;
+}
+
+
 
 
