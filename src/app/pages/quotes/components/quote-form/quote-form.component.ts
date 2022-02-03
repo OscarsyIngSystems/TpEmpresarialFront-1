@@ -183,11 +183,11 @@ export class QuoteFormComponent implements OnInit {
         }
       }
     }
-
+    const date = quote.validity.split('/');
     this.form.patchValue({
       quoteName: [quote.name],
       eps: 'one',
-      dataPicker: quote.validity,
+      dataPicker: new Date(date[2], date[1] - 1, date[0]),
       isMain: [quote.isMain],
       isMainQuotation: [true],
     });

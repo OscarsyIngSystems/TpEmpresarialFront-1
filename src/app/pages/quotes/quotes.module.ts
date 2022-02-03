@@ -17,7 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadedSitesComponent } from './components/sites/loaded-sites/loaded-sites.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites/dialog-load-sites.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DeletedSitesComponent } from './components/deleted-sites/deleted-sites.component';
@@ -27,6 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 import { DialogSendSitesComponent } from './components/dialogs/dialog-send-sites/dialog-send-sites.component';
 import { QuotesReceivedComponent } from './components/quotes-received/quotes-received.component';
 import { ModelingSitesComponent } from './components/sites/modeling-sites/modeling-sites.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { ModelingSitesComponent } from './components/sites/modeling-sites/modeli
     DialogDeletedSitesComponent,
     DialogSendSitesComponent,
     QuotesReceivedComponent,
-    ModelingSitesComponent
+    ModelingSitesComponent,
   ],
   imports: [
     CommonModule,
@@ -58,7 +59,8 @@ import { ModelingSitesComponent } from './components/sites/modeling-sites/modeli
     MatCheckboxModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
   ],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
 })
 export class QuotesModule {}
