@@ -10,6 +10,7 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
 import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
+import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,7 +20,7 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 })
 export class DeletedSitesComponent implements OnInit {
   public contentLabels = 'quotes.';
-  // filterValue = '';
+  filterValue = '';
   dataSource = new MatTableDataSource();
   filteredData: any[] = [];
   originalData: any[] = [];
@@ -57,7 +58,7 @@ export class DeletedSitesComponent implements OnInit {
   selection = new SelectionModel(true, [...this.dataSource.data]);
   selectedItemsTable: any[] = [];
   disabled: boolean = true;
-  selectedLength: number = 0
+
   constructor(
     private service: QuotesService,
     private dlg: MatDialog,
@@ -130,6 +131,8 @@ export class DeletedSitesComponent implements OnInit {
   }
 
   isAllSelected() {
+    if (this.selection.selected.length > 0) this.disabled = false;
+    if (this.selection.selected.length == 0) this.disabled = true;
     this.selectedItemsTable = this.selection.selected;
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
@@ -140,14 +143,8 @@ export class DeletedSitesComponent implements OnInit {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1 }`;
-  }
-
-  checkDisabled(array:any[]) {
-    if (array.length > 0) this.disabled = false;
-    if (array.length == 0) this.disabled = true;
-    this.selectedLength = array.length
-    return array.length
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1
+      }`;
   }
 
   openDialog(): void {
@@ -155,12 +152,8 @@ export class DeletedSitesComponent implements OnInit {
       height: '300px',
       width: '400px',
       panelClass: 'custom-dd',
-      data: {'text': ' sitios agregados', 'length': this.selectedLength}
+      data: {'text': ' sitios agregados', 'length': this.selection.selected.length}
     });
-    // setTimeout(() => {
-      // this.router.navigate(['/quotes/loaded-sites'])
-    // }, 500);
-
-    // localStorage.removeItem('arraySelected')
+    this.router.navigate(['/quotes/loaded-sites'])
   }
 }

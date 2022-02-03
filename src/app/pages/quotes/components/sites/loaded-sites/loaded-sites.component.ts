@@ -10,6 +10,8 @@ import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEditLoadSitesComponent } from '../../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogLoadSitesComponent } from '../../dialogs/dialog-load-sites/dialog-load-sites.component';
+// import { DialogEditLoadSitesComponent } from '../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
+// import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
   selector: 'app-loaded-sites',
@@ -52,7 +54,7 @@ export class LoadedSitesComponent implements OnInit {
   selectedIdOption = 0;
   control: FormControl = new FormControl();
   arraySelected: any[] = [];
-  // disabled: boolean = false;
+  disabled: boolean = false;
 
   constructor(
     private service: QuotesService,
