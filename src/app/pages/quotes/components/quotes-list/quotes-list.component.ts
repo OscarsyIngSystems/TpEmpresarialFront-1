@@ -1,6 +1,5 @@
 import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { Component, OnInit } from '@angular/core';
-import { InfoDetail } from 'src/app/models/infoDetail';
 import { TableOptions } from 'src/app/models/tableOptions';
 import { NgxSpinnerService } from 'ngx-spinner';
 

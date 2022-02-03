@@ -13,7 +13,9 @@ export class NavigationMenuComponent implements OnInit {
     this.showHide();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getRole()
+  }
 
   getRole() {
     this.role = Number(localStorage.getItem('role'))
