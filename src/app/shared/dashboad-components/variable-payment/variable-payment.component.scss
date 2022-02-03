@@ -35,3 +35,27 @@
     color: #9bd3dd;
   }
 }
+
+
+.selection-date{
+  border-radius:5px;
+  border: 1px solid $color-placeholder;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+  mat-icon{
+    font-size:20px;
+    padding: 0 !important;
+    color: $color-placeholder;
+    height:auto;
+    width:auto;
+  }
+}
+
+.mat-menu-item:hover:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item-highlighted:not([disabled]) {
+    background: #3b4559;
+    color: white;
+}

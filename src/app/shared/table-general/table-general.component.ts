@@ -84,6 +84,7 @@ export class TableGeneralComponent implements OnInit {
   }
 
   goOpportunities(opportunity: any) {
+    this.storageService.setObjetSelected(opportunity);
     this.storageService.setDataName(opportunity.name);
     this.route.navigate(['/opportunities', opportunity.number]);
   }
@@ -168,7 +169,7 @@ export class TableGeneralComponent implements OnInit {
   ngAfterContentInit(): void {
     this.dtOptions = {
       dom: !this.showHeaderTable
-        ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
+        ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-2 pt-2' <h1>hola</h1> ><'col-6 pt-2'f>>" +
           "<'row'<'col-12'tr>>" +
           "<'row'<'col-12 d-flex justify-content-center'p>>"
         : '<"bottom"t <"d-flex justify-content-center" p>>',

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ChartComponentOptions } from 'src/app/models/ChartOptions';
 
@@ -9,10 +9,15 @@ import { ChartComponentOptions } from 'src/app/models/ChartOptions';
 })
 export class VariablePaymentComponent implements OnInit {
   public contentLabels = 'accounts.accounts-dashboard.';
+  @ViewChild('chart',{static: false}) chart :any;
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl(),
   });
+
+  today = new Date();
+  optionsDate=['Mes actual', 'Ultimos dos meses','Ultimos 3 meses'];
+  currentOption = this.optionsDate[0];
 
   public payments = [
     [
@@ -50,14 +55,61 @@ export class VariablePaymentComponent implements OnInit {
       },
     ],
   ];
-  public donutChartOptions: any;
+  //public donutChartOptions: any;
+  public chartOptions!: any;
   chartSeries = [160990, 56990];
 
   public colors = ['#9bd3dd', '#846b99'];
   labels = ['l', 'll', 'lll'];
 
   constructor() {
-    this.donutChartOptions = {
+    
+    this.chartOptions = {
+      legend: {
+        show: true,
+      },
+      series: [
+        {
+          name: 'Venta total',
+          data: [1000, 160000, 100000],
+          color: '#846b99',
+        },
+         {
+           name: 'Meta de venta',
+          data: [0,100000, 200000, 300000, 400000],
+          color: '#98D3DD',
+         },
+      ],
+      chart: {
+        toolbar: {
+          show: false,
+        },
+        height: 170,
+        type: 'line',
+        zoom: {
+          enabled: false,
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        curve: 'smooth',
+      },
+      grid: {
+        row: {
+          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+          opacity: 0.5,
+        },
+      },
+      xaxis: {
+        categories: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+      },
+      // yaxis: {
+      //   categories: ['1000', '100000', '0', '0'],
+      // },
+    };
+/*     this.donutChartOptions = {
       colors: this.colors,
       chart: {
         type: 'donut',
@@ -116,8 +168,74 @@ export class VariablePaymentComponent implements OnInit {
           },
         },
       },
-    };
+    }; */
   }
 
   ngOnInit(): void {}
+
+  changeOption(index:number){
+
+    this.currentOption=this.optionsDate[index]; 
+    let newSeries:Array<any> = [];
+    switch(index){
+      case 0:
+        newSeries = [
+          {
+            name: 'Venta total',
+            data: [1000, 160000, 100000],
+            color: '#846b99',
+          },
+          {
+            name: 'Meta de venta',
+            data: [0, 100000, 200000, 300000, 400000],
+            color: '#98D3DD',
+          },
+        ];
+        break;
+        case 1 :
+        newSeries = [
+          {
+            name: 'Diciembre',
+            data: [0, 1000, 160000, 100000, 300],
+            color: '#846b99',
+          },
+          {
+            name: 'Noviembre',
+            data: [0, 100, 180000, 100, 500],
+            color: '#FCC565',
+          },
+          {
+            name: 'Meta de venta',
+            data: [0, 100000, 200000, 300000, 400000],
+            color: '#98D3DD',
+          },
+        ];  
+        break;
+        case 2 :
+         newSeries = [
+           {
+             name: 'Diciembre',
+             data: [0,1000, 160000, 100000,300],
+             color: '#846b99',
+           },
+           {
+             name: 'Noviembre',
+             data: [0,100, 180000, 100,500],
+             color: '#FCC565',
+           },
+           {
+             name: 'Octubre',
+             data: [0,500, 280000, 9900,0],
+             color: '#DDDD9B',
+           },
+           {
+             name: 'Meta de venta',
+             data: [0, 100000, 200000, 300000, 400000],
+             color: '#98D3DD',
+           },
+         ];  
+        break;
+    }
+    this.chart.updateSeries(newSeries);
+  }
 }

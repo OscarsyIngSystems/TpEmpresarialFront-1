@@ -1,4 +1,3 @@
-import { DashboardComponent } from './pages/accounts/components/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
@@ -47,9 +46,20 @@ const routes: Routes = [
 
   {
     path: 'dashboard',
-    canActivate: [AuthGuard],
-    component: DashboardComponent,
+    canActivateChild: [AuthGuard],
+    loadChildren: () =>
+      import('./pages/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
   },
+  {
+    path:'instalations',
+    canActivateChild:[AuthGuard],
+    loadChildren:() =>
+    import('./pages/instalations/instalations.module').then(
+      (m)=> m.InstalationsModule
+    )
+  }
 ];
 
 @NgModule({

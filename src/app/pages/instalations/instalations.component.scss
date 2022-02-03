@@ -1,0 +1,35 @@
+@import "./../../../styles.scss";
+
+.back-button{
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%)!important;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-wrapper {
+
+   ::ng-deep .mat-tab-labels{
+        border-bottom: 1px solid gray !important;
+    }
+
+    ::ng-deep .mat-tab-label.mat-tab-label-active{
+        box-shadow: none !important;
+        background-color: transparent !important;
+    }
+
+    ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar{
+        background-color: $color-secondary !important;
+    }
+
+     ::ng-deep .mat-tab-header {
+    border-bottom: none;
+    align-self: center;
+}
+
+
+}

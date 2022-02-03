@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ChartComponent } from 'ng-apexcharts';
 
 @Component({
@@ -35,7 +36,7 @@ export class InstallationsComponent implements OnInit {
     console.log(this.totalFinal);
   }
 
-  constructor() {
+  constructor(private router:Router) {
     this.chartOptions = {
       //series: [4, 3, 1], //se comenta porque utilizo chartSeries para dar valores diferentes a cada chart
       colors: this.colors,
@@ -151,5 +152,8 @@ export class InstallationsComponent implements OnInit {
     this.totalSum();
   }
 
+  goInstallations(route:string){
+    this.router.navigate([route])
+  }
   ngOnInit(): void {}
 }

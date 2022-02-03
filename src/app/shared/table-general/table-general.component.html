@@ -53,8 +53,8 @@
       <td class="mat-cell">{{ opportunity.accountName }}</td>
       <td class="mat-cell">{{ opportunity.stage }}</td>
       <td class="mat-cell">{{ opportunity.amount }}</td>
-      <td class="mat-cell">{{ opportunity.created }}</td>
-      <td class="mat-cell">{{ opportunity.validity }}</td>
+      <td class="mat-cell">{{ opportunity.createdDate }}</td>
+      <td class="mat-cell">{{ opportunity.closeDate }}</td>
     </tr>
   </tbody>
 </table>
@@ -897,7 +897,7 @@
 >
   <thead>
     <tr class="t-row">
-      <th class="text-center" *ngFor="let col of columns">
+      <th *ngFor="let col of columns">
         {{ col.columnName | translate }}
       </th>
     </tr>
@@ -907,20 +907,38 @@
       class="shadow-sm c-pointer t-row"
       *ngFor="let account of dataSource; let i = index"
     >
-      <td class="mat-cell text-center">{{ account.quoteName }}</td>
-      <td class="mat-cell text-center">{{ account.quoteSheet }}</td>
-      <td class="mat-cell text-center">{{ account.oportunity }}</td>
-      <td class="mat-cell text-center">{{ account.monthlyTotal }}</td>
-      <td class="mat-cell text-center">{{ account.validity }}</td>
-      <td class="mat-cell text-center">{{ account.loadHld }}</td>
-      <td class="mat-cell text-center">{{ account.overdue }}</td>
+      <td class="mat-cell ps-1">{{ account.quoteName }}</td>
+      <td class="mat-cell ">{{ account.quoteSheet }}</td>
+      <td class="mat-cell ">{{ account.oportunity }}</td>
+      <td class="mat-cell ">{{ account.monthlyTotal |currency }}</td>
+      <td class="mat-cell ">{{ account.validity }}</td>
+      <td class="mat-cell pr"> <mat-icon  >file_upload</mat-icon></td>
+      <td class="mat-cell ">{{ account.overdue }}</td>
     </tr>
   </tbody>
 </table>
 
-
-
-
-
-
-
+<table *ngIf="idTableShow == 20" id="history" datatable [dtOptions]="dtOptions" class="table-without-separator">
+  <thead>
+    <tr class="t-row">
+      <th *ngFor="let col of columns">
+        {{ col.columnName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="c-pointer t-row" *ngFor="let account of dataSource; let i = index">
+      <td class="mat-cell ps-1">{{ account.accountName }}</td>
+      <td class="mat-cell ">{{ account.opportunity }}</td>
+      <td class="mat-cell ">{{ account.quote }}</td>
+      <td class="mat-cell ">{{ account.invoice }}</td>
+      <td class="mat-cell ">{{ account.service }}</td>
+      <td class="mat-cell ">{{ account.accountBill }}</td>
+      <td class="mat-cell ">{{ account.installationAddress }}</td>
+      <td class="mat-cell ">{{ account.orderType }}</td>
+      <td class="mat-cell ">{{ account.status }}</td>
+      <td class="mat-cell ">{{ account.serviceOrder }}</td>
+      <td class="mat-cell ">{{ account.statusOS }}</td>
+    </tr>
+  </tbody>
+</table>

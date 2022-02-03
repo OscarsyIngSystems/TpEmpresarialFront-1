@@ -616,4 +616,21 @@ input::-webkit-inner-spin-button {
   color: $color-secondary;
 }
 
+//#region quotes-received
+::ng-deep .mat-tab-label #tabs  {
+  background-color: transparent;
+  font-weight: 700;
+}
+
+::ng-deep .mat-tab-label.mat-tab-label-active #tabs  {
+  background-color: $color-body;
+  font-weight: 700;
+  border-radius: 5px;
+  box-shadow: 2px 0px 28px -12px rgba(133, 133, 133, 0.75) !important;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar #tabs  {
+  background-color: $color-primary !important;
+}
+//#end region quotes-received
 

@@ -8,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationMenuComponent implements OnInit {
   currentUrl = '';
+  role: number = 0;
   constructor(private router: Router) {
     this.showHide();
   }
 
   ngOnInit(): void {}
+
+  getRole() {
+    this.role = Number(localStorage.getItem('role'))
+  }
 
   public show(): boolean {
     const blacklist = ['/login', '/'];

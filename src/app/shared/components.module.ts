@@ -50,6 +50,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { InputSpinnerComponent } from './input-spinner/input-spinner.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { TitleBuildingBlocksComponent } from './title-building-blocks/title-building-blocks/title-building-blocks.component';
+import { OportunitiesComponent } from './dashboad-components/oportunities/oportunities.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { TitleBuildingBlocksComponent } from './title-building-blocks/title-buil
     ContactsSearchComponent,
     InputSpinnerComponent,
     TitleBuildingBlocksComponent,
+    OportunitiesComponent,
   ],
   exports: [
     ChartsModule,
@@ -120,6 +122,7 @@ import { TitleBuildingBlocksComponent } from './title-building-blocks/title-buil
     ContactsSearchComponent,
     MatStepperModule,
     TitleBuildingBlocksComponent,
+    OportunitiesComponent,
   ],
   imports: [
     ChartsModule,
