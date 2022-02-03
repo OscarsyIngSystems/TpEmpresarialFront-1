@@ -60,14 +60,13 @@ export class QuoteFormComponent implements OnInit {
       isMainQuotation: [true],
       reason: [],
       quoteType: ['3'],
-      quoteTypeTry: [false],
+      quoteTypeTry: false,
     });
     this.lastValue = this.form.get('quoteType')?.value;
   }
 
   ngOnInit(): void {
     this.loadData();
-    console.log(this.isCreate);
 
     if (this.form.get('quoteTypeTry')?.value) {
       this.form.get('quoteType')?.disable();
@@ -105,7 +104,7 @@ export class QuoteFormComponent implements OnInit {
     }
   }
 
-  onChangeTry(event: any) {
+  onChangeTry() {
     this.form.get('quoteType')?.setValue(3);
 
     if (this.form.get('quoteTypeTry')?.value) {
@@ -120,7 +119,7 @@ export class QuoteFormComponent implements OnInit {
 
   private loadData(): void {
     const quoteSelected = this.stServices.getObjetSelected;
-    if (this.isCreate == false) {
+    if (this.isCreate === false) {
       if (quoteSelected) {
         this.fillInfoDetail(quoteSelected);
       } else {
@@ -135,29 +134,64 @@ export class QuoteFormComponent implements OnInit {
     this.opportunityName = opportunity.name;
     this.statusQuote = quote.status;
     this.name = quote.name;
-    if (quote.isRFP == true) {
-      this.quoteTypeValue = '1';
-    }
-    if (quote.isBidding == true) {
-      this.quoteTypeValue = '2';
-    }
-    if (opportunity.isTryAndBuy == true) {
-      this.quoteTypeValue = '3';
+
+    if (quote.isRFP === true) {
+      this.form.enable();
+      this.form.get('quoteType')?.setValue('1');
+
+      if (this.isCreate === false) {
+        if (this.form.get('quoteType')?.value === '1') {
+          this.form.get('quoteTypeTry')?.setValue(false);
+          this.form.get('reason')?.setValue('');
+          this.form.get('reason')?.disable();
+        }
+      }
     }
 
-    this.form.setValue({
+    if (quote.isBidding === true) {
+      this.form.enable();
+      this.form.get('quoteType')?.setValue('2');
+
+      if (this.isCreate === false) {
+        if (this.form.get('quoteType')?.value === '2') {
+          this.form.get('quoteTypeTry')?.setValue(false);
+          this.form.get('reason')?.setValue('');
+          this.form.get('reason')?.disable();
+        }
+      }
+    }
+    if (opportunity.isTryAndBuy === true) {
+      this.form.get('quoteType')?.setValue('3');
+      if (this.isCreate === false) {
+        if (this.form.get('quoteType')?.value === '3') {
+          this.form.enable();
+          this.form.get('quoteTypeTry')?.setValue(true);
+          this.form.get('reason')?.enable();
+          this.form.get('reason')?.setValue(opportunity.tryAndBuyReason);
+          this.form.get('quoteType')?.disable();
+        }
+      }
+    } else {
+      if (this.isCreate === false) {
+        if (this.form.get('quoteType')?.value !== '3') {
+          this.form.enable();
+          this.form.get('quoteTypeTry')?.setValue(false);
+          this.form.get('reason')?.setValue('');
+
+          this.form.get('reason')?.disable();
+          this.form.get('quoteType')?.enable();
+        }
+      }
+    }
+
+    this.form.patchValue({
       quoteName: [quote.name],
       eps: 'one',
       dataPicker: quote.validity,
       isMain: [quote.isMain],
       isMainQuotation: [true],
-      reason: [opportunity.tryAndBuyReason],
-      quoteType: [this.quoteTypeValue],
-      quoteTypeTry: [opportunity.isTryAndBuy],
     });
 
     this.dataPickerValue = this.form.get('dataPicker')?.value;
-
-    console.log(this.form.get('dataPicker')?.value);
   }
 }

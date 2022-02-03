@@ -46,11 +46,11 @@ export class QuotesDetailComponent implements OnInit {
     this.infoDetail = [
       {
         name: 'Nombre de la cuenta',
-        value: quote.name, //'Audi CDMX-COT',
+        value: opportunity.accountName, //'Audi CDMX-COT',
       },
       {
         name: 'Número de oportunidad',
-        value: opportunity.id, //'678676',
+        value: opportunity.number, //'678676',
       },
       {
         name: 'Etapa oportunidad',
