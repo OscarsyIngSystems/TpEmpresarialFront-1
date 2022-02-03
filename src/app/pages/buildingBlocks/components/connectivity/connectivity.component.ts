@@ -16,7 +16,7 @@ export class ConnectivityComponent implements OnInit {
   isValid: boolean = false;
   isValidSelected: boolean = false;
   control: FormControl = new FormControl();
-  columns: string[] = ['check', 'site'];
+  columns: string[] = ['check', 'site','subtype'];
   filters: string[] = [];
   filteredData: any[] = [];
   originalData: any[] = [];
@@ -24,6 +24,8 @@ export class ConnectivityComponent implements OnInit {
   dataSource = [
     {
       site: 'Audi Polanco',
+      type:'Fibra',
+      subtype:'Metro'
     },
     {
       site: 'Audi Santa Fe',
