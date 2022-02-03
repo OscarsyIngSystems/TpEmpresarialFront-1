@@ -19,7 +19,6 @@ import { LoadedSitesComponent } from './components/sites/loaded-sites/loaded-sit
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DialogLoadSitesComponent } from './components/dialogs/dialog-load-sites/dialog-load-sites.component';
 import { MatDialogModule } from '@angular/material/dialog';
-// import { TableLoadedSitesComponent } from './components/table-loaded-sites/table-loaded-sites.component';
 import { DeletedSitesComponent } from './components/deleted-sites/deleted-sites.component';
 import { DialogEditLoadSitesComponent } from './components/dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogDeletedSitesComponent } from './components/dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
