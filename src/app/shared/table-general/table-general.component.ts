@@ -6,6 +6,7 @@ import {
   Output,
   ViewChild,
   ChangeDetectionStrategy,
+  AfterContentInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Account } from 'src/app/models/account';
@@ -18,6 +19,7 @@ import { DialogDeletedSitesComponent } from './../../pages/quotes/components/dia
 import { DialogTaskComponent } from './../../pages/accounts/components/dialog-task/dialog-task.component';
 import { MatDialog } from '@angular/material/dialog';
 import { SelectionModel } from '@angular/cdk/collections';
+import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,9 +27,9 @@ import { SelectionModel } from '@angular/cdk/collections';
   templateUrl: './table-general.component.html',
   styleUrls: ['./table-general.component.scss'],
 })
-export class TableGeneralComponent implements OnInit {
+export class TableGeneralComponent implements OnInit, AfterContentInit {
   @Input() columns: any[] = [];
-  @Input() dataSource: any[] = [];
+  @Input() dataSource: any = [];
   @Input() idTableShow: number = 0; //indicador de que tabla se muestra
   @Input() showHeaderTable!: boolean;
   @Input() dataSourceLoadedSites = new MatTableDataSource();
@@ -36,7 +38,7 @@ export class TableGeneralComponent implements OnInit {
   @ViewChild('dataTable') dataTable: any;
   @Output() emitter = new EventEmitter<any>();
 
-  selection = new SelectionModel(true, [...this.dataSourceLoadedSites.data]);
+  selection: any;
   dtOptions: DataTables.Settings = {};
   columns2: string[] = ['check', 'site', 'coverage', 'accessMedia', 'edit'];
   expandedElement!: Account | null;
@@ -44,6 +46,7 @@ export class TableGeneralComponent implements OnInit {
   selectedItemsTable: any[] = [];
   lengthMenu = [10, 20, 30];
   disabled: boolean = true;
+  public allSelectedLoadedSitesModel: any = [];
 
   @Input()
   get dataFile(): any[] {
@@ -56,10 +59,25 @@ export class TableGeneralComponent implements OnInit {
   constructor(
     private route: Router,
     private storageService: StorageService,
+    private sharedService: SharedService,
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.dataSource);
+    switchSelection();
+  }
+
+  switchSelection(){
+    switch(){
+      case 1:
+      this.selection = new SelectionModel(true, [...this.dataSourceLoadedSites.data]);
+        break;
+
+        default:
+          break;
+    }
+  }
 
   goAccountDetail(account: Account): void {
     this.storageService.setDataName(account.accountName);
@@ -191,5 +209,65 @@ export class TableGeneralComponent implements OnInit {
       },
       lengthMenu: this.lengthMenu,
     };
+    this.initModelingSitesMasterToggle();
+  }
+
+  // table loaded sites
+  private initModelingSitesMasterToggle(): void {
+    console.log(this.dataSource);
+    if (!this.sharedService.isNullOrUndefined(this.dataSource)) {
+      this.dataSource.forEach((item: any) => {
+        this.allSelectedLoadedSitesModel.push({
+          data: item,
+          selected: false,
+        });
+      });
+      console.log(this.allSelectedLoadedSitesModel);
+    }
+  }
+
+  // get allSelectedLoadedSitesModeling(): boolean {
+  //   return this.allSelectedLoadedSitesModel.every((item: any) => item.selected);
+  // }
+
+  // masterToggleLoadedSitesModeling(): void {
+  //   this.allSelectedLoadedSitesModel
+  //     ? this.allSelectedLoadedSitesModel.forEach(
+  //         (item: any) => (item.selected = false)
+  //       )
+  //     : this.allSelectedLoadedSitesModel.forEach(
+  //         (item: any) => (item.selected = true)
+  //       );
+  // }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggleJ() {
+    if (this.isAllSelectedJ()) {
+      this.selection.clear();
+      return;
+    }
+
+    this.selection.select(...this.dataSource.data);
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabelJ(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
+      row.position + 1
+    }`;
+  }
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelectedJ() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  setSelection(data:any[]): void {
+    this.selection = new SelectionModel(true, [...data]);
   }
 }
