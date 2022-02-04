@@ -1,0 +1,26 @@
+@import "../../../../../styles.scss";
+
+.deadline {
+  width: 60px;
+  height: 29px;
+  border: none;
+  border-radius: 5px;
+}
+
+.text-title {
+  font-size: 14px;
+  color: $color-secondary;
+}
+
+.another {
+  width: 70px;
+  height: 25px;
+  border-color: #d0d0ce;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  color: $color-white;
+}

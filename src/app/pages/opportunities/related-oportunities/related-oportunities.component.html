@@ -3,9 +3,20 @@
 </app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 
-<h1 class="text-bold">Cotizaciones de la oportunidad</h1>
 
-<app-table-general [showHeaderTable]="true" [columns]="columnsShow" [dataSource]="dataSource" [idTableShow]="4">
+<div class="d-flex justify-content-between align-items-center">
+  <h1 class="text-bold mt-1">Cotizaciones de la oportunidad</h1>
+  <div>
+    <select class="order-by small-shadow" name="" placeholder="Ordenar por">
+      <option value="0" selected="true" disabled>Ordenar por</option>
+      <option value="1">Recientes</option>
+      <option value="2">Ultimos 7 dias</option>
+      <option value="3">Ultimo mes</option>
+    </select>
+  </div>
+
+</div>
+<app-table-general [showHeaderTable]="false" [columns]="columnsShow" [dataSource]="dataSource" [idTableShow]="4">
 </app-table-general>
 
 <mat-tab-group>

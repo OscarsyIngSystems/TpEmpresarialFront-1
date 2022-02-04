@@ -72,18 +72,27 @@ export class TableGeneralComponent implements OnInit {
   }
 
   goQuotesDetail(quote: any): void {
-    this.storageService.setDataName(quote.quoteName);
-    this.route.navigate(['/quotes', quote.numberList]);
+    console.log(quote);
+
+    this.storageService.setDataName(quote.name);
+    this.storageService.setObjetSelected(quote);
+    this.route.navigate(['/quotes', quote.id]);
   }
 
   handdleFile(file: File) {
     this.fileEmitter.emit(file);
   }
 
+  goOpportunities(opportunity: any) {
+    this.storageService.setObjetSelected(opportunity);
+    this.storageService.setDataName(opportunity.name);
+    this.route.navigate(['/opportunities', opportunity.number]);
+  }
+
   isAllSelected() {
     if (this.selection.selected.length > 0) this.disabled = false;
     if (this.selection.selected.length == 0) this.disabled = true;
-    this.emitter.emit(this.selection.selected)
+    this.emitter.emit(this.selection.selected);
     this.selectedItemsTable = this.selection.selected;
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSourceLoadedSites.data.length;
@@ -135,7 +144,10 @@ export class TableGeneralComponent implements OnInit {
       height: '35%',
       width: '30%',
       panelClass: 'container-cc',
-      data: {'length': this.selectedItemsTable.length, 'text': 'Sitios eliminados correctamente'},
+      data: {
+        length: this.selectedItemsTable.length,
+        text: 'Sitios eliminados correctamente',
+      },
     });
     dlgRef.afterClosed().subscribe((res) => {
       const u = localStorage.getItem('arraySelected');
@@ -143,6 +155,7 @@ export class TableGeneralComponent implements OnInit {
       this.selectedItemsTable.forEach((element) => {
         arraySelected.push(element);
       });
+      console.log('arraySele', arraySelected)
       localStorage.setItem('arraySelected', JSON.stringify(arraySelected));
       this.emitter.emit(arraySelected);
     });
@@ -157,14 +170,15 @@ export class TableGeneralComponent implements OnInit {
   ngAfterContentInit(): void {
     this.dtOptions = {
       dom: !this.showHeaderTable
-        ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-8 pt-2'f>>" +
+        ? "<'row'<'col-2'i><'col-2 pt-2'l><'col-6 pt-2'f>>" +
           "<'row'<'col-12'tr>>" +
           "<'row'<'col-12 d-flex justify-content-center'p>>"
         : '<"bottom"t <"d-flex justify-content-center" p>>',
       pagingType: 'full_numbers',
       language: {
         lengthMenu: 'Mostrar _MENU_',
-        search: 'Buscar',
+        search: '',
+        searchPlaceholder: 'Buscar',
         paginate: {
           first: '',
           last: '',

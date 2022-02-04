@@ -91,6 +91,7 @@
   background-color: transparent !important;
   border-collapse: separate!important;
   border-spacing:0 4px!important;
+  border-bottom-color: yellow;
 }
 
 
@@ -137,6 +138,10 @@
 .btn-trash {
   background-color: $color-primary;
   font-size: 0px !important;
+}
+
+.borders {
+  border-bottom-color: transparent !important;
 }
 // endregion loaded sites
 
@@ -200,3 +205,32 @@
 
 
 // endregion quotes received
+.mat-raised-button{
+  padding: 0 !important;
+  min-width: 30px !important;
+}
+
+.over-cost{
+  width:30px;
+  height:24px;
+}
+
+.left{
+  border: 1px solid $color-placeholder;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.right{
+  border: 1px solid $color-placeholder;
+  border-left: none;
+  border-top-right-radius:5px;
+  border-bottom-right-radius: 5px;
+}
+
+.discont{
+  border: 1px solid $color-placeholder;
+  border-radius: 5px;
+  width:60px;
+}
+

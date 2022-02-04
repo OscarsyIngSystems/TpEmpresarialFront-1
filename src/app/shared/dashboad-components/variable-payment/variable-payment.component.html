@@ -6,30 +6,33 @@
       }}</span>
     </div>
     <div class="col-4 d-flex justify-content-end">
-      <span class="tx-14 text-bold"> Diciembre 2022 </span>
+      <div class="selection-date" [matMenuTriggerFor]="options">
+        {{currentOption}}
+        <mat-icon class="ms-1">calendar_today</mat-icon>
+      </div>
+      <mat-menu #options="matMenu">
+        <button mat-menu-item (click)="changeOption(i)" *ngFor="let option of optionsDate let i= index">{{option}}</button>
+
+      </mat-menu>
     </div>
   </div>
 
   <div class="row h-100">
-    <div class="col-4 d-flex flex-column justify-content-center">
-      <span class="ms-3">Venta real</span>
-      <ul class="total-sales">
-        <li><h3 class="text-bold">$56,990</h3></li>
-      </ul>
-    </div>
-    <div class="col-4 d-flex flex-column justify-content-center">
-      <span class="ms-3">Meta del mes</span>
-      <ul class="goal-sales">
-        <li><h3 class="text-bold">$160,990</h3></li>
-      </ul>
-    </div>
-    <div class="col-4 g-0">
-      <span class="tx-12 ms-3">Porcentaje cumplido</span>
+    <div class="col-8 g-0">
+      <apx-chart #chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [xaxis]="chartOptions.xaxis"
+      [dataLabels]="chartOptions.dataLabels"
+      [grid]="chartOptions.grid"
+      [stroke]="chartOptions.stroke"
+      [title]="chartOptions.title"
+    ></apx-chart>
       <!-- <app-chart
         *ngIf="chartCircular"
         [graphOptions]="chartCircular"
       ></app-chart> -->
-      <apx-chart
+<!--       <apx-chart
         [series]="chartSeries"
         [chart]="donutChartOptions.chart"
         [labels]="donutChartOptions.labels"
@@ -38,11 +41,30 @@
         [plotOptions]="donutChartOptions.plotOptions"
         [legend]="donutChartOptions.legend"
         [colors]="donutChartOptions.colors"
-      ></apx-chart>
-      <button mat-button class="text-bold warn-btn px-0">
+      ></apx-chart> -->
+
+    </div>
+
+    <div class="col-4">
+      <div class=" d-flex flex-column justify-content-center">
+        <span class="ms-3">Venta real</span>
+        <ul class="total-sales">
+          <li><h3 class="text-bold">$56,990</h3></li>
+        </ul>
+      </div>
+      <div class=" d-flex flex-column justify-content-center">
+        <span class="ms-3">Meta del mes</span>
+        <ul class="goal-sales">
+          <li><h3 class="text-bold">$160,990</h3></li>
+        </ul>
+      </div> 
+      <div class="d-flex justify-content-end">
+              <button mat-button class="text-bold warn-btn px-0">
         {{ contentLabels + "clarity-portal" | translate }}
         <mat-icon>chevron_right</mat-icon>
       </button>
+      </div>
+
     </div>
   </div>
 </mat-card>

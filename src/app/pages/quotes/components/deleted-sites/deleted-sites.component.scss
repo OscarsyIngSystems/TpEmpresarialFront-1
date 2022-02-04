@@ -275,6 +275,10 @@ img {
 }
 
 // table
+table {
+  width: 100%;
+}
+
 .mat-header-cell {
   color: black;
   background: #f7fafc;
@@ -323,3 +327,9 @@ img {
 .bolder {
   font-weight: 500 !important;
 }
+
+.borders {
+  border-bottom-color: transparent !important;
+}
+
+

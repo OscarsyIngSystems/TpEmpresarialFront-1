@@ -1,4 +1,3 @@
-import { DashboardComponent } from './pages/accounts/components/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
@@ -36,11 +35,22 @@ const routes: Routes = [
         (m) => m.OpportunitiesModule
       ),
   },
+  {
+    path: 'buildingBlocks',
+    canActivateChild: [AuthGuard],
+    loadChildren: () =>
+      import('./pages/buildingBlocks/building-blocks.module').then(
+        (m) => m.BuildingBlocksModule
+      ),
+  },
 
   {
     path: 'dashboard',
-    canActivate: [AuthGuard],
-    component: DashboardComponent,
+    canActivateChild: [AuthGuard],
+    loadChildren: () =>
+      import('./pages/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
   },
 ];
 

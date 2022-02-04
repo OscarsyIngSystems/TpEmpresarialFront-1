@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { Component, OnInit } from '@angular/core';
 import { InfoDetail } from 'src/app/models/infoDetail';
@@ -18,9 +18,9 @@ export class QuotesDetailComponent implements OnInit {
     private _url: ActivatedRoute,
     private _service: QuotesService,
     public stServices: StorageService,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private _router: Router
   ) {
-    stServices.setDataName('Audi CDMX-COT');
     this.accountId = Number(
       this._url.snapshot.paramMap.get('id') !== null
         ? this._url.snapshot.paramMap.get('id')
@@ -34,21 +34,16 @@ export class QuotesDetailComponent implements OnInit {
   }
 
   private loadData(): void {
-    this._service.getQuoteDetail(this.accountId).subscribe(
-      (response) => {
-        console.log(response);
-        this.fillInfoDetail(response[0]);
-        this.spinner.hide();
-      },
-      (error) => {
-        console.error(error);
-        this.spinner.hide();
-      }
-    );
+    const quoteSelected = this.stServices.getObjetSelected;
+    if (quoteSelected) {
+      this.fillInfoDetail(quoteSelected);
+    } else {
+      this._router.navigate(['/quotes']);
+    }
+    this.spinner.hide();
   }
 
   private fillInfoDetail(quote: any): void {
-    console.log(quote);
     const opportunity = quote.opportunity;
     this.infoDetail = [
       {

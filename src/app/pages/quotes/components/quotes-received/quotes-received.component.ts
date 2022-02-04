@@ -1,6 +1,6 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { QuotesService } from './../../../../services/quotes/quotes.service';
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-quotes-received',
@@ -41,16 +41,24 @@ export class QuotesReceivedComponent implements OnInit {
       columnName: this.contentLabels + 'colum7',
     },
   ];
-  constructor(private service: QuotesService) { }
+  constructor(private service: QuotesService,private spinner:NgxSpinnerService) {
+
+  }
 
   ngOnInit(): void {
     this.getQuotes()
   }
 
+  onShow() {
+    this.spinner.show()
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 500);
+  }
+
   getQuotes(): void {
     this.service.getQuotesReceived().subscribe((data) => {
       this.dataSource = data;
-      console.log(this.dataSource);
     });
   }
 

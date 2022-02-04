@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { Oportunity } from 'src/app/models/Oportunity';
 import { OpportunitiesService } from 'src/app/services/opportunities/opportunities.service';
+import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
   selector: 'app-oportunities-detail',
@@ -21,22 +22,12 @@ export class OportunitiesDetailComponent implements OnInit {
    
   ];
 
-  oportunity: Oportunity = {
-    accountName: 'Audi CDMX',
-    amount: '$200',
-    badge: 'MXN - Peso Mexicano',
-    closeDate: new Date(),
-    description: 'Esto es una descripción',
-    executive: 'Nombre del ejecutivo',
-    oportunityName: 'Audi CDMX Op',
-    probability: '10%',
-    oportunityOrigin: 'one',
-    reason: '',
-    stage: '0',
-    trybuy: false,
-    whoIntegrated: 'one',
-  };
-  constructor(private _url: ActivatedRoute,private opService:OpportunitiesService,private spinner:NgxSpinnerService) {
+  oportunity!: Oportunity;
+  constructor(
+    private _url: ActivatedRoute,
+    private router:Router,
+    private spinner:NgxSpinnerService,
+    private stService:StorageService) {
     this.opportunityNumber = this._url.snapshot.paramMap.get('id');
   }
 
@@ -55,11 +46,10 @@ export class OportunitiesDetailComponent implements OnInit {
   }
 
   getDetail():void{
-    const id:string = this.opportunityNumber ? this.opportunityNumber : '0';
-    this.opService.getOpportunitiesDetail(id)
-    .subscribe(response=>{
-      const detail = response[0];
-      this.infoDetail = [
+
+      const detail:any = this.stService.getObjetSelected;
+      if(detail){
+              this.infoDetail = [
         {
           name: 'Nombre de la cuenta',
           value: detail.accountName,
@@ -86,13 +76,35 @@ export class OportunitiesDetailComponent implements OnInit {
         },
         {
           name: 'Propietario de la cuenta',
-          value: detail.owner,
+          value: detail.executive,
         },
       ];
+
+      const date = detail.closeDate.split('/')
+      
+      this.oportunity = {
+        accountName: 'Audi CDMX',
+        amount: `$${detail.amount}`,
+        badge: 'MXN - Peso Mexicano',
+        closeDate: new Date(date[2], date[1] - 1, date[0]),
+        description: detail.description,
+        executive: detail.executive,
+        oportunityName: detail.name,
+        probability: detail.probability + '%',
+        oportunityOrigin: 'one',
+        reason: detail.tryAndBuyReason,
+        stage: '0',
+        trybuy: detail.isTryAndBuy == 'true',
+        whoIntegrated: 'one',
+        isMixedSale: detail.isMixedSale,
+        isParter: detail.isParter,
+      };
+      }
+      else{
+        this.router.navigate(['/opportunities'])
+      }
+
       this.spinner.hide();
-    },
-    err=>{
-      this.spinner.hide();
-    })
+   
   }
 }
