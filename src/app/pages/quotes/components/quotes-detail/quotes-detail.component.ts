@@ -1,5 +1,4 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { Component, OnInit } from '@angular/core';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { StorageService } from '../../../../services/shared/storage.service';
@@ -16,7 +15,6 @@ export class QuotesDetailComponent implements OnInit {
 
   constructor(
     private _url: ActivatedRoute,
-    private _service: QuotesService,
     public stServices: StorageService,
     private spinner: NgxSpinnerService,
     private _router: Router
@@ -48,11 +46,11 @@ export class QuotesDetailComponent implements OnInit {
     this.infoDetail = [
       {
         name: 'Nombre de la cuenta',
-        value: quote.name, //'Audi CDMX-COT',
+        value: opportunity.accountName, //'Audi CDMX-COT',
       },
       {
         name: 'Número de oportunidad',
-        value: opportunity.id, //'678676',
+        value: opportunity.number, //'678676',
       },
       {
         name: 'Etapa oportunidad',

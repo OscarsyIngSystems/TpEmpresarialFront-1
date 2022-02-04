@@ -841,13 +841,27 @@
     <th mat-header-cell *matHeaderCellDef></th>
     <td
       [style.background-color]="element.color"
-      class="numberList"
+      class="numberList "
       mat-cell
       *matCellDef="let element"
     >
-      {{ element.site }}
+    <div class="d-flex flex-row align-items-center">
+         <div class="mx-2 type-indicator"></div>
+    <span>{{ element.site }}</span>
+
+    </div>
+
     </td>
   </ng-container>
+
+    <ng-container matColumnDef="subtype">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td [style.background-color]="element.color" class="numberList" mat-cell *matCellDef="let element">
+        {{ element.subtype }}
+      </td>
+    </ng-container>
+
+
 
   <tr mat-header-row *matHeaderRowDef="columns"></tr>
   <tr mat-row *matRowDef="let row; columns: columns"></tr>
@@ -915,7 +929,7 @@
 
 <table
   *ngIf="idTableShow == 19"
-  id="history"
+  id="dataTable"
   datatable
   [dtOptions]="dtOptions"
   class="row-border general-table"
@@ -929,16 +943,41 @@
   </thead>
   <tbody>
     <tr
-      class="shadow-sm c-pointer t-row"
+    class="table-element-row shadow-sm t-row"
       *ngFor="let account of dataSource; let i = index"
     >
-      <td class="mat-cell text-center">{{ account.quoteName }}</td>
-      <td class="mat-cell text-center">{{ account.quoteSheet }}</td>
-      <td class="mat-cell text-center">{{ account.oportunity }}</td>
-      <td class="mat-cell text-center">{{ account.monthlyTotal }}</td>
-      <td class="mat-cell text-center">{{ account.validity }}</td>
-      <td class="mat-cell text-center">{{ account.loadHld }}</td>
-      <td class="mat-cell text-center">{{ account.overdue }}</td>
+      <td class="mat-cell ps-1 ">{{ account.quoteName }}</td>
+      <td class="mat-cell ">{{ account.quoteSheet }}</td>
+      <td class="mat-cell ">{{ account.oportunity }}</td>
+      <td class="mat-cell ">{{ account.monthlyTotal |currency }}</td>
+      <td class="mat-cell ">{{ account.validity }}</td>
+      <td class="mat-cell pr"> <mat-icon  >file_upload</mat-icon></td>
+      <td class="mat-cell ">{{ account.overdue }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<table *ngIf="idTableShow == 20" id="history" datatable [dtOptions]="dtOptions" class="table-without-separator">
+  <thead>
+    <tr class="t-row">
+      <th *ngFor="let col of columns">
+        {{ col.columnName | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="c-pointer t-row" *ngFor="let account of dataSource; let i = index">
+      <td class="mat-cell ps-1">{{ account.accountName }}</td>
+      <td class="mat-cell ">{{ account.opportunity }}</td>
+      <td class="mat-cell ">{{ account.quote }}</td>
+      <td class="mat-cell ">{{ account.invoice }}</td>
+      <td class="mat-cell ">{{ account.service }}</td>
+      <td class="mat-cell ">{{ account.accountBill }}</td>
+      <td class="mat-cell ">{{ account.installationAddress }}</td>
+      <td class="mat-cell ">{{ account.orderType }}</td>
+      <td class="mat-cell ">{{ account.status }}</td>
+      <td class="mat-cell ">{{ account.serviceOrder }}</td>
+      <td class="mat-cell ">{{ account.statusOS }}</td>
     </tr>
   </tbody>
 </table>

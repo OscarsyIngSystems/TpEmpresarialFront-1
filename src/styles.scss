@@ -522,25 +522,25 @@ input::-webkit-inner-spin-button {
 }
 
 /* Styles for tab labels */
-.mat-tab-label {
-  min-width: 25px !important;
-  padding: 5px;
-  background-color: transparent;
-  font-weight: 700;
-}
+// .mat-tab-label {
+//   min-width: 25px !important;
+//   padding: 5px;
+//   background-color: transparent;
+//   font-weight: 700;
+// }
 
-/* Styles for the active tab label */
-.mat-tab-label.mat-tab-label-active {
-  min-width: 25px !important;
-  padding: 5px;
-  background-color: white;
-  font-weight: 700;
-  border-radius: 5px;
-  box-shadow: 2px 0px 28px -12px rgba(133, 133, 133, 0.75) !important;
-}
+// /* Styles for the active tab label */
+// .mat-tab-label.mat-tab-label-active {
+//   min-width: 25px !important;
+//   padding: 5px;
+//   background-color: white;
+//   font-weight: 700;
+//   border-radius: 5px;
+//   box-shadow: 2px 0px 28px -12px rgba(133, 133, 133, 0.75) !important;
+// }
 
 ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar {
-  background-color: $color-primary !important;
+  background-color: $color-secondary !important;
 }
 
 .mtn-10 {
@@ -615,26 +615,4 @@ input::-webkit-inner-spin-button {
 .color-red {
   color: $color-secondary;
 }
-
-//#region quotes-received
-::ng-deep .mat-tab-label #tabs  {
-  // min-width: 25px !important;
-  // padding: 5px;
-  background-color: transparent;
-  font-weight: 700;
-}
-
-::ng-deep .mat-tab-label.mat-tab-label-active #tabs  {
-  // min-width: 25px !important;
-  // padding: 5px;
-  background-color: $color-body;
-  font-weight: 700;
-  border-radius: 5px;
-  box-shadow: 2px 0px 28px -12px rgba(133, 133, 133, 0.75) !important;
-}
-
-::ng-deep .mat-tab-group.mat-primary .mat-ink-bar #tabs  {
-  background-color: $color-primary !important;
-}
-//#end region quotes-received
 

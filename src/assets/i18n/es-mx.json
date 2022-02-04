@@ -194,5 +194,20 @@
       "colum2": "Función"
     },
     "message-empty": "No hay oportunidades guardadas para esta cuenta."
+  },
+  "instalations":{
+    "to-install-table":{
+      "colum1":"Nombre de la cuenta",
+      "colum2":"Oportunidad",
+      "colum3":"Cotización",
+      "colum4":"Folio",
+      "colum5":"Servicio",
+      "colum6":"Cuenta factura",
+      "colum7":"Dirección de instalación",
+      "colum8":"Tipo de orden",
+      "colum9":"Estatus",
+      "colum10":"Orden de servicio",
+      "colum11":"Estatus OS"
+    }
   }
 }

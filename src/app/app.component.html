@@ -154,7 +154,7 @@
     ></app-navbar>
     <div [class]="show() ? 'p-0' : 'drawer-secondary-container'">
       <app-navigation-menu
-        *ngIf="currentUrl != '/dashboard'"
+        *ngIf="hideNavigation"
       ></app-navigation-menu>
       <router-outlet></router-outlet>
     </div>

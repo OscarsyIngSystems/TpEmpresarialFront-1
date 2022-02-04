@@ -52,6 +52,9 @@ export class QuotesReceivedComponent implements OnInit {
   onShow() {
     console.log(['ke']);
     this.spinner.show()
+    setTimeout(() => {
+      this.spinner.hide()
+    }, 500);
   }
 
   getQuotes(): void {

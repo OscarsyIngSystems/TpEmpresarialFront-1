@@ -28,6 +28,8 @@
     <div class="col-2 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
+      class="c-pointer"
+       (click)="goInstallations('instalations/1')"
         [series]="chartSeries[0]"
         [chart]="chartOptions.chart"
         [labels]="chartOptions.labels"
@@ -42,6 +44,8 @@
     <div class="col-2 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
+            class="c-pointer"
+       (click)="goInstallations('instalations/2')"
         [series]="chartSeries[1]"
         [chart]="chartOptions.chart"
         [labels]="chartOptions.labels"
@@ -56,6 +60,8 @@
     <div class="col-2 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
       <apx-chart
+            class="c-pointer"
+       (click)="goInstallations('instalations/3')"
         [series]="chartSeries[2]"
         [chart]="chartOptions.chart"
         [labels]="chartOptions.labels"

@@ -43,7 +43,7 @@ export class AppComponent {
   }
 
   public show(): boolean {
-    const blacklist = ['/login', '/'];
+    const blacklist = ['/login', '/','/instalations'];
     return blacklist.includes(this.currentUrl);
   }
 
@@ -55,5 +55,14 @@ export class AppComponent {
         this.currentUrl = event.url;
       }
     });
+  }
+
+  get hideNavigation():boolean{
+    return ![
+      '/dashboard',
+      '/instalations/1',
+      '/instalations/2',
+      '/instalations/3',
+    ].includes(this.router.url);
   }
 }
