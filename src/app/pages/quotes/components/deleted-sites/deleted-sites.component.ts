@@ -1,3 +1,4 @@
+import { data } from 'jquery';
 import { DialogDeletedSitesComponent } from './../dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
 import { Component, OnInit, ChangeDetectionStrategy, } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -148,12 +149,32 @@ export class DeletedSitesComponent implements OnInit {
   }
 
   openDialog(): void {
+    localStorage.setItem('length',JSON.stringify(this.selection.selected.length))
     this.dlg.open(DialogDeletedSitesComponent, {
       height: '300px',
       width: '400px',
       panelClass: 'custom-dd',
       data: {'text': ' sitios agregados', 'length': this.selection.selected.length}
-    });
-    this.router.navigate(['/quotes/loaded-sites'])
+    }).afterClosed().subscribe(()=> {
+      if(this.selection.selected.length == 1) {
+        this.originalData = this.originalData.filter((site) => {
+          return site !== this.selection.selected[0]
+        });
+        this.dataSource.data = this.originalData
+        localStorage.setItem('arraySelected',JSON.stringify(this.dataSource.data))
+      }
+      if(this.selection.selected.length != 1) {
+        this.selection.selected.filter((site) => {
+          this.originalData = this.originalData.filter((sites) => {
+          return sites !== site
+        })
+        this.dataSource.data = this.originalData
+        localStorage.setItem('arraySelected',JSON.stringify(this.dataSource.data))
+        })
+      }
+      if(this.isAllSelected() == true) localStorage.setItem('arraySelected',JSON.stringify([]))
+      setTimeout(() => {this.router.navigate(['/quotes/loaded-sites'])}, 200)
+    })
+
   }
 }

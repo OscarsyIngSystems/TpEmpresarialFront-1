@@ -64,12 +64,15 @@ export class LoadedSitesComponent implements OnInit {
   ) {}
 
   deleteSelectedItems(): void {
+    console.log('je');
     const u = localStorage.getItem('arraySelected');
     const arraySelected = u ? JSON.parse(u) : [];
     arraySelected.forEach((element: any) => {
       const index = this.originalData.findIndex((site) => {
+        console.log('site', site);
         return site.numberList === element.numberList;
       });
+      console.log('index',index)
       if (index > -1) {
         this.originalData.splice(index, 1);
         this.reset();
