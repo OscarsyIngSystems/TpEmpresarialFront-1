@@ -162,8 +162,93 @@
 <div style="margin-top: 10px" class="row">
   <div class="col-md-7 lg-7 xl-7">
     <div style="margin-top: 25px">
-      <app-table-general (emitter)="checkDisabled($event)" [columns]="columns" [dataSourceLoadedSites]="dataSource" [idTableShow]="16" >
-      </app-table-general>
+      <table
+
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z0 sites-table"
+>
+        <!-- Check Column -->
+        <ng-container matColumnDef="check">
+          <th mat-header-cell *matHeaderCellDef style="border-bottom-color: transparent;">
+            <mat-checkbox
+        color="primary"
+        (change)="$event ? masterToggle() : null"
+        [checked]="selection.hasValue() && isAllSelected()"
+        [indeterminate]="selection.hasValue() && !isAllSelected()"
+        [aria-label]="checkboxLabel()"
+      ></mat-checkbox>
+          </th>
+          <td
+            style="border-bottom-color: transparent;"
+            [style.background-color]="element.color"
+            mat-cell
+            *matCellDef="let element"
+          >
+            <mat-checkbox color="primary"
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(element) : null"
+            [checked]="selection.isSelected(element)"
+            [aria-label]="checkboxLabel(element)"></mat-checkbox>
+          </td>
+        </ng-container>
+
+        <!-- Index Column -->
+        <ng-container matColumnDef="index">
+          <th mat-header-cell *matHeaderCellDef style="border-bottom-color: transparent;" >N°</th>
+          <td
+            class="borders"
+            [style.background-color]="element.color"
+            mat-cell
+            *matCellDef="let element; let i = index"
+          >
+            {{ i + 1 }}
+          </td>
+        </ng-container>
+
+        <!-- Site Column -->
+        <ng-container matColumnDef="site">
+          <th mat-header-cell *matHeaderCellDef style="border-bottom-color: transparent;">Sitio</th>
+          <td
+            style="border-bottom-color: transparent;"
+            [style.background-color]="element.color"
+            class="numberList"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.site }}
+          </td>
+        </ng-container>
+
+        <!-- Coverage Column -->
+        <ng-container matColumnDef="coverage">
+          <th mat-header-cell *matHeaderCellDef style="border-bottom-color: transparent;">Cobertura</th>
+          <td
+          class="borders"
+            [style.background-color]="element.color"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.coverage }}
+          </td>
+        </ng-container>
+
+        <!-- AccessMedia Column -->
+        <ng-container matColumnDef="accessMedia">
+          <th mat-header-cell *matHeaderCellDef style="border-bottom-color: transparent;">Medio de Acceso</th>
+          <td
+            class="borders"
+            [style.background-color]="element.color"
+            mat-cell
+            *matCellDef="let element"
+          >
+            {{ element.accessMedia }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns"></tr>
+      </table>
     </div>
   </div>
 

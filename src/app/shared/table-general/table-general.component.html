@@ -352,7 +352,7 @@
 >
   <!-- Check Column -->
   <ng-container matColumnDef="check">
-    <th mat-header-cell *matHeaderCellDef>
+    <th mat-header-cell *matHeaderCellDef class="borders">
       <mat-checkbox
         color="primary"
         (change)="$event ? masterToggle() : null"
@@ -362,6 +362,7 @@
       ></mat-checkbox>
     </th>
     <td
+      class="borders"
       [style.background-color]="element.color"
       mat-cell
       *matCellDef="let element"
@@ -378,8 +379,9 @@
 
   <!-- Site Column -->
   <ng-container matColumnDef="site">
-    <th mat-header-cell *matHeaderCellDef>Sitio</th>
+    <th mat-header-cell *matHeaderCellDef class="borders">Sitio</th>
     <td
+      style="border-bottom-color: transparent !important;"
       [style.background-color]="element.color"
       class="numberList"
       mat-cell
@@ -390,9 +392,10 @@
   </ng-container>
 
   <!-- Coverage Column -->
-  <ng-container matColumnDef="coverage">
-    <th mat-header-cell *matHeaderCellDef>Cobertura</th>
+  <ng-container  matColumnDef="coverage">
+    <th mat-header-cell *matHeaderCellDef class="borders">Cobertura</th>
     <td
+      class="borders"
       [style.background-color]="element.color"
       mat-cell
       *matCellDef="let element"
@@ -402,9 +405,10 @@
   </ng-container>
 
   <!-- AccessMedia Column -->
-  <ng-container matColumnDef="accessMedia">
-    <th mat-header-cell *matHeaderCellDef>Medio de Acceso</th>
+  <ng-container matColumnDef="accessMedia" >
+    <th mat-header-cell *matHeaderCellDef class="borders">Medio de Acceso</th>
     <td
+    class="borders"
       [style.background-color]="element.color"
       mat-cell
       *matCellDef="let element"
@@ -414,8 +418,8 @@
   </ng-container>
 
   <!-- Edit Column -->
-  <ng-container matColumnDef="edit">
-    <th mat-header-cell *matHeaderCellDef>
+  <ng-container matColumnDef="edit" >
+    <th mat-header-cell *matHeaderCellDef class="borders">
       <button
         [disabled]="disabled"
         (click)="onDeleteSites()"
@@ -427,6 +431,7 @@
       </button>
     </th>
     <td
+    class="borders"
       [style.background-color]="element.color"
       mat-cell
       *matCellDef="let element"
