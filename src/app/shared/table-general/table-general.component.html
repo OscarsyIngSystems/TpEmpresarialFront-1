@@ -579,24 +579,25 @@
     <tr mat-header-row *matHeaderRowDef="columns"></tr>
     <tr mat-row *matRowDef="let row; columns: columns"></tr>
   </table>
-
   <table *ngIf="idTableShow == 17" id="dataTable" datatable [dtOptions]="dtOptions" class="general-table row-border">
     <thead>
-      <tr class="t-row">
+      <tr >
         <th *ngFor="let col of columns">{{ col.columnName | translate }}</th>
       </tr>
     </thead>
     <tbody>
-      <tr  class="table-element-row shadow-sm t-row" *ngFor="let account of dataSource">
-        <td class="mat-cell-quote">{{ account.quoteName }}</td>
-        <td class="mat-cell-quote">{{ account.quoteSheet }}</td>
-        <td class="mat-cell-quote">{{ account.oportunity }}</td>
-        <td class="mat-cell-quote">{{ account.monthlyTotal | currency }}</td>
-        <td class="mat-cell-quote">{{ account.validity }}</td>
-        <td class="mat-cell-quote">{{ account.loadHld }}</td>
-        <td class="mat-cell">{{ account.overdue }}</td>
+      <tr class="table-element-row shadow-sm " [routerLink]="['/quotes', account.id]"
+        *ngFor="let account of dataSource">
+        <td class="mat-cell">{{ account.quoteName }}</td>
+        <td class="mat-cell">{{ account.quoteSheet }}</td>
+        <td class="mat-cell">{{ account.oportunity }}</td>
+        <td class="mat-cell">{{ account.monthlyTotal | currency }}</td>
+        <td class="mat-cell-quote"><mat-icon
+          >file_upload</mat-icon
+        ></td>
+        <td class="mat-cell">{{ account.validity }}</td>
+        <!-- <td class="mat-cell">{{ account.overdue }}</td>  error -->
       </tr>
     </tbody>
   </table>
-=
 

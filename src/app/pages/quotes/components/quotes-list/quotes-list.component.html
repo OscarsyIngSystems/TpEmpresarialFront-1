@@ -25,7 +25,7 @@
     </select>
   </div>
 </div>
-<!-- <app-empty message="No se encontraron cotizaciones" *ngIf="dataSource.length === 0"></app-empty> -->
+<app-empty message="No se encontraron cotizaciones" *ngIf="dataSource.length == 0"></app-empty>
 <app-table-general *ngIf="dataSource.length > 0" [dataSource]="dataSource" [idTableShow]="3" [columns]="columnsShow">
 </app-table-general>
 <app-quotes-received></app-quotes-received>
