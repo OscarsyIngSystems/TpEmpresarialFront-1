@@ -91,6 +91,7 @@
   background-color: transparent !important;
   border-collapse: separate!important;
   border-spacing:0 4px!important;
+  border-bottom-color: yellow;
 }
 
 
@@ -137,6 +138,10 @@
 .btn-trash {
   background-color: $color-primary;
   font-size: 0px !important;
+}
+
+.borders {
+  border-bottom-color: transparent !important;
 }
 // endregion loaded sites
 
@@ -192,6 +197,14 @@
 // endregion deleted sites
 
 
+// #region quotes received
+.mat-cell-quote {
+  text-align: center !important;
+  // color: $color-secondary !important;
+}
+
+
+// endregion quotes received
 .mat-raised-button{
   padding: 0 !important;
   min-width: 30px !important;
@@ -220,13 +233,6 @@
   border-radius: 5px;
   width:60px;
 }
-
-// #region quotes received
-tr #jeje {
-  background: yellow !important;
-}
-// endregion quotes received
-
 
 // #region table-no-border
 

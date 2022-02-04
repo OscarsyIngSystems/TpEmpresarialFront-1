@@ -173,6 +173,7 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
       this.selectedItemsTable.forEach((element) => {
         arraySelected.push(element);
       });
+      console.log('arraySele', arraySelected)
       localStorage.setItem('arraySelected', JSON.stringify(arraySelected));
       this.emitter.emit(arraySelected);
     });

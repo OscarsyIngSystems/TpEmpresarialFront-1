@@ -10,6 +10,8 @@ import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEditLoadSitesComponent } from '../../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogLoadSitesComponent } from '../../dialogs/dialog-load-sites/dialog-load-sites.component';
+// import { DialogEditLoadSitesComponent } from '../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
+// import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
   selector: 'app-loaded-sites',
@@ -52,7 +54,7 @@ export class LoadedSitesComponent implements OnInit {
   selectedIdOption = 0;
   control: FormControl = new FormControl();
   arraySelected: any[] = [];
-  // disabled: boolean = false;
+  disabled: boolean = false;
 
   constructor(
     private service: QuotesService,
@@ -62,12 +64,15 @@ export class LoadedSitesComponent implements OnInit {
   ) {}
 
   deleteSelectedItems(): void {
+    console.log('je');
     const u = localStorage.getItem('arraySelected');
     const arraySelected = u ? JSON.parse(u) : [];
     arraySelected.forEach((element: any) => {
       const index = this.originalData.findIndex((site) => {
+        console.log('site', site);
         return site.numberList === element.numberList;
       });
+      console.log('index',index)
       if (index > -1) {
         this.originalData.splice(index, 1);
         this.reset();
