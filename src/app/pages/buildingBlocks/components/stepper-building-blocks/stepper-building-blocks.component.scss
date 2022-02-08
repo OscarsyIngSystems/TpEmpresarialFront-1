@@ -1,7 +1,7 @@
 @import "../../../../../styles.scss";
 
 .viewStepper {
-  background-color: #fafafa;
+  background-color: transparent;
 }
 
 .labelStepper {
@@ -20,29 +20,32 @@
   border: none !important;
 }
 
-
-.stepper-wrapper{
- ::ng-deep .mat-stepper-horizontal-line{
+.stepper-wrapper {
+  ::ng-deep .mat-stepper-horizontal-line {
     display: none;
   }
 
-  ::ng-deep .mat-horizontal-stepper-header{
+  ::ng-deep .mat-horizontal-stepper-header {
     height: 25px;
   }
 
-  ::ng-deep .mat-step-icon{
+  ::ng-deep .mat-step-icon {
     display: none;
   }
 
-  ::ng-deep
-      .mat-step-label-selected{
-       color: red;
-          // border-bottom: 2px solid red;
+  ::ng-deep .mat-step-label-selected {
+    color: red;
+    // border-bottom: 2px solid red;
   }
 
-
-::ng-deep .mat-step-header[aria-selected="true"] {border-bottom: 3px solid red !important }
-::ng-deep .mat-step-header[aria-selected="false"] {border-bottom: 3px solid rgba($color: #E7294D, $alpha: .3)  !important; }
-
+  ::ng-deep .mat-step-header[aria-selected="true"] {
+    border-bottom: 3px solid red !important;
+  }
+  ::ng-deep .mat-step-header[aria-selected="false"] {
+    border-bottom: 3px solid rgba($color: #e7294d, $alpha: 0.3) !important;
+  }
 }
 
+.conteiner-families {
+  margin-top: 30px;
+}

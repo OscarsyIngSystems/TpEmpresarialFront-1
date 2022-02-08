@@ -50,6 +50,7 @@ import { InputSpinnerComponent } from './input-spinner/input-spinner.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { TitleBuildingBlocksComponent } from './title-building-blocks/title-building-blocks/title-building-blocks.component';
 import { OportunitiesComponent } from './dashboad-components/oportunities/oportunities.component';
+import { ModelingTablesComponent } from './modeling-tables/modeling-tables.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { OportunitiesComponent } from './dashboad-components/oportunities/oportu
     InputSpinnerComponent,
     TitleBuildingBlocksComponent,
     OportunitiesComponent,
+    ModelingTablesComponent,
   ],
   exports: [
     ChartsModule,
@@ -120,6 +122,7 @@ import { OportunitiesComponent } from './dashboad-components/oportunities/oportu
     MatStepperModule,
     TitleBuildingBlocksComponent,
     OportunitiesComponent,
+    ModelingTablesComponent,
   ],
   imports: [
     ChartsModule,
