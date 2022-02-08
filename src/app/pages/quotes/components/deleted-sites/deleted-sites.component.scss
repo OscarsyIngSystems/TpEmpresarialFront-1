@@ -327,3 +327,15 @@ table {
 .bolder {
   font-weight: 500 !important;
 }
+
+.sites-table {
+  width: 100%;
+  background-color: transparent !important;
+  border-collapse: separate!important;
+  border-spacing:0 4px!important;
+  border-bottom-color: yellow;
+}
+
+.borders {
+  border-bottom-color: transparent !important;
+}

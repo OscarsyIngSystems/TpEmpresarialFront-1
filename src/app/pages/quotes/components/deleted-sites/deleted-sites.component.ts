@@ -132,7 +132,7 @@ export class DeletedSitesComponent implements OnInit {
   }
 
   getCounter(data:any) {
-    console.log('jee',data)
+    console.log('counters',data)
   }
 
   isAllSelected() {

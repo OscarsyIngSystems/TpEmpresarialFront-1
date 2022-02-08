@@ -1,3 +1,4 @@
+import { DialogDeletedSitesComponent } from './../../dialogs/dialog-deleted-sites/dialog-deleted-sites.component';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,8 +11,7 @@ import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEditLoadSitesComponent } from '../../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogLoadSitesComponent } from '../../dialogs/dialog-load-sites/dialog-load-sites.component';
-// import { DialogEditLoadSitesComponent } from '../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
-// import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-loaded-sites',
@@ -52,8 +52,10 @@ export class LoadedSitesComponent implements OnInit {
   counters: any[] = [0,0,0,0]; // fibra. microonda, metro, sin cobertura
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
-  selectedIdOption = 0;
   control: FormControl = new FormControl();
+  selectedIdOption = 0;
+  selection = new SelectionModel(true, [...this.dataSource.data]);
+  selectedItemsTable: any[] = [];
   arraySelected: any[] = [];
   disabled: boolean = false;
 
@@ -107,13 +109,61 @@ export class LoadedSitesComponent implements OnInit {
     }
   }
 
+  onDeleteSites(): void {
+    let dlgRef = this.dlg.open(DialogDeletedSitesComponent, {
+      height: '35%',
+      width: '30%',
+      panelClass: 'container-cc',
+      data: {
+        length: this.selectedItemsTable.length,
+        text: 'Sitios eliminados correctamente',
+      },
+    });
+    dlgRef.afterClosed().subscribe((res) => {
+      if(this.selection.selected.length == 1) {
+        this.originalData = this.originalData.filter((site) => {
+          return site !== this.selection.selected[0]
+        });
+        console.log('original',this.originalData)
+        this.dataSource.data = this.originalData
+        localStorage.setItem('arraySelected',JSON.stringify(this.selectedItemsTable))
+      }
+      if(this.selection.selected.length != 1) {
+        this.selection.selected.filter((site) => {
+          this.originalData = this.originalData.filter((sites) => {
+          return sites !== site
+        })
+        // console.log('ooo',this.originalData)
+        this.dataSource.data = this.originalData
+        localStorage.setItem('arraySelected',JSON.stringify(this.selectedItemsTable))
+        })
+      }
+    });
+  }
+
   getData(): void {
 
-    console.log(this.counters);
+
     this.service.getData().subscribe((data) => {
-      this.originalData = data;
-      this.dataSource.data = this.originalData;
-      this.getCounter(this.dataSource.data)
+      const u = localStorage.getItem('arraySelected');
+      const arraySelected = u ? JSON.parse(u) : [];
+      console.log('je',arraySelected);
+      this.dataSource.data = data;
+      if(u == '[]' || u == null ) {
+        console.log('no tiene datos')
+        this.originalData = data;
+        this.dataSource.data = this.originalData;
+      }
+      if(arraySelected !== 1) {
+        arraySelected.filter((element: any) => {
+          this.originalData = this.dataSource.data.filter((site:any) => {
+            return site.numberList !== element.numberList;
+          });
+          this.dataSource.data = this.originalData
+          localStorage.setItem('arraySelected',JSON.stringify(this.dataSource.data))
+        });
+      }
+
     });
   }
 
@@ -145,9 +195,34 @@ export class LoadedSitesComponent implements OnInit {
     return datas;
   }
 
+  isAllSelected() {
+    if (this.selection.selected.length > 0) this.disabled = false;
+    if (this.selection.selected.length == 0) this.disabled = true;
+    this.selectedItemsTable = this.selection.selected;
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle() {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.dataSource.data.forEach((row) => {
+        this.selection.select(row);
+      });
+  }
+
+  checkboxLabel(row?: any): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1
+      }`;
+  }
+
   getCounter(data:any) {
     this.counters[0] = 0, this.counters[1] = 0, this.counters[2] = 0, this.counters[3] = 0;
-    // console.log('jee',data)
+
     data.filter((site:any) => {
       // console.log(site);
       if(site['accessMedia'] == 'Fibra') this.counters[0] = ++this.counters[0]
