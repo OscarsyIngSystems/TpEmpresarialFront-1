@@ -65,19 +65,19 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
 
   ngOnInit(): void {
     console.log(this.dataSource);
-    switchSelection();
+    // switchSelection();
   }
 
-  switchSelection(){
-    switch(){
-      case 1:
-      this.selection = new SelectionModel(true, [...this.dataSourceLoadedSites.data]);
-        break;
+  // switchSelection(){
+  //   switch(){
+  //     case 1:
+  //     this.selection = new SelectionModel(true, [...this.dataSourceLoadedSites.data]);
+  //       break;
 
-        default:
-          break;
-    }
-  }
+  //       default:
+  //         break;
+  //   }
+  // }
 
   goAccountDetail(account: Account): void {
     this.storageService.setDataName(account.accountName);
@@ -173,7 +173,7 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
       this.selectedItemsTable.forEach((element) => {
         arraySelected.push(element);
       });
-      console.log('arraySele', arraySelected)
+      console.log('arraySele', arraySelected);
       localStorage.setItem('arraySelected', JSON.stringify(arraySelected));
       this.emitter.emit(arraySelected);
     });
@@ -268,7 +268,7 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
     return numSelected === numRows;
   }
 
-  setSelection(data:any[]): void {
+  setSelection(data: any[]): void {
     this.selection = new SelectionModel(true, [...data]);
   }
 }
