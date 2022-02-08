@@ -11,7 +11,6 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
 import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
-import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -98,6 +97,7 @@ export class DeletedSitesComponent implements OnInit {
       const arraySelected = u ? JSON.parse(u) : [];
       this.originalData = arraySelected;
       this.dataSource.data = this.originalData;
+      this.getCounter(this.dataSource.data)
     });
   }
 
@@ -129,6 +129,10 @@ export class DeletedSitesComponent implements OnInit {
       : this.dataSource.data.forEach((row) => {
         this.selection.select(row);
       });
+  }
+
+  getCounter(data:any) {
+    console.log('jee',data)
   }
 
   isAllSelected() {

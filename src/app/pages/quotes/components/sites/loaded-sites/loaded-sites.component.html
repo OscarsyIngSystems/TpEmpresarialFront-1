@@ -59,7 +59,7 @@
       <div class="col-3">
         <input value="1" type="checkbox" class="btn-check" id="btn-check-fiber" (click)="onFilter('Fibra')"
           name="control" [formControl]="control" />
-        <label class="btn btn-sm btn-outline-primary btn-check-fiber btn-check-no-shadow" for="btn-check-fiber">3
+        <label class="btn btn-sm btn-outline-primary btn-check-fiber btn-check-no-shadow" for="btn-check-fiber">{{counters[0]}}
           Fibra</label>
       </div>
 
@@ -67,13 +67,13 @@
         <input value="2" type="checkbox" class="btn-check" id="btn-check-microwave" (click)="onFilter('Microonda')"
           name="control" [formControl]="control" />
         <label class="btn btn-sm btn-outline-primary btn-check-microwave btn-check-no-shadow"
-          for="btn-check-microwave">3 Microonda</label>
+          for="btn-check-microwave">{{counters[1]}} Microonda</label>
       </div>
 
       <div class="col-3">
         <input value="3" type="checkbox" class="btn-check" id="btn-check-meter" (click)="onFilter('Metro')"
           name="control" [formControl]="control" />
-        <label class="btn btn-sm btn-outline-primary btn-check-meter btn-check-no-shadow" for="btn-check-meter">1
+        <label class="btn btn-sm btn-outline-primary btn-check-meter btn-check-no-shadow" for="btn-check-meter">{{counters[2]}}
           Metro</label>
       </div>
 
@@ -81,7 +81,7 @@
         <input value="4" type="checkbox" class="btn-check" id="btn-check-coverage" (click)="onFilter('N/D')"
           name="control" [formControl]="control" />
         <label class="btn me-2 btn-sm btn-outline-primary btn-check-coverage btn-check-no-shadow"
-          for="btn-check-coverage">3 Sin Cobertura</label>
+          for="btn-check-coverage">{{counters[3]}} Sin Cobertura</label>
       </div>
     </div>
   </div>

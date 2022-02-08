@@ -49,6 +49,7 @@ export class LoadedSitesComponent implements OnInit {
     },
   ];
   columns: string[] = ['check', 'site', 'coverage', 'accessMedia', 'edit'];
+  counters: any[] = [0,0,0,0]; // fibra. microonda, metro, sin cobertura
   searchData = new FormControl('', Validators.required);
   filteredOptions: Observable<Sale[]> | undefined;
   selectedIdOption = 0;
@@ -64,15 +65,12 @@ export class LoadedSitesComponent implements OnInit {
   ) {}
 
   deleteSelectedItems(): void {
-    console.log('je');
     const u = localStorage.getItem('arraySelected');
     const arraySelected = u ? JSON.parse(u) : [];
     arraySelected.forEach((element: any) => {
       const index = this.originalData.findIndex((site) => {
-        console.log('site', site);
         return site.numberList === element.numberList;
       });
-      console.log('index',index)
       if (index > -1) {
         this.originalData.splice(index, 1);
         this.reset();
@@ -110,9 +108,12 @@ export class LoadedSitesComponent implements OnInit {
   }
 
   getData(): void {
+
+    console.log(this.counters);
     this.service.getData().subscribe((data) => {
       this.originalData = data;
       this.dataSource.data = this.originalData;
+      this.getCounter(this.dataSource.data)
     });
   }
 
@@ -142,6 +143,19 @@ export class LoadedSitesComponent implements OnInit {
   filterPredicate(data: any, filter: string): boolean {
     const datas = JSON.stringify(data).includes(filter);
     return datas;
+  }
+
+  getCounter(data:any) {
+    this.counters[0] = 0, this.counters[1] = 0, this.counters[2] = 0, this.counters[3] = 0;
+    // console.log('jee',data)
+    data.filter((site:any) => {
+      // console.log(site);
+      if(site['accessMedia'] == 'Fibra') this.counters[0] = ++this.counters[0]
+      if(site['accessMedia'] == 'Microonda') this.counters[1] = ++this.counters[1]
+      if(site['accessMedia'] == 'Metro') this.counters[1] = ++this.counters[2]
+      if(site['accessMedia'] == 'N/D') this.counters[1] = ++this.counters[3]
+    })
+    console.log(this.counters)
   }
 
   openDialog(): void {

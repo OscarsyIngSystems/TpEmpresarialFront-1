@@ -10,9 +10,7 @@ export class DialogDeletedSitesComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<DialogDeletedSitesComponent>) { }
 
-  ngOnInit(): void {
-    console.log(this.data);
-  }
+  ngOnInit(): void {}
 
   onClose() {
     this.dialogRef.close()
