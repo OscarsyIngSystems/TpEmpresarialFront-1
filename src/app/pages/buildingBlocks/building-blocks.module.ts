@@ -6,6 +6,7 @@ import { ConnectivityComponent } from './components/connectivity/connectivity.co
 import { ComponentsModule } from 'src/app/shared/components.module';
 import { HeaderActionsBuildingBlocksComponent } from './components/header-actions-building-blocks/header-actions-building-blocks.component';
 import { StepperBuildingBlocksComponent } from './components/stepper-building-blocks/stepper-building-blocks.component';
+import { FamilyButtonsComponent } from './components/family-buttons/family-buttons.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { StepperBuildingBlocksComponent } from './components/stepper-building-bl
     ConnectivityComponent,
     HeaderActionsBuildingBlocksComponent,
     StepperBuildingBlocksComponent,
+    FamilyButtonsComponent,
   ],
   imports: [CommonModule, BuildingBlocksRoutingModule, ComponentsModule],
 })

@@ -43,7 +43,7 @@ export class AppComponent {
   }
 
   public show(): boolean {
-    const blacklist = ['/login', '/','/instalations'];
+    const blacklist = ['/login', '/', '/instalations'];
     return blacklist.includes(this.currentUrl);
   }
 
@@ -57,12 +57,13 @@ export class AppComponent {
     });
   }
 
-  get hideNavigation():boolean{
+  get hideNavigation(): boolean {
     return ![
       '/dashboard',
       '/instalations/1',
       '/instalations/2',
       '/instalations/3',
+      '/buildingBlocks/connectivity',
     ].includes(this.router.url);
   }
 }
