@@ -1,3 +1,5 @@
+import { SelectionModel } from '@angular/cdk/collections';
+import { MatTableDataSource } from '@angular/material/table';
 import {
   FormBuilder,
   FormControl,
@@ -15,50 +17,63 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 export class ConnectivityComponent implements OnInit {
   isValid: boolean = false;
   isValidSelected: boolean = false;
-  control: FormControl = new FormControl();
-  columns: string[] = ['check', 'site','subtype'];
-  filters: string[] = [];
-  filteredData: any[] = [];
-  originalData: any[] = [];
+  columns: string[] = ['check', 'site', 'subtype'];
 
-  dataSource = [
+  data = [
     {
-      site: 'Audi Polanco',
-      type:'Fibra',
-      subtype:'Metro'
+      site: 'Audi Polanco Fibra',
+      type: 'Fibra',
+      subtype: 'Metro',
     },
     {
-      site: 'Audi Santa Fe',
+      site: 'Audi Polanco Fibra',
+      type: 'Fibra',
+      subtype: 'GPON',
     },
     {
-      site: 'Audi Interlomas',
+      site: 'Audi Polanco M',
+      type: 'Microonda',
+      subtype: 'PMP',
     },
     {
-      site: 'Audi Lomas',
+      site: 'Audi Polanco M',
+      type: 'Microonda',
+      subtype: 'PTP',
     },
     {
-      site: 'Audi Polanco',
+      site: 'Audi Polanco Fibra',
+      type: 'Fibra',
+      subtype: 'Metro',
     },
     {
-      site: 'Audi Santa Fe',
+      site: 'Audi Polanco Fibra',
+      type: 'Fibra',
+      subtype: 'GPON',
     },
     {
-      site: 'Audi Interlomas',
+      site: 'Audi Polanco M',
+      type: 'Microonda',
+      subtype: 'PMP',
     },
     {
-      site: 'Audi Lomas',
+      site: 'Audi Polanco M',
+      type: 'Microonda',
+      subtype: 'PTP',
     },
     {
-      site: 'Audi Polanco',
+      site: 'Audi Polanco fo/wm',
+      type: 'FM',
+      subtype: 'PTP',
     },
     {
-      site: 'Audi Santa Fe',
+      site: 'Audi Polanco fo/wm',
+      type: 'FM',
+      subtype: 'PTP',
     },
     {
-      site: 'Audi Interlomas',
-    },
-    {
-      site: 'Audi Lomas',
+      site: 'Audi Polanco fo/wm',
+      type: 'FM',
+      subtype: 'PTP',
     },
   ];
 
@@ -67,23 +82,6 @@ export class ConnectivityComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  onFilter(filterValues: string): void {
-    if (!this.filters.includes(filterValues)) {
-      this.filters.push(filterValues);
-    } else {
-      const index = this.filters.indexOf(filterValues);
-      this.filters.splice(index, 1);
-    }
-    if (this.filters.length === 0) {
-      this.dataSource = this.originalData;
-    } else {
-      this.filteredData = this.originalData.filter((site) => {
-        return this.filters.includes(site.accessMedia);
-      });
-      this.dataSource = this.filteredData;
-    }
-  }
 
   isValidStepper(event: boolean): void {
     console.log(event);

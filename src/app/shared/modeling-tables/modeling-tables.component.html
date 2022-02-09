@@ -16,10 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr
-      class="table-element-row n-border-b"
-      *ngFor="let connectivity of dataSource"
-    >
+    <tr class="table-element-row n-border-b" *ngFor="let connectivity of data">
       <td class="mat-cell ps-2">
         <div class="d-flex flex-column">
           <span>{{ connectivity.pack.service }}</span>
@@ -46,3 +43,142 @@
     </tr>
   </tbody>
 </table>
+
+<div *ngIf="idTableShow == 2">
+  <div
+    [formGroup]="form"
+    class="row g-1 row-cols-lg-auto mt-3 justify-content-around"
+  >
+    <div class="col-3">
+      <input
+        value="1"
+        type="radio"
+        class="btn-check"
+        id="btn-check-fiber"
+        (click)="onFilter(['Fibra'])"
+        name="control"
+        formControlName="control"
+      />
+      <label
+        class="btn btn-sm btn-outline-primary btn-check-general btn-check-no-shadow"
+        for="btn-check-fiber"
+        >Fibra (68)</label
+      >
+    </div>
+
+    <div class="col-3">
+      <input
+        value="2"
+        type="radio"
+        class="btn-check"
+        id="btn-check-microwave"
+        (click)="onFilter(['Microonda'])"
+        name="control"
+        formControlName="control"
+      />
+      <label
+        class="btn btn-sm btn-outline-primary btn-check-general btn-check-no-shadow"
+        for="btn-check-microwave"
+        >Microonda (13)</label
+      >
+    </div>
+
+    <div class="col-3">
+      <input
+        value="3"
+        type="radio"
+        class="btn-check"
+        id="btn-check-meter"
+        (click)="onFilter(['FM'])"
+        name="control"
+        formControlName="control"
+      />
+      <label
+        class="btn btn-sm btn-outline-primary btn-check-general btn-check-no-shadow"
+        for="btn-check-meter"
+        >FO/MW (39)</label
+      >
+    </div>
+
+    <div class="col-3">
+      <input
+        value="4"
+        type="radio"
+        class="btn-check"
+        id="btn-check-coverage"
+        (click)="onFilter(['todos'])"
+        name="control"
+        formControlName="control"
+      />
+      <label
+        class="btn me-2 btn-sm btn-outline-primary btn-check-general btn-check-no-shadow"
+        for="btn-check-coverage"
+        >Todos (120)</label
+      >
+    </div>
+  </div>
+  <div class="card-table">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z0 sites-table w-100"
+    >
+      <!-- Check Column (necesita indicarse la columna y el boolean showCheckboxes) -->
+      <ng-container *ngIf="showCheckboxes" matColumnDef="check">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            color="primary"
+            (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+            [aria-label]="checkboxLabel()"
+          ></mat-checkbox>
+        </th>
+        <td
+          [style.background-color]="element.color"
+          mat-cell
+          *matCellDef="let element"
+        >
+          <mat-checkbox
+            color="primary"
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(element) : null"
+            [checked]="selection.isSelected(element)"
+            [aria-label]="checkboxLabel(element)"
+          ></mat-checkbox>
+        </td>
+      </ng-container>
+
+      <!-- Site Column -->
+      <ng-container matColumnDef="site">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td
+          [style.background-color]="element.color"
+          class="numberList"
+          mat-cell
+          *matCellDef="let element"
+        >
+          <div class="d-flex flex-row align-items-center">
+            <div class="mx-2 type-indicator"></div>
+            <span>{{ element.site }}</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="subtype">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td
+          [style.background-color]="element.color"
+          class="numberList"
+          mat-cell
+          *matCellDef="let element"
+        >
+          {{ element.subtype }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let row; columns: columns"></tr>
+    </table>
+  </div>
+</div>
