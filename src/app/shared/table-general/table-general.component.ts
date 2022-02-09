@@ -65,6 +65,9 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
 
   ngOnInit(): void {
     console.log(this.dataSource);
+     this.selection = new SelectionModel(true, [
+       ...this.dataSourceLoadedSites.data,
+     ]);
     // switchSelection();
   }
 
