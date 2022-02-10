@@ -2,7 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SimpleCatalog } from 'src/app/models/Catalogs';
 import { Oportunity } from 'src/app/models/Oportunity';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
+import { LoginService } from 'src/app/services/login/login.service';
 import { DialogOportunitiesComponent } from '../dialogs/dialog-oportunities/dialog-oportunities.component';
 
 @Component({
@@ -20,29 +23,33 @@ export class OportunityFormComponent implements OnInit {
   name = '“Prueba de sistemas”';
   hld!: File;
   auxForm: any = {};
+  catalogOrigin: SimpleCatalog[] = [];
+
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
     private _url: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public _loginServices: LoginService,
+    private _serviceCatalogs: CatalogsService
   ) {
     // console.log(this._url);
     this.accountId = this._url.snapshot.paramMap.get('id');
     this.oportunityForm = this.fb.group({
       accountName: [''],
       closeDate: [new Date(), Validators.required],
-      stage: ['0'],
-      amount: ['$1,290,800'],
+      stage: [''],
+      amount: [''],
       reason: [],
       description: [''],
       oportunityName: ['', Validators.required],
       probability: ['10%'],
-      badge: ['MXN - Peso Mexicano', [Validators.required]],
-      oportunityOrigin: ['one', Validators.required],
+      badge: ['Peso', [Validators.required]],
+      oportunityOrigin: ['', Validators.required],
       trybuy: [],
-      executive: ['Sergio Aparicio Contreras'],
+      executive: [''],
       whoIntegrated: ['one', [Validators.required]],
-      saleType: ['0', Validators.required],
+      saleType: ['', Validators.required],
       finderFee: [''],
       collaboratorName: [],
       collaboratorNumber: [],
@@ -55,34 +62,35 @@ export class OportunityFormComponent implements OnInit {
     this.oportunityForm.get('reason')?.disable();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCatalogOpportunityOrigin();
+  }
 
   ngAfterContentInit(): void {
     if (this.oportunityDetailData) {
       this.oportunityForm.patchValue(this.oportunityDetailData);
       console.log(this.oportunityDetailData);
-      
+
       if (
-        this.oportunityDetailData.isMixedSale == 'false' &&
-        (this.oportunityDetailData.isParter == 'false' ||
-          this.oportunityDetailData.isParter === undefined)
+        !this.oportunityDetailData.isMixedSale &&
+        (!this.oportunityDetailData.isPartner ||
+          this.oportunityDetailData.isPartner === undefined)
       ) {
         this.oportunityForm.patchValue({ saleType: '0' });
       } else {
-        if (this.oportunityDetailData.isMixedSale == 'true') {
+        if (this.oportunityDetailData.isMixedSale) {
           this.oportunityForm.patchValue({ saleType: '1' });
         } else {
           this.oportunityForm.patchValue({ saleType: '2' });
         }
       }
       this.oportunityForm.disable();
-
     }
   }
 
   openDialog(): void {
     this.name = this.oportunityForm.controls.oportunityName.value;
-    console.log(this.oportunityDetailData)
+    console.log(this.oportunityDetailData);
     this.oportunityForm.enable();
     let data = this.oportunityForm.value;
     this.oportunityForm.disable();
@@ -132,5 +140,14 @@ export class OportunityFormComponent implements OnInit {
     } else {
       this.oportunityForm.get('reason')?.disable();
     }
+  }
+
+  getCatalogOpportunityOrigin() {
+    this._serviceCatalogs
+      .getCatalogOpportunityOrigin()
+      .subscribe((response) => {
+        this.catalogOrigin = response;
+        console.log(this.catalogOrigin);
+      });
   }
 }
