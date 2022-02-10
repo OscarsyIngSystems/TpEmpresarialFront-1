@@ -33,3 +33,24 @@
 .color-installed {
   color: #dddd9b;
 }
+
+
+.navigate{
+  text-decoration: none;
+  color: $color-primary;
+}
+
+.installing:hover{
+text-decoration: underline;
+color: #846b99;
+}
+
+.in-process:hover{
+color: #fcc565;
+text-decoration: underline;
+}
+
+.installed:hover{
+color: #dddd9b;
+text-decoration: underline;
+}
