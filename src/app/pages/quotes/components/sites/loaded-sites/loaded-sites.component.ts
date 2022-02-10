@@ -147,7 +147,6 @@ export class LoadedSitesComponent implements OnInit {
     this.service.getData().subscribe((data) => {
       const u = localStorage.getItem('arraySelected');
       const arraySelected = u ? JSON.parse(u) : [];
-      console.log('je',arraySelected);
       this.dataSource.data = data;
       if(u == '[]' || u == null ) {
         console.log('no tiene datos')
@@ -155,14 +154,30 @@ export class LoadedSitesComponent implements OnInit {
         this.dataSource.data = this.originalData;
       }
       if(arraySelected !== 1) {
-        arraySelected.filter((element: any) => {
-          this.originalData = this.dataSource.data.filter((site:any) => {
-            return site.numberList !== element.numberList;
-          });
-          this.dataSource.data = this.originalData
-          localStorage.setItem('arraySelected',JSON.stringify(this.dataSource.data))
-        });
+        console.log('con 1',arraySelected)
+        this.dataSource.data.filter((data:any) => {
+          let jeje = arraySelected.filter((sites:any) => {
+            return sites.numberList !== data.numberList
+          })
+          console.log('jeje',jeje)
+        })
+
+        // console.log(object);
+        // arraySelected.filter((element: any) => {
+          // console.log('ele',element)
+          // let jee;
+          // this.originalData = this.dataSource.data.filter((site:any) => {
+          //   console.log('site',site)
+          //   return site !== element
+          // });
+          // console.log('ORIGINAL',this.originalData)
+          // this.dataSource.data = this.originalData
+          // localStorage.setItem('arraySelected',JSON.stringify(this.dataSource.data))
+
+        // });
+        ;
       }
+
 
     });
   }
