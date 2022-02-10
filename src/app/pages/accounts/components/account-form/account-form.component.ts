@@ -26,7 +26,6 @@ export class AccountFormComponent implements OnInit, AfterContentInit {
     private _url: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router,
-    public storageService: StorageService,
     private stService: StorageService,
     private spinner: NgxSpinnerService
   ) {

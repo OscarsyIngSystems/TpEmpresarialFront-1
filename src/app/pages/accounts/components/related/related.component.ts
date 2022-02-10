@@ -7,9 +7,13 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PageScrollService } from 'ngx-page-scroll-core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { OpportunityRelated } from 'src/app/models/OpportunityRelated';
+import { OpportunitiesService } from 'src/app/services/opportunities/opportunities.service';
+import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
   selector: 'app-related',
@@ -22,7 +26,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
   public section;
   @ViewChild('bottom_tabs', { read: ElementRef, static: true })
   bottomTabs!: ElementRef;
-
+  detail: any = [];
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -68,118 +72,44 @@ export class RelatedComponent implements OnInit, AfterContentInit {
       columnName: this.contentLabels + 'table-related.colum6',
     },
     {
-      key:'created',
-      columnName: this.contentLabels + 'table-related.colum7'
-    }
-  ];
-  public dataSource = [
-    {
-      name: 'Sitios Satelitales 7-Eleven',
-      opportunity_number: '07307270',
-      status: 'Necesidades',
-      mounthTotal: '$1.00',
-      closeDate: '31/12/2022',
-      created:'25/01/2022'
-    },
-    {
-      name: 'INT SIM 50/50 1 L OFICINA MERCADO 500',
-      opportunity_number: '05941234',
-      status: 'Firma',
-      mounthTotal: '$417.64',
-      closeDate: '30/12/2022',
-      created:'25/01/2022'
-    },
-    {
-      name: 'INTERNE SIM 20MB 2 TIENDAS / T2631 / T2632',
-      opportunity_number: '07218229',
-      status: 'Propuesta',
-      mounthTotal: '$5,149.30',
-      closeDate: '30/12/2022',
-      created:'25/01/2022'
-    },
-    {
-      name: 'T2724_Viñas - 50/50 1 Lin Voz',
-      opportunity_number: '08395767',
-      status: 'Perdida',
-      mounthTotal: '$1.00',
-      closeDate: '10/12/2022',
-      created:'25/01/2022'
-    },
-    {
-      name: 'Enlace de Internet OAT CDMX',
-      opportunity_number: '08014191',
-      status: 'Perdida',
-      mounthTotal: '$20,350.00',
-      closeDate: '30/10/2022',
-      created:'25/01/2022'
-    },
-    {
-      name: '38 Sitios Nona NL 7-Eleven Int 50/50 Mb 1 L',
-      opportunity_number: '05429771',
-      status: 'Ganada',
-      mounthTotal: '$15,870.44',
-      closeDate: '19/11/2020',
-      created:'25/01/2022'
-    },
-    {
-      name: 'Sitios Satelitales 7-Eleven',
-      opportunity_number: '07307270',
-      status: 'Necesidades',
-      mounthTotal: '$1.00',
-      closeDate: '31/12/2022',
-      created:'25/01/2022'
-    },
-    {
-      name: 'INT SIM 50/50 1 L OFICINA MERCADO 500',
-      opportunity_number: '05941234',
-      status: 'Firma',
-      mounthTotal: '$417.64',
-      closeDate: '30/12/2022',
-      created:'25/01/2022'
-    },
-    {
-      name: 'INTERNE SIM 20MB 2 TIENDAS / T2631 / T2632',
-      opportunity_number: '07218229',
-      status: 'Propuesta',
-      mounthTotal: '$5,149.30',
-      closeDate: '30/12/2022',
-      created:'25/01/2022'
-    },
-    {
-      name: 'T2724_Viñas - 50/50 1 Lin Voz',
-      opportunity_number: '08395767',
-      status: 'Perdida',
-      mounthTotal: '$1.00',
-      closeDate: '10/12/2022',
-      created:'25/01/2022'
-    },
-    {
-      name: 'Enlace de Internet OAT CDMX',
-      opportunity_number: '08014191',
-      status: 'Perdida',
-      mounthTotal: '$20,350.00',
-      closeDate: '30/10/2022',
-      created:'25/01/2022'
-    },
-    {
-      name: '38 Sitios Nona NL 7-Eleven Int 50/50 Mb 1 L',
-      opportunity_number: '05429771',
-      status: 'Ganada',
-      mounthTotal: '$15,870.44',
-      closeDate: '19/11/2020',
-      created:'25/01/2022'
+      key: 'created',
+      columnName: this.contentLabels + 'table-related.colum7',
     },
   ];
+  public dataSource: OpportunityRelated[] = [];
   constructor(
     private _url: ActivatedRoute,
     private pageScrollService: PageScrollService,
+    private stService: StorageService,
+    private spinner: NgxSpinnerService,
+    private servicesOpportunity: OpportunitiesService,
+    private router: Router,
     @Inject(DOCUMENT) private document: any
   ) {
     this.accountId = this._url.snapshot.paramMap.get('id');
     this.section = this._url.snapshot.paramMap.get('section');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.detail = this.stService.getObjetSelected;
+    if (this.detail) {
+      this.spinner.show();
+      this.servicesOpportunity
+        .getRelatedAccountsDetail(this.detail.id)
+        .subscribe(
+          (response) => {
+            console.log(response);
+            this.dataSource = response;
+            this.spinner.hide();
+          },
+          (error) => {
+            this.spinner.hide();
+          }
+        );
+    } else {
+      this.router.navigate(['/accounts']);
+    }
+  }
 
   ngAfterContentInit(): void {
     console.log(this.section);
@@ -188,8 +118,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
         scrollTarget: this.bottomTabs.nativeElement,
         document: this.document,
       });
-
-      console.log('eeeey');
     }
   }
 }

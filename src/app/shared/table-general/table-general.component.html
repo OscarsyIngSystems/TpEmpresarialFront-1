@@ -21,10 +21,10 @@
       <td class="mat-cell">{{ account.accountName }}</td>
       <td class="mat-cell">{{ account.accountId }}</td>
       <td class="mat-cell">{{ account.taxIdentification }}</td>
-      <td class="mat-cell">{{ account.segment }}</td>
+      <td class="mat-cell">{{ account.segment | blankData }}</td>
       <td class="mat-cell">{{ account.phone }}</td>
-      <td class="mat-cell">{{ account.contact }}</td>
-      <td class="mat-cell">{{ account.created }}</td>
+      <td class="mat-cell">{{ account.mainContact | blankData }}</td>
+      <td class="mat-cell">{{ account.systemInfo.creationDate }}</td>
     </tr>
   </tbody>
 </table>
@@ -225,11 +225,17 @@
       *ngFor="let account of dataSource; let i = index"
     >
       <td class="mat-cell ps-4">{{ account.name }}</td>
-      <td class="mat-cell ps-4">{{ account.opportunity_number }}</td>
-      <td class="mat-cell ps-4">{{ account.status }}</td>
-      <td class="mat-cell ps-4">{{ account.mounthTotal }}</td>
+      <td class="mat-cell ps-4">{{ account.number }}</td>
+      <td class="mat-cell ps-4">{{ account.stage }}</td>
+      <td class="mat-cell ps-4">
+        {{
+          account.amount
+            ? (account.amount | currency)
+            : (account.amount | blankData)
+        }}
+      </td>
       <td class="mat-cell ps-4">{{ account.closeDate }}</td>
-      <td class="mat-cell ps-4">{{ account.created }}</td>
+      <td class="mat-cell ps-4">{{ account.createdDate }}</td>
     </tr>
   </tbody>
 </table>
