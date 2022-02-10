@@ -15,7 +15,7 @@ export class OportunitiesDetailComponent implements OnInit {
   public contentLabels = 'oportunities.';
   public opportunityNumber;
   isEditing: boolean = false;
-
+  idOpportunity: string = '';
   title: string = this.contentLabels + 'title-detail';
 
   infoDetail: Array<InfoDetail> = [];
@@ -47,6 +47,7 @@ export class OportunitiesDetailComponent implements OnInit {
   getDetail(): void {
     const detail: any = this.stService.getObjetSelected;
     if (detail) {
+      this.idOpportunity = detail.id;
       this.infoDetail = [
         {
           name: 'Nombre de la cuenta',

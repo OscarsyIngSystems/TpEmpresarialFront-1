@@ -84,16 +84,14 @@
   text-align: start !important;
 }
 
-
 // #region tabla loaded sites
 .sites-table {
   width: 100%;
   background-color: transparent !important;
-  border-collapse: separate!important;
-  border-spacing:0 4px!important;
+  border-collapse: separate !important;
+  border-spacing: 0 4px !important;
   border-bottom-color: yellow;
 }
-
 
 .sites-table .mat-header-cell {
   color: black;
@@ -148,7 +146,7 @@
 // #region deleted sites
 .mat-header-cell {
   color: black;
-  background: #f7fafc;
+  background: transparent;
 }
 
 .mat-column-check {
@@ -196,42 +194,40 @@
 }
 // endregion deleted sites
 
-
 // #region quotes received
 .mat-cell-quote {
   text-align: center !important;
   // color: $color-secondary !important;
 }
 
-
 // endregion quotes received
-.mat-raised-button{
+.mat-raised-button {
   padding: 0 !important;
   min-width: 30px !important;
 }
 
-.over-cost{
-  width:30px;
-  height:24px;
+.over-cost {
+  width: 30px;
+  height: 24px;
 }
 
-.left{
+.left {
   border: 1px solid $color-placeholder;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
 }
 
-.right{
+.right {
   border: 1px solid $color-placeholder;
   border-left: none;
-  border-top-right-radius:5px;
+  border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-.discont{
+.discont {
   border: 1px solid $color-placeholder;
   border-radius: 5px;
-  width:60px;
+  width: 60px;
 }
 
 // #region table-no-border
@@ -240,11 +236,9 @@
   width: 100%;
 }
 
-.table-without-separator.dataTable thead th{
-padding-left: 5px !important;
+.table-without-separator.dataTable thead th {
+  padding-left: 5px !important;
 }
-
-
 
 .table-without-separator.dataTable.no-footer {
   border-bottom: none;
@@ -262,7 +256,6 @@ padding-left: 5px !important;
   border-top: none !important;
 }
 
-
 .table-without-separator .table-element-row td {
   border-bottom-width: none;
 }
@@ -272,7 +265,7 @@ padding-left: 5px !important;
   background-color: $color-white !important;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%)!important;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 8%) !important;
 }
 
 .table-without-separator th.mat-header-cell,
@@ -281,13 +274,15 @@ padding-left: 5px !important;
   padding: 4px;
   //border-bottom-width: 0px !important;
   //border-bottom-style: solid !important;
-  border-bottom: 1px solid #D5DBDB;
+  border-bottom: 1px solid #d5dbdb;
   background-color: transparent;
 }
 
 //#endregion table-no-border
 
-
-.type-indicator{
-  height: 10px; width: 10px; border-radius: 50%; background-color: red;
+.type-indicator {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: red;
 }

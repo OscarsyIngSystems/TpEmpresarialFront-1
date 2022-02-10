@@ -1,7 +1,12 @@
+import { Quote } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { IFile } from 'src/app/models/IFile';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { QuotesService } from 'src/app/services/quotes/quotes.service';
+import { StorageService } from 'src/app/services/shared/storage.service';
 import { TeamComponent } from '../dialogs/team/team.component';
 
 @Component({
@@ -13,7 +18,7 @@ export class RelatedOportunitiesComponent implements OnInit {
   public contentLabels = 'oportunities.';
   files: Array<File> = [];
   filesInfo: Array<IFile> = [];
-
+  detail: any;
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -67,64 +72,7 @@ export class RelatedOportunitiesComponent implements OnInit {
       columnName: this.contentLabels + 'table-related.colum7',
     },
   ];
-  public dataSource = [
-    {
-      quoteName: 'Audi-CDMX-Cot',
-      invoice: 'COT3754545',
-      mounthTotal: '$2225.21 MXN',
-      status: 'Borrador',
-      validity: '19/12/2022',
-      mainCot: true,
-    },
-    {
-      quoteName: 'Audi-CDMX-Cot',
-      invoice: 'COT3754545',
-      mounthTotal: '$2225.21 MXN',
-      status: 'Borrador',
-      validity: '19/12/2022',
-      mainCot: false,
-    },
-    {
-      quoteName: 'Audi-CDMX-Cot',
-      invoice: 'COT3754545',
-      mounthTotal: '$2225.21 MXN',
-      status: 'Borrador',
-      validity: '19/12/2022',
-      mainCot: false,
-    },
-    {
-      quoteName: 'Audi-CDMX-Cot',
-      invoice: 'COT3754545',
-      mounthTotal: '$2225.21 MXN',
-      status: 'Borrador',
-      validity: '19/12/2022',
-      mainCot: false,
-    },
-    {
-      quoteName: 'Audi-CDMX-Cot',
-      invoice: 'COT3754545',
-      mounthTotal: '$2225.21 MXN',
-      status: 'Borrador',
-      validity: '19/12/2022',
-      mainCot: false,
-    },
-    {
-      quoteName: 'Audi-CDMX-Cot',
-      invoice: 'COT3754545',
-      mounthTotal: '$2225.21 MXN',
-      status: 'Borrador',
-      validity: '19/12/2022',
-      mainCot: false,
-    },
-    {
-      quoteName: 'Audi-CDMX-Cot',
-      invoice: 'COT3754545',
-      mounthTotal: '$2225.21 MXN',
-      status: 'Borrador',
-      validity: '19/12/2022',
-      mainCot: false,
-    },
-  ];
+  public dataSource: Quote[] = [];
 
   dataContacts = {
     displayedColumns: ['name', 'range', 'email', 'phone', 'type', 'principal'],
@@ -309,9 +257,32 @@ export class RelatedOportunitiesComponent implements OnInit {
     dataSource: [],
   };
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    private stService: StorageService,
+    private quoteService: QuotesService,
+    private router: Router,
+    private spinner: NgxSpinnerService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.detail = this.stService.getObjetSelected;
+    if (this.detail) {
+      this.spinner.show();
+      this.quoteService.getRelatedOpportunitiesDetail(this.detail.id).subscribe(
+        (response) => {
+          console.log(response);
+          this.dataSource = response;
+          this.spinner.hide();
+        },
+        (error) => {
+          this.spinner.hide();
+        }
+      );
+    } else {
+      this.router.navigate(['/opportunities']);
+    }
+  }
 
   openDialogTeam(titulo: string): void {
     this.dialog.open(TeamComponent, { data: titulo });

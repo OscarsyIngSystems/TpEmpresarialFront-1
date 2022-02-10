@@ -1,6 +1,16 @@
-<app-header-actions [title]="title | translate" buttonText="Crear cotización"
-  [route]="'quotes/create/' + opportunityNumber" [isCreate]="isEditing" relatedRoute="opportunities/1/related"
-  [hidenCreateOportunity]="isEditing" [data]="oportunity">
+<app-header-actions
+  [title]="title | translate"
+  buttonText="Crear cotización"
+  [route]="'quotes/create/' + opportunityNumber"
+  [isCreate]="isEditing"
+  relatedRoute="opportunities/{{ idOpportunity }}/related"
+  [hidenCreateOportunity]="isEditing"
+  [data]="oportunity"
+>
 </app-header-actions>
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
-<app-oportunity-form (edit)="handdleEdit($event)" *ngIf="oportunity" [oportunityDetailData]="oportunity"></app-oportunity-form>
+<app-oportunity-form
+  (edit)="handdleEdit($event)"
+  *ngIf="oportunity"
+  [oportunityDetailData]="oportunity"
+></app-oportunity-form>

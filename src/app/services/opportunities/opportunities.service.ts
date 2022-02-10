@@ -14,8 +14,4 @@ export class OpportunitiesService {
   getOpportunities(): Observable<any[]> {
     return this.http.get<any[]>(this.url);
   }
-
-  getOpportunitiesDetail(id: string): Observable<any[]> {
-    return this.http.get<any[]>(this.url + '/' + id);
-  }
 }

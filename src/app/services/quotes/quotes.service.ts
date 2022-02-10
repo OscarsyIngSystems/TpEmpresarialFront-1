@@ -16,8 +16,8 @@ export class QuotesService {
     return this.http.get<any[]>(this.url);
   }
 
-  getQuoteDetail(id: number): Observable<any[]> {
-    return this.http.get<any[]>(this.url + '/' + id);
+  getRelatedOpportunitiesDetail(id: string): Observable<any[]> {
+    return this.http.get<any[]>(this.url, { params: { opportunityId: id } });
   }
 
   getData(): Observable<any[]> {
