@@ -64,26 +64,20 @@ export class LoadedSitesComponent implements OnInit {
   ) {}
 
   deleteSelectedItems(): void {
-    console.log('je');
     const u = localStorage.getItem('arraySelected');
     const arraySelected = u ? JSON.parse(u) : [];
     arraySelected.forEach((element: any) => {
       const index = this.originalData.findIndex((site) => {
-        console.log('site', site);
         return site.numberList === element.numberList;
       });
-      console.log('index',index)
       if (index > -1) {
         this.originalData.splice(index, 1);
-        this.reset();
       }
     });
     this.dataSource.data = this.originalData;
-  }
+    localStorage.setItem('loaded-sites', JSON.stringify(this.filteredData));
 
-  reset(): void {
-    this.control.reset();
-    this.filters = [];
+    // this.getData();
   }
 
   ngOnInit(): void {
@@ -110,10 +104,90 @@ export class LoadedSitesComponent implements OnInit {
   }
 
   getData(): void {
-    this.service.getData().subscribe((data) => {
-      this.originalData = data;
+    this.originalData = [
+      {
+        numberList: 1,
+        site: 'Audi Pedregal Anillo Periférico Boulevard 3539, San Jerónimo Aculco, La Magdalena Contreras, 10400 Ciudad de México, CDMX 19.335048, -99.19840699999',
+        coverage: 'Con cobertura',
+        accessMedia: 'Fibra',
+        color: '#E6FAE9',
+        active: false,
+      },
+      {
+        numberList: 2,
+        site: 'Audi Pedregal Anillo Periférico Boulevard 3539, San Jerónimo Aculco, La Magdalena Contreras, 10400 Ciudad de México, CDMX 19.335048, -99.19840699999',
+        coverage: 'Con cobertura',
+        accessMedia: 'Microonda',
+        color: '#EBF1FA',
+        active: false,
+      },
+      {
+        numberList: 3,
+        site: 'Audi Pedregal Anillo Periférico Boulevard 3539, San Jerónimo Aculco, La Magdalena Contreras, 10400 Ciudad de México, CDMX 19.335048, -99.19840699999',
+        coverage: 'Con cobertura',
+        accessMedia: 'Metro',
+        color: '#eee8f3',
+        active: false,
+      },
+      {
+        numberList: 4,
+        site: 'Audi Pedregal Anillo Periférico Boulevard 3539, San Jerónimo Aculco, La Magdalena Contreras, 10400 Ciudad de México, CDMX 19.335048, -99.19840699999',
+        coverage: 'Con cobertura',
+        accessMedia: 'Fibra',
+        color: '#E6FAE9',
+        active: false,
+      },
+      {
+        numberList: 5,
+        site: 'Audi Pedregal Anillo Periférico Boulevard 3539, San Jerónimo Aculco, La Magdalena Contreras, 10400 Ciudad de México, CDMX 19.335048, -99.19840699999',
+        coverage: 'Sin cobertura',
+        accessMedia: 'N/D',
+        color: '#fbf4e7',
+        active: false,
+      },
+    ];
+    localStorage.setItem('loaded-sites', JSON.stringify(this.originalData));
+    const loaded_sites = localStorage.getItem('loaded-sites');
+    const arraySelected = localStorage.getItem('arraySelected');
+    console.log(loaded_sites);
+
+    this.originalData = loaded_sites ? JSON.parse(loaded_sites) : [];
+    const deletedFiles = arraySelected ? JSON.parse(arraySelected) : [];
+
+    if (deletedFiles?.length > 0) {
+      console.log('se hace eliminacion de sitios automaticamente');
+      console.log(this.originalData);
+      console.log(deletedFiles);
+      //eliminacion del datasource
+
+      deletedFiles.forEach((element: any) => {
+        console.log(element);
+
+        const index = this.originalData.findIndex((site) => {
+          console.log(site.numberList, element.numberList);
+
+          return site.numberList === element.numberList;
+        });
+        if (index > -1) {
+          this.originalData.splice(index, 1);
+        }
+      });
+      console.log(this.originalData);
       this.dataSource.data = this.originalData;
-    });
+    } else {
+      this.dataSource.data = this.originalData;
+      console.log(this.originalData);
+    }
+
+    /*     this.service.getData().subscribe((data) => {
+      console.log(data);
+
+      this.originalData = data;
+      console.log(this.originalData);
+
+
+      console.log(this.dataSource.data);
+    }); */
   }
 
   checkDisabled() {
@@ -161,7 +235,10 @@ export class LoadedSitesComponent implements OnInit {
       height: '300px',
       width: '400px',
       panelClass: 'custom-dd',
-      data: {'text': 'Sitios enviados para modelacion de propuesta.', 'length':this.arraySelected.length}
+      data: {
+        text: 'Sitios enviados para modelacion de propuesta.',
+        length: this.arraySelected.length,
+      },
     });
   }
 }

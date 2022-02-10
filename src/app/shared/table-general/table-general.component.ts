@@ -64,23 +64,8 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.dataSource);
-     this.selection = new SelectionModel(true, [
-       ...this.dataSourceLoadedSites.data,
-     ]);
-    // switchSelection();
+    this.selection = new SelectionModel(true, []);
   }
-
-  // switchSelection(){
-  //   switch(){
-  //     case 1:
-  //     this.selection = new SelectionModel(true, [...this.dataSourceLoadedSites.data]);
-  //       break;
-
-  //       default:
-  //         break;
-  //   }
-  // }
 
   goAccountDetail(account: Account): void {
     this.storageService.setDataName(account.accountName);
@@ -113,7 +98,7 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
   isAllSelected() {
     if (this.selection.selected.length > 0) this.disabled = false;
     if (this.selection.selected.length == 0) this.disabled = true;
-    this.emitter.emit(this.selection.selected);
+    // this.emitter.emit(this.selection.selected);
     this.selectedItemsTable = this.selection.selected;
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSourceLoadedSites.data.length;
@@ -121,16 +106,17 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
   }
 
   masterToggle() {
-    this.isAllSelected()
-      ? this.selection.clear()
-      : this.dataSourceLoadedSites.data.forEach((row) => {
-          this.selection.select(row);
-        });
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
+    }
+
+    this.selection.select(...this.dataSourceLoadedSites.data);
   }
 
   checkboxLabel(row?: any): string {
     if (!row) {
-      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
       row.position + 1
@@ -173,10 +159,11 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
     dlgRef.afterClosed().subscribe((res) => {
       const u = localStorage.getItem('arraySelected');
       const arraySelected = u ? JSON.parse(u) : [];
+      console.log(arraySelected);
+
       this.selectedItemsTable.forEach((element) => {
         arraySelected.push(element);
       });
-      console.log('arraySele', arraySelected);
       localStorage.setItem('arraySelected', JSON.stringify(arraySelected));
       this.emitter.emit(arraySelected);
     });
