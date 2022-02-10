@@ -39,7 +39,7 @@
         [legend]="chartOptions.legend"
         [colors]="chartOptions.colors"
       ></apx-chart>
-      <span class="text-bold ps-2 tx-12 color-by-installing">Por instalar</span>
+      <a role="button" class="text-bold ps-2 tx-12 color-by-installing navigate c-pointer installing">Por instalar</a>
     </div>
     <div class="col-2 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
@@ -55,7 +55,7 @@
         [legend]="chartOptions.legend"
         [colors]="chartOptions.colors"
       ></apx-chart>
-      <span class="text-bold ps-2 tx-12 color-in-process">En proceso</span>
+      <a role="button" class="text-bold ps-2 tx-12 color-in-process navigate c-pointer in-process">En proceso</a>
     </div>
     <div class="col-2 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
@@ -71,7 +71,7 @@
         [legend]="chartOptions.legend"
         [colors]="chartOptions.colors"
       ></apx-chart>
-      <span class="text-bold ps-2 tx-12 color-installed">Instaladas</span>
+      <a role="button" (click)="goInstallations('instalations/3')" class="text-bold ps-2 tx-12 color-installed c-pointer installed navigate">Instaladas</a>
     </div>
     <div class="col-3 text-center px-0">
       <!-- <app-chart *ngIf="chartProps" [graphOptions]="chartProps"></app-chart> -->
