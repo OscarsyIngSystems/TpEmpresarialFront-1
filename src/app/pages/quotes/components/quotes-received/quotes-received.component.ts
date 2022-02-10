@@ -50,7 +50,6 @@ export class QuotesReceivedComponent implements OnInit {
   }
 
   onShow() {
-    console.log(['ke']);
     this.spinner.show()
     setTimeout(() => {
       this.spinner.hide()
@@ -60,7 +59,6 @@ export class QuotesReceivedComponent implements OnInit {
   getQuotes(): void {
     this.service.getQuotesReceived().subscribe((data) => {
       this.dataSource = data;
-      // console.log(this.dataSource);
     });
   }
 

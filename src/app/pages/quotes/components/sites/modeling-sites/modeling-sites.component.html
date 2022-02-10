@@ -1,71 +1,96 @@
 <div class="d-flex flex-row justify-content-between">
-    <span><strong>Selecciona los sitios</strong> para comenzar a diseñar la solución.</span>
-    <button mat-button class="rounded-button">Duplicar cotización</button>
+  <span
+    ><strong>Selecciona los sitios</strong> para comenzar a diseñar la
+    solución.</span
+  >
+  <button mat-button class="rounded-button">Duplicar cotización</button>
 </div>
 
 <div class="mt-2">
-    <div class="d-flex flex-row align-items-center justify-content-between">
-        <section>
-            <span class="me-1 color-red text-bold">Plan plazo:</span>
-            <select class="select-shadow small-shadow me-1" name="" placeholder="Ordenar por">
-                <option value="0">12</option>
-            </select>
-            <span>meses</span>
-        </section>
+  <div class="d-flex flex-row align-items-center justify-content-between">
+    <section>
+      <span class="me-1 color-red text-bold">Plan plazo:</span>
+      <select
+        class="select-shadow small-shadow me-1"
+        name=""
+        placeholder="Ordenar por"
+      >
+        <option value="0">12</option>
+      </select>
+      <span>meses</span>
+    </section>
 
-        <section class="ms-3 filters d-flex flex-row">
-            <div class="fiber">
-                <mat-checkbox class="me-3  text-bold"> Fibra</mat-checkbox>
-            </div>
-            <div class="microwave">
-                <mat-checkbox class="me-3  text-bold">Microonda</mat-checkbox>
-            </div>
-            <div class="fiver-microwave">
-                <mat-checkbox class="me-3  text-bold">Fibra/Microonda</mat-checkbox>
-            </div>
-            <div class="meter">
-                <mat-checkbox class="me-3 text-bold ">Metro</mat-checkbox>
-            </div>
-            <div class="no-cover">
-                <mat-checkbox class="me-3 text-bold ">Sin cobertura</mat-checkbox>
-            </div>
-            <div class="all">
-                <mat-checkbox color="primary" class="text-bold ">Todo</mat-checkbox>
-            </div>
+    <section class="ms-3 filters d-flex flex-row">
+      <div class="fiber">
+        <mat-checkbox class="me-3 text-bold"> Fibra</mat-checkbox>
+      </div>
+      <div class="microwave">
+        <mat-checkbox class="me-3 text-bold">Microonda</mat-checkbox>
+      </div>
+      <div class="fiver-microwave">
+        <mat-checkbox class="me-3 text-bold">Fibra/Microonda</mat-checkbox>
+      </div>
+      <div class="meter">
+        <mat-checkbox class="me-3 text-bold">Metro</mat-checkbox>
+      </div>
+      <div class="no-cover">
+        <mat-checkbox class="me-3 text-bold">Sin cobertura</mat-checkbox>
+      </div>
+      <div class="all">
+        <mat-checkbox color="primary" class="text-bold">Todo</mat-checkbox>
+      </div>
+    </section>
+    <div class="input-group w-20 shadow-sm">
+      <input
+        type="text"
+        class="form-control search-bar mt-0"
+        placeholder="Buscar sitio"
+        aria-label="Buscar sitio"
+        aria-describedby="basic-addon2"
+        [formControl]="searchData"
+        [matAutocomplete]="auto"
+        (keydown.enter)="search()"
+      />
+      <button
+        class="btn-clear-search"
+        *ngIf="selectedIdOption"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearSearch()"
+      >
+        <mat-icon class="icon-clear-search">close</mat-icon>
+      </button>
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option
+          (click)="setSearchId(option.id)"
+          *ngFor="let option of filteredOptions | async"
+          [value]="option.name + ' ' + option.location + ' ' + option.type"
+        >
+          {{ option.name }} {{ option.location }}
+          <small class="small-type">{{ option.type }}</small>
+        </mat-option>
+      </mat-autocomplete>
 
-
-        </section>
-        <div class="input-group w-20 shadow-sm">
-            <input type="text" class="form-control search-bar mt-0" placeholder="Buscar sitio" aria-label="Buscar sitio"
-                aria-describedby="basic-addon2" [formControl]="searchData" [matAutocomplete]="auto"
-                (keydown.enter)="search()" />
-            <button class="btn-clear-search" *ngIf="selectedIdOption" matSuffix mat-icon-button aria-label="Clear"
-                (click)="clearSearch()">
-                <mat-icon class="icon-clear-search">close</mat-icon>
-            </button>
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                <mat-option (click)="setSearchId(option.id)" *ngFor="let option of filteredOptions | async"
-                    [value]="option.name + ' ' + option.location + ' ' + option.type">
-                    {{ option.name }} {{ option.location }}
-                    <small class="small-type">{{ option.type }}</small>
-                </mat-option>
-            </mat-autocomplete>
-
-            <div class="search-bar-divider">
-                <span class="search-bar-span">&nbsp;</span>
-            </div>
-            <button class="btn btn-outline-secondary pt-2 search-bar search-bar-btn" id="basic-addon2"
-                (click)="search()">
-                <mat-icon class="search-icon">search</mat-icon>
-            </button>
-        </div>
-
+      <div class="search-bar-divider">
+        <span class="search-bar-span">&nbsp;</span>
+      </div>
+      <button
+        class="btn btn-outline-secondary pt-2 search-bar search-bar-btn"
+        id="basic-addon2"
+        (click)="search()"
+      >
+        <mat-icon class="search-icon">search</mat-icon>
+      </button>
     </div>
-
+  </div>
 </div>
 
-
 <div>
-    <app-table-general [showHeaderTable]="true" [columns]="dataPartner.columnsShow" [dataSource]="dataPartner.dataSource"
-        [idTableShow]="18"></app-table-general>
+  <app-table-general
+    [showHeaderTable]="true"
+    [columns]="dataPartner.columnsShow"
+    [dataSource]="dataPartner.dataSource"
+    [idTableShow]="18"
+  ></app-table-general>
 </div>

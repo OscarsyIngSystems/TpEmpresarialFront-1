@@ -9,7 +9,6 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TableComponent } from './table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
 import { HeaderDetailComponent } from './header-detail/header-detail.component';
@@ -51,11 +50,11 @@ import { InputSpinnerComponent } from './input-spinner/input-spinner.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { TitleBuildingBlocksComponent } from './title-building-blocks/title-building-blocks/title-building-blocks.component';
 import { OportunitiesComponent } from './dashboad-components/oportunities/oportunities.component';
+import { ModelingTablesComponent } from './modeling-tables/modeling-tables.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    TableComponent,
     HeaderDetailComponent,
     HeaderActionsComponent,
     EmptyComponent,
@@ -74,11 +73,11 @@ import { OportunitiesComponent } from './dashboad-components/oportunities/oportu
     InputSpinnerComponent,
     TitleBuildingBlocksComponent,
     OportunitiesComponent,
+    ModelingTablesComponent,
   ],
   exports: [
     ChartsModule,
     NavbarComponent,
-    TableComponent,
     HeaderDetailComponent,
     HeaderActionsComponent,
     EmptyComponent,
@@ -123,6 +122,7 @@ import { OportunitiesComponent } from './dashboad-components/oportunities/oportu
     MatStepperModule,
     TitleBuildingBlocksComponent,
     OportunitiesComponent,
+    ModelingTablesComponent,
   ],
   imports: [
     ChartsModule,

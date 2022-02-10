@@ -141,6 +141,11 @@
   margin-top: 19px;
 }
 
+::ng-deep .mat-form-field-empty {
+  margin-top: -10px !important;
+  font-size: 11px !important;
+}
+
 //#region checkbox
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
 .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {

@@ -1,5 +1,11 @@
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,7 +15,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class StepperBuildingBlocksComponent implements OnInit {
   @Output() isValid: EventEmitter<boolean> = new EventEmitter<boolean>();
-
+  @ViewChild('stepper') step: any;
+  stepSelected = 0;
   isLinear = false;
   firstFormGroup!: FormGroup;
   secondFormGroup!: FormGroup;
@@ -22,6 +29,41 @@ export class StepperBuildingBlocksComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder) {}
 
+  columnsShow = [
+    {
+      key: 'servicesPrice',
+      columnName: 'Servicios / Precio',
+    },
+    {
+      key: 'megas',
+      columnName: 'Megas',
+    },
+    {
+      key: 'amount',
+      columnName: 'Cantidad',
+    },
+  ];
+
+  dataSource = [
+    {
+      pack: {
+        service: 'Simétrico',
+        price: '$1,400.00',
+      },
+    },
+    {
+      pack: {
+        service: 'Asimétrico',
+        price: '$1,400.00',
+      },
+    },
+    {
+      pack: {
+        service: 'Dedicado',
+        price: '$1,400.00',
+      },
+    },
+  ];
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required],
@@ -35,7 +77,11 @@ export class StepperBuildingBlocksComponent implements OnInit {
   }
 
   changeStepper(event: StepperSelectionEvent) {
-    console.log(event);
+    this.step._elementRef.nativeElement.className =
+      'mat-stepper-horizontal mt-2 viewStepper ng-tns-c294-7 mat-stepper-label-position-end ng-star-inserted border-red';
+    console.log(this.step._elementRef, this.step);
+    this.stepSelected = event.selectedIndex;
+
     this.isValid.emit(event.previouslySelectedStep.stepControl.valid);
   }
 }

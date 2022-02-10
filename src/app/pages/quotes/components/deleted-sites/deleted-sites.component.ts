@@ -19,7 +19,7 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 })
 export class DeletedSitesComponent implements OnInit {
   public contentLabels = 'quotes.';
-  // filterValue = '';
+  filterValue = '';
   dataSource = new MatTableDataSource();
   filteredData: any[] = [];
   originalData: any[] = [];
@@ -57,7 +57,7 @@ export class DeletedSitesComponent implements OnInit {
   selection = new SelectionModel(true, [...this.dataSource.data]);
   selectedItemsTable: any[] = [];
   disabled: boolean = true;
-  selectedLength: number = 0
+
   constructor(
     private service: QuotesService,
     private dlg: MatDialog,
@@ -130,6 +130,8 @@ export class DeletedSitesComponent implements OnInit {
   }
 
   isAllSelected() {
+    if (this.selection.selected.length > 0) this.disabled = false;
+    if (this.selection.selected.length == 0) this.disabled = true;
     this.selectedItemsTable = this.selection.selected;
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSource.data.length;
@@ -143,24 +145,33 @@ export class DeletedSitesComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1 }`;
   }
 
-  checkDisabled(array:any[]) {
-    if (array.length > 0) this.disabled = false;
-    if (array.length == 0) this.disabled = true;
-    this.selectedLength = array.length
-    return array.length
-  }
-
   openDialog(): void {
+    localStorage.setItem('length',JSON.stringify(this.selection.selected.length))
     this.dlg.open(DialogDeletedSitesComponent, {
       height: '300px',
       width: '400px',
       panelClass: 'custom-dd',
-      data: {'text': ' sitios agregados', 'length': this.selectedLength}
-    });
-    // setTimeout(() => {
-      // this.router.navigate(['/quotes/loaded-sites'])
-    // }, 500);
+      data: {'text': ' sitios agregados', 'length': this.selection.selected.length}
+    }).afterClosed().subscribe(()=> {
+      if(this.selection.selected.length == 1) {
+        this.originalData = this.originalData.filter((site) => {
+          return site !== this.selection.selected[0]
+        });
+        this.dataSource.data = this.originalData
+        localStorage.setItem('arraySelected',JSON.stringify(this.dataSource.data))
+      }
+      if(this.selection.selected.length != 1) {
+        this.selection.selected.filter((site) => {
+          this.originalData = this.originalData.filter((sites) => {
+          return sites !== site
+        })
+        this.dataSource.data = this.originalData
+        localStorage.setItem('arraySelected',JSON.stringify(this.dataSource.data))
+        })
+      }
+      if(this.isAllSelected() == true) localStorage.setItem('arraySelected',JSON.stringify([]))
+      setTimeout(() => {this.router.navigate(['/quotes/loaded-sites'])}, 200)
+    })
 
-    // localStorage.removeItem('arraySelected')
   }
 }
