@@ -5,27 +5,29 @@
 
       <form [formGroup]="firstFormGroup">
         <ng-template class="labelStepper" matStepLabel>Familias</ng-template>
-        <div class="row">
+        <!-- CONTENIDO DE TABLAS DE NACIONALES Y PRODUCTOS/PRECIO -->
+        <!-- <div class="row">
           <div class="col-4">
             <app-nationals></app-nationals>
           </div>
           <div class="col-8">
             <app-products-price></app-products-price>
           </div>
-        </div>
+        </div> -->
+        <!-- FIN CONTENIDO DE TABLAS DE NACIONALES Y PRODUCTOS/PRECIO -->
         <!-- CONTENIDO DE FAMILIAS -->
         <!-- <div class="conteiner-families"> -->
 
-        <!-- <app-modeling-tables
+        <app-modeling-tables
             [columns]="columnsShow"
             [data]="dataSource"
             [idTableShow]="1"
           ></app-modeling-tables> -->
-        <!-- </div> -->
+        <!-- </div>
         <!-- FIN DE CONTENIDO -->
         <div class="row justify-content-end me-4">
           <button mat-button matStepperNext class="rounded-button-outline btn-primary tx-12 text-bold mt-3"
-            [disabled]="firstFormGroup.invalid">
+            >
             {{ buttonTextFamilies }}
             <mat-icon>chevron_right</mat-icon>
           </button>
