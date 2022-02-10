@@ -1,33 +1,22 @@
 <div class="stepper-wrapper">
-  <mat-horizontal-stepper
-    class="mt-2 viewStepper"
-    (selectionChange)="changeStepper($event)"
-    linear
-    #stepper
-  >
+  <mat-horizontal-stepper class="mt-2 viewStepper" (selectionChange)="changeStepper($event)" linear #stepper>
     <!-- STEPER FAMILIAS -->
-    <mat-step
-      [stepControl]="firstFormGroup"
-      class="border-red"
-      [editable]="isEditable"
-    >
+    <mat-step [stepControl]="firstFormGroup" class="border-red" [editable]="isEditable">
 
       <form [formGroup]="firstFormGroup">
         <ng-template class="labelStepper" matStepLabel>Familias</ng-template>
         <div class="row">
-          <div class="col-4"><app-nationals></app-nationals></div>
-          <div  class="col-8">
-            <app-modeling-tables
-            [columns]="columnsShow"
-            [data]="dataSource"
-            [idTableShow]="1"
-          ></app-modeling-tables>
+          <div class="col-4">
+            <app-nationals></app-nationals>
+          </div>
+          <div class="col-8">
+            <app-products-price></app-products-price>
           </div>
         </div>
         <!-- CONTENIDO DE FAMILIAS -->
         <!-- <div class="conteiner-families"> -->
 
-          <!-- <app-modeling-tables
+        <!-- <app-modeling-tables
             [columns]="columnsShow"
             [data]="dataSource"
             [idTableShow]="1"
@@ -35,12 +24,8 @@
         <!-- </div> -->
         <!-- FIN DE CONTENIDO -->
         <div class="row justify-content-end me-4">
-          <button
-            mat-button
-            matStepperNext
-            class="rounded-button-outline btn-primary tx-12 text-bold mt-3"
-            [disabled]="firstFormGroup.invalid"
-          >
+          <button mat-button matStepperNext class="rounded-button-outline btn-primary tx-12 text-bold mt-3"
+            [disabled]="firstFormGroup.invalid">
             {{ buttonTextFamilies }}
             <mat-icon>chevron_right</mat-icon>
           </button>
@@ -54,21 +39,12 @@
         <!-- CONTENIDO DE EQUIPAMIENTO -->
         <mat-form-field appearance="fill">
           <mat-label>Address</mat-label>
-          <input
-            matInput
-            formControlName="secondCtrl"
-            placeholder="Ex. 1 Main St, New York, NY"
-            required
-          />
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required />
         </mat-form-field>
         <!-- FIN DE CONTENIDO -->
         <div class="row justify-content-end me-4">
-          <button
-            mat-button
-            matStepperNext
-            class="rounded-button-outline btn-primary tx-12 text-bold mt-3"
-            [disabled]="secondFormGroup.invalid"
-          >
+          <button mat-button matStepperNext class="rounded-button-outline btn-primary tx-12 text-bold mt-3"
+            [disabled]="secondFormGroup.invalid">
             {{ buttonTextEquipment }}
             <mat-icon>chevron_right</mat-icon>
           </button>
@@ -82,20 +58,12 @@
         <!-- CONTENIDO DE ADICIONAL -->
         <mat-form-field appearance="fill">
           <mat-label>email</mat-label>
-          <input
-            matInput
-            formControlName="thirdCtrl"
-            placeholder="Ex. 1 Main St, New York, NY"
-            required
-          />
+          <input matInput formControlName="thirdCtrl" placeholder="Ex. 1 Main St, New York, NY" required />
         </mat-form-field>
         <!-- FIN DE CONTENIDO -->
         <div class="row justify-content-end me-4">
-          <button
-            mat-button
-            class="rounded-button-outline btn-primary tx-12 text-bold mt-3"
-            [disabled]="thirdFormGroup.invalid"
-          >
+          <button mat-button class="rounded-button-outline btn-primary tx-12 text-bold mt-3"
+            [disabled]="thirdFormGroup.invalid">
             {{ buttonTextAdditional }}
             <mat-icon>chevron_right</mat-icon>
           </button>

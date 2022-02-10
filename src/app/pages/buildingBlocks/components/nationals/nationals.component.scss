@@ -1,15 +1,17 @@
 .app-class .mat-list-item {
-  height: 25px !important;
+  height: 30px !important;
   border-bottom: 1px solid;
   border-color: lightgrey;
+  font-weight: 500 ;
 }
 
 .bolder {
-  font-weight: 600 !important;
+
 }
 
 .active {
   background-color: #e0e6f1;
   border-bottom: none !important;
   border-left: red 3px solid !important;
+  font-weight: 600 !important;
 }
