@@ -1,6 +1,6 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { AccountsService } from 'src/app/services/accounts/accounts.service';
@@ -13,7 +13,7 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 })
 export class AccountFormComponent implements OnInit, AfterContentInit {
   public contentLabels = 'accounts.account-detail-oportunity.';
-  public accountId:any='';
+  public accountId: any = '';
   public principalDataForm!: FormGroup;
   public addressInformationForm!: FormGroup;
   public systemInformationForm!: FormGroup;
@@ -25,11 +25,14 @@ export class AccountFormComponent implements OnInit, AfterContentInit {
   constructor(
     private _url: ActivatedRoute,
     private fb: FormBuilder,
+    private router: Router,
     public storageService: StorageService,
-    private accountsService:AccountsService,
-    private spinner:NgxSpinnerService
+    private stService: StorageService,
+    private spinner: NgxSpinnerService
   ) {
-    this.accountId = this._url.snapshot.paramMap.get('id') ? this._url.snapshot.paramMap.get('id') :'';
+    this.accountId = this._url.snapshot.paramMap.get('id')
+      ? this._url.snapshot.paramMap.get('id')
+      : '';
     this.initPrincipalDataForm();
     this.initAddressInformationForm();
     this.initSystemInformationForm();
@@ -46,10 +49,8 @@ export class AccountFormComponent implements OnInit, AfterContentInit {
   }
 
   private getDetailAccountId(): void {
-    this.accountsService
-    .getAccountDetail(this.accountId)
-    .subscribe(response=>{
-      const detail:any = response[0];
+    const detail: any = this.stService.getObjetSelected;
+    if (detail) {
       this.infoDetail = [
         {
           name: 'Nombre de la cuenta',
@@ -72,10 +73,10 @@ export class AccountFormComponent implements OnInit, AfterContentInit {
           value: detail.segment,
         },
       ];
-      this.spinner.hide();
-    },err=>{
-      this.spinner.hide();
-    });
+    } else {
+      this.router.navigate(['/accounts']);
+    }
+    this.spinner.hide();
   }
 
   public isAdmin(): boolean {

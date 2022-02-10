@@ -69,6 +69,7 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
 
   goAccountDetail(account: Account): void {
     this.storageService.setDataName(account.accountName);
+    this.storageService.setObjetSelected(account);
     this.route.navigate(['/accounts/detail', account.id]);
   }
 

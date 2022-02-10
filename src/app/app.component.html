@@ -28,31 +28,36 @@
       >
         {{ contentLabels + "menu.item-list1" | translate }}</mat-list-item
       >
-<!--       <mat-list-item
-        routerLink="/accounts"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        role="listitem"
-        class="c-pointer hover"
-        (click)="drawer.close(); drawerRight.close()"
-      >
-        {{ contentLabels + "menu.item-list2" | translate }}</mat-list-item
-      > -->
-          <mat-accordion>
-            <mat-expansion-panel class="mat-elevation-z0" (opened)="panelOpenStateMenu = true"
-              (closed)="panelOpenStateMenu = false">
-              <mat-expansion-panel-header class="hover ps-3">
-                <mat-panel-title class="tx-16"> Cuentas </mat-panel-title>
-              </mat-expansion-panel-header>
-              <mat-list role="list">
-                <mat-list-item routerLink="/accounts" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-                  role="listitem" class="c-pointer hover" (click)="drawer.close(); drawerRight.close()">
-                  {{ contentLabels + "menu.item-list2" | translate }}</mat-list-item>
-                <mat-list-item class="c-pointer hover tx-16" role="listitem">Cuentas factura</mat-list-item>
-                <mat-list-item class="c-pointer hover tx-16" role="listitem">Cuentas con retraso de pago</mat-list-item>
-              </mat-list>
-            </mat-expansion-panel>
-          </mat-accordion>
+
+      <mat-accordion>
+        <mat-expansion-panel
+          class="mat-elevation-z0"
+          (opened)="panelOpenStateMenu = true"
+          (closed)="panelOpenStateMenu = false"
+        >
+          <mat-expansion-panel-header class="hover ps-3">
+            <mat-panel-title class="tx-16"> Cuentas </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list role="list">
+            <mat-list-item
+              routerLink="/accounts"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              role="listitem"
+              class="c-pointer hover"
+              (click)="drawer.close(); drawerRight.close()"
+            >
+              {{ contentLabels + "menu.item-list2" | translate }}</mat-list-item
+            >
+            <mat-list-item class="c-pointer hover tx-16" role="listitem"
+              >Cuentas factura</mat-list-item
+            >
+            <mat-list-item class="c-pointer hover tx-16" role="listitem"
+              >Cuentas con retraso de pago</mat-list-item
+            >
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
       <mat-list-item
         routerLink="/opportunities"
         routerLinkActive="active"
@@ -168,9 +173,7 @@
       (emiter)="toggle($event)"
     ></app-navbar>
     <div [class]="show() ? 'p-0' : 'drawer-secondary-container'">
-      <app-navigation-menu
-        *ngIf="hideNavigation"
-      ></app-navigation-menu>
+      <app-navigation-menu *ngIf="hideNavigation"></app-navigation-menu>
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

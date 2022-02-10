@@ -3,7 +3,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Account } from 'src/app/models/account';
 import { AccountsService } from 'src/app/services/accounts/accounts.service';
 
-
 @Component({
   selector: 'app-accounts-list',
   templateUrl: './accounts-list.component.html',
@@ -12,7 +11,7 @@ import { AccountsService } from 'src/app/services/accounts/accounts.service';
 export class AccountsListComponent implements OnInit {
   public contentLabels = 'accounts.acounts-list.';
 
-  dataSource:Array<Account> = [];
+  dataSource: Array<Account> = [];
 
   columnsShow = [
     {
@@ -49,22 +48,25 @@ export class AccountsListComponent implements OnInit {
     },
   ];
 
-  constructor(private accountService:AccountsService, private spinner:NgxSpinnerService) {
-
-  }
+  constructor(
+    private accountService: AccountsService,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
     this.spinner.show();
-    this.getAccounts()
+    this.getAccounts();
   }
 
-  private getAccounts(){
-    this.accountService.getAccounts()
-    .subscribe(response=>{
-      this.dataSource=response;
-      this.spinner.hide();
-    },err=>{
-      this.spinner.hide();
-    })
+  private getAccounts() {
+    this.accountService.getAccounts().subscribe(
+      (response) => {
+        this.dataSource = response;
+        this.spinner.hide();
+      },
+      (err) => {
+        this.spinner.hide();
+      }
+    );
   }
 }
