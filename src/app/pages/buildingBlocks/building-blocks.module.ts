@@ -7,6 +7,8 @@ import { ComponentsModule } from 'src/app/shared/components.module';
 import { HeaderActionsBuildingBlocksComponent } from './components/header-actions-building-blocks/header-actions-building-blocks.component';
 import { StepperBuildingBlocksComponent } from './components/stepper-building-blocks/stepper-building-blocks.component';
 import { FamilyButtonsComponent } from './components/family-buttons/family-buttons.component';
+import { ProductsPriceComponent } from './components/products-price/products-price.component';
+import { NationalsComponent } from './components/nationals/nationals.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { FamilyButtonsComponent } from './components/family-buttons/family-butto
     HeaderActionsBuildingBlocksComponent,
     StepperBuildingBlocksComponent,
     FamilyButtonsComponent,
+    ProductsPriceComponent,
+    NationalsComponent,
   ],
   imports: [CommonModule, BuildingBlocksRoutingModule, ComponentsModule],
 })

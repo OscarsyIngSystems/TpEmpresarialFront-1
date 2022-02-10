@@ -11,16 +11,28 @@
       class="border-red"
       [editable]="isEditable"
     >
+
       <form [formGroup]="firstFormGroup">
         <ng-template class="labelStepper" matStepLabel>Familias</ng-template>
-        <!-- CONTENIDO DE FAMILIAS -->
-        <div class="conteiner-families">
-          <app-modeling-tables
+        <div class="row">
+          <div class="col-4"><app-nationals></app-nationals></div>
+          <div  class="col-8">
+            <app-modeling-tables
             [columns]="columnsShow"
             [data]="dataSource"
             [idTableShow]="1"
           ></app-modeling-tables>
+          </div>
         </div>
+        <!-- CONTENIDO DE FAMILIAS -->
+        <!-- <div class="conteiner-families"> -->
+
+          <!-- <app-modeling-tables
+            [columns]="columnsShow"
+            [data]="dataSource"
+            [idTableShow]="1"
+          ></app-modeling-tables> -->
+        <!-- </div> -->
         <!-- FIN DE CONTENIDO -->
         <div class="row justify-content-end me-4">
           <button

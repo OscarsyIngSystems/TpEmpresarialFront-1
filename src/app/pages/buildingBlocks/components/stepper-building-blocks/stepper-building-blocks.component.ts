@@ -65,6 +65,10 @@ export class StepperBuildingBlocksComponent implements OnInit {
     },
   ];
   ngOnInit(): void {
+    this.setForm()
+  }
+
+  setForm() {
     this.firstFormGroup = this._formBuilder.group({
       firstCtrl: ['', Validators.required],
     });
