@@ -6,12 +6,9 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { InfoDetail } from 'src/app/models/infoDetail';
 import { Sale } from 'src/app/models/sale';
-import { QuotesService } from 'src/app/services/quotes/quotes.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
 import { DialogEditLoadSitesComponent } from '../../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
 import { DialogLoadSitesComponent } from '../../dialogs/dialog-load-sites/dialog-load-sites.component';
-// import { DialogEditLoadSitesComponent } from '../dialogs/dialog-edit-load-sites/dialog-edit-load-sites.component';
-// import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 
 @Component({
   selector: 'app-loaded-sites',
@@ -57,11 +54,17 @@ export class LoadedSitesComponent implements OnInit {
   disabled: boolean = false;
 
   constructor(
-    private service: QuotesService,
+    // private service: QuotesService,
     public storageService: StorageService,
     private dlg: MatDialog,
     private router: Router
   ) {}
+
+  ngOnInit(): void {
+    this.getData();
+    this.dataSource.filterPredicate = this.filterPredicate;
+    this.storageService.setDataName('AUDI 1 COT | 2 SITIOS');
+  }
 
   deleteSelectedItems(): void {
     const u = localStorage.getItem('arraySelected');
@@ -77,14 +80,9 @@ export class LoadedSitesComponent implements OnInit {
     this.dataSource.data = this.originalData;
     localStorage.setItem('loaded-sites', JSON.stringify(this.filteredData));
 
-    // this.getData();
   }
 
-  ngOnInit(): void {
-    this.getData();
-    this.dataSource.filterPredicate = this.filterPredicate;
-    this.storageService.setDataName('AUDI 1 COT | 2 SITIOS');
-  }
+
 
   onFilter(filterValues: string): void {
     if (!this.filters.includes(filterValues)) {
@@ -155,9 +153,6 @@ export class LoadedSitesComponent implements OnInit {
     const deletedFiles = arraySelected ? JSON.parse(arraySelected) : [];
 
     if (deletedFiles?.length > 0) {
-      console.log('se hace eliminacion de sitios automaticamente');
-      console.log(this.originalData);
-      console.log(deletedFiles);
       //eliminacion del datasource
 
       deletedFiles.forEach((element: any) => {
@@ -178,16 +173,6 @@ export class LoadedSitesComponent implements OnInit {
       this.dataSource.data = this.originalData;
       console.log(this.originalData);
     }
-
-    /*     this.service.getData().subscribe((data) => {
-      console.log(data);
-
-      this.originalData = data;
-      console.log(this.originalData);
-
-
-      console.log(this.dataSource.data);
-    }); */
   }
 
   checkDisabled() {

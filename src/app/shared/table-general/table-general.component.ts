@@ -98,7 +98,6 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
   isAllSelected() {
     if (this.selection.selected.length > 0) this.disabled = false;
     if (this.selection.selected.length == 0) this.disabled = true;
-    // this.emitter.emit(this.selection.selected);
     this.selectedItemsTable = this.selection.selected;
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSourceLoadedSites.data.length;
