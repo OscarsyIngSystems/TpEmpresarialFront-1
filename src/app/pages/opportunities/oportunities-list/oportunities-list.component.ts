@@ -85,7 +85,7 @@ export class OportunitiesListComponent implements OnInit {
 
     if (this.lastValue !== event.target.id) {
       this.lastValue = event.target.id;
-      // this.onFilter([event.target.id]);
+       this.onFilter([event.target.id]);
     } else {
       this.filterParam.setValue(0);
       this.lastValue = 0;
@@ -93,9 +93,7 @@ export class OportunitiesListComponent implements OnInit {
     }
   }
 
-  onFilter(filterValues: string[]): void {
-    console.log(filterValues);
-
+private onFilter(filterValues: string[]): void {
     filterValues.forEach((item) => {
       if (item == 'todos') {
         this.resetFilters();

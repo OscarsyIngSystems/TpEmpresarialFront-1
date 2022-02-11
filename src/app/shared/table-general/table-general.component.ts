@@ -20,7 +20,8 @@ import { DialogTaskComponent } from './../../pages/accounts/components/dialog-ta
 import { MatDialog } from '@angular/material/dialog';
 import { SelectionModel } from '@angular/cdk/collections';
 import { SharedService } from 'src/app/services/shared/shared.service';
-
+import { DataTableDirective } from 'angular-datatables';
+declare var $:any;
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-table-general',
@@ -34,15 +35,28 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
   @Input() showHeaderTable!: boolean;
   @Input() dataSourceLoadedSites = new MatTableDataSource();
   @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
+
   @Input() get filterData(): any[] {
     return this.dataAux;
   }
   set filterData(data: any[]) {
-    console.log(data);
-
+    let x = $('#dataTableop').DataTable();
+    let op={
+      "name": data[0].name,
+      "number": data[0].number,
+     "accountName": data[0].accountName,
+      "stage": data[0].stage,
+      "amount": data[0].amount,
+     "createdDate":  data[0].createdDate,
+     "closeDate": data[0].closeDate
+    }
+    console.log(data, $('#dataTableop').DataTable().data, op);
+    x.clear();
+    x.row.add(op)
+    x.draw()
     this.dataAux = data;
   }
-  @ViewChild('dataTable') dataTable: any;
+  @ViewChild('dataTable', { static: false }) dataTable: any;
   @Output() emitter = new EventEmitter<any>();
 
   selection: any;
