@@ -20,7 +20,10 @@
     </select>
   </div>
 </div>
-<app-empty *ngIf="dataSource.length == 0"></app-empty>
+<app-empty
+  *ngIf="dataSource.length == 0"
+  message="No se encontraron datos"
+></app-empty>
 <app-table-general
   *ngIf="dataSource.length > 0"
   [showHeaderTable]="false"

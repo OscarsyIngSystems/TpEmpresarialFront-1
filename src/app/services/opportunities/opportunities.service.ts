@@ -17,4 +17,8 @@ export class OpportunitiesService {
   getRelatedAccountsDetail(id: string): Observable<any[]> {
     return this.http.get<any[]>(this.url, { params: { accountId: id } });
   }
+
+  createOpportunity(newOportunity: Object): Observable<any> {
+    return this.http.post(this.url, newOportunity);
+  }
 }

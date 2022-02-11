@@ -1,17 +1,20 @@
 <div class="row py-2 align-items-center mh-50">
-  <div *ngIf="role == 1" class="col-3 d-flex flex-column justify-content-center">
+  <div
+    *ngIf="role == 1"
+    class="col-3 d-flex flex-column justify-content-center"
+  >
     <span class="text-title text-bold">
       {{ contentLabels + "title" | translate }}
     </span>
   </div>
-  <div  *ngIf="role == 2" class="col-12">
-    <span class="text-title text-bold d-flex = justify-content-center ">
-      {{  "Cotizaciones recibidas" | translate }}
+  <div *ngIf="role == 2" class="col-12">
+    <span class="text-title text-bold d-flex = justify-content-center">
+      {{ "Cotizaciones recibidas" | translate }}
     </span>
   </div>
 
   <div *ngIf="role === 1" class="col-7">
-    <div  class="row g-0 row-cols-lg-auto justify-content-end">
+    <div class="row g-0 row-cols-lg-auto justify-content-end">
       <input
         type="checkbox"
         class="btn-check"
@@ -48,11 +51,19 @@
 </div>
 
 <div *ngIf="role === 1">
-  <app-empty message="No se encontraron cotizaciones" *ngIf="dataSource.length === 0 "></app-empty>
-  <app-table-general  *ngIf="dataSource.length > 0" [dataSource]="dataSource" [idTableShow]="3" [columns]="columnsShow">
+  <app-empty
+    message="No se encontraron datos"
+    *ngIf="dataSource.length === 0"
+  ></app-empty>
+  <app-table-general
+    *ngIf="dataSource.length > 0"
+    [dataSource]="dataSource"
+    [idTableShow]="3"
+    [columns]="columnsShow"
+  >
   </app-table-general>
 </div>
 
 <div *ngIf="role === 2">
-  <app-quotes-received ></app-quotes-received>
+  <app-quotes-received></app-quotes-received>
 </div>

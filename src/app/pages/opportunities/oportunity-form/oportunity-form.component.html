@@ -36,7 +36,7 @@
               <mat-option value="Negociación">Negociación</mat-option>
               <mat-option value="Crédito">Crédito</mat-option>
               <mat-option value="Firma">Firma</mat-option>
-              <mat-option value="Ganada">Ganada</mat-option>
+              <mat-option value="Cerrada">Cerrada</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -132,14 +132,19 @@
               ></mat-label
             >
             <mat-select
-              *ngIf="_loginServices.getRole() == 3"
+              *ngIf="_loginServices.getRole() == 3 || !oportunityDetailData"
               formControlName="whoIntegrated"
             >
-              <mat-option value="one">Juanito Pérez</mat-option>
+              <mat-option
+                *ngFor="let integrator of catalogIntegrator"
+                [value]="integrator.id"
+                >{{ integrator.name }}</mat-option
+              >
             </mat-select>
             <input
               *ngIf="
-                _loginServices.getRole() == 1 || _loginServices.getRole() == 2
+                (_loginServices.getRole() == 1 && oportunityDetailData) ||
+                (_loginServices.getRole() == 2 && oportunityDetailData)
               "
               matInput
               formControlName="whoIntegrated"

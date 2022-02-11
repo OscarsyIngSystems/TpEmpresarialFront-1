@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SimpleCatalog } from 'src/app/models/Catalogs';
+import { Catalog, SimpleCatalog } from 'src/app/models/Catalogs';
 import { Oportunity } from 'src/app/models/Oportunity';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { LoginService } from 'src/app/services/login/login.service';
@@ -24,10 +24,10 @@ export class OportunityFormComponent implements OnInit {
   hld!: File;
   auxForm: any = {};
   catalogOrigin: SimpleCatalog[] = [];
+  catalogIntegrator: Catalog[] = [];
 
   constructor(
     private fb: FormBuilder,
-    public dialog: MatDialog,
     private _url: ActivatedRoute,
     private router: Router,
     public _loginServices: LoginService,
@@ -36,8 +36,7 @@ export class OportunityFormComponent implements OnInit {
     // console.log(this._url);
     this.accountId = this._url.snapshot.paramMap.get('id');
     this.oportunityForm = this.fb.group({
-      accountName: [''],
-      closeDate: [new Date(), Validators.required],
+      closeDate: [, Validators.required],
       stage: [''],
       amount: [''],
       reason: [],
@@ -46,15 +45,14 @@ export class OportunityFormComponent implements OnInit {
       probability: ['10%'],
       badge: ['Peso', [Validators.required]],
       oportunityOrigin: ['', Validators.required],
-      trybuy: [],
+      trybuy: [false],
       executive: [''],
-      whoIntegrated: ['one', [Validators.required]],
-      saleType: ['', Validators.required],
+      whoIntegrated: ['', [Validators.required]],
+      saleType: [''],
       finderFee: [''],
       collaboratorName: [],
       collaboratorNumber: [],
       distributor: [],
-      hld: [],
     });
     this.oportunityForm.get('badge')?.disable();
     this.oportunityForm.get('probability')?.disable();
@@ -85,20 +83,18 @@ export class OportunityFormComponent implements OnInit {
         }
       }
       this.oportunityForm.disable();
+    } else {
+      this.getCatalogOpportunityIntegrator();
     }
   }
 
   openDialog(): void {
+    this.saveData.emit(this.oportunityForm.value);
     this.name = this.oportunityForm.controls.oportunityName.value;
-    console.log(this.oportunityDetailData);
+
     this.oportunityForm.enable();
     let data = this.oportunityForm.value;
     this.oportunityForm.disable();
-    const dialogRef = this.dialog.open(DialogOportunitiesComponent, {
-      width: '393px',
-      height: '291px',
-      data: { name: this.name, data },
-    });
   }
 
   get saleType(): string {
@@ -148,6 +144,13 @@ export class OportunityFormComponent implements OnInit {
       .subscribe((response) => {
         this.catalogOrigin = response;
         console.log(this.catalogOrigin);
+      });
+  }
+  getCatalogOpportunityIntegrator() {
+    this._serviceCatalogs
+      .getCatalogoOportunityIntegrator()
+      .subscribe((response) => {
+        this.catalogIntegrator = response;
       });
   }
 }
