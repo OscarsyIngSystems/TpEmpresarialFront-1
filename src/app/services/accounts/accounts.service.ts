@@ -16,12 +16,8 @@ export class AccountsService {
   public getPosts(): Observable<any> {
     return this._http.get(this.urlTestChart);
   }
-  
+
   getAccounts(): Observable<Account[]> {
     return this._http.get<Account[]>(this.url);
-  }
-
-  getAccountDetail(id:string): Observable<Account[]>{
-    return this._http.get<Account[]>(`${this.url}/id`);
   }
 }

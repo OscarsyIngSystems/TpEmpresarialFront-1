@@ -1,45 +1,69 @@
 <div class="mat-elevation-z1 card-form px-3 py-0">
   <form [formGroup]="oportunityForm">
-    <div *ngIf="oportunityDetailData && oportunityForm.disabled" class="w-100 d-flex justify-content-end py-1">
+    <div
+      *ngIf="oportunityDetailData && oportunityForm.disabled"
+      class="w-100 d-flex justify-content-end py-1"
+    >
       <a (click)="editForm()" class="action-edit" role="button">Editar</a>
     </div>
     <div class="row">
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Origen de la oportunidad <small class="color-red">*</small></mat-label>
+            <mat-label class="label-form-field"
+              >Origen de la oportunidad
+              <small class="color-red">*</small></mat-label
+            >
             <mat-select formControlName="oportunityOrigin">
-              <mat-option value="one">Primera opción</mat-option>
+              <mat-option
+                *ngFor="let origin of catalogOrigin"
+                [value]="origin.name"
+                >{{ origin.name }}</mat-option
+              >
             </mat-select>
           </mat-form-field>
         </div>
         <div class="input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Etapa<small class="color-red">*</small></mat-label>
+            <mat-label class="label-form-field"
+              >Etapa<small class="color-red">*</small></mat-label
+            >
             <!-- <input formControlName="stage" matInput /> -->
             <mat-select formControlName="stage">
-              <mat-option value="0">Necesidades</mat-option>
-              <mat-option value="1">Diseño</mat-option>
-              <mat-option value="2">Propuesta</mat-option>
-              <mat-option value="3">Negociación</mat-option>
-              <mat-option value="4">Crédito</mat-option>
-              <mat-option value="5">Firma</mat-option>
-              <mat-option value="6">Ganada</mat-option>
+              <mat-option value="Necesidades">Necesidades</mat-option>
+              <mat-option value="Diseño">Diseño</mat-option>
+              <mat-option value="Propuesta">Propuesta</mat-option>
+              <mat-option value="Negociación">Negociación</mat-option>
+              <mat-option value="Crédito">Crédito</mat-option>
+              <mat-option value="Firma">Firma</mat-option>
+              <mat-option value="Cerrada">Cerrada</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div class="input-container pe-10px">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Importe<small class="color-red">*</small></mat-label>
+            <mat-label class="label-form-field"
+              >Importe<small class="color-red">*</small></mat-label
+            >
             <input matInput formControlName="amount" />
           </mat-form-field>
         </div>
         <div class="row">
           <div class="col-3 d-flex align-items-center">
             <div class="check-container mb-0">
-              <input (change)="handdleTryBuy()" formControlName="trybuy" type="checkbox" class="btn-check"
-                id="btn-check-sent" autocomplete="off" />
-              <label class="btn btn-sm btn-outline-primary me-2 btn-check-sent" for="btn-check-sent">Try & buy</label>
+              <input
+                (change)="handdleTryBuy()"
+                formControlName="trybuy"
+                type="checkbox"
+                class="btn-check"
+                id="btn-check-sent"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-sm btn-outline-primary me-2 btn-check-sent"
+                for="btn-check-sent"
+                >Try & buy</label
+              >
             </div>
           </div>
           <div class="col-9">
@@ -47,9 +71,9 @@
               <mat-form-field appearance="fill" class="w-100">
                 <mat-label class="label-form-field">Motivo</mat-label>
                 <mat-select formControlName="reason">
-                  <mat-option value="0">Superioridad técnica</mat-option>
+                  <mat-option value="Motivo 1">Motivo 1</mat-option>
                   <mat-option value="Motivo 2">Motivo 2</mat-option>
-                  <mat-option value="2">Opcion 3</mat-option>
+                  <mat-option value="Motivo 3">Motivo 3</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
@@ -59,25 +83,40 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Nombre de la oportunidad <small class="color-red">*</small></mat-label>
+            <mat-label class="label-form-field"
+              >Nombre de la oportunidad
+              <small class="color-red">*</small></mat-label
+            >
             <input matInput formControlName="oportunityName" />
           </mat-form-field>
         </div>
 
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Probabilidad (%)<small class="color-red">*</small></mat-label>
+            <mat-label class="label-form-field"
+              >Probabilidad (%)<small class="color-red">*</small></mat-label
+            >
             <input matInput formControlName="probability" />
           </mat-form-field>
         </div>
-        <div class="input-container" [class]="!oportunityDetailData ? 'mtn-10' : ''">
+        <div
+          class="input-container"
+          [class]="!oportunityDetailData ? 'mtn-10' : ''"
+        >
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Divisa de la oportunidad<small class="color-red">*</small></mat-label>
+            <mat-label class="label-form-field"
+              >Divisa de la oportunidad<small class="color-red"
+                >*</small
+              ></mat-label
+            >
             <input formControlName="badge" matInput />
           </mat-form-field>
         </div>
 
-        <div class="input-container" [class]="!oportunityDetailData ? 'mtn-10' : ''">
+        <div
+          class="input-container"
+          [class]="!oportunityDetailData ? 'mtn-10' : ''"
+        >
           <mat-form-field class="w-100" appearance="fill">
             <mat-label class="label-form-field">Descripción</mat-label>
             <input formControlName="description" matInput />
@@ -87,56 +126,100 @@
       <div class="col-md-4 col-lg-4 col-xl-4">
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label class="label-form-field">Quien integra la propuesta<small class="color-red">*</small></mat-label>
-            <mat-select formControlName="whoIntegrated">
-              <mat-option value="one">Juanito Pérez</mat-option>
+            <mat-label class="label-form-field"
+              >Quien integra la propuesta<small class="color-red"
+                >*</small
+              ></mat-label
+            >
+            <mat-select
+              *ngIf="_loginServices.getRole() == 3 || !oportunityDetailData"
+              formControlName="whoIntegrated"
+            >
+              <mat-option
+                *ngFor="let integrator of catalogIntegrator"
+                [value]="integrator.id"
+                >{{ integrator.name }}</mat-option
+              >
             </mat-select>
+            <input
+              *ngIf="
+                (_loginServices.getRole() == 1 && oportunityDetailData) ||
+                (_loginServices.getRole() == 2 && oportunityDetailData)
+              "
+              matInput
+              formControlName="whoIntegrated"
+            />
           </mat-form-field>
         </div>
 
         <div class="input-container">
           <mat-form-field appearance="fill" class="w-100">
-            <mat-label>Fecha estimada de cierre<small class="color-red">*</small></mat-label>
-            <input matInput (click)="picker.open()" [matDatepicker]="picker" formControlName="closeDate" readonly />
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-label
+              >Fecha estimada de cierre<small class="color-red"
+                >*</small
+              ></mat-label
+            >
+            <input
+              matInput
+              (click)="picker.open()"
+              [matDatepicker]="picker"
+              formControlName="closeDate"
+              readonly
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
         <div class="input-container pe-10px">
           <mat-form-field class="w-100" appearance="fill">
-            <mat-label class="label-form-field">Nombre del ejecutivo <small class="color-red">*</small></mat-label>
+            <mat-label class="label-form-field"
+              >Nombre del ejecutivo
+              <small class="color-red">*</small></mat-label
+            >
             <input formControlName="executive" matInput />
           </mat-form-field>
         </div>
-        <div class="d-flex flex-row">
-          <!--           <div class="d-flex flex-column me-2">
-            <button mat-button class="view-button"><strong>Ver</strong></button>
-            <small>Nombre.pdf</small>
-          </div>
-          <div class="up-hld"><strong>Cargar</strong> <span>HLD</span></div> -->
-
-<!--           <app-upload-button-file [disabled]="oportunityForm.disabled"  class="me-2 pt-3" text="Cargar HLD"
-            (handdleFile)="selectFile($event)">
-          </app-upload-button-file>
-          <button *ngIf="hld" class="rounded-button-outline-auto mt-3">
-            <strong>Ver</strong> HLD
-          </button> -->
-        </div>
+        <div class="d-flex flex-row"></div>
       </div>
 
       <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4">
-          <div class="d-flex flex-row justify-content-between sale-type-container align-items-center">
+          <div
+            class="d-flex flex-row justify-content-between sale-type-container align-items-center"
+          >
             <div>
-              <input id="mixed" value="1" class="radio-custom" name="saleType" type="radio"
-                formControlName="saleType" />
-              <label for="mixed" class="radio-custom-label d-flex flex-row text-bold">Venta mixta</label>
+              <input
+                id="mixed"
+                value="1"
+                class="radio-custom"
+                name="saleType"
+                type="radio"
+                formControlName="saleType"
+              />
+              <label
+                for="mixed"
+                class="radio-custom-label d-flex flex-row text-bold"
+                >Venta mixta</label
+              >
             </div>
 
             <div>
-              <input id="partner" class="radio-custom" name="saleType" type="radio" value="2"
-                formControlName="saleType" />
-              <label for="partner" class="radio-custom-label d-flex flex-row text-bold">Socio</label>
+              <input
+                id="partner"
+                class="radio-custom"
+                name="saleType"
+                type="radio"
+                value="2"
+                formControlName="saleType"
+              />
+              <label
+                for="partner"
+                class="radio-custom-label d-flex flex-row text-bold"
+                >Socio</label
+              >
             </div>
           </div>
         </div>
@@ -145,38 +228,25 @@
       <div class="row">
         <div class="col-md-4 col-lg-4 col-xl-4">
           <div class="input-container" *ngIf="saleType == '1'">
-            <!-- <mat-form-field class="w-100" appearance="fill">
-              <mat-label class="label-form-field">Nombre del colaborador</mat-label>
-               <input matInput formControlName="collaboratorName" />
-
-            </mat-form-field>-->
-
-            <app-contacts-search title="Nombre del colaborador" textPlaceholder="Nombre del colaborador">
+            <app-contacts-search
+              title="Nombre del colaborador"
+              textPlaceholder="Nombre del colaborador"
+            >
             </app-contacts-search>
           </div>
 
-          <div class="input-container" *ngIf="saleType=='2'">
+          <div class="input-container" *ngIf="saleType == '2'">
             <app-contacts-search title="Distribuidor"></app-contacts-search>
-            <!--  <mat-form-field class="w-100" appearance="fill">
-              <mat-label class="label-form-field">Distribuidor</mat-label>
-              <input matInput formControlName="distributor" />
-            </mat-form-field> -->
           </div>
         </div>
         <div class="col-md-4 col-lg-4 col-xl-4">
           <div class="input-container" *ngIf="saleType == '1'">
-            <!--             <mat-form-field class="w-100 no-padding" appearance="fill">
-
-              <input matInput placeholder="Número de colaborador" formControlName="collaboratorNumber" />
-            </mat-form-field> -->
-            <app-contacts-search title="Número de colaborador"></app-contacts-search>
+            <app-contacts-search
+              title="Número de colaborador"
+            ></app-contacts-search>
           </div>
 
           <div class="input-container" *ngIf="saleType == '2'">
-            <!--             <mat-form-field class="w-100" appearance="fill">
-              <mat-label class="label-form-field">FinderFee</mat-label>
-              <input matInput formControlName="finderFee" />
-            </mat-form-field> -->
             <app-contacts-search title="FinderFee"></app-contacts-search>
           </div>
         </div>
@@ -184,11 +254,23 @@
     </div>
   </form>
 </div>
-<div *ngIf="!oportunityDetailData || isEditing" class="d-flex justify-content-center mt-4">
-  <button (click)="cancel()" mat-button class="rounded-button-outline form-actions me-2">
+<div
+  *ngIf="!oportunityDetailData || isEditing"
+  class="d-flex justify-content-center mt-4"
+>
+  <button
+    (click)="cancel()"
+    mat-button
+    class="rounded-button-outline form-actions me-2"
+  >
     Cancelar
   </button>
-  <button [disabled]="oportunityForm.invalid" mat-button (click)="openDialog()" class="rounded-button form-actions">
+  <button
+    [disabled]="oportunityForm.invalid"
+    mat-button
+    (click)="openDialog()"
+    class="rounded-button form-actions"
+  >
     Guardar
   </button>
 </div>

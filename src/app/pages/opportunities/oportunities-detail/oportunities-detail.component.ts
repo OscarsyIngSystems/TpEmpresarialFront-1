@@ -15,19 +15,18 @@ export class OportunitiesDetailComponent implements OnInit {
   public contentLabels = 'oportunities.';
   public opportunityNumber;
   isEditing: boolean = false;
-
+  idOpportunity: string = '';
   title: string = this.contentLabels + 'title-detail';
 
-  infoDetail: Array<InfoDetail> = [
-   
-  ];
+  infoDetail: Array<InfoDetail> = [];
 
   oportunity!: Oportunity;
   constructor(
     private _url: ActivatedRoute,
-    private router:Router,
-    private spinner:NgxSpinnerService,
-    private stService:StorageService) {
+    private router: Router,
+    private spinner: NgxSpinnerService,
+    private stService: StorageService
+  ) {
     this.opportunityNumber = this._url.snapshot.paramMap.get('id');
   }
 
@@ -45,11 +44,11 @@ export class OportunitiesDetailComponent implements OnInit {
     }
   }
 
-  getDetail():void{
-
-      const detail:any = this.stService.getObjetSelected;
-      if(detail){
-              this.infoDetail = [
+  getDetail(): void {
+    const detail: any = this.stService.getObjetSelected;
+    if (detail) {
+      this.idOpportunity = detail.id;
+      this.infoDetail = [
         {
           name: 'Nombre de la cuenta',
           value: detail.accountName,
@@ -79,32 +78,31 @@ export class OportunitiesDetailComponent implements OnInit {
           value: detail.executive,
         },
       ];
+      console.log(detail);
 
-      const date = detail.closeDate.split('/')
-      
+      const date = detail.closeDate.split('/');
+
       this.oportunity = {
-        accountName: 'Audi CDMX',
+        accountName: '',
         amount: `$${detail.amount}`,
-        badge: 'MXN - Peso Mexicano',
+        badge: detail.badge ? detail.badge : 'Peso',
         closeDate: new Date(date[2], date[1] - 1, date[0]),
         description: detail.description,
         executive: detail.executive,
         oportunityName: detail.name,
         probability: detail.probability + '%',
-        oportunityOrigin: 'one',
+        oportunityOrigin: detail.origin,
         reason: detail.tryAndBuyReason,
-        stage: '0',
-        trybuy: detail.isTryAndBuy == 'true',
-        whoIntegrated: 'one',
+        stage: detail.stage,
+        trybuy: detail.isTryAndBuy,
+        whoIntegrated: detail.whoIntegrated,
         isMixedSale: detail.isMixedSale,
-        isParter: detail.isParter,
+        isPartner: detail.isPartner,
       };
-      }
-      else{
-        this.router.navigate(['/opportunities'])
-      }
+    } else {
+      this.router.navigate(['/opportunities']);
+    }
 
-      this.spinner.hide();
-   
+    this.spinner.hide();
   }
 }

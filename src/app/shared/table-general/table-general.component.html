@@ -21,10 +21,10 @@
       <td class="mat-cell">{{ account.accountName }}</td>
       <td class="mat-cell">{{ account.accountId }}</td>
       <td class="mat-cell">{{ account.taxIdentification }}</td>
-      <td class="mat-cell">{{ account.segment }}</td>
+      <td class="mat-cell">{{ account.segment | blankData }}</td>
       <td class="mat-cell">{{ account.phone }}</td>
-      <td class="mat-cell">{{ account.contact }}</td>
-      <td class="mat-cell">{{ account.created }}</td>
+      <td class="mat-cell">{{ account.mainContact | blankData }}</td>
+      <td class="mat-cell">{{ account.systemInfo.creationDate }}</td>
     </tr>
   </tbody>
 </table>
@@ -32,7 +32,7 @@
 <!-- Tabla de oportunidades -->
 <table
   *ngIf="idTableShow == 2"
-  id="dataTable"
+  id="dataTableop"
   datatable
   [dtOptions]="dtOptions"
   class="general-table row-border"
@@ -46,7 +46,7 @@
     <tr
       (click)="goOpportunities(opportunity)"
       class="table-element-row shadow-sm t-row"
-      *ngFor="let opportunity of dataSource"
+      *ngFor="let opportunity of filterData"
     >
       <td class="mat-cell">{{ opportunity.name }}</td>
       <td class="mat-cell">{{ opportunity.number }}</td>
@@ -141,9 +141,9 @@
       *ngFor="let account of dataSource; let i = index"
       (click)="goQuotesDetail(account)"
     >
-      <td class="mat-cell">{{ account.quoteName }}</td>
+      <td class="mat-cell">{{ account.name }}</td>
       <td class="mat-cell">{{ account.invoice }}</td>
-      <td class="mat-cell">{{ account.mounthTotal }}</td>
+      <td class="mat-cell">{{ account.monthlyAmount | blankData }}</td>
       <td class="mat-cell">{{ account.status }}</td>
       <td class="mat-cell">{{ account.validity }}</td>
       <td class="mat-cell d-flex justify-content-center">
@@ -153,7 +153,7 @@
             class="radio-custom"
             name="radio-group"
             type="radio"
-            [checked]="account.mainCot"
+            [checked]="account.isMain"
           />
           <label [for]="'radio-' + i" class="radio-custom-label"></label>
         </div>
@@ -221,15 +221,21 @@
   <tbody>
     <tr
       class="shadow-sm c-pointer t-row"
-      (click)="goOportunitiesDetail(account)"
+      (click)="goOpportunities(account)"
       *ngFor="let account of dataSource; let i = index"
     >
       <td class="mat-cell ps-4">{{ account.name }}</td>
-      <td class="mat-cell ps-4">{{ account.opportunity_number }}</td>
-      <td class="mat-cell ps-4">{{ account.status }}</td>
-      <td class="mat-cell ps-4">{{ account.mounthTotal }}</td>
+      <td class="mat-cell ps-4">{{ account.number }}</td>
+      <td class="mat-cell ps-4">{{ account.stage }}</td>
+      <td class="mat-cell ps-4">
+        {{
+          account.amount
+            ? (account.amount | currency)
+            : (account.amount | blankData)
+        }}
+      </td>
       <td class="mat-cell ps-4">{{ account.closeDate }}</td>
-      <td class="mat-cell ps-4">{{ account.created }}</td>
+      <td class="mat-cell ps-4">{{ account.createdDate }}</td>
     </tr>
   </tbody>
 </table>
@@ -381,7 +387,7 @@
   <ng-container matColumnDef="site">
     <th mat-header-cell *matHeaderCellDef class="borders">Sitio</th>
     <td
-      style="border-bottom-color: transparent !important;"
+      style="border-bottom-color: transparent !important"
       [style.background-color]="element.color"
       class="numberList"
       mat-cell
@@ -392,7 +398,7 @@
   </ng-container>
 
   <!-- Coverage Column -->
-  <ng-container  matColumnDef="coverage">
+  <ng-container matColumnDef="coverage">
     <th mat-header-cell *matHeaderCellDef class="borders">Cobertura</th>
     <td
       class="borders"
@@ -405,10 +411,10 @@
   </ng-container>
 
   <!-- AccessMedia Column -->
-  <ng-container matColumnDef="accessMedia" >
+  <ng-container matColumnDef="accessMedia">
     <th mat-header-cell *matHeaderCellDef class="borders">Medio de Acceso</th>
     <td
-    class="borders"
+      class="borders"
       [style.background-color]="element.color"
       mat-cell
       *matCellDef="let element"
@@ -418,7 +424,7 @@
   </ng-container>
 
   <!-- Edit Column -->
-  <ng-container matColumnDef="edit" >
+  <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef class="borders">
       <button
         [disabled]="disabled"
@@ -431,7 +437,7 @@
       </button>
     </th>
     <td
-    class="borders"
+      class="borders"
       [style.background-color]="element.color"
       mat-cell
       *matCellDef="let element"
@@ -846,27 +852,28 @@
     <th mat-header-cell *matHeaderCellDef></th>
     <td
       [style.background-color]="element.color"
-      class="numberList "
+      class="numberList"
       mat-cell
       *matCellDef="let element"
     >
-    <div class="d-flex flex-row align-items-center">
-         <div class="mx-2 type-indicator"></div>
-    <span>{{ element.site }}</span>
-
-    </div>
-
+      <div class="d-flex flex-row align-items-center">
+        <div class="mx-2 type-indicator"></div>
+        <span>{{ element.site }}</span>
+      </div>
     </td>
   </ng-container>
 
-    <ng-container matColumnDef="subtype">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td [style.background-color]="element.color" class="numberList" mat-cell *matCellDef="let element">
-        {{ element.subtype }}
-      </td>
-    </ng-container>
-
-
+  <ng-container matColumnDef="subtype">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td
+      [style.background-color]="element.color"
+      class="numberList"
+      mat-cell
+      *matCellDef="let element"
+    >
+      {{ element.subtype }}
+    </td>
+  </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columns"></tr>
   <tr mat-row *matRowDef="let row; columns: columns"></tr>
@@ -948,7 +955,7 @@
   </thead>
   <tbody>
     <tr
-    class="table-element-row shadow-sm t-row"
+      class="table-element-row shadow-sm t-row"
       *ngFor="let account of dataSource; let i = index"
     >
       <td class="mat-cell ps-1 ">{{ account.quoteName }}</td>
@@ -962,7 +969,13 @@
   </tbody>
 </table>
 
-<table *ngIf="idTableShow == 20" id="history" datatable [dtOptions]="dtOptions" class="table-without-separator">
+<table
+  *ngIf="idTableShow == 20"
+  id="history"
+  datatable
+  [dtOptions]="dtOptions"
+  class="table-without-separator"
+>
   <thead>
     <tr class="t-row">
       <th *ngFor="let col of columns">
@@ -971,18 +984,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="c-pointer t-row" *ngFor="let account of dataSource; let i = index">
+    <tr
+      class="c-pointer t-row"
+      *ngFor="let account of dataSource; let i = index"
+    >
       <td class="mat-cell ps-1">{{ account.accountName }}</td>
-      <td class="mat-cell ">{{ account.opportunity }}</td>
-      <td class="mat-cell ">{{ account.quote }}</td>
-      <td class="mat-cell ">{{ account.invoice }}</td>
-      <td class="mat-cell ">{{ account.service }}</td>
-      <td class="mat-cell ">{{ account.accountBill }}</td>
-      <td class="mat-cell ">{{ account.installationAddress }}</td>
-      <td class="mat-cell ">{{ account.orderType }}</td>
-      <td class="mat-cell ">{{ account.status }}</td>
-      <td class="mat-cell ">{{ account.serviceOrder }}</td>
-      <td class="mat-cell ">{{ account.statusOS }}</td>
+      <td class="mat-cell">{{ account.opportunity }}</td>
+      <td class="mat-cell">{{ account.quote }}</td>
+      <td class="mat-cell">{{ account.invoice }}</td>
+      <td class="mat-cell">{{ account.service }}</td>
+      <td class="mat-cell">{{ account.accountBill }}</td>
+      <td class="mat-cell">{{ account.installationAddress }}</td>
+      <td class="mat-cell">{{ account.orderType }}</td>
+      <td class="mat-cell">{{ account.status }}</td>
+      <td class="mat-cell">{{ account.serviceOrder }}</td>
+      <td class="mat-cell">{{ account.statusOS }}</td>
     </tr>
   </tbody>
 </table>
