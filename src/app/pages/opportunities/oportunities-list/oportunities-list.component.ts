@@ -81,30 +81,34 @@ export class OportunitiesListComponent implements OnInit {
   }
 
   doFilter(event: any) {
-    console.log(event.target.id);
-
+   this.spinner.show();
     if (this.lastValue !== event.target.id) {
       this.lastValue = event.target.id;
-       this.onFilter([event.target.id]);
+       this.onFilter(event.target.id);
     } else {
       this.filterParam.setValue(0);
       this.lastValue = 0;
-      this.dataSource = this.originalData;
+      this.dataSource = [];
+      setTimeout(() => {
+        this.dataSource = this.originalData;
+        this.spinner.hide();
+      }, 10);
+           
+   
     }
+    
   }
 
-private onFilter(filterValues: string[]): void {
-    filterValues.forEach((item) => {
-      if (item == 'todos') {
-        this.resetFilters();
-      } else {
+private onFilter(filterValues: string): void {
+  this.spinner.show();
         this.resetFilters();
         //recorre los valores que estamos buscando
-        if (!this.filters.includes(item)) {
+        if (!this.filters.includes(filterValues)) {
           //si no existe el valor en el listado de filtros
-          this.filters.push(item); //agrega el valor al listado
+           this.dataSource = []; 
+          this.filters.push(filterValues); //agrega el valor al listado
         } else {
-          const index = this.filters.indexOf(item); //obtiene el indice del valor buscado
+          const index = this.filters.indexOf(filterValues); //obtiene el indice del valor buscado
           this.filters.splice(index, 1); //remueve el elemeto del listado segun el indice obtenido
         }
         if (this.filters.length === 0) {
@@ -114,17 +118,23 @@ private onFilter(filterValues: string[]): void {
           this.filteredData = this.originalData.filter((item) => {
             return this.filters.includes(item.stage);
           });
-          this.dataSource = this.filteredData;
+this.dataSource = [];
+          setTimeout(()=>{
+            this.dataSource = this.filteredData;
+            this.spinner.hide();
+          },10)
+           
+          
         }
         // this.dataSource = (this.data);
-      }
-    });
+      
+    
   }
 
   resetFilters(): void {
     this.filters = [];
     this.filteredData = [];
-
+    this.dataSource = []
     // this.control.reset();
     // this.control.setValue('4');
   }

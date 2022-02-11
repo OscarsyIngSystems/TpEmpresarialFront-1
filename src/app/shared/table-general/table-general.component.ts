@@ -40,7 +40,7 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
     return this.dataAux;
   }
   set filterData(data: any[]) {
-    let x = $('#dataTableop').DataTable();
+/*     let x = $('#dataTableop').DataTable();
     let op={
       "name": data[0].name,
       "number": data[0].number,
@@ -52,8 +52,8 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
     }
     console.log(data, $('#dataTableop').DataTable().data, op);
     x.clear();
-    x.row.add(op)
-    x.draw()
+    x.row.add(op).draw()
+    x.draw() */
     this.dataAux = data;
   }
   @ViewChild('dataTable', { static: false }) dataTable: any;
