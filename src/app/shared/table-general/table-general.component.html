@@ -958,13 +958,13 @@
       class="table-element-row shadow-sm t-row"
       *ngFor="let account of dataSource; let i = index"
     >
-      <td class="mat-cell ps-1">{{ account.quoteName }}</td>
-      <td class="mat-cell">{{ account.quoteSheet }}</td>
-      <td class="mat-cell">{{ account.oportunity }}</td>
-      <td class="mat-cell">{{ account.monthlyTotal | currency }}</td>
-      <td class="mat-cell">{{ account.validity }}</td>
-      <td class="mat-cell pr"><mat-icon>file_upload</mat-icon></td>
-      <td class="mat-cell">{{ account.overdue }}</td>
+      <td class="mat-cell ps-1 ">{{ account.quoteName }}</td>
+      <td class="mat-cell ">{{ account.quoteSheet }}</td>
+      <td class="mat-cell ">{{ account.oportunity }}</td>
+      <td class="mat-cell ">{{ account.monthlyTotal |currency }}</td>
+      <td class="mat-cell "><mat-icon  >file_upload</mat-icon></td>
+      <td class="mat-cell pr">{{ account.validity }}</td>
+      <td class="mat-cell ">{{ account.overdue }}</td>
     </tr>
   </tbody>
 </table>
