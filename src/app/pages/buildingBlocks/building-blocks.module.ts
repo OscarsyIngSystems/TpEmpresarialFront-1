@@ -9,6 +9,8 @@ import { StepperBuildingBlocksComponent } from './components/stepper-building-bl
 import { FamilyButtonsComponent } from './components/family-buttons/family-buttons.component';
 import { ProductsPriceComponent } from './components/products-price/products-price.component';
 import { NationalsComponent } from './components/nationals/nationals.component';
+import { VideoSurveillanceComponent } from './components/video-surveillance/video-surveillance.component';
+import { ProductsPriceSurveillanceComponent } from './components/products-price-surveillance/products-price-surveillance.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { NationalsComponent } from './components/nationals/nationals.component';
     FamilyButtonsComponent,
     ProductsPriceComponent,
     NationalsComponent,
+    VideoSurveillanceComponent,
+    ProductsPriceSurveillanceComponent,
   ],
   imports: [CommonModule, BuildingBlocksRoutingModule, ComponentsModule],
 })

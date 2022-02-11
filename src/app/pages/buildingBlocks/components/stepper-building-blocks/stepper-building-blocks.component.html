@@ -4,8 +4,10 @@
     <mat-step [stepControl]="firstFormGroup" class="border-red" [editable]="isEditable">
 
       <form [formGroup]="firstFormGroup">
+        <!-- CONTENIDO DE FAMILIAS -->
         <ng-template class="labelStepper" matStepLabel>Familias</ng-template>
-        <!-- CONTENIDO DE TABLAS DE NACIONALES Y PRODUCTOS/PRECIO -->
+
+        <!-- CONTENIDO DE TABLA DE NACIONALES Y PRODUCTOS/PRECIO -->
         <!-- <div class="row">
           <div class="col-4">
             <app-nationals></app-nationals>
@@ -14,16 +16,27 @@
             <app-products-price></app-products-price>
           </div>
         </div> -->
-        <!-- FIN CONTENIDO DE TABLAS DE NACIONALES Y PRODUCTOS/PRECIO -->
-        <!-- CONTENIDO DE FAMILIAS -->
-        <!-- <div class="conteiner-families"> -->
+        <!-- FIN CONTENIDO DE TABLA DE NACIONALES Y PRODUCTOS/PRECIO -->
 
-        <app-modeling-tables
+        <!-- CONTENIDO DE TABLA DE VIDEO-VIGILANCIA Y PRODUCTOS/PRECIO VIDEO-VIGILANCIA -->
+        <div class="row">
+          <div class="col-4">
+            <app-video-surveillance></app-video-surveillance>
+          </div>
+          <div class="col-8">
+            <app-products-price-surveillance></app-products-price-surveillance>
+          </div>
+        </div>
+        <!-- FIN CONTENIDO DE TABLA DE VIDEO-VIGILANCIA Y PRODUCTOS/PRECIO VIDEO-VIGILANCIA -->
+
+          <!-- CONTENIDO DE TABLA SERVICIOS-PRECIO FAMILIAS-->
+        <!-- <app-modeling-tables
             [columns]="columnsShow"
             [data]="dataSource"
             [idTableShow]="1"
           ></app-modeling-tables> -->
-        <!-- </div>
+          <!-- FIN DE CONTENIDO DE TABLA SERVICIOS-PRECIO FAMILIAS-->
+
         <!-- FIN DE CONTENIDO -->
         <div class="row justify-content-end me-4">
           <button mat-button matStepperNext class="rounded-button-outline btn-primary tx-12 text-bold mt-3"
