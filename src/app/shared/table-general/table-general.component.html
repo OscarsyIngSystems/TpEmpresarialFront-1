@@ -46,7 +46,7 @@
     <tr
       (click)="goOpportunities(opportunity)"
       class="table-element-row shadow-sm t-row"
-      *ngFor="let opportunity of dataSource"
+      *ngFor="let opportunity of filterData"
     >
       <td class="mat-cell">{{ opportunity.name }}</td>
       <td class="mat-cell">{{ opportunity.number }}</td>
@@ -221,7 +221,7 @@
   <tbody>
     <tr
       class="shadow-sm c-pointer t-row"
-      (click)="goOportunitiesDetail(account)"
+      (click)="goOpportunities(account)"
       *ngFor="let account of dataSource; let i = index"
     >
       <td class="mat-cell ps-4">{{ account.name }}</td>

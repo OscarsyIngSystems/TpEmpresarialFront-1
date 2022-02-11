@@ -34,7 +34,14 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
   @Input() showHeaderTable!: boolean;
   @Input() dataSourceLoadedSites = new MatTableDataSource();
   @Output() fileEmitter: EventEmitter<File> = new EventEmitter<File>();
+  @Input() get filterData(): any[] {
+    return this.dataAux;
+  }
+  set filterData(data: any[]) {
+    console.log(data);
 
+    this.dataAux = data;
+  }
   @ViewChild('dataTable') dataTable: any;
   @Output() emitter = new EventEmitter<any>();
 
@@ -46,6 +53,9 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
   selectedItemsTable: any[] = [];
   lengthMenu = [10, 20, 30];
   disabled: boolean = true;
+
+  dataAux: any[] = [];
+
   public allSelectedLoadedSitesModel: any = [];
 
   @Input()
@@ -73,11 +83,6 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
     this.route.navigate(['/accounts/detail', account.id]);
   }
 
-  goOportunitiesDetail(account: any): void {
-    this.storageService.setDataName(account.name);
-    this.route.navigate(['/opportunities', account.numberList]);
-  }
-
   goQuotesDetail(quote: any): void {
     console.log(quote);
 
@@ -99,7 +104,6 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
   isAllSelected() {
     if (this.selection.selected.length > 0) this.disabled = false;
     if (this.selection.selected.length == 0) this.disabled = true;
-    // this.emitter.emit(this.selection.selected);
     this.selectedItemsTable = this.selection.selected;
     const numSelected = this.selection.selected.length;
     const numRows = this.dataSourceLoadedSites.data.length;
@@ -217,20 +221,6 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
       console.log(this.allSelectedLoadedSitesModel);
     }
   }
-
-  // get allSelectedLoadedSitesModeling(): boolean {
-  //   return this.allSelectedLoadedSitesModel.every((item: any) => item.selected);
-  // }
-
-  // masterToggleLoadedSitesModeling(): void {
-  //   this.allSelectedLoadedSitesModel
-  //     ? this.allSelectedLoadedSitesModel.forEach(
-  //         (item: any) => (item.selected = false)
-  //       )
-  //     : this.allSelectedLoadedSitesModel.forEach(
-  //         (item: any) => (item.selected = true)
-  //       );
-  // }
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggleJ() {
