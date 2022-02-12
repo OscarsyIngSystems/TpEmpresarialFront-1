@@ -28,26 +28,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
   bottomTabs!: ElementRef;
   detail: any = [];
   infoDetail: Array<InfoDetail> = [
-    {
-      name: 'Nombre de la cuenta',
-      value: 'Audi CDMX',
-    },
-    {
-      name: 'ID Cliente único',
-      value: '873827',
-    },
-    {
-      name: 'Folio Cuenta',
-      value: 'CRM-00022445',
-    },
-    {
-      name: 'RFC',
-      value: 'HSP030709EA2',
-    },
-    {
-      name: 'Segmento',
-      value: 'I',
-    },
   ];
 
   columnsShow = [
@@ -92,7 +72,30 @@ export class RelatedComponent implements OnInit, AfterContentInit {
 
   ngOnInit(): void {
     this.detail = this.stService.getObjetSelected;
+
     if (this.detail) {
+          this.infoDetail = [
+            {
+              name: 'Nombre de la cuenta',
+              value: this.detail.accountName,
+            },
+            {
+              name: 'ID Cliente único',
+              value: this.detail.clientId,
+            },
+            {
+              name: 'Folio Cuenta',
+              value: this.detail.accountId,
+            },
+            {
+              name: 'RFC',
+              value: this.detail.taxIdentification,
+            },
+            {
+              name: 'Segmento',
+              value: this.detail.segment,
+            },
+          ];
       this.spinner.show();
       this.servicesOpportunity
         .getRelatedAccountsDetail(this.detail.id)

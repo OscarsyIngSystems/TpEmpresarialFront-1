@@ -1,8 +1,8 @@
 <app-header-actions
   [title]="contentLabels + 'title-related' | translate"
   buttonText="Crear cotización"
-  route="opportunities/new/op"
-  relatedRoute="opportunities/{{ detail.id }}"
+  route="opportunities/new/op/{{detail?.id}}"
+  relatedRoute="opportunities/{{ detail?.id }}"
   relatedText="Detalles"
   [hidenCreateOportunity]="false"
 >

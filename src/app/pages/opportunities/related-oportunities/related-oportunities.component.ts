@@ -20,30 +20,6 @@ export class RelatedOportunitiesComponent implements OnInit {
   filesInfo: Array<IFile> = [];
   detail: any;
   infoDetail: Array<InfoDetail> = [
-    {
-      name: 'Nombre de la cuenta',
-      value: 'Audi CDMX',
-    },
-    {
-      name: 'Número de la oportunidad',
-      value: '9898987',
-    },
-    {
-      name: 'Etapa',
-      value: 'Necesidades',
-    },
-    {
-      name: 'Importe',
-      value: 'Estratégicas',
-    },
-    {
-      name: 'Fecha de cierre',
-      value: '21/12/2022',
-    },
-    {
-      name: 'Propietario de la cuenta',
-      value: 'Sergio aparicio contreras',
-    },
   ];
 
   columnsShow = [
@@ -268,6 +244,36 @@ export class RelatedOportunitiesComponent implements OnInit {
   ngOnInit(): void {
     this.detail = this.stService.getObjetSelected;
     if (this.detail) {
+
+      console.log(this.detail);
+
+      this.infoDetail = [
+        {
+          name: 'Nombre de la cuenta',
+          value: this.detail.accountName,
+        },
+        {
+          name: 'Número de la oportunidad',
+          value: this.detail.number,
+        },
+        {
+          name: 'Etapa',
+          value: this.detail.stage,
+        },
+        {
+          name: 'Importe',
+          value: this.detail.amount,
+        },
+        {
+          name: 'Fecha de cierre',
+          value: this.detail.createdDate,
+        },
+        {
+          name: 'Propietario de la cuenta',
+          value: this.detail.owner,
+        },
+      ];
+      
       this.spinner.show();
       this.quoteService.getRelatedOpportunitiesDetail(this.detail.id).subscribe(
         (response) => {
