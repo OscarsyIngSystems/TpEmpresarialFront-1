@@ -14,6 +14,9 @@ import { DialogSendSitesComponent } from '../dialogs/dialog-send-sites/dialog-se
   styleUrls: ['./load-sites.component.scss'],
 })
 export class LoadSitesComponent implements OnInit {
+  lat = 19.3344076;
+  lng = -99.19845343;
+  zoom = 17;
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',

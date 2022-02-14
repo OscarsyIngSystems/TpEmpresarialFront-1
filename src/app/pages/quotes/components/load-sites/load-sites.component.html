@@ -64,7 +64,10 @@
 
 <div class="row mt-5">
   <div class="col-9">
-    <img src="../../../../../../assets/img/map.png" alt="" />
+    <!-- <img src="../../../../../../assets/img/map.png" alt="" /> -->
+    <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
   </div>
   <div class="col-3">
     <mat-list role="list" id="matListSites">
