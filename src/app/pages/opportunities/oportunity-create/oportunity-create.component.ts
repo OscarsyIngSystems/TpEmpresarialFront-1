@@ -87,9 +87,7 @@ export class OportunityCreateComponent implements OnInit {
       },
       (error) => {
         this.spinner.hide();
-        console.log(error);
       }
     );
-    console.log(newOportunity);
   }
 }

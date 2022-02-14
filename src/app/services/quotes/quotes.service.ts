@@ -20,6 +20,10 @@ export class QuotesService {
     return this.http.get<any[]>(this.url, { params: { opportunityId: id } });
   }
 
+  createQuote(newQuote: Object): Observable<any> {
+    return this.http.post(this.url, newQuote);
+  }
+
   getData(): Observable<any[]> {
     return this.http.get<any[]>(
       'https://my-json-server.typicode.com/emeery/mat-table-filter-button/sales'

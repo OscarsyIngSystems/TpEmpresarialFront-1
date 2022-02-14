@@ -52,7 +52,7 @@
       <td class="mat-cell">{{ opportunity.number }}</td>
       <td class="mat-cell">{{ opportunity.accountName }}</td>
       <td class="mat-cell">{{ opportunity.stage }}</td>
-      <td class="mat-cell">{{ opportunity.amount }}</td>
+      <td class="mat-cell">{{ opportunity.amount | currency }}</td>
       <td class="mat-cell">{{ opportunity.createdDate }}</td>
       <td class="mat-cell">{{ opportunity.closeDate }}</td>
     </tr>

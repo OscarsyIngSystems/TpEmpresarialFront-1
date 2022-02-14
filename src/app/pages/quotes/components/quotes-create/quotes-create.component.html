@@ -4,5 +4,5 @@
 <app-header-detail [detailInfo]="infoDetail"></app-header-detail>
 
 <div class="mt-2">
-  <app-quote-form [data]="data" [isCreate]="true"></app-quote-form>
+  <app-quote-form (saveData)="saveQuote($event)" [data]="data" [isCreate]="true"></app-quote-form>
 </div>
