@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IFile } from 'src/app/models/IFile';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
   selector: 'app-related-quotes',
@@ -10,36 +12,10 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 export class RelatedQuotesComponent implements OnInit {
   public contentLabels = 'oportunities.';
   files: Array<File> = [];
+  detail:any;
   filesInfo: Array<IFile> = [];
   infoDetail: Array<InfoDetail> = [
-    {
-      name: 'Nombre de la cuenta',
-      value: 'Audi CDMX-COT',
-    },
-    {
-      name: 'Número de oportunidad',
-      value: '678676',
-    },
-    {
-      name: 'Etapa oportunidad',
-      value: 'Necesidades',
-    },
-    {
-      name: 'Importe',
-      value: '$120,000',
-    },
-    {
-      name: 'Fecha de cierre',
-      value: '10/10/2022',
-    },
-    {
-      name: 'Vigencia cotización',
-      value: '10/10/2022',
-    },
-    {
-      name: 'Propietario de la cuenta',
-      value: 'Sergio Aparicio Contreras',
-    },
+   
   ];
 
   columnsShow = [
@@ -354,7 +330,49 @@ export class RelatedQuotesComponent implements OnInit {
     this.dataFiles.dataSource = this.filesInfo;
   }
 
-  constructor() {}
+  constructor(private stService:StorageService,private router:Router) {}
 
-  ngOnInit(): void {}
+
+
+  ngOnInit(): void {
+    this.detail = this.stService.getObjetSelected;
+
+    if(this.detail){
+        this.infoDetail = [
+      {
+        name: 'Nombre de la cuenta',
+        value: this.detail.opportunity.accountName,
+      },
+      {
+        name: 'Número de oportunidad',
+        value: this.detail.opportunity.number,
+      },
+      {
+        name: 'Etapa oportunidad',
+        value: this.detail.opportunity.stage,
+      },
+      {
+        name: 'Importe',
+        value: this.detail.opportunity.amount,
+      },
+      {
+        name: 'Fecha de cierre',
+        value: this.detail.opportunity.closeDate,
+      },
+      {
+        name: 'Vigencia cotización',
+        value: this.detail.validity,
+      },
+      {
+        name: 'Propietario de la cuenta',
+        value: this.detail.opportunity.owner,
+      },
+    ]; 
+    }
+    else{
+      this.router.navigate(['/quotes'])
+    }
+ 
+
+  }
 }

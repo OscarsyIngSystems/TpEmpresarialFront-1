@@ -1,10 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Catalog } from 'src/app/models/Catalogs';
 import { DialogQuotesComponent } from 'src/app/pages/accounts/components/dialog-quotes/dialog-quotes.component';
+import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
+
 
 @Component({
   selector: 'app-quote-form',
@@ -13,6 +16,7 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 })
 export class QuoteFormComponent implements OnInit {
   @Input() isCreate: boolean = false;
+  @Output() saveData:EventEmitter<any> = new EventEmitter<any>();
   @Input() get data() {
     return this.isTryBuy;
   }
@@ -30,6 +34,7 @@ export class QuoteFormComponent implements OnInit {
 
   public opportunityNumber;
 
+  eps:Catalog[]=[];
   isTryBuy: any;
   reasonVlue: any;
   name!: string;
@@ -49,7 +54,8 @@ export class QuoteFormComponent implements OnInit {
     private _url: ActivatedRoute,
     private fb: FormBuilder,
     private _router: Router,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private catalogService:CatalogsService
   ) {
     this.opportunityNumber = this._url.snapshot.paramMap.get('id');
     this.form = this.fb.group({
@@ -57,7 +63,6 @@ export class QuoteFormComponent implements OnInit {
       eps: ['', Validators.required],
       dataPicker: ['', Validators.required],
       isMain: [true],
-      isMainQuotation: [true],
       reason: [],
       quoteType: ['3'],
       quoteTypeTry: false,
@@ -67,7 +72,7 @@ export class QuoteFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
-
+    this.getEps();
     if (this.form.get('quoteTypeTry')?.value) {
       this.form.get('quoteType')?.disable();
       this.form.get('reason')?.enable();
@@ -83,13 +88,22 @@ export class QuoteFormComponent implements OnInit {
       this.form.get('dataPicker')?.enable();
     }
   }
+
+  getEps(){
+    this.catalogService.getCatalogQuoteEps()
+    .subscribe(response=>{
+      this.eps=response;
+    })
+  }
   openDialog(): void {
+
     this.name = this.form.controls.quoteName.value;
-    const dialogRef = this.dialog.open(DialogQuotesComponent, {
+    this.saveData.emit(this.form.value);
+/*     const dialogRef = this.dialog.open(DialogQuotesComponent, {
       width: '393px',
       height: '291px',
       data: { name: this.name },
-    });
+    }); */
   }
 
   selectFile(file: File) {
@@ -186,10 +200,9 @@ export class QuoteFormComponent implements OnInit {
     const date = quote.validity.split('/');
     this.form.patchValue({
       quoteName: [quote.name],
-      eps: 'one',
+      eps: quote.epsId,
       dataPicker: new Date(date[2], date[1] - 1, date[0]),
       isMain: [quote.isMain],
-      isMainQuotation: [true],
     });
 
     this.dataPickerValue = this.form.get('dataPicker')?.value;

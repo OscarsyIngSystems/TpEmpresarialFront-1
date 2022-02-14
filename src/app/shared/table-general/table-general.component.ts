@@ -112,7 +112,7 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
   goOpportunities(opportunity: any) {
     this.storageService.setObjetSelected(opportunity);
     this.storageService.setDataName(opportunity.name);
-    this.route.navigate(['/opportunities', opportunity.number]);
+    this.route.navigate(['/opportunities', opportunity.id]);
   }
 
   isAllSelected() {

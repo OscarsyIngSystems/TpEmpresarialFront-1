@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { QuotesService } from 'src/app/services/quotes/quotes.service';
+import { StorageService } from 'src/app/services/shared/storage.service';
 
 @Component({
   selector: 'app-quotes-create',
@@ -9,37 +11,13 @@ import { InfoDetail } from 'src/app/models/infoDetail';
   styleUrls: ['./quotes-create.component.scss'],
 })
 export class QuotesCreateComponent implements OnInit {
+  detail:any;
   infoDetail: Array<InfoDetail> = [
-    {
-      name: 'Nombre de la cuenta',
-      value: 'Audi CDMX-COT',
-    },
-    {
-      name: 'Número de oportunidad',
-      value: '678676',
-    },
-
-    {
-      name: 'Etapa oportunidad',
-      value: 'Necesidades',
-    },
-    {
-      name: 'Importe',
-      value: '$1,290,800',
-    },
-    {
-      name: 'Fecha estimada de cierre',
-      value: '10/10/2022',
-    },
-
-    {
-      name: 'Propietario de la cuenta',
-      value: 'Sergio Aparicio Contreras',
-    },
+   
   ];
 
   data: any;
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute,private stService:StorageService,private quoteService:QuotesService,private router:Router) {
     this.getData();
   }
 
@@ -53,5 +31,65 @@ export class QuotesCreateComponent implements OnInit {
       console.log(data.data);
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.detail = this.stService.getObjetSelected;
+if(this.detail){
+      this.infoDetail = [
+      {
+        name: 'Nombre de la cuenta',
+        value: this.detail.accountName,
+      },
+      {
+        name: 'Número de oportunidad',
+        value: this.detail.number,
+      },
+
+      {
+        name: 'Etapa oportunidad',
+        value: this.detail.stage,
+      },
+      {
+        name: 'Importe',
+        value: this.detail.amount,
+      },
+      {
+        name: 'Fecha estimada de cierre',
+        value: this.detail.closeDate,
+      },
+
+      {
+        name: 'Propietario de la cuenta',
+        value: this.detail.owner,
+      },
+    ];
+}
+else{
+  this.router.navigate(['/opportunities'])
+}
+
+  }
+
+  saveQuote(event:any){
+    
+    
+    const newQuote = {
+      opportunityId: this.detail.id,
+      name: event.quoteName,
+      status: 'Borrador',
+      validity: event.dataPicker.getTime(),
+      isMain: event.isMain,
+      isTryAndBuy: event.quoteTypeTry,
+      ...(event.reason && { tryAndBuyReason: event.reason }),
+      isRFP: event.quoteType == '1',
+      isBidding: event.quoteType == '2',
+      epsId: event.eps,
+    };
+    
+    this.quoteService.createQuote(newQuote)
+    .subscribe(response=>{
+      console.log(response);
+      
+    })
+
+  }
 }
