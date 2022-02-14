@@ -620,3 +620,9 @@ input::-webkit-inner-spin-button {
   margin-top: -10px !important;
   font-size: 11px !important;
 }
+
+.truncated-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

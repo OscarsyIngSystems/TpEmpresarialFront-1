@@ -67,7 +67,7 @@ export class OportunitiesDetailComponent implements OnInit {
         },
         {
           name: 'Importe',
-          value: `$${detail.amount}`,
+          value: ` $${detail.amount ? detail.amount : 0}`,
         },
         {
           name: 'Fecha de cierre',
@@ -84,7 +84,7 @@ export class OportunitiesDetailComponent implements OnInit {
 
       this.oportunity = {
         accountName: '',
-        amount: `$${detail.amount}`,
+        amount: ` $${detail.amount ? detail.amount : 0}`,
         badge: detail.badge ? detail.badge : 'Peso',
         closeDate: new Date(date[2], date[1] - 1, date[0]),
         description: detail.description,

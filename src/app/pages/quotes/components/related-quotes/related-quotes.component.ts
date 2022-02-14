@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { IFile } from 'src/app/models/IFile';
 import { InfoDetail } from 'src/app/models/infoDetail';
+import { Site } from 'src/app/models/Site';
 import { StorageService } from 'src/app/services/shared/storage.service';
+import { SitesService } from 'src/app/services/sites/sites.service';
 
 @Component({
   selector: 'app-related-quotes',
@@ -12,11 +15,9 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 export class RelatedQuotesComponent implements OnInit {
   public contentLabels = 'oportunities.';
   files: Array<File> = [];
-  detail:any;
+  detail: any;
   filesInfo: Array<IFile> = [];
-  infoDetail: Array<InfoDetail> = [
-   
-  ];
+  infoDetail: Array<InfoDetail> = [];
 
   columnsShow = [
     {
@@ -48,134 +49,7 @@ export class RelatedQuotesComponent implements OnInit {
       columnName: 'C.P.',
     },
   ];
-  public dataSource = [
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-    {
-      siteFolio: 'SIT-3661691',
-      street: 'Avenida San Jerónimo',
-      colony: 'La Otra Banda',
-      delegation: 'Gustavo A. Madero',
-      city: 'Ciudad de México',
-      state: 'Estado de México',
-      cp: '07089',
-    },
-  ];
+  public dataSource: Site[] = [];
 
   displayedColumns: string[] = [
     'name',
@@ -330,49 +204,62 @@ export class RelatedQuotesComponent implements OnInit {
     this.dataFiles.dataSource = this.filesInfo;
   }
 
-  constructor(private stService:StorageService,private router:Router) {}
-
-
+  constructor(
+    private stService: StorageService,
+    private router: Router,
+    private sitesService: SitesService,
+    private spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit(): void {
     this.detail = this.stService.getObjetSelected;
+    console.log(this.detail);
 
-    if(this.detail){
-        this.infoDetail = [
-      {
-        name: 'Nombre de la cuenta',
-        value: this.detail.opportunity.accountName,
-      },
-      {
-        name: 'Número de oportunidad',
-        value: this.detail.opportunity.number,
-      },
-      {
-        name: 'Etapa oportunidad',
-        value: this.detail.opportunity.stage,
-      },
-      {
-        name: 'Importe',
-        value: this.detail.opportunity.amount,
-      },
-      {
-        name: 'Fecha de cierre',
-        value: this.detail.opportunity.closeDate,
-      },
-      {
-        name: 'Vigencia cotización',
-        value: this.detail.validity,
-      },
-      {
-        name: 'Propietario de la cuenta',
-        value: this.detail.opportunity.owner,
-      },
-    ]; 
+    if (this.detail) {
+      this.infoDetail = [
+        {
+          name: 'Nombre de la cuenta',
+          value: this.detail.opportunity.accountName,
+        },
+        {
+          name: 'Número de oportunidad',
+          value: this.detail.opportunity.number,
+        },
+        {
+          name: 'Etapa oportunidad',
+          value: this.detail.opportunity.stage,
+        },
+        {
+          name: 'Importe',
+          value: this.detail.opportunity.amount,
+        },
+        {
+          name: 'Fecha de cierre',
+          value: this.detail.opportunity.closeDate,
+        },
+        {
+          name: 'Vigencia cotización',
+          value: this.detail.validity,
+        },
+        {
+          name: 'Propietario de la cuenta',
+          value: this.detail.opportunity.owner,
+        },
+      ];
+      this.spinner.show();
+      this.sitesService.getRelatedQuotesDetail(this.detail.id).subscribe(
+        (response) => {
+          this.spinner.hide();
+          console.log(response);
+          this.dataSource = response;
+        },
+        (error) => {
+          console.log(error);
+          this.spinner.hide();
+        }
+      );
+    } else {
+      this.router.navigate(['/quotes']);
     }
-    else{
-      this.router.navigate(['/quotes'])
-    }
- 
-
   }
 }

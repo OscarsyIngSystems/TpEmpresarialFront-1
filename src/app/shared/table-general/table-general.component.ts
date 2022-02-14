@@ -21,7 +21,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SelectionModel } from '@angular/cdk/collections';
 import { SharedService } from 'src/app/services/shared/shared.service';
 import { DataTableDirective } from 'angular-datatables';
-declare var $:any;
+declare var $: any;
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-table-general',
@@ -40,20 +40,6 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
     return this.dataAux;
   }
   set filterData(data: any[]) {
-/*     let x = $('#dataTableop').DataTable();
-    let op={
-      "name": data[0].name,
-      "number": data[0].number,
-     "accountName": data[0].accountName,
-      "stage": data[0].stage,
-      "amount": data[0].amount,
-     "createdDate":  data[0].createdDate,
-     "closeDate": data[0].closeDate
-    }
-    console.log(data, $('#dataTableop').DataTable().data, op);
-    x.clear();
-    x.row.add(op).draw()
-    x.draw() */
     this.dataAux = data;
   }
   @ViewChild('dataTable', { static: false }) dataTable: any;
