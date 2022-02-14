@@ -28,6 +28,7 @@ import { QuotesReceivedComponent } from './components/quotes-received/quotes-rec
 import { ModelingSitesComponent } from './components/sites/modeling-sites/modeling-sites.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { AgmCoreModule } from '@agm/core';
+import { CustomMapComponent } from './components/sites/custom-map/custom-map.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AgmCoreModule } from '@agm/core';
     DialogSendSitesComponent,
     QuotesReceivedComponent,
     ModelingSitesComponent,
+    CustomMapComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
