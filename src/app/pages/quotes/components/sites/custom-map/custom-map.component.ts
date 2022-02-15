@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LatLngLiteral } from '@agm/core';
 @Component({
   selector: 'app-custom-map',
   templateUrl: './custom-map.component.html',
@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class CustomMapComponent implements OnInit {
   lat = 19.3344076;
   lng = -99.19845343;
-  zoom = 17;
+  zoom = 8;
+
   constructor() {}
 
   ngOnInit(): void {}
