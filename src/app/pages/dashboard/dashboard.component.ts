@@ -40,17 +40,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {}
 
-  ngAfterViewInit(): void {
-    /*     this._service.getPosts().subscribe((response) => {
-      console.log(response);
-      this.doughnutChartData.data = response;
-      this.baseChart.chart.update();
-      this.options.plugins?.push({
-        id: 'total',
-        afterDraw: this.renderizeChart(),
-      });
-    }); */
-  }
+  ngAfterViewInit(): void {}
 
   private renderizeChart() {
     let suma: number = 0;

@@ -213,7 +213,6 @@ export class RelatedQuotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.detail = this.stService.getObjetSelected;
-    console.log(this.detail);
 
     if (this.detail) {
       this.infoDetail = [
@@ -250,11 +249,9 @@ export class RelatedQuotesComponent implements OnInit {
       this.sitesService.getRelatedQuotesDetail(this.detail.id).subscribe(
         (response) => {
           this.spinner.hide();
-          console.log(response);
           this.dataSource = response;
         },
         (error) => {
-          console.log(error);
           this.spinner.hide();
         }
       );

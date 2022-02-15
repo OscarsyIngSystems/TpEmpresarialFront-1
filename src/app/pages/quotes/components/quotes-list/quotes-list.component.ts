@@ -52,8 +52,7 @@ export class QuotesListDeatilComponent implements OnInit {
   }
 
   public setRole() {
-    this.role = Number(localStorage.getItem('role'))
-    console.log('tole',this.role)
+    this.role = Number(localStorage.getItem('role'));
   }
 
   private loadData(): void {

@@ -33,10 +33,9 @@ export class InstallationsComponent implements OnInit {
         this.totalFinal[i] += item;
       });
     }
-    console.log(this.totalFinal);
   }
 
-  constructor(private router:Router) {
+  constructor(private router: Router) {
     this.chartOptions = {
       //series: [4, 3, 1], //se comenta porque utilizo chartSeries para dar valores diferentes a cada chart
       colors: this.colors,
@@ -76,12 +75,8 @@ export class InstallationsComponent implements OnInit {
                 fontSize: '15px',
                 fontFamily: 'Montserrat, sans-serif',
                 fontWeight: 800,
-                // color: undefined,
+
                 offsetY: -10,
-                // formatter(val: any) {
-                //   console.log(val);
-                //   return val;
-                // },
               },
               total: {
                 show: true,
@@ -132,12 +127,8 @@ export class InstallationsComponent implements OnInit {
                 fontSize: '15px',
                 fontFamily: 'Montserrat, sans-serif',
                 fontWeight: 800,
-                // color: undefined,
+
                 offsetY: -10,
-                // formatter(val: any) {
-                //   console.log(val);
-                //   return val;
-                // },
               },
               total: {
                 show: true,
@@ -152,8 +143,8 @@ export class InstallationsComponent implements OnInit {
     this.totalSum();
   }
 
-  goInstallations(route:string){
-    this.router.navigate([route])
+  goInstallations(route: string) {
+    this.router.navigate([route]);
   }
   ngOnInit(): void {}
 }

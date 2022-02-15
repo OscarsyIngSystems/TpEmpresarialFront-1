@@ -56,11 +56,11 @@ export class CellIndicatorsComponent implements OnInit {
           data: [1000, 160000, 100000],
           color: '#846b99',
         },
-         {
-           name: 'Meta de venta',
-          data: [0,100000, 200000, 300000, 400000],
+        {
+          name: 'Meta de venta',
+          data: [0, 100000, 200000, 300000, 400000],
           color: '#98D3DD',
-         },
+        },
       ],
       chart: {
         toolbar: {
@@ -129,12 +129,8 @@ export class CellIndicatorsComponent implements OnInit {
                 fontSize: '15px',
                 fontFamily: 'Montserrat, sans-serif',
                 fontWeight: 800,
-                // color: undefined,
+
                 offsetY: -10,
-                // formatter(val: any) {
-                //   console.log(val);
-                //   return val;
-                // },
               },
               total: {
                 show: true,

@@ -19,8 +19,7 @@ export class RelatedOportunitiesComponent implements OnInit {
   files: Array<File> = [];
   filesInfo: Array<IFile> = [];
   detail: any;
-  infoDetail: Array<InfoDetail> = [
-  ];
+  infoDetail: Array<InfoDetail> = [];
 
   columnsShow = [
     {
@@ -244,9 +243,6 @@ export class RelatedOportunitiesComponent implements OnInit {
   ngOnInit(): void {
     this.detail = this.stService.getObjetSelected;
     if (this.detail) {
-
-      console.log(this.detail);
-
       this.infoDetail = [
         {
           name: 'Nombre de la cuenta',
@@ -273,11 +269,10 @@ export class RelatedOportunitiesComponent implements OnInit {
           value: this.detail.owner,
         },
       ];
-      
+
       this.spinner.show();
       this.quoteService.getRelatedOpportunitiesDetail(this.detail.id).subscribe(
         (response) => {
-          console.log(response);
           this.dataSource = response;
           this.spinner.hide();
         },

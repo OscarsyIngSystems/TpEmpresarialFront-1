@@ -26,6 +26,5 @@ export class DialogTaskComponent implements OnInit {
 
   addTeam() {
     this.team.push(this.form.value);
-    console.log(this.team);
   }
 }

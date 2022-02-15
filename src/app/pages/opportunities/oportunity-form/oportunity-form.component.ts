@@ -33,7 +33,6 @@ export class OportunityFormComponent implements OnInit {
     public _loginServices: LoginService,
     private _serviceCatalogs: CatalogsService
   ) {
-    // console.log(this._url);
     this.accountId = this._url.snapshot.paramMap.get('id');
     this.oportunityForm = this.fb.group({
       closeDate: [, Validators.required],
@@ -67,7 +66,6 @@ export class OportunityFormComponent implements OnInit {
   ngAfterContentInit(): void {
     if (this.oportunityDetailData) {
       this.oportunityForm.patchValue(this.oportunityDetailData);
-      console.log(this.oportunityDetailData);
 
       if (
         !this.oportunityDetailData.isMixedSale &&
@@ -143,7 +141,6 @@ export class OportunityFormComponent implements OnInit {
       .getCatalogOpportunityOrigin()
       .subscribe((response) => {
         this.catalogOrigin = response;
-        console.log(this.catalogOrigin);
       });
   }
   getCatalogOpportunityIntegrator() {

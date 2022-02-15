@@ -27,8 +27,7 @@ export class RelatedComponent implements OnInit, AfterContentInit {
   @ViewChild('bottom_tabs', { read: ElementRef, static: true })
   bottomTabs!: ElementRef;
   detail: any = [];
-  infoDetail: Array<InfoDetail> = [
-  ];
+  infoDetail: Array<InfoDetail> = [];
 
   columnsShow = [
     {
@@ -74,34 +73,33 @@ export class RelatedComponent implements OnInit, AfterContentInit {
     this.detail = this.stService.getObjetSelected;
 
     if (this.detail) {
-          this.infoDetail = [
-            {
-              name: 'Nombre de la cuenta',
-              value: this.detail.accountName,
-            },
-            {
-              name: 'ID Cliente único',
-              value: this.detail.clientId,
-            },
-            {
-              name: 'Folio Cuenta',
-              value: this.detail.accountId,
-            },
-            {
-              name: 'RFC',
-              value: this.detail.taxIdentification,
-            },
-            {
-              name: 'Segmento',
-              value: this.detail.segment,
-            },
-          ];
+      this.infoDetail = [
+        {
+          name: 'Nombre de la cuenta',
+          value: this.detail.accountName,
+        },
+        {
+          name: 'ID Cliente único',
+          value: this.detail.clientId,
+        },
+        {
+          name: 'Folio Cuenta',
+          value: this.detail.accountId,
+        },
+        {
+          name: 'RFC',
+          value: this.detail.taxIdentification,
+        },
+        {
+          name: 'Segmento',
+          value: this.detail.segment,
+        },
+      ];
       this.spinner.show();
       this.servicesOpportunity
         .getRelatedAccountsDetail(this.detail.id)
         .subscribe(
           (response) => {
-            console.log(response);
             this.dataSource = response;
             this.spinner.hide();
           },
@@ -115,7 +113,6 @@ export class RelatedComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    console.log(this.section);
     if (this.section) {
       this.pageScrollService.scroll({
         scrollTarget: this.bottomTabs.nativeElement,

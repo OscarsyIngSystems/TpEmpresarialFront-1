@@ -84,7 +84,6 @@ export class ConnectivityComponent implements OnInit {
   ngOnInit(): void {}
 
   isValidStepper(event: boolean): void {
-    console.log(event);
     this.isValid = event;
   }
 }

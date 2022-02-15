@@ -149,7 +149,6 @@ export class LoadedSitesComponent implements OnInit {
     localStorage.setItem('loaded-sites', JSON.stringify(this.originalData));
     const loaded_sites = localStorage.getItem('loaded-sites');
     const arraySelected = localStorage.getItem('arraySelected');
-    console.log(loaded_sites);
 
     this.originalData = loaded_sites ? JSON.parse(loaded_sites) : [];
     const deletedFiles = arraySelected ? JSON.parse(arraySelected) : [];
@@ -161,22 +160,16 @@ export class LoadedSitesComponent implements OnInit {
       //eliminacion del datasource
 
       deletedFiles.forEach((element: any) => {
-        console.log(element);
-
         const index = this.originalData.findIndex((site) => {
-          console.log(site.numberList, element.numberList);
-
           return site.numberList === element.numberList;
         });
         if (index > -1) {
           this.originalData.splice(index, 1);
         }
       });
-      console.log(this.originalData);
       this.dataSource.data = this.originalData;
     } else {
       this.dataSource.data = this.originalData;
-      console.log(this.originalData);
     }
 
     /*     this.service.getData().subscribe((data) => {

@@ -4,17 +4,17 @@ import { Component, OnInit, Inject } from '@angular/core';
 @Component({
   selector: 'app-dialog-deleted-sites',
   templateUrl: './dialog-deleted-sites.component.html',
-  styleUrls: ['./dialog-deleted-sites.component.scss']
+  styleUrls: ['./dialog-deleted-sites.component.scss'],
 })
 export class DialogDeletedSitesComponent implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<DialogDeletedSitesComponent>) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<DialogDeletedSitesComponent>
+  ) {}
 
-  ngOnInit(): void {
-    console.log(this.data);
-  }
+  ngOnInit(): void {}
 
   onClose() {
-    this.dialogRef.close()
+    this.dialogRef.close();
   }
 }
