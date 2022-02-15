@@ -35,8 +35,12 @@
 
   ::ng-deep .mat-step-label-selected {
     color: red;
-    // border-bottom: 2px solid red;
   }
+
+  ::ng-deep .mat-horizontal-content-container {
+    padding: 0% !important;
+  }
+
 
   ::ng-deep .mat-step-header[aria-selected="true"] {
     border-bottom: 3px solid red !important;

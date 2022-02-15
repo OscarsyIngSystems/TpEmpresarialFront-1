@@ -1,13 +1,9 @@
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { SelectionModel } from '@angular/cdk/collections';
 import {
   Component,
-  EventEmitter,
   Input,
   OnInit,
-  Output,
-  ViewChild,
-  ChangeDetectionStrategy,
 } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 @Component({
@@ -43,16 +39,11 @@ export class ModelingTablesComponent implements OnInit {
   resetFilters(): void {
     this.filters = [];
     this.filteredData = [];
-
-    // this.control.reset();
-    // this.control.setValue('4');
   }
 
   /* Recibe un valor para filtrar, busca si no existe el valor en el listado de filtros */
   onFilter(filterValues: string[]): void {
-    console.log(this.form.get('control')?.value);
-    //this.form.get('control')?.setValue('4');
-    console.log(this.form.get('control')?.value);
+
     filterValues.forEach((item) => {
       if (item == 'todos') {
         this.resetFilters();
