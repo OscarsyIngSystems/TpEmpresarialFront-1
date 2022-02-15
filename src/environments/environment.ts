@@ -10,6 +10,10 @@ export const environment = {
   clientSecret:
     '9F8AF7C2FF70FEDAEB781C7464495537E1D79F25284DB89BD80FB756C0D53821',
   grantType: 'password',
+
+  google: {
+    apiKey: 'AIzaSyDB8BwnMN8b0T9polJEdiMilCpX7ty7bkc',
+  },
 };
 
 /*

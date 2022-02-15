@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Sale } from 'src/app/models/sale';
@@ -7,6 +7,8 @@ import { InfoDetail } from 'src/app/models/infoDetail';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogLoadSitesComponent } from '../dialogs/dialog-load-sites/dialog-load-sites.component';
 import { DialogSendSitesComponent } from '../dialogs/dialog-send-sites/dialog-send-sites.component';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 
 @Component({
   selector: 'app-load-sites',
@@ -14,6 +16,8 @@ import { DialogSendSitesComponent } from '../dialogs/dialog-send-sites/dialog-se
   styleUrls: ['./load-sites.component.scss'],
 })
 export class LoadSitesComponent implements OnInit {
+  @ViewChild('placesRef') placesRef?: GooglePlaceDirective;
+
   infoDetail: Array<InfoDetail> = [
     {
       name: 'Nombre de la cuenta',
@@ -49,6 +53,7 @@ export class LoadSitesComponent implements OnInit {
     { id: 7, name: 'Penafiel', type: 'Oportunidad', location: 'Puebla' },
     { id: 8, name: 'Culiacan Inn', type: 'Cotización', location: 'Sinaloa' },
   ];
+
   constructor(private dlg: MatDialog) {
     this.loadOptions();
   }
@@ -90,5 +95,10 @@ export class LoadSitesComponent implements OnInit {
   clearSearch() {
     this.selectedIdOption = 0;
     this.searchData.setValue('');
+  }
+
+  public handleAddressChange(address: Address) {
+    // Do some stuff
+    console.log(address);
   }
 }

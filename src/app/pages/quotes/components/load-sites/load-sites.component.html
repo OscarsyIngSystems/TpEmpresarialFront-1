@@ -13,14 +13,11 @@
   <div class="d-flex m-4 justify-content-start align-items-center">
     <div class="input-group w-50 shadow-sm">
       <input
-        type="text"
+        ngx-google-places-autocomplete
+        #placesRef="ngx-places"
+        (onAddressChange)="handleAddressChange($event)"
         class="form-control search-bar mt-0"
         placeholder="Añade tu sitio(s) buscando la dirección o coordenada"
-        aria-label="Añade tu sitio(s) buscando la dirección o coordenada"
-        aria-describedby="basic-addon2"
-        [formControl]="searchData"
-        [matAutocomplete]="auto"
-        (keydown.enter)="search()"
       />
       <button
         class="btn-clear-search"

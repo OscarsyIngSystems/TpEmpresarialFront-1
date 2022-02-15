@@ -29,7 +29,8 @@ import { ModelingSitesComponent } from './components/sites/modeling-sites/modeli
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { AgmCoreModule } from '@agm/core';
 import { CustomMapComponent } from './components/sites/custom-map/custom-map.component';
-
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     LayautQuotesComponent,
@@ -52,7 +53,7 @@ import { CustomMapComponent } from './components/sites/custom-map/custom-map.com
   ],
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDB8BwnMN8b0T9polJEdiMilCpX7ty7bkc',
+      apiKey: environment.google.apiKey,
     }),
     CommonModule,
     QuotesRoutingModule,
@@ -65,6 +66,7 @@ import { CustomMapComponent } from './components/sites/custom-map/custom-map.com
     MatDialogModule,
     MatInputModule,
     FormsModule,
+    GooglePlaceModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
 })
