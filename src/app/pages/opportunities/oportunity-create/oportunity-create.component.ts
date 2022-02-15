@@ -29,7 +29,6 @@ export class OportunityCreateComponent implements OnInit {
 
   getDetail(): void {
     this.detail = this.stService.getObjetSelected;
-    console.log(this.detail);
 
     if (this.detail) {
       this.infoDetail = [
@@ -60,7 +59,6 @@ export class OportunityCreateComponent implements OnInit {
   }
 
   createOpportunity(event: any) {
-    console.log(event);
     let newOportunity = {
       accountId: this.detail.id,
       whoIntegratedId: event.whoIntegrated,
@@ -77,7 +75,6 @@ export class OportunityCreateComponent implements OnInit {
     this.spinner.show();
     this.opportunitiesService.createOpportunity(newOportunity).subscribe(
       (response) => {
-        console.log(response);
         this.spinner.hide();
         const dialogRef = this.dialog.open(DialogOportunitiesComponent, {
           width: '393px',

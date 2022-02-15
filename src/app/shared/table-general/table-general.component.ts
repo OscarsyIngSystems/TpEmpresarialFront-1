@@ -84,8 +84,6 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
   }
 
   goQuotesDetail(quote: any): void {
-    console.log(quote);
-
     this.storageService.setDataName(quote.name);
     this.storageService.setObjetSelected(quote);
     this.route.navigate(['/quotes', quote.id]);
@@ -164,7 +162,6 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
     dlgRef.afterClosed().subscribe((res) => {
       const u = localStorage.getItem('arraySelected');
       const arraySelected = u ? JSON.parse(u) : [];
-      console.log(arraySelected);
 
       this.selectedItemsTable.forEach((element) => {
         arraySelected.push(element);
@@ -210,7 +207,6 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
 
   // table loaded sites
   private initModelingSitesMasterToggle(): void {
-    console.log(this.dataSource);
     if (!this.sharedService.isNullOrUndefined(this.dataSource)) {
       this.dataSource.forEach((item: any) => {
         this.allSelectedLoadedSitesModel.push({
@@ -218,7 +214,6 @@ export class TableGeneralComponent implements OnInit, AfterContentInit {
           selected: false,
         });
       });
-      console.log(this.allSelectedLoadedSitesModel);
     }
   }
 

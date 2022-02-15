@@ -39,7 +39,6 @@ export class ContactsSearchComponent implements OnInit, AfterContentInit {
 
   constructor(private router: Router, private _url: ActivatedRoute) {
     this.accountId = this._url.snapshot.paramMap.get('id');
-    console.log(this.accountId);
 
     if (this.defaultValue !== '') {
       this.loadOptionsSimple();
@@ -62,7 +61,6 @@ export class ContactsSearchComponent implements OnInit, AfterContentInit {
   }
 
   private _filter(value: any): any[] {
-    console.log('value', value);
     if (typeof value === 'string') {
       const filterValue = value.toLowerCase();
       return this.options.filter(
@@ -84,7 +82,6 @@ export class ContactsSearchComponent implements OnInit, AfterContentInit {
   }
 
   add(event: MatChipInputEvent): void {
-    console.log('event.input.value', event.input.value);
     if (typeof event.input.value !== 'string') {
       this.selectedOptions.push(event.input.value);
       event.input.value = '';
@@ -99,7 +96,6 @@ export class ContactsSearchComponent implements OnInit, AfterContentInit {
       this.searchData.setValue(null);
       this.loadOptions();
     }
-    console.log(this.selectedOptions);
   }
 
   // para el buscador sin lista de chips

@@ -81,10 +81,10 @@ export class OportunitiesListComponent implements OnInit {
   }
 
   doFilter(event: any) {
-   this.spinner.show();
+    this.spinner.show();
     if (this.lastValue !== event.target.id) {
       this.lastValue = event.target.id;
-       this.onFilter(event.target.id);
+      this.onFilter(event.target.id);
     } else {
       this.filterParam.setValue(0);
       this.lastValue = 0;
@@ -93,48 +93,41 @@ export class OportunitiesListComponent implements OnInit {
         this.dataSource = this.originalData;
         this.spinner.hide();
       }, 10);
-           
-   
     }
-    
   }
 
-private onFilter(filterValues: string): void {
-  this.spinner.show();
-        this.resetFilters();
-        //recorre los valores que estamos buscando
-        if (!this.filters.includes(filterValues)) {
-          //si no existe el valor en el listado de filtros
-           this.dataSource = []; 
-          this.filters.push(filterValues); //agrega el valor al listado
-        } else {
-          const index = this.filters.indexOf(filterValues); //obtiene el indice del valor buscado
-          this.filters.splice(index, 1); //remueve el elemeto del listado segun el indice obtenido
-        }
-        if (this.filters.length === 0) {
-          //si no tiene elementos el listado
-          this.dataSource = this.originalData; //vuelve al listado de todos los registros de la tabla
-        } else {
-          this.filteredData = this.originalData.filter((item) => {
-            return this.filters.includes(item.stage);
-          });
-this.dataSource = [];
-          setTimeout(()=>{
-            this.dataSource = this.filteredData;
-            this.spinner.hide();
-          },10)
-           
-          
-        }
-        // this.dataSource = (this.data);
-      
-    
+  private onFilter(filterValues: string): void {
+    this.spinner.show();
+    this.resetFilters();
+    //recorre los valores que estamos buscando
+    if (!this.filters.includes(filterValues)) {
+      //si no existe el valor en el listado de filtros
+      this.dataSource = [];
+      this.filters.push(filterValues); //agrega el valor al listado
+    } else {
+      const index = this.filters.indexOf(filterValues); //obtiene el indice del valor buscado
+      this.filters.splice(index, 1); //remueve el elemeto del listado segun el indice obtenido
+    }
+    if (this.filters.length === 0) {
+      //si no tiene elementos el listado
+      this.dataSource = this.originalData; //vuelve al listado de todos los registros de la tabla
+    } else {
+      this.filteredData = this.originalData.filter((item) => {
+        return this.filters.includes(item.stage);
+      });
+      this.dataSource = [];
+      setTimeout(() => {
+        this.dataSource = this.filteredData;
+        this.spinner.hide();
+      }, 10);
+    }
+    // this.dataSource = (this.data);
   }
 
   resetFilters(): void {
     this.filters = [];
     this.filteredData = [];
-    this.dataSource = []
+    this.dataSource = [];
     // this.control.reset();
     // this.control.setValue('4');
   }
@@ -148,7 +141,6 @@ this.dataSource = [];
     this.opService.getOpportunities().subscribe(
       (res) => {
         this.dataSource = res;
-        console.log(this.dataSource);
         this.originalData = res;
         this.spinner.hide();
       },

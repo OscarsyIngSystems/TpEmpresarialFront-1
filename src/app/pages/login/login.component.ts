@@ -45,8 +45,6 @@ export class LoginComponent implements OnInit {
         .postLogin(this.loginForm.value.username, this.loginForm.value.password)
         .subscribe(
           (response) => {
-            console.log(response);
-
             localStorage.setItem('tsoptok', response.accessToken);
             localStorage.setItem('user', response.user.name);
             localStorage.setItem('role', response.user.roleId);

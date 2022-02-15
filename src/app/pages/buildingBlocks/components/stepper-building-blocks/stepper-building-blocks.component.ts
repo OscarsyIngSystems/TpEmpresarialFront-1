@@ -65,7 +65,7 @@ export class StepperBuildingBlocksComponent implements OnInit {
     },
   ];
   ngOnInit(): void {
-    this.setForm()
+    this.setForm();
   }
 
   setForm() {
@@ -83,7 +83,6 @@ export class StepperBuildingBlocksComponent implements OnInit {
   changeStepper(event: StepperSelectionEvent) {
     this.step._elementRef.nativeElement.className =
       'mat-stepper-horizontal mt-2 viewStepper ng-tns-c294-7 mat-stepper-label-position-end ng-star-inserted border-red';
-    console.log(this.step._elementRef, this.step);
     this.stepSelected = event.selectedIndex;
 
     this.isValid.emit(event.previouslySelectedStep.stepControl.valid);

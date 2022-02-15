@@ -55,12 +55,8 @@ export class SegmentAccountComponent implements OnInit {
                 fontSize: '15px',
                 fontFamily: 'Montserrat, sans-serif',
                 fontWeight: 800,
-                // color: undefined,
+
                 offsetY: -10,
-                // formatter(val: any) {
-                //   console.log(val);
-                //   return val;
-                // },
               },
               total: {
                 show: true,

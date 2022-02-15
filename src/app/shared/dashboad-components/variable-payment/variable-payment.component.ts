@@ -9,14 +9,14 @@ import { ChartComponentOptions } from 'src/app/models/ChartOptions';
 })
 export class VariablePaymentComponent implements OnInit {
   public contentLabels = 'accounts.accounts-dashboard.';
-  @ViewChild('chart',{static: false}) chart :any;
+  @ViewChild('chart', { static: false }) chart: any;
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl(),
   });
 
   today = new Date();
-  optionsDate=['Mes actual', 'Ultimos dos meses','Ultimos 3 meses'];
+  optionsDate = ['Mes actual', 'Ultimos dos meses', 'Ultimos 3 meses'];
   currentOption = this.optionsDate[0];
 
   public payments = [
@@ -63,7 +63,6 @@ export class VariablePaymentComponent implements OnInit {
   labels = ['l', 'll', 'lll'];
 
   constructor() {
-    
     this.chartOptions = {
       legend: {
         show: true,
@@ -74,11 +73,11 @@ export class VariablePaymentComponent implements OnInit {
           data: [1000, 160000, 100000],
           color: '#846b99',
         },
-         {
-           name: 'Meta de venta',
-          data: [0,100000, 200000, 300000, 400000],
+        {
+          name: 'Meta de venta',
+          data: [0, 100000, 200000, 300000, 400000],
           color: '#98D3DD',
-         },
+        },
       ],
       chart: {
         toolbar: {
@@ -105,79 +104,15 @@ export class VariablePaymentComponent implements OnInit {
       xaxis: {
         categories: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
       },
-      // yaxis: {
-      //   categories: ['1000', '100000', '0', '0'],
-      // },
     };
-/*     this.donutChartOptions = {
-      colors: this.colors,
-      chart: {
-        type: 'donut',
-        width: 130,
-        height: 130,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200,
-            },
-            // legend: {
-            //   position: 'bottom',
-            // },
-          },
-        },
-      ],
-      labels: this.labels,
-      dataLabels: {
-        enabled: false,
-      },
-      legend: {
-        show: false,
-      },
-      plotOptions: {
-        pie: {
-          donut: {
-            size: '84',
-            labels: {
-              show: true,
-              value: {
-                show: true,
-                fontSize: '15px',
-                fontFamily: 'Montserrat, sans-serif',
-                fontWeight: 800,
-                // color: undefined,
-                offsetY: -10,
-                // formatter(val: any) {
-                //   console.log(val);
-                //   return val;
-                // },
-              },
-              total: {
-                show: true,
-                showAlways: true,
-                label: '',
-                formatter: function (val: any) {
-                  const venta = val.globals.series[1];
-                  const meta = val.globals.series[0];
-                  return ((venta * 100) / meta).toFixed(0) + '%';
-                },
-              },
-            },
-          },
-        },
-      },
-    }; */
   }
 
   ngOnInit(): void {}
 
-  changeOption(index:number){
-
-    this.currentOption=this.optionsDate[index]; 
-    let newSeries:Array<any> = [];
-    switch(index){
+  changeOption(index: number) {
+    this.currentOption = this.optionsDate[index];
+    let newSeries: Array<any> = [];
+    switch (index) {
       case 0:
         newSeries = [
           {
@@ -192,7 +127,7 @@ export class VariablePaymentComponent implements OnInit {
           },
         ];
         break;
-        case 1 :
+      case 1:
         newSeries = [
           {
             name: 'Diciembre',
@@ -209,31 +144,31 @@ export class VariablePaymentComponent implements OnInit {
             data: [0, 100000, 200000, 300000, 400000],
             color: '#98D3DD',
           },
-        ];  
+        ];
         break;
-        case 2 :
-         newSeries = [
-           {
-             name: 'Diciembre',
-             data: [0,1000, 160000, 100000,300],
-             color: '#846b99',
-           },
-           {
-             name: 'Noviembre',
-             data: [0,100, 180000, 100,500],
-             color: '#FCC565',
-           },
-           {
-             name: 'Octubre',
-             data: [0,500, 280000, 9900,0],
-             color: '#DDDD9B',
-           },
-           {
-             name: 'Meta de venta',
-             data: [0, 100000, 200000, 300000, 400000],
-             color: '#98D3DD',
-           },
-         ];  
+      case 2:
+        newSeries = [
+          {
+            name: 'Diciembre',
+            data: [0, 1000, 160000, 100000, 300],
+            color: '#846b99',
+          },
+          {
+            name: 'Noviembre',
+            data: [0, 100, 180000, 100, 500],
+            color: '#FCC565',
+          },
+          {
+            name: 'Octubre',
+            data: [0, 500, 280000, 9900, 0],
+            color: '#DDDD9B',
+          },
+          {
+            name: 'Meta de venta',
+            data: [0, 100000, 200000, 300000, 400000],
+            color: '#98D3DD',
+          },
+        ];
         break;
     }
     this.chart.updateSeries(newSeries);

@@ -78,7 +78,6 @@ export class OportunitiesDetailComponent implements OnInit {
           value: detail.executive,
         },
       ];
-      console.log(detail);
 
       const date = detail.closeDate.split('/');
 

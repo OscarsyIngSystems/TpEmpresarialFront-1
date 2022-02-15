@@ -10,8 +10,6 @@ import { ChartComponent } from 'ng-apexcharts';
 export class QuoteComponent implements OnInit {
   public contentLabels = 'accounts.accounts-dashboard.';
 
-
-
   @ViewChild('chart') chart!: ChartComponent;
   public chartOptions!: any;
   private colors = ['#9bd3dd', '#846b99', '#dddd9b'];
@@ -61,12 +59,8 @@ export class QuoteComponent implements OnInit {
                 fontSize: '15px',
                 fontFamily: 'Montserrat, sans-serif',
                 fontWeight: 800,
-                // color: undefined,
+
                 offsetY: -10,
-                // formatter(val: any) {
-                //   console.log(val);
-                //   return val;
-                // },
               },
               total: {
                 show: true,

@@ -36,7 +36,6 @@ export class QuotesCreateComponent implements OnInit {
 
     state.subscribe((data: any) => {
       this.data = data;
-      console.log(data.data);
     });
   }
   ngOnInit(): void {
@@ -92,7 +91,6 @@ export class QuotesCreateComponent implements OnInit {
     this.quoteService.createQuote(newQuote).subscribe(
       (response) => {
         this.spinner.hide();
-        console.log(response);
         const dialogRef = this.dialog.open(DialogQuotesComponent, {
           width: '393px',
           height: '291px',
