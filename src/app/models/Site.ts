@@ -1,0 +1,29 @@
+export interface Site {
+  numberList: number;
+  id: string;
+  folio: string;
+  siteId: string;
+  siteFolio: string;
+  siteName: string;
+  zone: string;
+  region: string;
+  regionId: string;
+  district: string;
+  plaza: string;
+  coverage: string;
+  cluster: string;
+  categoryService: string;
+  feasibility: string;
+  coverageType: string;
+  comments: string;
+  address: string;
+  street: string;
+  outdoorNumber: string;
+  indoorNumber: string;
+  neighborhood: string;
+  municipality: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  geolocation: string;
+}

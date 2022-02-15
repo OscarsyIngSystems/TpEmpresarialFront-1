@@ -107,14 +107,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="c-pointer shadow-sm t-row" *ngFor="let account of dataSource">
-      <td class="mat-cell">{{ account.siteFolio }}</td>
-      <td class="mat-cell">{{ account.street }}</td>
-      <td class="mat-cell">{{ account.colony }}</td>
-      <td class="mat-cell">{{ account.delegation }}</td>
-      <td class="mat-cell">{{ account.city }}</td>
-      <td class="mat-cell">{{ account.state }}</td>
-      <td class="mat-cell">{{ account.cp }}</td>
+    <tr class="c-pointer shadow-sm t-row" *ngFor="let site of dataSource">
+      <td class="mat-cell">{{ site.siteFolio }}</td>
+      <td class="mat-cell">{{ site.street }}</td>
+      <td class="mat-cell">{{ site.neighborhood }}</td>
+      <td class="mat-cell">{{ site.municipality }}</td>
+      <td class="mat-cell">{{ site.city }}</td>
+      <td class="mat-cell">{{ site.state }}</td>
+      <td class="mat-cell">{{ site.zipCode }}</td>
     </tr>
   </tbody>
 </table>
@@ -958,13 +958,13 @@
       class="table-element-row shadow-sm t-row"
       *ngFor="let account of dataSource; let i = index"
     >
-      <td class="mat-cell ps-1 ">{{ account.quoteName }}</td>
-      <td class="mat-cell ">{{ account.quoteSheet }}</td>
-      <td class="mat-cell ">{{ account.oportunity }}</td>
-      <td class="mat-cell ">{{ account.monthlyTotal |currency }}</td>
-      <td class="mat-cell "><mat-icon  >file_upload</mat-icon></td>
+      <td class="mat-cell ps-1">{{ account.quoteName }}</td>
+      <td class="mat-cell">{{ account.quoteSheet }}</td>
+      <td class="mat-cell">{{ account.oportunity }}</td>
+      <td class="mat-cell">{{ account.monthlyTotal | currency }}</td>
+      <td class="mat-cell"><mat-icon>file_upload</mat-icon></td>
       <td class="mat-cell pr">{{ account.validity }}</td>
-      <td class="mat-cell ">{{ account.overdue }}</td>
+      <td class="mat-cell">{{ account.overdue }}</td>
     </tr>
   </tbody>
 </table>

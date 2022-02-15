@@ -1,13 +1,10 @@
-import { Component, Input, OnInit,EventEmitter, Output } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Catalog } from 'src/app/models/Catalogs';
-import { DialogQuotesComponent } from 'src/app/pages/accounts/components/dialog-quotes/dialog-quotes.component';
 import { CatalogsService } from 'src/app/services/catalogs/catalogs.service';
 import { StorageService } from 'src/app/services/shared/storage.service';
-
 
 @Component({
   selector: 'app-quote-form',
@@ -16,7 +13,7 @@ import { StorageService } from 'src/app/services/shared/storage.service';
 })
 export class QuoteFormComponent implements OnInit {
   @Input() isCreate: boolean = false;
-  @Output() saveData:EventEmitter<any> = new EventEmitter<any>();
+  @Output() saveData: EventEmitter<any> = new EventEmitter<any>();
   @Input() get data() {
     return this.isTryBuy;
   }
@@ -34,7 +31,7 @@ export class QuoteFormComponent implements OnInit {
 
   public opportunityNumber;
 
-  eps:Catalog[]=[];
+  eps: Catalog[] = [];
   isTryBuy: any;
   reasonVlue: any;
   name!: string;
@@ -50,12 +47,12 @@ export class QuoteFormComponent implements OnInit {
   statusQuote!: string;
   constructor(
     public stServices: StorageService,
-    public dialog: MatDialog,
+
     private _url: ActivatedRoute,
     private fb: FormBuilder,
     private _router: Router,
     private spinner: NgxSpinnerService,
-    private catalogService:CatalogsService
+    private catalogService: CatalogsService
   ) {
     this.opportunityNumber = this._url.snapshot.paramMap.get('id');
     this.form = this.fb.group({
@@ -89,21 +86,14 @@ export class QuoteFormComponent implements OnInit {
     }
   }
 
-  getEps(){
-    this.catalogService.getCatalogQuoteEps()
-    .subscribe(response=>{
-      this.eps=response;
-    })
+  getEps() {
+    this.catalogService.getCatalogQuoteEps().subscribe((response) => {
+      this.eps = response;
+    });
   }
   openDialog(): void {
-
     this.name = this.form.controls.quoteName.value;
     this.saveData.emit(this.form.value);
-/*     const dialogRef = this.dialog.open(DialogQuotesComponent, {
-      width: '393px',
-      height: '291px',
-      data: { name: this.name },
-    }); */
   }
 
   selectFile(file: File) {
@@ -132,7 +122,9 @@ export class QuoteFormComponent implements OnInit {
   }
 
   private loadData(): void {
-    const quoteSelected = this.stServices.getObjetSelected;
+    const quoteSelected: any = this.stServices.getObjetSelected;
+
+    this.opportunityName = quoteSelected?.name;
     if (this.isCreate === false) {
       if (quoteSelected) {
         this.fillInfoDetail(quoteSelected);

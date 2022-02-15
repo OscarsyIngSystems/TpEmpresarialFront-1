@@ -1,0 +1,27 @@
+<agm-map [zoom]="zoom">
+  <agm-marker
+    *ngFor="let marker of coordinates"
+    [latitude]="marker.lat"
+    [longitude]="marker.lng"
+  ></agm-marker>
+
+  <agm-kml-layer
+    url="http://www.totalplay.com.mx/web/mapas/sf/Ciudades.kmz"
+  ></agm-kml-layer>
+  <agm-kml-layer
+    url="https://www.totalplay.com.mx/web/mapas/sf/ciudadesTPE_FO.kmz?cobertura=1"
+  ></agm-kml-layer>
+
+  <agm-kml-layer
+    url="http://www.totalplay.com.mx/web/mapas/sf/Restricciones.kmz"
+  ></agm-kml-layer>
+  <agm-kml-layer
+    url="http://www.totalplay.com.mx/web/mapas/sf/ciudadesTPE_PMP.kmz"
+  ></agm-kml-layer>
+  <agm-kml-layer
+    url="https://www.totalplay.com.mx/web/mapas/sf/ciudadesTPE_RTS.kmz"
+  ></agm-kml-layer>
+  <agm-kml-layer
+    url="http://www.totalplay.com.mx/web/mapas/sf/Blueholes.kmz"
+  ></agm-kml-layer>
+</agm-map>

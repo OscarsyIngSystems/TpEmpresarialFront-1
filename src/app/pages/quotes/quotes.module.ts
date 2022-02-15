@@ -27,6 +27,8 @@ import { DialogSendSitesComponent } from './components/dialogs/dialog-send-sites
 import { QuotesReceivedComponent } from './components/quotes-received/quotes-received.component';
 import { ModelingSitesComponent } from './components/sites/modeling-sites/modeling-sites.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { AgmCoreModule } from '@agm/core';
+import { CustomMapComponent } from './components/sites/custom-map/custom-map.component';
 
 @NgModule({
   declarations: [
@@ -46,8 +48,12 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     DialogSendSitesComponent,
     QuotesReceivedComponent,
     ModelingSitesComponent,
+    CustomMapComponent,
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDB8BwnMN8b0T9polJEdiMilCpX7ty7bkc',
+    }),
     CommonModule,
     QuotesRoutingModule,
     ComponentsModule,
