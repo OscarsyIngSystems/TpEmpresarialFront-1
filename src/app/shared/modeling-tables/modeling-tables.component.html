@@ -182,3 +182,40 @@
     </table>
   </div>
 </div>
+
+<!-- Tabla de products-price -->
+<table
+  *ngIf="idTableShow == 3"
+  id="dataTable"
+  class="w-100 row-border table table-striped"
+>
+  <thead>
+    <tr class="n-border-b">
+      <th class="pb-2 ps-2" *ngFor="let col of columns; let i = index">
+        <div [ngClass]="i == 2 ? 'd-flex justify-content-center ' : ''">
+          <span> {{ col.columnName }}</span>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-element-row n-border-b" *ngFor="let connectivity of data">
+      <td class="mat-cell ps-2">
+        <div class="d-flex flex-column">
+          <span>{{ connectivity.pack.service }}</span>
+          <span class="text-bold">{{ connectivity.pack.price }}</span>
+        </div>
+      </td>
+      <td class="mat-cell align-middle">
+        <div class="d-flex align-content-center">
+
+        </div>
+      </td>
+      <td class="mat-cell pe-0 align-middle">
+        <div class="d-flex justify-content-center">
+          <app-input-spinner></app-input-spinner>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
